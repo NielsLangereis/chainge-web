@@ -1,0 +1,28 @@
+# chainge / netlify config
+# this file is read at deploy time. safe to ignore most of it; defaults are sensible.
+
+[build]
+  # we have no build step; we publish the root of the deploy directory.
+  publish = "."
+
+# security headers applied to every response
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options       = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy       = "strict-origin-when-cross-origin"
+    Permissions-Policy    = "interest-cohort=(), browsing-topics=()"
+
+# cache the favicon and og image aggressively; they barely change
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/og-image.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# pretty 404 fallback (optional): if you ever add a 404.html, netlify uses it automatically.
