@@ -72,7 +72,7 @@ Source of truth for the design system is `chainge-tokens.css` in the parent fold
 The chain narratives, profile personas, and section copy are all in `index.html`. The site is small enough that find-and-replace works. Search for:
 
 - `chain-a`, `chain-b`, `chain-c` — the three hero chains
-- `Lisette`, `Pieter`, `Camila` — the three profile personas
+- `Anne`, `Pieter`, `Camila` — the three profile personas
 - `qualitative quant` — appears once as the undermark
 - `McKinsey` — appears once as the institutional positioning anchor
 

@@ -1,0 +1,74 @@
+{
+  "company": {
+    "name": "Brabant Advanced Materials BV",
+    "url": "brabantadvancedmaterials.example",
+    "description": "Mid-market specialty chemicals SME based in Eindhoven (Brainport region), Netherlands. ~€45M revenue, ~95 staff. Supplies high-purity rare-earth catalysts, electronic-grade silane intermediates, and NdPr-based magnetic-material precursors to European automotive electrification, semiconductor, and industrial coatings OEMs."
+  },
+  "product_families": [
+    {
+      "name": "High-purity rare-earth catalysts (REC line)",
+      "revenue_share": "approx 35%",
+      "key_inputs": ["lanthanum oxide concentrate", "cerium oxide concentrate", "high-purity nitric acid", "process water"]
+    },
+    {
+      "name": "Electronic-grade silane intermediates (eSil line)",
+      "revenue_share": "approx 25%",
+      "key_inputs": ["industrial-grade silicon metal", "high-purity hydrogen chloride", "ammonia"]
+    },
+    {
+      "name": "NdPr concentrate for magnetic materials (NdPr line)",
+      "revenue_share": "approx 20%",
+      "key_inputs": ["neodymium-praseodymium ore concentrate", "high-purity solvents", "ion-exchange resins"]
+    },
+    {
+      "name": "Specialty coating formulations (CoatPro line)",
+      "revenue_share": "approx 15%",
+      "key_inputs": ["metal oxide pigments", "organic binders", "industrial-grade ethylene glycol"]
+    },
+    {
+      "name": "Custom-synthesis intermediates (toll services)",
+      "revenue_share": "approx 5%",
+      "key_inputs": ["customer-supplied feedstocks", "in-house catalysts"]
+    }
+  ],
+  "production": {
+    "primary_location": "Eindhoven, Netherlands (Brainport campus; integrated synthesis + purification + packaging)",
+    "secondary_location": "Antwerp port complex, Belgium (toll-finishing line for the eSil family, leased)",
+    "energy_source": "Dutch grid (gas-heavy peakers), 22% solar PPA contracted from 2025 onward; one high-temperature reactor train still gas-fired",
+    "water_intensity": "moderate"
+  },
+  "input_categories": [
+    "rare earths and specialty chemicals: lanthanum, cerium, neodymium, praseodymium oxide concentrates",
+    "energy-intensive metals: industrial silicon metal",
+    "fossil-derived polymers and intermediates: ammonia, ethylene glycol, organic solvents",
+    "water-intensive inputs (process): cooling and purification stages",
+    "specialty chemicals: high-purity acids, ion-exchange resins"
+  ],
+  "distribution": [
+    {"channel": "Direct B2B contracts with EU industrial OEMs", "revenue_share": "approx 70%"},
+    {"channel": "European chemical distributors (Brenntag, IMCD)", "revenue_share": "approx 20%"},
+    {"channel": "Toll / custom-synthesis services", "revenue_share": "approx 10%"}
+  ],
+  "customer_geography": ["DE", "NL", "BE", "LU", "AT"],
+  "currency_exposure": {
+    "revenue_currencies": ["EUR"],
+    "cost_currencies": ["EUR (energy, labor, NL/BE operations)", "USD (rare-earth ore concentrate invoicing)", "CNY (occasional spot purchases for NdPr concentrate)"],
+    "notable_mismatch": "Rare-earth ore feedstock invoiced in USD with secondary CNY exposure for direct Chinese refiners; EUR/USD pair affects REC and NdPr line margins; CNY exposure unhedged"
+  },
+  "regulatory_regimes": [
+    "EU REACH (registration, evaluation, authorisation)",
+    "EU CLP (classification, labelling, packaging)",
+    "EU CBAM (uncertain applicability — see unknown_or_uncertain)",
+    "EU CSRD (above threshold from FY2026)",
+    "Dutch ARBO / Seveso III (Eindhoven site)",
+    "EU GDPR (B2B customer data)"
+  ],
+  "customer_concentration": "Top 3 automotive-electrification OEM customers represent ~38% of revenue; no single customer above 20%, but the segment concentration is material",
+  "capital_structure_exposure": "Rate-sensitive: ~€18M of senior debt with a covenant package refinanced in 2024 at floating rates; 2026 capex plan (~€6M) for solar PPA buildout and reactor electrification is partially debt-financed",
+  "labor_exposure": "Production and process-engineering labor in Eindhoven (DACH labor market spillover); commercial team in Antwerp and Düsseldorf; specialised process chemists in NL labor market are a constrained resource",
+  "unknown_or_uncertain": [
+    "specific upstream mine / refiner provenance of the NdPr ore concentrate (China-dominant but exact supplier mix unclear; matters for cascade exposure to inland Chinese smelter water/energy constraints)",
+    "exposure to upstream Russian natural-gas pricing on EU ammonia and ethylene-glycol feedstocks (suppliers don't disclose gas-cost passthrough)",
+    "whether the eSil electronic-grade silane line falls under any specialty-chemicals CBAM scope extension being discussed at the European Commission for 2027"
+  ]
+}
