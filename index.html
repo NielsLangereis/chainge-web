@@ -1633,6 +1633,48 @@
     .we-briefing-quote { font-size: 12.5px; }
     .section h2 { font-size: 25px; }
   }
+
+  /* ============ MOBILE CUT-OFF DEFENSE ============ */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  main, .shell, section { max-width: 100%; box-sizing: border-box; }
+  .worked-example, .we-block, .we-hop, .we-hop-body, .we-briefing-card { min-width: 0; }
+  .we-data { max-width: 100%; box-sizing: border-box; }
+  .we-hop-text,
+  .we-hop-plain,
+  .we-briefing-quote,
+  .we-briefing-plain,
+  .we-briefing-title,
+  .we-block-headline,
+  .we-block-intro,
+  .we-block-caption,
+  .we-terminal p,
+  .section h2,
+  .section-lede,
+  .hero h1,
+  p, h1, h2, h3, h4 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  img { max-width: 100%; height: auto; }
+  @media (max-width: 700px) {
+    /* on mobile, let the JSON/diagnostic pre blocks wrap instead of forcing horizontal scroll */
+    .we-data code {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    /* tighten the briefing card so it actually fits */
+    .we-briefing-card { max-width: 100%; }
+    /* hop rows: prevent the 36px column + content from blowing out */
+    .we-hop { max-width: 100%; }
+    /* metadata + chips can wrap if needed */
+    .we-hop-meta { white-space: normal; }
+    /* on mobile, only keep the example-report link visible in the nav; other anchor links are unnecessary since the home page is scrollable */
+    .nav-links a:not(.nav-link-primary) { display: none; }
+    .nav-links { gap: 0; }
+    /* hero demo-tabs can scroll horizontally without pushing the page wider */
+    .demo, .demo-tabs, .demo-card { max-width: 100%; min-width: 0; box-sizing: border-box; }
+  }
 </style>
 </head>
 <body>
@@ -1644,7 +1686,7 @@
     <a href="#thesis">the thesis</a>
     <a href="#how">how it works</a>
     <a href="#who">who uses it</a>
-    <a href="worked-example.html">example report</a>
+    <a href="worked-example.html" class="nav-link-primary">example report</a>
   </div>
   <a href="#contact" class="nav-cta">talk to us →</a>
 </nav>
