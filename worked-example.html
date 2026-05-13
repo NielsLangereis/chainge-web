@@ -1641,18 +1641,25 @@
     .founder-photo-wrap { max-width: 260px; }
   }
   @media (max-width: 700px) {
-    .nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hint-bar-inner { padding: 0 24px; flex-direction: column; gap: 6px; }
-    .shell { padding: 0 24px; }
-    .hero { padding: 32px 0 64px; }
+    /* nav: keep links visible on mobile */
+    .nav { padding: 14px 16px; flex-wrap: wrap; gap: 10px; }
+    .nav-mark { font-size: 18px; }
+    .nav-links { display: flex; gap: 14px; font-size: 10.5px; flex-wrap: wrap; }
+    .nav-cta { font-size: 11px; }
+
+    /* layout */
+    .hint-bar-inner { padding: 0 20px; flex-direction: column; gap: 6px; }
+    .shell { padding: 0 20px; }
+    .hero { padding: 32px 0 56px; }
     .hero h1 { font-size: 40px; }
-    .section { padding: 64px 0; }
-    .section h2 { font-size: 32px; }
+    .section { padding: 48px 0; }
+    .section h2 { font-size: 28px; }
     .thesis-quote { font-size: 24px; }
     .pipeline { grid-template-columns: 1fr; }
     .demo-tabs { overflow-x: auto; }
     .demo-tab { white-space: nowrap; }
+
+    /* profile timelines */
     .timeline-steps { grid-template-columns: 1fr; gap: 24px; }
     .timeline-line { display: none; }
     .t-step[data-connector]::after { display: none; }
@@ -1662,19 +1669,63 @@
     .t-node-row { position: absolute; left: -7px; top: 50%; margin: 0; transform: translateY(-50%); }
     .t-label { min-height: 0; margin-bottom: 8px; }
     .t-explain { max-width: 100%; }
-    .worked-example { gap: 40px; }
-    .we-hop { grid-template-columns: 1fr; gap: 8px; padding: 16px; }
-    .we-hop-num { font-size: 22px; }
-    .we-data { padding: 14px 16px; }
-    .we-data code { font-size: 11.5px; }
-    .we-briefing-card { padding: 24px 20px; margin: 32px 0 40px; }
-    .we-briefing-title { font-size: 22px; }
-    .we-briefing-plain { font-size: 16px; }
-    .we-briefing-quote { font-size: 13.5px; }
-    .we-hop-plain { font-size: 15.5px; }
-    .we-block-headline { font-size: 21px; }
-  }
 
+    /* worked example: side-by-side compact */
+    .worked-example { gap: 32px; }
+    .we-block { padding-top: 24px; }
+    .we-block-label { font-size: 10px; }
+    .we-block-intro { font-size: 15.5px; }
+    .we-block-headline { font-size: 20px; line-height: 1.3; }
+    .we-block-headline strong { font-size: 10.5px; }
+    .we-block-caption { font-size: 13px; }
+
+    .we-data { padding: 14px 14px; }
+    .we-data code { font-size: 10.5px; line-height: 1.55; }
+
+    .we-link a { font-size: 13.5px; }
+    .we-link-large a { font-size: 15px; }
+
+    .we-hop { grid-template-columns: 36px 1fr; gap: 14px; padding: 16px 14px; }
+    .we-hop-num { font-size: 18px; padding-top: 2px; }
+    .we-hop-body { min-width: 0; }
+    .we-hop-text { font-size: 14.5px; line-height: 1.5; }
+    .we-hop-plain { font-size: 15px; margin-bottom: 10px; }
+    .we-hop-meta { font-size: 9.5px; }
+    .we-chip { font-size: 9.5px; padding: 3px 7px 2px; }
+    .we-hop-row { gap: 8px; margin-bottom: 8px; }
+
+    .we-terminal { padding: 14px 16px; }
+    .we-terminal p { font-size: 14.5px; }
+
+    .we-footer { margin-top: 32px; padding-top: 24px; }
+    .we-verdict { font-size: 10px; }
+    .we-footer-meta { font-size: 10px; }
+
+    /* briefing card */
+    .we-briefing-card { padding: 22px 18px; margin: 24px 0 36px; }
+    .we-briefing-eyebrow { font-size: 10px; }
+    .we-briefing-title { font-size: 22px; line-height: 1.25; }
+    .we-briefing-plain { font-size: 16px; line-height: 1.45; }
+    .we-briefing-quote { font-size: 13px; line-height: 1.55; }
+    .we-briefing-cta { padding: 11px 20px; font-size: 11px; }
+
+    /* footer */
+    .footer { padding: 24px 20px 32px; flex-direction: column; align-items: flex-start; gap: 6px; font-size: 10px; }
+
+    /* founder section */
+    .founder-grid { grid-template-columns: 1fr; gap: 32px; }
+    .founder-photo-wrap { max-width: 220px; }
+  }
+  @media (max-width: 380px) {
+    .nav-links { font-size: 10px; gap: 10px; }
+    .we-hop { grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 12px; }
+    .we-hop-num { font-size: 16px; }
+    .we-hop-text { font-size: 14px; }
+    .we-data code { font-size: 10px; }
+    .we-briefing-title { font-size: 20px; }
+    .we-briefing-quote { font-size: 12.5px; }
+    .section h2 { font-size: 25px; }
+  }
 </style>
 </head>
 <body>
