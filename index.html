@@ -28,6 +28,12 @@
 <!-- robots: indexing-friendly for research preview; flip to noindex if you want stealth -->
 <meta name="robots" content="index, follow">
 
+<!-- analytics: Plausible (cookieless, GDPR-friendly, no banner needed).
+     Requires signup at https://plausible.io for chainge.global (€9/mo, 30-day trial).
+     Free alternatives: Cloudflare Web Analytics, self-hosted Umami.
+     Comment out the line below if you want no analytics. -->
+<script defer data-domain="chainge.global" src="https://plausible.io/js/script.js"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -435,6 +441,15 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--mute);
+  }
+  .demo-disclaimer {
+    margin: 14px 4px 0;
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--mute);
+    font-style: italic;
+    max-width: 56ch;
   }
   .demo-foot .verdict {
     color: var(--accent);
@@ -1246,6 +1261,25 @@
     cursor: pointer;
   }
   .cta-email-form button:hover { color: var(--paper); }
+  .cta-email-privacy {
+    margin: 16px 0 0;
+    font-family: var(--serif);
+    font-size: 12.5px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--mute);
+  }
+  .cta-email-privacy a {
+    color: var(--paper-2);
+    border-bottom: 1px dotted var(--mute);
+    padding-bottom: 1px;
+    font-style: normal;
+    text-decoration: none;
+  }
+  .cta-email-privacy a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 
   /* ============ FOOTER ============ */
   .footer {
@@ -1451,6 +1485,7 @@
           <span id="demo-sources">sources cited: ECB, EUR-Lex, <span class="jargon" data-tip="The global benchmark price for crude oil from the North Sea. When 'Brent goes up,' fuel and energy-intensive industries pay more." tabindex="0">Brent</span> · model · week 19</span>
         </div>
       </div>
+      <p class="demo-disclaimer">Example chains. Illustrative of the platform's reasoning, not surfaced predictions. The first live Chainge chains ship in summer 2026.</p>
     </div>
   </section>
 </div>
@@ -1819,7 +1854,7 @@
         <div class="founder-cap">niels langereis · baarn, nl</div>
       </div>
       <div class="founder-body">
-        <p class="founder-text">Niels Langereis has spent over eighteen years building platforms, integrating businesses, and shipping technology across PE-backed groups and global agency networks. The longer he did it, the clearer one observation became: most of what consultancies sell as proprietary analysis isn't. It's labor, on public information, priced for institutional buyers. Chainge automates that labor and prices it for the rest of the market.</p>
+        <p class="founder-text">Niels Langereis has spent over 18 years building platforms, integrating businesses, and shipping technology across PE-backed groups and global agency networks. The longer he did it, the clearer one observation became: most of what consultancies sell as proprietary analysis isn't. It's labor, on public information, priced for institutional buyers. Chainge automates that labor and prices it for the rest of the market.</p>
         <p class="founder-text">Most recently, group-wide AI governance and platform strategy at <span class="jargon" data-tip="Dutch PE-backed buy-and-build operating across 70+ entities in testing, certification and compliance. Niels was on the board, leading digital and AI transformation." tabindex="0">Normec Group</span> across 70+ entities. Before that: CEO at New Story, CEO at <span class="jargon" data-tip="Global content production company within WPP. Niels led the Netherlands organization and the worldwide Philips client relationship." tabindex="0">Hogarth (WPP)</span> Netherlands, Managing Director at Wavemaker (WPP), and earlier senior roles at Publicis (Amsterdam, Dubai).</p>
         <p class="founder-text">The original spark came earlier: a younger Niels hearing about an investment bank with a multidisciplinary research team and deciding that was where the interesting work happened. <em>Chainge is that room, opened up.</em></p>
         <p class="founder-text founder-team"><strong>The team is small.</strong>By design. Chainge's moat is the contribution flywheel, not employee headcount. Currently one founder, a working advisory circle, and the first <span class="jargon" data-tip="Early customers who shape the product. They get unusual access in exchange for sharing how they actually use it, what works, what's missing." tabindex="0">design partner</span> conversations underway.</p>
@@ -1850,6 +1885,7 @@
           <input type="email" name="email" placeholder="your email" required>
           <button type="submit">subscribe</button>
         </form>
+        <p class="cta-email-privacy">We use your email only to send Chainge updates. No third parties. Unsubscribe anytime. <a href="/privacy">Privacy notice</a>.</p>
       </div>
     </div>
   </section>
