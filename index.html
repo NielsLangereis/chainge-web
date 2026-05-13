@@ -594,6 +594,63 @@
     border-top: 1px dashed var(--line);
   }
 
+  /* ============ THE LOOP ============ */
+  .pipeline-loop {
+    margin: 0 0 48px;
+    padding: 24px 28px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+  .loop-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .loop-icon {
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 1;
+    font-weight: 300;
+    display: inline-block;
+    animation: loopSpin 8s linear infinite;
+    transform-origin: center;
+  }
+  @keyframes loopSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .loop-eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .loop-text {
+    font-family: var(--serif);
+    font-size: 16.5px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 80ch;
+  }
+  .loop-text em {
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  @media (max-width: 1100px) {
+    .pipeline-loop { grid-template-columns: 1fr; gap: 14px; }
+    .loop-mark { flex-direction: row; align-items: center; gap: 14px; }
+  }
+
   .credibility-strip {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
@@ -1382,7 +1439,7 @@
 <div class="shell">
   <section class="section" id="how">
     <div class="section-mark"><span>02 · how it works</span></div>
-    <h2>The engine, in <em>four stages</em>.</h2>
+    <h2>The engine, in <em>four stages</em>, and a loop.</h2>
     <p class="section-lede">
       An <span class="jargon" data-tip="A series of automated stages where the output of one feeds into the next, each using the AI model best suited to its task. Like a factory line for thinking." tabindex="0">AI pipeline</span> that reads public information, classifies it, surfaces cross-industry bridges, and verifies every claim against primary sources. Open methodology. Auditable cost. Every chain carries provenance.
     </p>
@@ -1415,6 +1472,14 @@
         <p>A <span class="jargon tip-down" data-tip="An adversarial review stage: a separate model tries to break each candidate chain, looking for unsupported leaps, missing citations, weak causal links. Only chains that survive this pass get promoted." tabindex="0">skeptic pass</span> on every chain: <span class="jargon tip-down" data-tip="The four-state verdict our verifier returns for each candidate chain: promote (lead with it), surface (mention), demote (lower confidence), or drop (kill)." tabindex="0">promote, surface, demote, or drop</span>. Citation discipline enforced. No claim without a source chip.</p>
         <div class="stage-meta"><span class="jargon tip-down" data-tip="A second AI model deliberately argues against the first model's output, trying to find weaknesses. Borrowed from how research teams stress-test each other's claims." tabindex="0">adversarial pass</span></div>
       </div>
+    </div>
+
+    <div class="pipeline-loop">
+      <div class="loop-mark">
+        <span class="loop-icon">↻</span>
+        <span class="loop-eyebrow">+ the loop</span>
+      </div>
+      <p class="loop-text">Every chain ships with <span class="jargon" data-tip="Each chain has explicit checkpoints attached: regulatory deadlines, commodity thresholds, prediction-market levels. These get polled against primary sources (FRED, Polymarket, EUR-Lex). When a marker resolves, a deterministic function returns right, partial, wrong, or unclear. Not judged by an AI." tabindex="0">resolution markers</span> and a prediction check. Each week the engine scores the predictions due that week against primary sources, publishes the result at the top of the next briefing, and feeds verified outcomes back into next week's reasoning. <em>The methodology compounds — not the AI itself.</em></p>
     </div>
 
     <div class="credibility-strip">
