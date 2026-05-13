@@ -1484,6 +1484,99 @@
     color: var(--accent);
   }
 
+  /* ============ WORKED EXAMPLE: BRIEFING CARD ============ */
+  .we-briefing-card {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 32px 36px;
+    margin: 48px 0 56px;
+    border: 1px solid var(--accent);
+    max-width: 920px;
+  }
+  .we-briefing-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper-2);
+    margin-bottom: 14px;
+    opacity: 0.9;
+  }
+  .we-briefing-eyebrow-2 {
+    margin-top: 28px;
+    margin-bottom: 10px;
+    color: var(--paper);
+    opacity: 1;
+  }
+  .we-briefing-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+    color: var(--paper);
+  }
+  .we-briefing-plain {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--paper);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .we-briefing-quote {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--paper-2);
+    margin: 0 0 24px;
+    max-width: 70ch;
+    opacity: 0.92;
+  }
+  .we-briefing-cta {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: none;
+    transition: background 0.2s;
+  }
+  .we-briefing-cta:hover {
+    background: var(--paper-2);
+    color: var(--ink);
+  }
+  .we-briefing-card .jargon {
+    border-bottom-color: var(--paper-2);
+    color: inherit;
+  }
+  .we-briefing-card .jargon::after {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+    box-shadow: 4px 4px 0 var(--accent-deep);
+  }
+
+  /* hop plain-language subtitle */
+  .we-hop-plain {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0 0 14px;
+    font-style: italic;
+    max-width: 62ch;
+  }
+  .we-hop.terminal .we-hop-plain {
+    color: var(--accent);
+  }
+
   /* footer of the worked example */
   .we-footer {
     margin-top: 40px;
@@ -1574,8 +1667,14 @@
     .we-hop-num { font-size: 22px; }
     .we-data { padding: 14px 16px; }
     .we-data code { font-size: 11.5px; }
+    .we-briefing-card { padding: 24px 20px; margin: 32px 0 40px; }
+    .we-briefing-title { font-size: 22px; }
+    .we-briefing-plain { font-size: 16px; }
+    .we-briefing-quote { font-size: 13.5px; }
+    .we-hop-plain { font-size: 15.5px; }
     .we-block-headline { font-size: 21px; }
   }
+
 </style>
 </head>
 <body>
@@ -1587,6 +1686,7 @@
     <a href="index.html#thesis">the thesis</a>
     <a href="index.html#how">how it works</a>
     <a href="index.html#who">who uses it</a>
+    <a href="worked-example.html">example report</a>
   </div>
   <a href="index.html#contact" class="nav-cta">talk to us →</a>
 </nav>
@@ -1608,6 +1708,17 @@
     <p class="section-lede">
       Every Chainge user starts with a profile. The pipeline runs that profile through a diagnostic, then against the week's signals. What comes out is not commentary, it's a cascade with a target sector you actually own.
     </p>
+
+
+    <!-- BRIEFING CARD: the source artifact -->
+    <div class="we-briefing-card">
+      <div class="we-briefing-eyebrow">impact intelligence · week 2026-W19</div>
+      <h3 class="we-briefing-title">What Chainge saw across Europe this week.</h3>
+      <p class="we-briefing-plain">Three live moves: Europe stacked three trade tools to pressure the US, German industry could break the coalition, and Bulgaria's new pro-Moscow PM could quietly slow Europe's exit from Russian nuclear fuel.</p>
+      <div class="we-briefing-eyebrow we-briefing-eyebrow-2">executive read, verbatim from the briefing</div>
+      <p class="we-briefing-quote">Europe is executing a coordinated sovereignty play across trade, procurement, and energy simultaneously, using regulatory stacking (<span class="jargon" data-tip="Carbon Border Adjustment Mechanism. The EU's carbon tax on imports of cement, iron and steel, aluminium, fertiliser, hydrogen, and electricity. Enters definitive phase January 2026." tabindex="0">CBAM</span> + <span class="jargon" data-tip="International Procurement Instrument. EU rule that lets the bloc restrict access to public contracts when partner countries close their own. Designed as trade leverage." tabindex="0">IPI</span> + <span class="jargon" data-tip="Foreign Subsidies Regulation. Gives the European Commission unilateral power to investigate whether foreign government subsidies distort competition on large EU contracts." tabindex="0">FSR</span>) as leverage in US negotiations while shoring up or fracturing critical infrastructure dependencies in its eastern flank. The most actionable thread is the FSR/IPI procurement doctrine: EU-domiciled cloud and AI vendors have a narrow, time-bounded window before Q2 2026 to position themselves as compliant "European Preference" suppliers on high-value public-sector contracts. The <span class="jargon" data-tip="The German term for mid-sized family-owned manufacturers, often 50-1000 employees. Backbone of the German export economy, politically influential in Berlin." tabindex="0">Mittelstand</span> signal to watch is whether German industrial lobbies break publicly with Brussels on IPI activation: if BDI and VDMA oppose it, the entire tripartite squeeze loses its domestic political coalition and US negotiators gain room to fragment EU unity. The biggest open question is Bulgaria: Radev's durability as a Moscow-aligned actor inside NATO creates a potential veto point on VVER diversification timelines that neither Westinghouse's commercial roadmap nor EU energy-security planning has priced in.</p>
+      <a href="briefings/2026-W19.md" class="we-briefing-cta">read the full briefing →</a>
+    </div>
 
     <div class="worked-example">
 
@@ -1684,9 +1795,9 @@ confirmed_at:         2026-05-13</code></pre>
       <!-- BLOCK 3: CHAIN -->
       <div class="we-block">
         <div class="we-block-label">stage 04 · one chain, five hops</div>
-        <p class="we-block-headline"><strong>what Anne sees that the market doesn't</strong>The threat isn't US tariffs. It's the Mittelstand quietly forcing Berlin to <em>shelve IPI</em>.</p>
+        <p class="we-block-headline"><strong>what Anne sees that the market doesn't</strong>The real threat isn't US tariffs. It's whether German industry <em>breaks the EU's trade coalition</em>.</p>
         <p class="we-block-intro">
-          Consensus reads "European Preference" as a unified EU stance hardening against the US. The chain that actually binds runs through Anne's customer base. CBAM's January 2026 definitive phase passes input costs to Dutch-German industrial firms, while US retaliation arrives not as goods tariffs but as services and export-control friction. The Mittelstand cohort that Séjourné counts on as his political base for confrontation is the same cohort most exposed to the squeeze. Their lobbying flip is the inflection point.
+          Most of the conversation about "European Preference" assumes the EU is one block pushing back on the US. The chain that actually binds Anne runs through German industry. CBAM input costs hit her ammonia the same way they hit a German mid-sized factory. If the US retaliates with export-control friction, both get hit. Whether Berlin blocks the EU's harshest moves depends on whether German industrial lobbies ask for de-escalation. That lobby flip is the inflection point.
         </p>
 
         <div class="we-chain">
@@ -1694,6 +1805,7 @@ confirmed_at:         2026-05-13</code></pre>
           <div class="we-hop">
             <div class="we-hop-num">01</div>
             <div class="we-hop-body">
+              <p class="we-hop-plain">Starting January 2026, the EU charges a carbon tax on US steel, aluminium, fertiliser and cement imports.</p>
               <div class="we-hop-row">
                 <span class="we-chip lens">lens: regulatory</span>
                 <span class="we-hop-meta">P 90% · jan 2026</span>
@@ -1705,6 +1817,7 @@ confirmed_at:         2026-05-13</code></pre>
           <div class="we-hop">
             <div class="we-hop-num">02</div>
             <div class="we-hop-body">
+              <p class="we-hop-plain">The carbon tax hits the EU's own factories harder than the US exporters it targets. For Anne, the tax lands on her ammonia inputs, not her finished products.</p>
               <div class="we-hop-row">
                 <span class="we-chip lens">lens: economic</span>
                 <span class="we-hop-meta">P 55% · H1-H2 2026</span>
@@ -1716,6 +1829,7 @@ confirmed_at:         2026-05-13</code></pre>
           <div class="we-hop">
             <div class="we-hop-num">03</div>
             <div class="we-hop-body">
+              <p class="we-hop-plain">The US doesn't fight back with tariffs. It restricts European access to AI chips and exports of dual-use machinery.</p>
               <div class="we-hop-row">
                 <span class="we-chip lens">lens: economic + technological</span>
                 <span class="we-hop-meta">P 40% · Q2-Q4 2026</span>
@@ -1727,6 +1841,7 @@ confirmed_at:         2026-05-13</code></pre>
           <div class="we-hop">
             <div class="we-hop-num">04</div>
             <div class="we-hop-body">
+              <p class="we-hop-plain">German mid-sized manufacturers, squeezed on both sides, start lobbying Berlin to de-escalate the trade fight.</p>
               <div class="we-hop-row">
                 <span class="we-chip lens">lens: social</span>
                 <span class="we-hop-meta">P 32% · Q3 2026 – Q1 2027</span>
@@ -1738,6 +1853,7 @@ confirmed_at:         2026-05-13</code></pre>
           <div class="we-hop terminal">
             <div class="we-hop-num">05</div>
             <div class="we-hop-body">
+              <p class="we-hop-plain">Berlin succeeds in blocking the worst of the EU's escalation. Anne is protected from US export-control backlash, but stuck with carbon-tax costs on her ammonia.</p>
               <div class="we-hop-row">
                 <span class="we-chip model">model estimate · prob 0.25</span>
                 <span class="we-hop-meta">Q1-Q3 2027</span>
