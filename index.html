@@ -747,6 +747,27 @@
   .timeline {
     margin-top: 8px;
   }
+  .timeline-spine {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 12px 0 36px;
+    max-width: 64ch;
+  }
+  .timeline-spine em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .timeline-spine .ifclause {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-right: 4px;
+  }
   .timeline-track {
     position: relative;
     padding: 12px 0 0;
@@ -781,6 +802,29 @@
     align-items: center;
     text-align: center;
     padding: 0 6px;
+    position: relative;
+  }
+  /* connector phrase on the line between this step and the next */
+  .t-step[data-connector]::after {
+    content: attr(data-connector);
+    position: absolute;
+    top: 36px;
+    right: 0;
+    transform: translate(50%, -50%);
+    background: var(--paper-2);
+    padding: 2px 10px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11.5px;
+    line-height: 1;
+    color: var(--mute);
+    white-space: nowrap;
+    z-index: 4;
+    opacity: 0;
+  }
+  .timeline-track.in-view .t-step[data-connector]::after {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 1.8s;
   }
   .t-eyebrow {
     font-family: var(--mono);
@@ -1083,6 +1127,7 @@
     .demo-tab { white-space: nowrap; }
     .timeline-steps { grid-template-columns: 1fr; gap: 24px; }
     .timeline-line { display: none; }
+    .t-step[data-connector]::after { display: none; }
     .t-step { text-align: left; align-items: flex-start; padding: 16px 0 16px 24px; border-left: 1px solid var(--line); position: relative; }
     .t-step.first { border-left-color: var(--ink); }
     .t-step.terminal { border-left-color: var(--accent); }
@@ -1401,28 +1446,29 @@
           </div>
           <div class="timeline">
             <div class="profile-label">how the chain reaches her</div>
+            <p class="timeline-spine"><span class="ifclause">if</span>tensions with Iran escalate, sanctions enforcement tightens, <span class="jargon" data-tip="The global benchmark price for crude oil from the North Sea. When 'Brent goes up,' fuel and energy-intensive industries pay more." tabindex="0">Brent</span> lifts $15-25 per barrel, European specialty chemicals get squeezed, and <em>Lisette's Q4 contracts reprice at +18%</em>.</p>
             <div class="timeline-track">
               <div class="timeline-line"></div>
               <div class="timeline-steps">
-                <div class="t-step first">
+                <div class="t-step first" data-connector="which prompts">
                   <div class="t-eyebrow">01 · event</div>
-                  <p class="t-label">Iran-Israel tensions escalate</p>
+                  <p class="t-label">Tensions with Iran escalate</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
                   <p class="t-explain">Geopolitical risk ripples into commodity markets within days.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="which lifts">
                   <div class="t-eyebrow">02 · regulation</div>
                   <p class="t-label">Sanctions enforcement tightens</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
                   <p class="t-explain">EU and US scrutiny on Iranian energy chains rises.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="which squeezes">
                   <div class="t-eyebrow">03 · commodity</div>
-                  <p class="t-label"><span class="jargon" data-tip="The global benchmark price for crude oil from the North Sea. When 'Brent goes up,' fuel and energy-intensive industries pay more." tabindex="0">Brent</span> lifts +$15-25/bbl</p>
+                  <p class="t-label">Brent crude +$15-25/bbl</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
-                  <p class="t-explain">Crude holds above structural fair value into Q3.</p>
+                  <p class="t-explain">Oil holds above structural fair value into Q3.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="landing on">
                   <div class="t-eyebrow">04 · industry</div>
                   <p class="t-label">Specialty chemicals squeezed</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
@@ -1457,28 +1503,29 @@
           </div>
           <div class="timeline">
             <div class="profile-label">how the chain reaches him</div>
+            <p class="timeline-spine"><span class="ifclause">if</span>Russia escalates strikes on Ukraine's grid, the EU rushes an emergency gas package, <span class="jargon" data-tip="Title Transfer Facility. The European natural gas price benchmark, the Brent of gas. Set in the Netherlands, watched closely whenever Europe gets cold or Russia gets aggressive." tabindex="0">TTF</span> gas runs 40% above seasonal, fertilizer producer margins compress, and <em>Pieter's 2027 grocery basket gets revised</em>.</p>
             <div class="timeline-track">
               <div class="timeline-line"></div>
               <div class="timeline-steps">
-                <div class="t-step first">
+                <div class="t-step first" data-connector="which triggers">
                   <div class="t-eyebrow">01 · event</div>
                   <p class="t-label">Russia escalates grid strikes</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
                   <p class="t-explain">Ukrainian power capacity drops sharply into winter.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="which spikes">
                   <div class="t-eyebrow">02 · policy</div>
                   <p class="t-label">EU energy security package</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
                   <p class="t-explain">Emergency gas storage refill mandated across member states.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="which compresses">
                   <div class="t-eyebrow">03 · commodity</div>
-                  <p class="t-label"><span class="jargon" data-tip="Title Transfer Facility. The European natural gas price benchmark, the Brent of gas. Set in the Netherlands, watched closely whenever Europe gets cold or Russia gets aggressive." tabindex="0">TTF</span> gas +40% over seasonal</p>
+                  <p class="t-label">TTF gas +40% over seasonal</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
                   <p class="t-explain">European wholesale gas trades well above the five-year average.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="passing through to">
                   <div class="t-eyebrow">04 · industry</div>
                   <p class="t-label">Fertilizer margins compress</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
@@ -1513,38 +1560,39 @@
           </div>
           <div class="timeline">
             <div class="profile-label">how the chain reaches her thesis</div>
+            <p class="timeline-spine"><span class="ifclause">if</span><span class="jargon" data-tip="Very large cloud computing companies. Microsoft, Amazon, Google, Meta. They build datacenters that consume small countries' worth of water and electricity." tabindex="0">hyperscalers</span> keep expanding EU data centers in cities like Dublin and Frankfurt, those same cities run short on water and grid capacity, utilities raise tariffs, local inflation outpaces the country, cabin crew based in those cities demand higher wages, and <em>budget airline margins compress while legacy carriers absorb</em>.</p>
             <div class="timeline-track">
               <div class="timeline-line"></div>
               <div class="timeline-steps">
-                <div class="t-step first">
+                <div class="t-step first" data-connector="drains water + grid">
                   <div class="t-eyebrow">01 · event</div>
-                  <p class="t-label">Hyperscaler datacenter buildout</p>
+                  <p class="t-label">Data center build in Dublin + Frankfurt</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
-                  <p class="t-explain">Microsoft, Google, AWS confirm 2026-28 EU expansion plans.</p>
+                  <p class="t-explain">Microsoft, Google, AWS confirm 2026-28 builds in cities that are also major airline hubs.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="lifts utility prices">
                   <div class="t-eyebrow">02 · utility</div>
-                  <p class="t-label">Water utilities flag tariff reviews</p>
+                  <p class="t-label">Water and grid tariffs rise</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
-                  <p class="t-explain">Ireland, Netherlands, Germany regulators under pressure.</p>
+                  <p class="t-explain">Cooling and power demand outpace capacity; regulators approve price reviews.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="feeds wage demands">
                   <div class="t-eyebrow">03 · inflation</div>
-                  <p class="t-label">Regional CPI runs hot</p>
+                  <p class="t-label">Local CPI outpaces national</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
-                  <p class="t-explain">Water-intensive sectors lift local prices faster than national averages.</p>
+                  <p class="t-explain">Higher utility and service costs push regional inflation above the country average.</p>
                 </div>
-                <div class="t-step">
+                <div class="t-step" data-connector="squeezes thin margins">
                   <div class="t-eyebrow">04 · labor</div>
-                  <p class="t-label">Cabin crew wage demands rise</p>
+                  <p class="t-label">Cabin crew demand higher wages</p>
                   <div class="t-node-row"><span class="t-node"></span></div>
-                  <p class="t-explain">Dublin, Eindhoven, Frankfurt unions push above-trend in 2026 cycles.</p>
+                  <p class="t-explain">Crew based in Dublin and Frankfurt push for above-trend 2026 raises.</p>
                 </div>
                 <div class="t-step terminal">
                   <div class="t-eyebrow">05 · her exposure</div>
-                  <p class="t-label">Budget airlines margin short</p>
+                  <p class="t-label">Budget airline margins short</p>
                   <div class="t-node-row"><span class="t-node"></span><span class="t-pulse"></span></div>
-                  <p class="t-explain">Camila's contrarian note lands ahead of consensus on Ryanair earnings.</p>
+                  <p class="t-explain">Ryanair and Wizz exposed to wage spikes; legacy carriers absorb via pricing power.</p>
                 </div>
               </div>
             </div>
