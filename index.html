@@ -1020,6 +1020,89 @@
   .timeline-track.in-view .t-step:nth-child(5) .t-node { animation-delay: 1.5s; }
   .timeline-track.in-view .t-step:nth-child(5) .t-explain { animation-delay: 1.7s; }
 
+  /* ============ FOUNDER ============ */
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .founder-photo-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .founder-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 1px solid var(--ink);
+    display: block;
+    background: var(--paper-2);
+  }
+  .founder-cap {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mute);
+    line-height: 1.5;
+  }
+  .founder-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .founder-text {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .founder-text em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .founder-text.punch {
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .founder-text.founder-team {
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+    font-size: 15.5px;
+  }
+  .founder-text.founder-team strong {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    display: inline;
+    margin-right: 4px;
+  }
+  .founder-links {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    margin: 8px 0 0;
+  }
+  .founder-links a {
+    color: var(--ink-2);
+    border-bottom: 1px dotted var(--mute);
+    padding-bottom: 1px;
+  }
+  .founder-links a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
   /* ============ MOAT + CTA ============ */
   .closing {
     display: grid;
@@ -1194,6 +1277,8 @@
     .profile { grid-template-columns: 1fr; }
     .profile-meta { border-right: none; border-bottom: 1px solid var(--line); }
     .closing { grid-template-columns: 1fr; gap: 40px; }
+    .founder-grid { grid-template-columns: 1fr; gap: 32px; }
+    .founder-photo-wrap { max-width: 260px; }
   }
   @media (max-width: 700px) {
     .nav { padding: 16px 24px; }
@@ -1696,48 +1781,75 @@
   </section>
 </div>
 
-<!-- ===================== MOAT + CTA ===================== -->
+<!-- ===================== MOAT ===================== -->
 <div class="shell">
-  <section class="section" id="contact">
-    <div class="section-mark"><span>04 · partners</span></div>
+  <section class="section">
+    <div class="section-mark"><span>04 · the moat</span></div>
     <h2>Why this <em>can't be copied</em>.</h2>
     <p class="section-lede">
       The AI part is replicable. Anyone with an API key can build a version of this. The moat is what sits behind it: primary data sources, a public methodology track record, and a contribution-based intelligence flywheel that makes the platform smarter every week.
     </p>
 
-    <div class="closing">
-      <ul class="moat-list">
-        <li>
-          <strong>01 · data flywheel</strong>
-          <p><span class="jargon" data-tip="A pricing model where the more useful signals a customer feeds back into the platform, the less they pay. Aligns user value with platform value." tabindex="0">Contribution-based pricing</span>. Users who feed signals back to the platform pay less. The platform gets smarter as it gets used. <span class="jargon" data-tip="Wikipedia: a crowd-edited encyclopedia that improves with use. Prediction markets: where prices reveal collective probabilities (think Polymarket). Chainge blends both: collective intelligence with skin in the game." tabindex="0">Wikipedia meets prediction markets</span>, for strategic intelligence.</p>
-        </li>
-        <li>
-          <strong>02 · methodology track record</strong>
-          <p>Every chain timestamped, every prediction publicly verifiable. The track record compounds. The longer we run, the harder we are to displace.</p>
-        </li>
-        <li>
-          <strong>03 · primary data, not headlines</strong>
-          <p>Regulatory filings, central bank releases, shipping data, commodity prices, satellite imagery. Reasoning from structured primary sources is the credibility gap that separates Chainge from any wrapper around a chatbot.</p>
-        </li>
-      </ul>
+    <ul class="moat-list">
+      <li>
+        <strong>01 · data flywheel</strong>
+        <p><span class="jargon" data-tip="A pricing model where the more useful signals a customer feeds back into the platform, the less they pay. Aligns user value with platform value." tabindex="0">Contribution-based pricing</span>. Users who feed signals back to the platform pay less. The platform gets smarter as it gets used. <span class="jargon" data-tip="Wikipedia: a crowd-edited encyclopedia that improves with use. Prediction markets: where prices reveal collective probabilities (think Polymarket). Chainge blends both: collective intelligence with skin in the game." tabindex="0">Wikipedia meets prediction markets</span>, for strategic intelligence.</p>
+      </li>
+      <li>
+        <strong>02 · methodology track record</strong>
+        <p>Every chain timestamped, every prediction publicly verifiable. The track record compounds. The longer we run, the harder we are to displace.</p>
+      </li>
+      <li>
+        <strong>03 · primary data, not headlines</strong>
+        <p>Regulatory filings, central bank releases, shipping data, commodity prices, satellite imagery. Reasoning from structured primary sources is the credibility gap that separates Chainge from any wrapper around a chatbot.</p>
+      </li>
+    </ul>
+  </section>
+</div>
 
-      <div class="cta-card">
-        <div class="cta-eyebrow">for partners &amp; investors</div>
-        <h3>If you back <em>cross-domain intelligence</em> platforms, we should talk.</h3>
-        <p>
-          Chainge is in active research preview. We're building a small group of <span class="jargon" data-tip="Early customers who shape the product. They get unusual access in exchange for sharing how they actually use it, what works, what's missing. The opposite of a launch-and-pray go-to-market." tabindex="0">design partners</span> and a focused backing syndicate around the platform thesis, the data infrastructure, and the contribution economy. Direct line to Niels.
-        </p>
-        <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20partner%20conversation" class="cta-button">talk to niels →</a>
+<!-- ===================== FOUNDER ===================== -->
+<div class="shell">
+  <section class="section" id="founder">
+    <div class="section-mark"><span>05 · who is building this</span></div>
+    <h2>Built by <em>Niels Langereis</em>.</h2>
 
-        <div class="cta-email">
-          <div class="cta-email-label">otherwise, stay in the loop</div>
-          <form class="cta-email-form" name="subscribe" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?subscribed=1">
-            <input type="hidden" name="form-name" value="subscribe">
-            <p hidden><label>do not fill: <input name="bot-field"></label></p>
-            <input type="email" name="email" placeholder="your email" required>
-            <button type="submit">subscribe</button>
-          </form>
-        </div>
+    <div class="founder-grid">
+      <div class="founder-photo-wrap">
+        <img src="niels.jpg" alt="Niels Langereis" class="founder-photo">
+        <div class="founder-cap">niels langereis · baarn, nl</div>
+      </div>
+      <div class="founder-body">
+        <p class="founder-text punch">He thinks elite advisory work is mostly overpriced. Not all of it. Most of it.</p>
+        <p class="founder-text">Fifteen years across PE-backed groups and global agency networks sharpened the conviction. Most recently, group-wide AI governance and platform strategy at <span class="jargon" data-tip="Dutch PE-backed buy-and-build operating across 70+ entities in testing, certification and compliance. Niels was on the board, leading digital and AI transformation." tabindex="0">Normec Group</span> across 70+ entities. Before that: CEO at New Story, CEO at <span class="jargon" data-tip="Global content production company within WPP. Niels led the Netherlands organization and the worldwide Philips client relationship." tabindex="0">Hogarth (WPP)</span> Netherlands, Managing Director at Wavemaker (WPP), and earlier senior roles at Publicis (Amsterdam, Dubai).</p>
+        <p class="founder-text">The original spark came earlier: a younger Niels hearing about an investment bank with a multidisciplinary research team and deciding that was where the interesting work happened. <em>Chainge is that room, opened up.</em> The methodology automates what consultancies do well — pattern recognition across industries, citation discipline, structured reasoning — and prices it for teams who can't justify a seven-figure advisory retainer.</p>
+        <p class="founder-text founder-team"><strong>The team is small.</strong>By design. Chainge's moat is the contribution flywheel, not employee headcount. Currently one founder, a working advisory circle, and the first <span class="jargon" data-tip="Early customers who shape the product. They get unusual access in exchange for sharing how they actually use it, what works, what's missing." tabindex="0">design partner</span> conversations underway.</p>
+        <p class="founder-links"><a href="https://www.nielslangereis.com" target="_blank" rel="noopener">nielslangereis.com</a> · <a href="https://linkedin.com/in/nclangereis" target="_blank" rel="noopener">linkedin.com/in/nclangereis</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CTA ===================== -->
+<div class="shell">
+  <section class="section" id="contact">
+    <div class="section-mark"><span>06 · talk to us</span></div>
+
+    <div class="cta-card">
+      <div class="cta-eyebrow">for partners &amp; investors</div>
+      <h3>If you back <em>cross-domain intelligence</em> platforms, we should talk.</h3>
+      <p>
+        Chainge is in active research preview. We're building a small group of <span class="jargon" data-tip="Early customers who shape the product. They get unusual access in exchange for sharing how they actually use it, what works, what's missing. The opposite of a launch-and-pray go-to-market." tabindex="0">design partners</span> and a focused backing syndicate around the platform thesis, the data infrastructure, and the contribution economy. Direct line to Niels.
+      </p>
+      <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20partner%20conversation" class="cta-button">talk to niels →</a>
+
+      <div class="cta-email">
+        <div class="cta-email-label">otherwise, stay in the loop</div>
+        <form class="cta-email-form" name="subscribe" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?subscribed=1">
+          <input type="hidden" name="form-name" value="subscribe">
+          <p hidden><label>do not fill: <input name="bot-field"></label></p>
+          <input type="email" name="email" placeholder="your email" required>
+          <button type="submit">subscribe</button>
+        </form>
       </div>
     </div>
   </section>
