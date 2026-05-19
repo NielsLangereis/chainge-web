@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>chainge / how it works</title>
+<meta name="description" content="How Chainge turns your company profile into a weekly cross-domain cascade briefing. User flow, engine, data sources.">
+<link rel="canonical" href="https://chainge.global/how-it-works">
+
+<!-- favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.svg">
+
+<!-- open graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chainge.global/how-it-works">
+<meta property="og:title" content="chainge / how it works">
+<meta property="og:description" content="Profile, diagnostic, cascades. The user flow, the engine, and the data sources behind Chainge.">
+<meta property="og:site_name" content="chainge">
+<meta property="og:image" content="https://chainge.global/og-image.svg">
+
+<!-- twitter / x -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="chainge / how it works">
+<meta name="twitter:description" content="Profile, diagnostic, cascades. The user flow, the engine, and the data sources behind Chainge.">
+<meta name="twitter:image" content="https://chainge.global/og-image.svg">
+
+<!-- robots: indexing-friendly for research preview; flip to noindex if you want stealth -->
+<meta name="robots" content="index, follow">
+
+<!-- analytics: Plausible (cookieless, GDPR-friendly, no banner needed). -->
+<script defer data-domain="chainge.global" src="https://plausible.io/js/script.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <a href="index.html" class="nav-mark"><span class="ch">chai</span><span class="ng">nge</span></a>
+  <div class="nav-links">
+    <a href="index.html#thesis">the thesis</a>
+    <a href="index.html#how">how it works</a>
+    <a href="index.html#who">who uses it</a>
+    <a href="worked-example.html" class="nav-link-primary">example report</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">talk to us →</a>
+</nav>
+
+<!-- ===================== ACCESSIBILITY HINT ===================== -->
+<div class="hint-bar">
+  <div class="hint-bar-inner">
+    <span class="hint">hover or tap any dotted word for a plain-language definition</span>
+  </div>
+</div>
+
+<main>
+
+<!-- ===================== PAGE INTRO ===================== -->
+<div class="shell">
+  <section class="section" id="intro">
+    <div class="section-mark"><span>how it works</span></div>
+    <h2>Three steps to your first cascade. <em>Then a weekly habit.</em></h2>
+    <p class="section-lede">
+      Chainge turns a structured exposure profile of your company into a weekly briefing of cross-domain cascades that touch your business. The profile itself runs in your own AI tool, so step one needs no install. You feed it your structural shape, Chainge pressure-tests it, and from then on the global signal corpus runs against you every week.
+    </p>
+    <p class="section-lede" style="margin-top: 14px;">
+      Below: how to use it, what the engine does behind the briefing, and where the data comes from.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== SECTION 01 · HOW TO USE IT ===================== -->
+<div class="shell">
+  <section class="section" id="use">
+    <div class="section-mark"><span>01 · how to use it</span></div>
+    <h2>Profile. Diagnostic. <em>Cascades.</em></h2>
+    <p class="section-lede">
+      The user journey is three steps. The first runs in your own AI session. The second is a back-and-forth where Chainge challenges your profile. The third is the weekly briefing that lands.
+    </p>
+    <p style="font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--mute); margin-top: 18px; max-width: 80ch;">
+      research preview · for now there is no signup form. You reach Chainge directly, and the diagnostic and briefing arrive through a direct conversation. The flow below is what it looks like; once we open up to subscribers, the steps stay the same, the contact path changes.
+    </p>
+
+    <div class="userflow">
+
+      <div class="userflow-step">
+        <div class="userflow-num">01</div>
+        <div class="userflow-eyebrow">profile</div>
+        <h3>You run our profile prompt in your own AI tool.</h3>
+        <p>We give you a single prompt. You paste it into <span class="jargon" data-tip="The conversational AI tools most people already use. The profile prompt is portable across all three." tabindex="0">ChatGPT, Claude, or Gemini</span> and answer questions for fifteen to twenty minutes. It walks you through twelve dimensions of your business: product families and key inputs, production geography, energy and water exposure, <span class="jargon" data-tip="The arrangement a commodity-buying business uses to lock in input prices: futures, swaps, physical forwards, carbon allowances. Tells us where you are and aren't exposed to spot price moves." tabindex="0">commodity hedging structure</span>, <span class="jargon" data-tip="Whether you buy commodity inputs on a fixed schedule (DCA), in response to news events, or opportunistically on price. Decides how a cascade reaches your purchasing decisions." tabindex="0">procurement cadence</span>, distribution channels, currency exposure, regulatory regimes, customer concentration. Output: a JSON object describing your structural shape.</p>
+        <div class="userflow-meta">no install · runs in your own AI · ~15 min</div>
+      </div>
+
+      <div class="userflow-step">
+        <div class="userflow-num">02</div>
+        <div class="userflow-eyebrow">diagnostic</div>
+        <h3>Chainge challenges what you sent.</h3>
+        <p>You send us the JSON. We run a single-pass diagnostic that does three things at once. It surfaces regulations you didn't list but that probably apply to you (<span class="jargon" data-tip="EU Critical Raw Materials Act. Affects any business that processes or trades cobalt, lithium, nickel, rare earths. Easy to miss; we catch it." tabindex="0">CRMA</span> for rare-earth processors, <span class="jargon" data-tip="EU Carbon Border Adjustment Mechanism. Tariff on the embedded carbon of certain imports. Often mis-applied; the diagnostic removes false positives too." tabindex="0">CBAM</span> for steel and cement importers). It flags inconsistencies between what you said you make and what you said you buy. It asks specific questions about the uncertainties you flagged. You confirm, correct, or augment. Only then does the engine generate cascades.</p>
+        <div class="userflow-meta">single back-and-forth · one model call · direct conversation (research preview)</div>
+      </div>
+
+      <div class="userflow-step">
+        <div class="userflow-num">03</div>
+        <div class="userflow-eyebrow">cascades</div>
+        <h3>Every week, the briefing lands.</h3>
+        <p>Each week the global signal corpus (regulatory filings, central bank releases, geopolitical events, macro data, prediction markets) runs against your confirmed profile. The engine surfaces the cross-domain cascades that cross your exposure shape, not someone else's. Every claim carries a citation chip. Every chain ships with <span class="jargon" data-tip="Concrete checkpoints attached to each chain (a regulatory deadline, a commodity price threshold, a prediction-market level). When the checkpoint resolves, a deterministic function returns right, partial, wrong, or unclear. Not judged by an AI." tabindex="0">resolution markers</span> so the prediction can be checked, eight weeks later, against primary sources.</p>
+        <div class="userflow-meta">weekly cadence · cited claims · resolution markers attached</div>
+      </div>
+
+    </div>
+
+    <!-- payoff: what step 03 actually delivers -->
+    <div class="we-briefing-card" style="margin-top: 8px;">
+      <div class="we-briefing-eyebrow">what lands in your inbox · sample</div>
+      <h3 class="we-briefing-title">Tension with Iran today could reshape food brand ownership by late 2026.</h3>
+      <p class="we-briefing-plain">A five-step chain from energy markets to grocery store buyouts. Surfaced because your profile flagged specialty chemicals exposure and Q4 contract repricing.</p>
+      <div class="we-briefing-eyebrow we-briefing-eyebrow-2">executive read</div>
+      <p class="we-briefing-quote">If Iran-Israel tensions escalate, sanctions enforcement tightens, <span class="jargon" data-tip="The global benchmark price for crude oil from the North Sea. When &quot;Brent goes up,&quot; fuel and energy-intensive industries pay more." tabindex="0">Brent</span> lifts $15-25 per barrel, European specialty chemicals get squeezed, and Q4 input contracts reprice at +18%. Two quarters of margin pressure, surfaced before the board sees it. Verdict due W27 of 2026 against EUR-Lex sanctions tracker and <span class="jargon" data-tip="Federal Reserve Economic Data. The macro time-series archive we poll for resolution. Brent series queryable directly." tabindex="0">FRED</span> Brent series.</p>
+      <a href="worked-example.html" class="we-briefing-cta">see one chain end to end →</a>
+    </div>
+
+  </section>
+</div>
+
+<!-- ===================== SECTION 02 · THE ENGINE (relocated from home) ===================== -->
+<div class="shell">
+  <section class="section" id="engine">
+    <div class="section-mark"><span>02 · the engine</span></div>
+    <h2>Behind the briefing: <em>four stages, and a loop.</em></h2>
+    <p class="section-lede">
+      What you read in the briefing is the output of an <span class="jargon" data-tip="A series of automated stages where the output of one feeds into the next, each using the AI model best suited to its task. Like a factory line for thinking." tabindex="0">AI pipeline</span> that reads public information, classifies it, surfaces cross-industry bridges, and verifies every claim against primary sources. Open methodology. Auditable cost. Every chain carries provenance.
+    </p>
+    <p class="section-lede" style="margin-top: 14px;">
+      Four stages run every week. The skeptic pass at the end is the part most pipelines skip; it kills more chains than it promotes, which is the point. Then the loop: every prediction gets a resolution marker, and the next week's briefing leads with the verdicts that landed.
+    </p>
+
+    <div class="pipeline">
+      <div class="stage">
+        <div class="stage-num">stage 01</div>
+        <h3>Read</h3>
+        <p>News (<span class="jargon tip-down" data-tip="Brussels-based EU policy news site. Where you read what is actually happening in EU institutions before it hits broader press." tabindex="0">Politico EU</span>, <span class="jargon tip-down" data-tip="EU policy and politics news, also Brussels-based. Complementary coverage to Politico, more institutional." tabindex="0">Euractiv</span>), central bank releases (<span class="jargon tip-down" data-tip="European Central Bank. Sets eurozone monetary policy and supervises banks. Press releases here tend to move markets immediately." tabindex="0">ECB</span>), regulatory filings (<span class="jargon tip-down" data-tip="The official EU legal database. Every directive, regulation, and case law lives here. The structured source we trust for regulatory facts." tabindex="0">EUR-Lex</span>), global event data (<span class="jargon tip-down" data-tip="Global Database of Events, Language and Tone. Tracks news in 100+ languages, 15-minute updates. Used to measure geopolitical pressure at scale." tabindex="0">GDELT</span>), macro time series (<span class="jargon tip-down" data-tip="Federal Reserve Economic Data. Free, comprehensive archive of macro indicators: interest rates, employment, inflation, hundreds of thousands of series." tabindex="0">FRED</span>), think tanks.</p>
+        <div class="stage-meta">~10 sources, hourly · adding monthly</div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">stage 02</div>
+        <h3>Classify</h3>
+        <p>Each item tagged for industry, urgency, novelty, <span class="jargon tip-down" data-tip="The specific things mentioned in a piece of text: companies, people, regulations, places, commodities. Identifying these turns unstructured news into structured data." tabindex="0">named entities</span>. Weekly themes clustered. Five to eight strategic threads per week.</p>
+        <div class="stage-meta">smaller model, batched</div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">stage 03</div>
+        <h3>Link</h3>
+        <p>Six expert perspectives applied in parallel: regulatory, commodity, equity, industrial, geopolitical, technological. Cross-industry bridges surface.</p>
+        <div class="stage-meta"><span class="jargon tip-down" data-tip="The most capable AI models currently available (Claude Opus, GPT-5, Gemini Ultra-class). Used here for the hardest reasoning step in the pipeline." tabindex="0">frontier model</span>, <span class="jargon tip-down" data-tip="The model returns data in a fixed shape (typed fields, validated formats), not free-text prose. Reduces hallucination, makes downstream processing reliable." tabindex="0">structured output</span></div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">stage 04</div>
+        <h3>Verify</h3>
+        <p>A <span class="jargon tip-down" data-tip="An adversarial review stage: a separate model tries to break each candidate chain, looking for unsupported leaps, missing citations, weak causal links. Only chains that survive this pass get promoted." tabindex="0">skeptic pass</span> on every chain: <span class="jargon tip-down" data-tip="The four-state verdict our verifier returns for each candidate chain: promote (lead with it), surface (mention), demote (lower confidence), or drop (kill)." tabindex="0">promote, surface, demote, or drop</span>. Citation discipline enforced. No claim without a source chip.</p>
+        <div class="stage-meta"><span class="jargon tip-down" data-tip="A second AI model deliberately argues against the first model's output, trying to find weaknesses. Borrowed from how research teams stress-test each other's claims." tabindex="0">adversarial pass</span></div>
+      </div>
+    </div>
+
+    <div class="pipeline-loop">
+      <div class="loop-mark">
+        <span class="loop-icon">↻</span>
+        <span class="loop-eyebrow">+ the loop</span>
+      </div>
+      <p class="loop-text">Every chain ships with <span class="jargon" data-tip="Each chain has explicit checkpoints attached: regulatory deadlines, commodity thresholds, prediction-market levels. These get polled against primary sources (FRED, Polymarket, EUR-Lex). When a marker resolves, a deterministic function returns right, partial, wrong, or unclear. Not judged by an AI." tabindex="0">resolution markers</span> and a prediction check. Each week the engine scores the predictions due that week against primary sources, publishes the result at the top of the next briefing, and feeds verified outcomes back into next week's reasoning. <em>The methodology compounds, not the AI itself.</em></p>
+    </div>
+
+    <div class="credibility-strip">
+      <div>
+        <h3>Citations as <em>infrastructure</em>, not footnotes.</h3>
+        <p>Every quantitative claim in a chain carries provenance. <span class="jargon" data-tip="A direct, authoritative reference (ECB press release, EUR-Lex filing, FRED data point). The strongest kind of citation in a chain. Marked with a green dot." tabindex="0">Primary source</span>, <span class="jargon" data-tip="A claim our model generated rather than read from a source. Probabilistic, ours, not a primary fact. Marked with a gold dot to keep it visually distinct." tabindex="0">model estimate</span>, <span class="jargon" data-tip="Which of our six expert perspectives wrote a leg of the chain: regulatory, commodity, equity, industrial, geopolitical, technological." tabindex="0">analytical lens</span>, <span class="jargon" data-tip="A weaker reference: news commentary, consensus surveys, indicative quotes. Used to flavor chains, not to anchor them. Marked with a grey dot." tabindex="0">soft attribution</span>. Linkable, dated, auditable. This is the credibility moat.</p>
+      </div>
+      <div class="credibility-stats">
+        <div class="credibility-stat">
+          <div class="num">$5–7</div>
+          <div class="label">per weekly run</div>
+        </div>
+        <div class="credibility-stat">
+          <div class="num">100%</div>
+          <div class="label">claims cited</div>
+        </div>
+        <div class="credibility-stat">
+          <div class="num">6</div>
+          <div class="label">expert lenses</div>
+        </div>
+        <div class="credibility-stat">
+          <div class="num">≤6</div>
+          <div class="label">steps to exposure</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SECTION 03 · WHERE THE DATA COMES FROM ===================== -->
+<div class="shell">
+  <section class="section" id="data">
+    <div class="section-mark"><span>03 · where the data comes from</span></div>
+    <h2>Primary sources, <em>not headlines about headlines</em>.</h2>
+    <p class="section-lede">
+      Reasoning from structured primary sources is the credibility gap that separates Chainge from any wrapper around a chatbot. Below: every source the engine currently reads, plus what each one is doing in the chain.
+    </p>
+
+    <ul class="data-list">
+      <li>
+        <div class="data-head">
+          <span class="data-name">RSS news and policy feeds</span>
+          <span class="data-tag">live</span>
+        </div>
+        <p>Roughly ten editorial sources covering EU policy, central banks, climate and energy, technology, and academic economics: <span class="jargon" data-tip="Brussels-based EU policy news. Read in Brussels institutions before broader press." tabindex="0">Politico EU</span>, <span class="jargon" data-tip="EU policy and politics, complementary to Politico." tabindex="0">Euractiv</span>, European Commission press, <span class="jargon" data-tip="European Central Bank. Eurozone monetary authority." tabindex="0">ECB</span>, the <span class="jargon" data-tip="International Energy Agency. Energy data, scenarios, policy analysis." tabindex="0">IEA</span>, <span class="jargon" data-tip="Brussels-based economic think tank." tabindex="0">Bruegel</span>, the <span class="jargon" data-tip="World Economic Forum. Cross-domain global risk and policy framing." tabindex="0">WEF</span>, arXiv economics, TechCrunch. Hourly polling. Surfaces the editorial signal layer, what's being talked about.</p>
+      </li>
+
+      <li>
+        <div class="data-head">
+          <span class="data-name">GDELT</span>
+          <span class="data-tag">live</span>
+        </div>
+        <p>The <span class="jargon" data-tip="Global Database of Events, Language and Tone. Tracks news in 100+ languages with 15-minute update cycles." tabindex="0">Global Database of Events, Language and Tone</span>. Tracks news across one hundred-plus languages with fifteen-minute updates. The geopolitical pressure gauge: where in the world is escalating, where is de-escalating, where is the tone of coverage shifting before any single outlet writes the explainer. Read at scale, not headline by headline.</p>
+      </li>
+
+      <li>
+        <div class="data-head">
+          <span class="data-name">FRED</span>
+          <span class="data-tag">live</span>
+        </div>
+        <p><span class="jargon" data-tip="Federal Reserve Economic Data. Free, comprehensive archive of macroeconomic time series. Free API." tabindex="0">Federal Reserve Economic Data</span>. Currently fourteen macroeconomic time series in active rotation: nine macro indicators (rates, employment, inflation, industrial production) and five commodities (Brent, natural gas, copper, wheat, the dollar index). The macro spine the engine cross-checks every commodity and rates claim against.</p>
+      </li>
+
+      <li>
+        <div class="data-head">
+          <span class="data-name">EUR-Lex CELLAR</span>
+          <span class="data-tag">live since 2026-05-13</span>
+        </div>
+        <p>The official <span class="jargon" data-tip="EU's official legal database. Every directive, regulation, and ECJ case law. Authoritative regulatory source." tabindex="0">EU legal database</span>, queried directly via the publications.europa.eu <span class="jargon" data-tip="REST API. A structured way to query the database without scraping the website." tabindex="0">REST API</span>. Live access to every directive, regulation, implementing act, and Court of Justice ruling. When a chain claims "the CBAM implementing act applies to your imports," the chain links to the actual act, not a news summary of it.</p>
+      </li>
+
+      <li>
+        <div class="data-head">
+          <span class="data-name">Polymarket</span>
+          <span class="data-tag">live</span>
+        </div>
+        <p>A <span class="jargon" data-tip="A market where people bet on the probability of future events. Prices act as crowd-sourced probability estimates, often more accurate than expert forecasts." tabindex="0">prediction market</span>: traders put money on the probability of specific future events. Used here as a continuous, crowd-priced probability layer for events the engine is tracking (an election outcome, a Fed cut, a Hormuz closure). When the engine says 24% odds, Polymarket usually has a market that says something nearby; the gap is interesting.</p>
+      </li>
+
+      <li>
+        <div class="data-head">
+          <span class="data-name">arXiv</span>
+          <span class="data-tag">live</span>
+        </div>
+        <p>The open-access academic preprint server, scoped primarily to economics. Captures methodological shifts and emerging research before they cycle into policy or industry analysis. Long lead time, high signal density for the patient reader.</p>
+      </li>
+
+      <li>
+        <div class="data-head">
+          <span class="data-name">Planned next: ACLED, World Bank, CME fed funds, encyclopedic context</span>
+          <span class="data-tag">queued</span>
+        </div>
+        <p><span class="jargon" data-tip="Armed Conflict Location and Event Data. Geocoded conflict events. Used for ground-truth on conflict intensity." tabindex="0">ACLED</span> for conflict ground-truth, the World Bank development indicators for cross-country comparisons, <span class="jargon" data-tip="Chicago Mercantile Exchange. The implied probability the market puts on the next Fed rate move." tabindex="0">CME</span> fed funds futures for rate-path expectations, and a Wikipedia and Britannica context layer for entity and historical grounding. Each one closes a known gap. None is in production yet.</p>
+      </li>
+    </ul>
+
+    <p class="data-footer">
+      Every chain in the briefing carries a source chip naming which of these contributed the underlying claim. If you can't link back to a primary source, it doesn't ship as a fact, it ships as a model estimate.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== FOOTER CTA ===================== -->
+<div class="shell">
+  <section class="section" id="next">
+    <div class="section-mark"><span>next</span></div>
+    <h2>See it work, <em>end to end</em>.</h2>
+    <p class="section-lede">
+      Anne runs Brabant Advanced Materials, a specialty chemicals SME in Eindhoven. We took her through profile ingest, the diagnostic, and the five-hop cascade that came out, including the regulation the diagnostic caught that she hadn't listed and the German lobbying fight that decides her outcome.
+    </p>
+    <p class="we-link we-link-large" style="margin-top: 32px;">
+      <a href="worked-example.html">→ see Anne's worked example</a>
+    </p>
+    <p class="we-link" style="margin-top: 20px;">
+      <a href="index.html#contact">→ talk to Niels about a profile</a>
+    </p>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <span>chainge / chainge.global</span>
+  <span>research preview · 2026 · niels langereis</span>
+</footer>
+
+</body>
+</html>

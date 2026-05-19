@@ -1606,6 +1606,139 @@
   }
   .footer a:hover { color: var(--accent); }
 
+  /* ============ HOW IT WORKS · USER FLOW (3-step journey) ============ */
+  .userflow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px;
+    margin: 8px 0 56px;
+    position: relative;
+  }
+  .userflow-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 8px 4px 0;
+  }
+  .userflow-step::after {
+    content: "→";
+    position: absolute;
+    top: 38px;
+    right: -36px;
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    font-weight: 300;
+  }
+  .userflow-step:last-child::after { display: none; }
+  .userflow-num {
+    font-family: var(--serif);
+    font-size: 84px;
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-feature-settings: "lnum" 1;
+  }
+  .userflow-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: -4px;
+  }
+  .userflow-step h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.25;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .userflow-step p {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .userflow-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+
+  /* ============ HOW IT WORKS · DATA SOURCES LIST ============ */
+  .data-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .data-list li {
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .data-list li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .data-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .data-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.25;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .data-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 8px 2px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .data-list p {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 80ch;
+  }
+  .data-footer {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 24px 0 0;
+    max-width: 80ch;
+  }
+
   /* ============ RESPONSIVE ============ */
   @media (max-width: 1100px) {
     .hero { grid-template-columns: 1fr; gap: 48px; }
@@ -1613,6 +1746,9 @@
     .thesis { grid-template-columns: 1fr; gap: 40px; }
     .pipeline { grid-template-columns: repeat(2, 1fr); }
     .stage::before, .stage::after { display: none; }
+    .userflow { gap: 36px; }
+    .userflow-step::after { display: none; }
+    .userflow-num { font-size: 72px; }
     .credibility-strip { grid-template-columns: 1fr; gap: 24px; }
     .profile { grid-template-columns: 1fr; }
     .profile-meta { border-right: none; border-bottom: 1px solid var(--line); }
@@ -1636,6 +1772,12 @@
     .section h2 { font-size: 28px; }
     .thesis-quote { font-size: 24px; }
     .pipeline { grid-template-columns: 1fr; }
+    .userflow { grid-template-columns: 1fr; gap: 32px; }
+    .userflow-num { font-size: 64px; }
+    .userflow-step h3 { font-size: 20px; }
+    .userflow-step p { font-size: 15.5px; }
+    .data-name { font-size: 17px; }
+    .data-list p { font-size: 14.5px; }
     .demo-tabs { overflow-x: auto; }
     .demo-tab { white-space: nowrap; }
 

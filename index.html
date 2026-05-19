@@ -210,7 +210,7 @@
           The information is largely public. The deals are not. We surface the chains, with every claim cited, at a fraction of the cost. Robin Hood, for strategic foresight.
         </p>
         <p class="thesis-cite">
-          <em>"The strength of weak ties" — Granovetter, AJS, 1973</em>
+          <em>"The strength of weak ties," Granovetter, AJS, 1973</em>
         </p>
       </div>
 
@@ -256,77 +256,17 @@
   </section>
 </div>
 
-<!-- ===================== HOW IT WORKS ===================== -->
+<!-- ===================== HOW IT WORKS (teaser) ===================== -->
 <div class="shell">
   <section class="section" id="how">
     <div class="section-mark"><span>02 · how it works</span></div>
-    <h2>The engine, in <em>four stages</em>, and a loop.</h2>
+    <h2>Profile. Diagnostic. <em>Cascades.</em></h2>
     <p class="section-lede">
-      An <span class="jargon" data-tip="A series of automated stages where the output of one feeds into the next, each using the AI model best suited to its task. Like a factory line for thinking." tabindex="0">AI pipeline</span> that reads public information, classifies it, surfaces cross-industry bridges, and verifies every claim against primary sources. Open methodology. Auditable cost. Every chain carries provenance.
+      Chainge turns your structured exposure profile into a weekly cross-domain cascade briefing. The profile runs in your own AI tool, a diagnostic challenges it, and from then on the global signal corpus runs against your specific shape every week. Behind the briefing: a four-stage <span class="jargon" data-tip="A series of automated stages where the output of one feeds into the next, each using the AI model best suited to its task. Like a factory line for thinking." tabindex="0">AI pipeline</span> wired to primary sources (<span class="jargon" data-tip="The official EU legal database. Every directive, regulation, and case law lives here." tabindex="0">EUR-Lex</span>, <span class="jargon" data-tip="Federal Reserve Economic Data. Free, comprehensive archive of macro indicators." tabindex="0">FRED</span>, <span class="jargon" data-tip="Global Database of Events, Language and Tone. Tracks news in 100+ languages with 15-minute updates." tabindex="0">GDELT</span>, <span class="jargon" data-tip="A market where people bet on the probability of future events. Crowd-priced probabilities, often more accurate than expert forecasts." tabindex="0">Polymarket</span>). Every claim cited. Every chain scored.
     </p>
-
-    <div class="pipeline">
-      <div class="stage">
-        <div class="stage-num">stage 01</div>
-        <h3>Read</h3>
-        <p>News (<span class="jargon tip-down" data-tip="Brussels-based EU policy news site. Where you read what is actually happening in EU institutions before it hits broader press." tabindex="0">Politico EU</span>, <span class="jargon tip-down" data-tip="EU policy and politics news, also Brussels-based. Complementary coverage to Politico, more institutional." tabindex="0">Euractiv</span>), central bank releases (<span class="jargon tip-down" data-tip="European Central Bank. Sets eurozone monetary policy and supervises banks. Press releases here tend to move markets immediately." tabindex="0">ECB</span>), regulatory filings (<span class="jargon tip-down" data-tip="The official EU legal database. Every directive, regulation, and case law lives here. The structured source we trust for regulatory facts." tabindex="0">EUR-Lex</span>), global event data (<span class="jargon tip-down" data-tip="Global Database of Events, Language and Tone. Tracks news in 100+ languages, 15-minute updates. Used to measure geopolitical pressure at scale." tabindex="0">GDELT</span>), macro time series (<span class="jargon tip-down" data-tip="Federal Reserve Economic Data. Free, comprehensive archive of macro indicators — interest rates, employment, inflation, hundreds of thousands of series." tabindex="0">FRED</span>), think tanks.</p>
-        <div class="stage-meta">~10 sources, hourly · adding monthly</div>
-      </div>
-
-      <div class="stage">
-        <div class="stage-num">stage 02</div>
-        <h3>Classify</h3>
-        <p>Each item tagged for industry, urgency, novelty, <span class="jargon tip-down" data-tip="The specific things mentioned in a piece of text: companies, people, regulations, places, commodities. Identifying these turns unstructured news into structured data." tabindex="0">named entities</span>. Weekly themes clustered. Five to eight strategic threads per week.</p>
-        <div class="stage-meta">smaller model, batched</div>
-      </div>
-
-      <div class="stage">
-        <div class="stage-num">stage 03</div>
-        <h3>Link</h3>
-        <p>Six expert perspectives applied in parallel: regulatory, commodity, equity, industrial, geopolitical, technological. Cross-industry bridges surface.</p>
-        <div class="stage-meta"><span class="jargon tip-down" data-tip="The most capable AI models currently available (Claude Opus, GPT-5, Gemini Ultra-class). Used here for the hardest reasoning step in the pipeline." tabindex="0">frontier model</span>, <span class="jargon tip-down" data-tip="The model returns data in a fixed shape (typed fields, validated formats), not free-text prose. Reduces hallucination, makes downstream processing reliable." tabindex="0">structured output</span></div>
-      </div>
-
-      <div class="stage">
-        <div class="stage-num">stage 04</div>
-        <h3>Verify</h3>
-        <p>A <span class="jargon tip-down" data-tip="An adversarial review stage: a separate model tries to break each candidate chain, looking for unsupported leaps, missing citations, weak causal links. Only chains that survive this pass get promoted." tabindex="0">skeptic pass</span> on every chain: <span class="jargon tip-down" data-tip="The four-state verdict our verifier returns for each candidate chain: promote (lead with it), surface (mention), demote (lower confidence), or drop (kill)." tabindex="0">promote, surface, demote, or drop</span>. Citation discipline enforced. No claim without a source chip.</p>
-        <div class="stage-meta"><span class="jargon tip-down" data-tip="A second AI model deliberately argues against the first model's output, trying to find weaknesses. Borrowed from how research teams stress-test each other's claims." tabindex="0">adversarial pass</span></div>
-      </div>
-    </div>
-
-    <div class="pipeline-loop">
-      <div class="loop-mark">
-        <span class="loop-icon">↻</span>
-        <span class="loop-eyebrow">+ the loop</span>
-      </div>
-      <p class="loop-text">Every chain ships with <span class="jargon" data-tip="Each chain has explicit checkpoints attached: regulatory deadlines, commodity thresholds, prediction-market levels. These get polled against primary sources (FRED, Polymarket, EUR-Lex). When a marker resolves, a deterministic function returns right, partial, wrong, or unclear. Not judged by an AI." tabindex="0">resolution markers</span> and a prediction check. Each week the engine scores the predictions due that week against primary sources, publishes the result at the top of the next briefing, and feeds verified outcomes back into next week's reasoning. <em>The methodology compounds — not the AI itself.</em></p>
-    </div>
-
-    <div class="credibility-strip">
-      <div>
-        <h3>Citations as <em>infrastructure</em>, not footnotes.</h3>
-        <p>Every quantitative claim in a chain carries provenance. <span class="jargon" data-tip="A direct, authoritative reference (ECB press release, EUR-Lex filing, FRED data point). The strongest kind of citation in a chain. Marked with a green dot." tabindex="0">Primary source</span>, <span class="jargon" data-tip="A claim our model generated rather than read from a source. Probabilistic, ours, not a primary fact. Marked with a gold dot to keep it visually distinct." tabindex="0">model estimate</span>, <span class="jargon" data-tip="Which of our six expert perspectives wrote a leg of the chain: regulatory, commodity, equity, industrial, geopolitical, technological." tabindex="0">analytical lens</span>, <span class="jargon" data-tip="A weaker reference: news commentary, consensus surveys, indicative quotes. Used to flavor chains, not to anchor them. Marked with a grey dot." tabindex="0">soft attribution</span>. Linkable, dated, auditable. This is the credibility moat.</p>
-      </div>
-      <div class="credibility-stats">
-        <div class="credibility-stat">
-          <div class="num">$5–7</div>
-          <div class="label">per weekly run</div>
-        </div>
-        <div class="credibility-stat">
-          <div class="num">100%</div>
-          <div class="label">claims cited</div>
-        </div>
-        <div class="credibility-stat">
-          <div class="num">6</div>
-          <div class="label">expert lenses</div>
-        </div>
-        <div class="credibility-stat">
-          <div class="num">≤6</div>
-          <div class="label">steps to exposure</div>
-        </div>
-      </div>
-    </div>
+    <p class="we-link we-link-large" style="margin-top: 32px;">
+      <a href="how-it-works.html">→ see how it works in detail</a>
+    </p>
   </section>
 </div>
 
