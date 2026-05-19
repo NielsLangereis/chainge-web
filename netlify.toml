@@ -26,3 +26,13 @@
     Cache-Control = "public, max-age=86400"
 
 # pretty 404 fallback (optional): if you ever add a 404.html, netlify uses it automatically.
+
+# redirect the netlify subdomain to the primary domain so old shared links
+# (chaingeglobal.netlify.app) route to chainge.global. 301 = permanent.
+# force = true is required because the file exists on both URLs; without
+# force, netlify would serve the file directly instead of redirecting.
+[[redirects]]
+  from = "https://chaingeglobal.netlify.app/*"
+  to = "https://chainge.global/:splat"
+  status = 301
+  force = true
