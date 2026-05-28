@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge W22 · Cascade share · Westland Infra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* paper grain, very subtle */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  main { position: relative; z-index: 2; }
+
+  /* PAGE SHELL */
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 72px 80px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  /* TOP META BAR */
+  .topmeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    margin-bottom: 32px;
+  }
+  .topmeta .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* COVER */
+  .cover {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 14ch;
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 48px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 56ch;
+  }
+  .cover-meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .cover-meta dd {
+    font-family: var(--serif);
+    font-size: 16px;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  /* SECTION */
+  .section {
+    padding: 56px 0 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  .section-title em { font-style: italic; }
+
+  .section-lede {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+    margin: 0 0 24px;
+  }
+
+  /* BODY PROSE */
+  .prose p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 68ch;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* PREDICTION CARDS */
+  .pred-stack { display: grid; gap: 28px; margin-top: 8px; }
+
+  .pred {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 28px 32px 30px;
+    box-shadow: 4px 4px 0 var(--ink);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pred-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .pred-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .pred-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .pred-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+  }
+  .stat {
+    min-width: 92px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .stat-val {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-val.accent { color: var(--accent); }
+  .pred-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASCADE STEPS */
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    position: relative;
+  }
+  .step-num::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    bottom: -24px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step:last-child .step-num::before { display: none; }
+  .step-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+  }
+  .step-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .step-body em { font-style: italic; color: var(--mute); }
+
+  .insight {
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+
+  /* CAVEAT LIST */
+  .caveats { list-style: none; padding: 0; margin: 8px 0 0; max-width: 68ch; }
+  .caveats li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    position: relative;
+  }
+  .caveats li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 11px;
+    height: 1px;
+    background: var(--mute);
+  }
+  .caveats li:last-child { border-bottom: none; }
+  .caveats li strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* SOURCES + CITATION CHIPS */
+  .sources-group { margin-bottom: 36px; }
+  .sources-group:last-child { margin-bottom: 0; }
+  .sources-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px 4px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+  }
+  .chip::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mute);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .chip.primary::before { background: var(--accent); }
+  .chip.model::before { background: var(--gold); }
+
+  .sources-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--mute);
+    margin-top: 20px;
+    max-width: 60ch;
+  }
+
+  /* PRIVACY FRAME */
+  .privacy {
+    margin-top: 48px;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 68ch;
+  }
+  .privacy strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* PRINT */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  @media print {
+    body { background: var(--paper); }
+    body::before { display: none; }
+    .page { max-width: none; padding: 0; }
+    .section { padding: 32px 0 8px; page-break-inside: auto; }
+    .cover { padding: 24px 0 48px; page-break-after: always; }
+    .section-head { page-break-after: avoid; break-after: avoid; }
+    .pred, .step, .insight, .privacy { page-break-inside: avoid; break-inside: avoid; }
+    .pred-stack { gap: 20px; }
+    .footer { page-break-before: avoid; }
+    .topmeta { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · weekly run W22</span>
+      <span>Confidential · prepared for Paul Langereis</span>
+    </div>
+
+    <!-- COVER -->
+    <header class="cover">
+      <div class="cover-eyebrow">Strategic foresight report · Week 22 · 2026</div>
+      <h1 class="cover-title">Cascade share, <em>Westland Infra</em></h1>
+      <p class="cover-sub">
+        Three weak-tie cascades scoped to your top three strategic surfaces, with named transmission, probability calibration, and live-corpus provenance.
+      </p>
+      <dl class="cover-meta">
+        <div>
+          <dt>Prepared for</dt>
+          <dd>Paul Langereis · CEO, Westland Infra Netbeheer</dd>
+        </div>
+        <div>
+          <dt>Date</dt>
+          <dd>28 May 2026</dd>
+        </div>
+        <div>
+          <dt>Source</dt>
+          <dd>Chainge weekly run · W22 · 25 May 2026</dd>
+        </div>
+        <div>
+          <dt>Reading time</dt>
+          <dd>~12 minutes</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 01 CONCLUSION -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <h2 class="section-title">Conclusion</h2>
+      </div>
+      <div class="prose">
+        <p>Three cascades ran this week, scoped to your top three strategic surfaces. They converge on one structural read: Westland Infra’s regulatory revenue exposure concentrates less at the gas-side stranded-asset layer (which already sits inside your strategy view) and more at the electricity-side congestion and flexibility revenue layer. The mechanism is specific to your service area. The Westland greenhouse cluster turns local CHP/WKK operators into a primary flexibility resource under ACM, and the variance from anything that moves that resource shows up in your regulated electricity book, not in your gas book.</p>
+        <p>Cascade A is the most operationally grounded; we’d treat it as a working hypothesis with named transmission. Cascades B and C have clean structure but lean more on flagged reasoning than on live corpus data, because the anchor EU instruments aren’t yet in our EUR-Lex ingest. We’re adding them this week and will revisit B and C with stronger grounding next iteration.</p>
+      </div>
+    </section>
+
+    <!-- 02 THREE PREDICTIONS -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <h2 class="section-title">The three predictions, stated precisely</h2>
+      </div>
+
+      <div class="pred-stack">
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Prediction 1 · Hormuz extension</div>
+              <h3 class="pred-title">Westland CHP/WKK exits drive ACM congestion variance</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.22</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">Q3-Q4 2026</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">A sustained Hormuz disruption keeps TTF gas pricing materially above Henry Hub through Q3, compresses CHP/WKK economics for a subset of Westland greenhouse operators, and produces a measurable regulated-revenue variance for Westland Infra under the ACM congestion-management framework.</p>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Prediction 2 · Gas grid transition</div>
+              <h3 class="pred-title">RAB recalibration plus EED plus ECB form a financing pincer</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.28</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">2026-2030</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">ACM revises gas-distribution RAB methodology toward a 15-25 year decommissioning horizon, while the EED energy-efficiency-first principle is used to resist gas tariff increases. Combined with CSRD-disclosed stranded-asset risk and an ECB tightening cycle, this compresses allowed WACC and external financing terms during the 2026-2030 period, constraining the 2027-2032 capex programme more than any single regulation does on its own.</p>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Prediction 3 · EMR plus aggregator collapse</div>
+              <h3 class="pred-title">Greenhouse monoculture forces reinforcement into a constrained queue</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.35</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">12-18 months</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">EU Electricity Market Reform transposition produces an ACM flexibility-procurement framework with an energy-based product default. The Westland greenhouse monoculture (correlated, seasonal load) makes aggregator participation structurally thin, so Westland Infra cannot demonstrate non-wire flexibility as a substitute for reinforcement. ACM does not grant flexibility cost pass-through, and the company proceeds with physical reinforcement capex into a 12-24 month European queue for switchgear, cable, and transformers. Regulated returns on the electricity asset base compress on timing.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 CASCADE A -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <h2 class="section-title">Cascade A in detail</h2>
+      </div>
+      <p class="section-lede">The trace, with the data layer named at each step. This is the cascade with the cleanest source provenance.</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">Step 1</div>
+          <div>
+            <h4 class="step-head">Hormuz persists past June.</h4>
+            <p class="step-body">Polymarket’s “Hormuz blockade lifted by June 30” market sits at ~58% NO. <em>(Polymarket is a regulated US prediction market we treat as a structured signal of distributed expectations, not as a price target.)</em> The geopolitical risk premium holds.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 2</div>
+          <div>
+            <h4 class="step-head">Brent above $100, TTF above Henry Hub.</h4>
+            <p class="step-body">Live data from FRED (the St. Louis Fed’s economic data API): Brent at $106, Henry Hub at $2.82. LNG routing remains constrained, so TTF stays materially above the US benchmark.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 3</div>
+          <div>
+            <h4 class="step-head">Spark spread turns negative for Westland CHP/WKK.</h4>
+            <p class="step-body">Gas input cost exceeds the combined value of heat delivered plus electricity back-fed to the grid, for a material share of Westland operators. <em>(This step is reasoning from energy-market mechanics. We don’t yet have live TTF-to-spark-spread data in corpus; it’s the weakest provenance leg in the chain.)</em></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 4</div>
+          <div>
+            <h4 class="step-head">A subset of operators mothballs or reduces hours.</h4>
+            <p class="step-body">Negative spark spread sustained over weeks pushes some operators to step back. Not the whole cluster, just the marginal ones, which is enough to move regional load.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 5</div>
+          <div>
+            <h4 class="step-head">The ACM consequence.</h4>
+            <p class="step-body">This is the step internal DSO analysis typically misses. Reduced CHP load doesn’t only lower throughput. It also removes a primary local flexibility and congestion-management resource that ACM’s regulated revenue framework assumes will be available. Two consequences land at once: lower loss-procurement cost on one side, reduced regulated asset utilization basis on the other, and forced alternative flexibility procurement at higher unit cost. That is a regulatory revenue variance which cannot be corrected mid-period without a formal ACM review.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="insight">
+        The non-obvious step is 5, not 1 through 4. Most internal DSO analysis stops at “CHP exits reduce load.” The compounding insight is that exiting CHP fleets simultaneously degrade your ability to meet congestion obligations at approved cost.
+      </div>
+    </section>
+
+    <!-- 04 CASCADE B -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Cascade B in detail</h2>
+      </div>
+      <div class="prose">
+        <p>The novelty claim is a regulatory WACC inversion. Conventional intuition: higher transition risk should command a higher allowed return. ACM’s methodology does the opposite, treating accelerated depreciation as the compensation mechanism and using EED to resist gas tariff increases. So you cannot recover transition risk through tariffs. Then layer on CSRD-disclosed gas stranded-asset risk reaching lenders during an ECB tightening window, and you have a financing pincer: cash generation compressed, covenant headroom reduced, external financing more expensive.</p>
+        <p>What the chain still owes you: the anchor EU instruments (the 2024 gas package, Dir 2024/1788 and Reg 2024/1789) aren’t in our EUR-Lex corpus yet, so the chain’s starting condition is reasoning, not source. The CSRD (CELEX:32022L2464) and EED (CELEX:32023L1791) anchors are in corpus.</p>
+      </div>
+    </section>
+
+    <!-- 05 CASCADE C -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Cascade C in detail</h2>
+      </div>
+      <div class="prose">
+        <p>The novelty claim is a market-design failure driven by the greenhouse monoculture. Most flexibility-market analyses assume diversified load; Westland’s correlated seasonal greenhouse load is the structural exception. If ACM defaults to energy-based flexibility products (the lower-regulator-cost choice), aggregator participation in your service area stays thin because aggregators need diversification to bid. You cannot then demonstrate non-wire flexibility as a substitute for reinforcement; ACM does not grant flexibility cost pass-through; you proceed with physical reinforcement capex into a constrained equipment queue. The second-order loop: this failure feeds back into ACM’s RAB treatment and converts what looks like a flexibility-market problem into a regulated-return compression problem.</p>
+        <p>What the chain still owes you: the EMR instruments (Reg 2024/1747, Dir 2024/1711) and the DSO cybersecurity network code (Reg 2024/1366) aren’t yet in our EUR-Lex corpus. Same fix as B; this is the corpus-thinnest of the three.</p>
+      </div>
+    </section>
+
+    <!-- 06 WHAT WE CANNOT YET VERIFY -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">06</div>
+        <h2 class="section-title">What we cannot yet verify</h2>
+      </div>
+      <ul class="caveats">
+        <li><strong>Terminal-claim observability.</strong> All three predictions terminate at private operator-level observables (DSO regulated revenue variance, capital-structure constraint, regulated-return compression). There is no public dataset that disaggregates to Westland Infra scope. Verdict resolution at horizon will need either your internal data or a proxy we agree on in advance.</li>
+        <li><strong>Cascade A step 3</strong> (spark spread mechanics) is reasoning from energy-market fundamentals, not from live TTF-to-spark-spread data in corpus. We’re scoping the right primary source for that step.</li>
+        <li><strong>Cascades B and C</strong> lean more on flagged reasoning than on live corpus, because the EU 2024 instruments aren’t yet ingested. Iteration next week.</li>
+        <li><strong>Probabilities</strong> are model outputs, not market prices. Read them as ordinal calibration of the chain steps, not as numerical forecasts.</li>
+      </ul>
+    </section>
+
+    <!-- 07 SOURCES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">07</div>
+        <h2 class="section-title">Sources</h2>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Live corpus · pulled this week</div>
+        <div class="chip-row">
+          <span class="chip primary">Polymarket · Hormuz · ~58% NO</span>
+          <span class="chip primary">FRED · Brent ~$106</span>
+          <span class="chip primary">FRED · Henry Hub $2.82</span>
+          <span class="chip primary">FRED · ECB rate snapshots</span>
+          <span class="chip primary">Polymarket · ECB June · ~82.5% +25bps</span>
+          <span class="chip primary">EUR-Lex · CSRD · CELEX:32022L2464</span>
+          <span class="chip primary">EUR-Lex · EED · CELEX:32023L1791</span>
+          <span class="chip primary">EUR-Lex · CSDDD · CELEX:32024L1760</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Flagged · model estimate or public knowledge, not in corpus</div>
+        <div class="chip-row">
+          <span class="chip model">Gas package · Dir 2024/1788</span>
+          <span class="chip model">Gas package · Reg 2024/1789</span>
+          <span class="chip model">EMR · Reg 2024/1747</span>
+          <span class="chip model">EMR · Dir 2024/1711</span>
+          <span class="chip model">DSO cyber network code · Reg 2024/1366</span>
+          <span class="chip model">Spark spread economics · Westland CHP/WKK</span>
+          <span class="chip model">ACM congestion-revenue mechanics</span>
+        </div>
+      </div>
+
+      <p class="sources-note">The flagged items are next on the EUR-Lex ingest list. Once landed in corpus, Cascades B and C iterate with stronger grounding.</p>
+    </section>
+
+    <!-- 08 PRIVACY -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">08</div>
+        <h2 class="section-title">Privacy frame</h2>
+      </div>
+      <div class="privacy">
+        <strong>Public-surface render</strong>
+        Per the framing we agreed on, any public-surface rendering of these cascades describes “a Northwest European regional DSO with greenhouse horticulture concentration.” Westland Infra is named only in engine-side metadata and in this share to you. The cascade narrative is yours; the public version is sanitized.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Chainge · W22 · 2026-05-28</span>
+      <span>Westland Infra · confidential</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>

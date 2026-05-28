@@ -25,6 +25,17 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
+# /share/* hosts customer-specific cascade reports.
+# noindex via X-Robots-Tag is more reliable than the HTML meta tag because
+# search engines honor it even without parsing the body. private no-store
+# prevents CDN intermediaries from caching customer content.
+[[headers]]
+  for = "/share/*"
+  [headers.values]
+    X-Robots-Tag  = "noindex, nofollow, noarchive, nosnippet, noimageindex"
+    Cache-Control = "private, no-store, max-age=0"
+    Referrer-Policy = "no-referrer"
+
 # pretty 404 fallback (optional): if you ever add a 404.html, netlify uses it automatically.
 
 # redirect the netlify subdomain to the primary domain so old shared links
