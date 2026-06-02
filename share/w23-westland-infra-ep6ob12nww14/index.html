@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge W23 · Cascade update · Westland Infra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* paper grain, very subtle */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  main { position: relative; z-index: 2; }
+
+  /* PAGE SHELL */
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 72px 80px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  /* TOP META BAR */
+  .topmeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    margin-bottom: 32px;
+  }
+  .topmeta .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* COVER */
+  .cover {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 14ch;
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 48px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 56ch;
+  }
+  .cover-meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .cover-meta dd {
+    font-family: var(--serif);
+    font-size: 16px;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  /* SECTION */
+  .section {
+    padding: 56px 0 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  .section-title em { font-style: italic; }
+
+  .section-lede {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+    margin: 0 0 24px;
+  }
+
+  /* BODY PROSE */
+  .prose p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 68ch;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* PREDICTION CARDS */
+  .pred-stack { display: grid; gap: 28px; margin-top: 8px; }
+
+  .pred {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 28px 32px 30px;
+    box-shadow: 4px 4px 0 var(--ink);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pred-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .pred-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .pred-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .pred-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+  }
+  .stat {
+    min-width: 92px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .stat-val {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-val.accent { color: var(--accent); }
+  .stat-delta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    margin-top: 4px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .pred-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASCADE STEPS */
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    position: relative;
+  }
+  .step-num::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    bottom: -24px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step:last-child .step-num::before { display: none; }
+  .step-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+  }
+  .step-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .step-body em { font-style: italic; color: var(--mute); }
+
+  .insight {
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  .insight strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .insight .verdict-states {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .insight em.term {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* CAVEAT LIST */
+  .caveats { list-style: none; padding: 0; margin: 8px 0 0; max-width: 68ch; }
+  .caveats li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    position: relative;
+  }
+  .caveats li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 11px;
+    height: 1px;
+    background: var(--mute);
+  }
+  .caveats li:last-child { border-bottom: none; }
+  .caveats li strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* SOURCES + CITATION CHIPS */
+  .sources-group { margin-bottom: 36px; }
+  .sources-group:last-child { margin-bottom: 0; }
+  .sources-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px 4px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+  }
+  .chip::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mute);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .chip.primary::before { background: var(--accent); }
+  .chip.model::before { background: var(--gold); }
+  .chip.new {
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+  .chip.new::after {
+    content: "new";
+    font-size: 8.5px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+
+  .sources-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--mute);
+    margin-top: 20px;
+    max-width: 60ch;
+  }
+
+  /* PRIVACY FRAME */
+  .privacy {
+    margin-top: 48px;
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 68ch;
+  }
+  .privacy strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* PRINT */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  @media print {
+    body { background: var(--paper); }
+    body::before { display: none; }
+    .page { max-width: none; padding: 0; }
+    .section { padding: 32px 0 8px; page-break-inside: auto; }
+    .cover { padding: 24px 0 48px; page-break-after: always; }
+    .section-head { page-break-after: avoid; break-after: avoid; }
+    .pred, .step, .insight, .privacy { page-break-inside: avoid; break-inside: avoid; }
+    .pred-stack { gap: 20px; }
+    .footer { page-break-before: avoid; }
+    .topmeta { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · weekly run W23</span>
+      <span>Confidential · prepared for Paul Langereis</span>
+    </div>
+
+    <!-- COVER -->
+    <header class="cover">
+      <div class="cover-eyebrow">Strategic foresight update · Week 23 · 2026</div>
+      <h1 class="cover-title">Cascade update, <em>Westland Infra</em></h1>
+      <p class="cover-sub">
+        Three changes following your W22 reply, with a refined Cascade A transmission, probability deltas, and triangulated harness grounding now live.
+      </p>
+      <dl class="cover-meta">
+        <div>
+          <dt>Prepared for</dt>
+          <dd>Paul Langereis · CEO, Westland Infra Netbeheer</dd>
+        </div>
+        <div>
+          <dt>Date</dt>
+          <dd>2 June 2026</dd>
+        </div>
+        <div>
+          <dt>Source</dt>
+          <dd>Chainge weekly run · W23 · 1 June 2026</dd>
+        </div>
+        <div>
+          <dt>Reading time</dt>
+          <dd>~8 minutes</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 01 UPDATE READ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <h2 class="section-title">Update read</h2>
+      </div>
+      <div class="prose">
+        <p>Three changes land this iteration, all stemming from your W22 reply. Cascade A's transmission mechanism shifts from gas price as the single trigger to total WKK flexibility value, with gas price as one input among several. Cluster C, which was structured at inception around DSO revenue trajectory under flexibility-procurement methodology, is confirmed by your headline observation that congestion and electricity-side sensitivity exceeds gas-side sensitivity. Cluster B was not surfaced in your response; status remains open on whether it reads as a Q3-Q4 2026 live exposure or sits further out on the horizon.</p>
+        <p>Terminal exposures unchanged across all three clusters. Probabilities refine upward in directions consistent with corpus signal hardening (Polymarket Hormuz persistence to 0.75, Polymarket ECB June meeting to 0.959). The probability movements register as calibration discipline operating on the matrix; the W22 framings stay on the ledger, the W23 framings sit alongside them as the next iteration.</p>
+        <p>Triangulation is new in the harness this week. EXIOBASE3 v3.10.2 (international MRIO, 2022 data) and CBS StatLine (national accounts) both converge on Dutch greenhouse-versus-arable gas-intensity at roughly an 8x spread, and on glasshouse-gas-to-WKK conversion near 85% nationally in 2023. Two independent methodologies pointing at the same finding. The grounding for the multi-trigger framing now rests on two independent sources rather than one.</p>
+      </div>
+    </section>
+
+    <!-- 02 THREE UPDATES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <h2 class="section-title">The three updates, stated precisely</h2>
+      </div>
+
+      <div class="pred-stack">
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Update 1 · Cascade A reframed</div>
+              <h3 class="pred-title">Total WKK flexibility value replaces gas price as the single trigger</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.28</span>
+                <span class="stat-delta">from 0.22</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">Q3-Q4 2026</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">The transmission mechanism shifts from gas price as the single trigger to total WKK flexibility value as the load-bearing trigger, with gas price as one input among several. WKK value in 2026 lives across imbalance market participation, emergency power provision, classical spark spread, and flexibility revenue. Terminal exposure unchanged: Westland Infra regulated revenue under ACM congestion-management framework. Probability uplift tracks Polymarket Hormuz persistence hardening at node 1 (0.58 to 0.75).</p>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Update 2 · Cluster C structure confirmed</div>
+              <h3 class="pred-title">Existing flexibility-procurement framing aligns with the live exposure</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.42</span>
+                <span class="stat-delta">from 0.35</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">12-18 months</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">Cluster C (EMR reform plus DSO flexibility-procurement methodology plus congestion-management framework evolution) was structured at inception around congestion and electricity-side sensitivity. Your headline observation confirms this is the live exposure. Structure carries forward unchanged in W23. Probability uplift driven by internal framework sharpening on the EED-as-disallowance-trigger catch-22, rather than direct corpus signal.</p>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Update 3 · Cluster B carries forward</div>
+              <h3 class="pred-title">RAB useful-life contestation thesis stands, operator read open</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.32</span>
+                <span class="stat-delta">from 0.28</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">2026-2030</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">Cluster B (gas phase-out plus stranded asset pathway plus RAB useful-life contestation plus ACM WACC inversion) was not surfaced in the W22 response. Two reads remain open: that the cluster reads as a Q3-Q4 2026 live exposure, or that it sits further out on the horizon. Operator read shapes evolution priority, not the cluster's matrix status. Probability uplift tracks Polymarket ECB June meeting hardening to 0.959.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 CASCADE A REFINED -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <h2 class="section-title">Cascade A in detail, refined</h2>
+      </div>
+      <p class="section-lede">The W23 trace, with the operator reframe landed at step 3 and a new step 5 surfaced by the multi-component framing. Steps 1, 2, 4, and 6 carry forward; the W22 framing remains on the matrix ledger.</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">Step 1</div>
+          <div>
+            <h4 class="step-head">Hormuz persistence holds past June 15.</h4>
+            <p class="step-body">Polymarket "Hormuz lifted by June 15, 2026" reads 0.25 yes, implying 0.75 no-resolution-by-deadline. Node confidence rises sharply from W22's 0.58. The geopolitical risk premium holds; LNG routing constraint persists.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 2</div>
+          <div>
+            <h4 class="step-head">TTF above break-even, Brent above $100.</h4>
+            <p class="step-body">FRED Brent at $106.11. Brent above $100/bbl with roughly 30% probability of touching $110 by end-June; LNG cost advantage compresses; European buyers bid aggressively for Atlantic Basin cargoes, transmitting the crude shock into TTF.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 3</div>
+          <div>
+            <h4 class="step-head">Flexibility value compression, not spark spread alone.</h4>
+            <p class="step-body">W23 refinement, per operator response. TTF gas elevates above break-even for Dutch greenhouse CHP/WKK on the classical spark spread component. <em>Spark-spread inversion is one component of WKK value rather than the whole picture.</em> Imbalance market participation, emergency power provision, and flexibility revenue carry independent value layers that adjust separately based on grid conditions. Net effect on total flexibility value is the load-bearing question, not gas price alone.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 4</div>
+          <div>
+            <h4 class="step-head">Operator-level response variance.</h4>
+            <p class="step-body">Response heterogeneity in the Naaldwijk cluster. Peakers absorb compressed spark spread by leaning on imbalance and flexibility revenue. Baseload-leaning operators step back, reduce dispatch hours, or idle units. Financially stressed operators accelerate decisions to reduce cultivated area or mothball glasshouse sections.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 5</div>
+          <div>
+            <h4 class="step-head">Grid-level flexibility profile shift.</h4>
+            <p class="step-body">New W23 step, surfaced by the multi-component framing. Reduced CHP/WKK dispatch in Naaldwijk drops distributed generation feeding the Westland Infra medium-voltage grid, shifting regional feeder flow from a net-export profile to a net-import profile. Simultaneously reduces flexible capacity available to Westland Infra for congestion management and balancing. <em>Qualitatively different challenge than a standard load-reduction scenario.</em></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 6</div>
+          <div>
+            <h4 class="step-head">The ACM consequence.</h4>
+            <p class="step-body">The congestion-profile shift plus reduced CHP-based flexibility forces alternative congestion-management procurement at higher cost, or reduced grid utilisation. The combined effect compresses the efficiency of regulated capital deployment and creates ACM cost-disallowance risk if congestion expenditure rises above the regulatory cost envelope without a tariff adjustment.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="insight">
+        <strong>Matrix verdict registration</strong>
+        Predictions in the matrix resolve to <span class="verdict-states">right / partial / wrong / unclear</span> at the verdict horizon. The W22 Cascade A operator response registers as <em class="term">partial</em>: conclusion confirmed (congestion and electricity-side sensitivity exceeds gas-side sensitivity), mechanism challenged (the flexibility-value reframe replaces gas-price-as-single-trigger). The verdict registration would stand if today were the horizon. The methodology layer treats operator-CEO qualitative judgment as the verdict path for chains whose terminal claim has no public falsifiable observable.
+      </div>
+    </section>
+
+    <!-- 04 CLUSTER B -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Cluster B status</h2>
+      </div>
+      <div class="prose">
+        <p>Cluster B (gas phase-out plus stranded asset pathway plus RAB useful-life contestation plus ACM WACC inversion) was not surfaced in the W22 operator response. Two reads remain open. If B reads as a Q3-Q4 2026 live exposure, the cluster warrants accelerated evolution priority. If B sits further out on the horizon, evolution priority shifts to other clusters in the matrix. The cluster carries forward at 0.32 W23 overall probability; operator read shapes evolution priority, not matrix status.</p>
+        <p>What the chain still owes: the EUR-Lex CELEX identifiers for the 2024 gas package (Dir 2024/1788, Reg 2024/1789) now land in corpus as identifier-citations. Body-content remains WAF-blocked, so interpretive claims body-anchored to those texts still flag as model-estimate. The CSRD (CELEX:32022L2464) and EED (CELEX:32023L1791) anchors are in corpus with full text.</p>
+      </div>
+    </section>
+
+    <!-- 05 CLUSTER C -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Cluster C confirmation</h2>
+      </div>
+      <div class="prose">
+        <p>Cluster C (EU electricity market reform plus DSO flexibility-procurement methodology plus congestion-management framework) was structured at inception around the congestion and electricity-side sensitivity. The W22 response confirms this is the live exposure. Structure carries forward unchanged. The W23 framework sharpening surfaces the EED-as-disallowance-trigger catch-22: hedging through grid reinforcement risks EED energy-efficiency-first disallowance, while relying on flex carries contractual availability risk. The most greenhouse-load-concentrated DSO is simultaneously the most flex-design-sensitive.</p>
+        <p>Anchors: EUR-Lex CELEX:32024R1747 (Electricity Market Reform Regulation) and CELEX:32024L1711 (companion Directive) now in corpus as identifier-citations, cited inline on the relevant chain nodes. Substantive grounding improves over the W22 state where these anchors were absent entirely; body-content WAF gap means interpretive claims still flag as model-estimate.</p>
+      </div>
+    </section>
+
+    <!-- 06 WHAT WE CANNOT YET VERIFY -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">06</div>
+        <h2 class="section-title">What we cannot yet verify</h2>
+      </div>
+      <ul class="caveats">
+        <li><strong>Terminal-claim observability remains profile-shape-specific.</strong> DSO regulated revenue variance, capital-structure constraint, and regulated-return compression terminate at private operator observables. The verdict path is operator-CEO qualitative judgment (the matrix's observed / feedback path-attribute), not public data.</li>
+        <li><strong>Cascade A step 3 carries the W23 refinement load.</strong> The mechanism is now multi-component (imbalance plus emergency plus flexibility plus spark spread), but the relative weights between components are reasoning from your operator framing, not yet from live primary-source data per component.</li>
+        <li><strong>EUR-Lex body content remains WAF-blocked.</strong> Identifier-citations now land for Dir 2024/1788, Reg 2024/1789, Reg 2024/1747, Dir 2024/1711, but interpretive claims body-anchored to those texts still flag as model-estimate.</li>
+        <li><strong>Probabilities are model outputs, not market prices.</strong> Read them as ordinal calibration of the chain steps. Probability deltas (W22 to W23) signal the direction of corpus signal updating; the absolute values stay ordinal.</li>
+      </ul>
+    </section>
+
+    <!-- 07 SOURCES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">07</div>
+        <h2 class="section-title">Sources</h2>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Live corpus · pulled this week</div>
+        <div class="chip-row">
+          <span class="chip primary">Polymarket · Hormuz · 0.75 NO</span>
+          <span class="chip primary">Polymarket · ECB June · 0.959</span>
+          <span class="chip primary">FRED · Brent $106.11</span>
+          <span class="chip primary">FRED · Henry Hub</span>
+          <span class="chip primary new">EXIOBASE3 v3.10.2</span>
+          <span class="chip primary new">CBS StatLine</span>
+          <span class="chip primary">EUR-Lex · CSRD · CELEX:32022L2464</span>
+          <span class="chip primary">EUR-Lex · EED · CELEX:32023L1791</span>
+          <span class="chip primary">EUR-Lex · CSDDD · CELEX:32024L1760</span>
+          <span class="chip primary new">EUR-Lex · Gas package · CELEX:32024L1788</span>
+          <span class="chip primary new">EUR-Lex · Gas package · CELEX:32024R1789</span>
+          <span class="chip primary new">EUR-Lex · EMR · CELEX:32024R1747</span>
+          <span class="chip primary new">EUR-Lex · EMR · CELEX:32024L1711</span>
+          <span class="chip primary new">EUR-Lex · DSO cyber · CELEX:32024R1366</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Flagged · model estimate or operator framing, not yet primary-source per component</div>
+        <div class="chip-row">
+          <span class="chip model">WKK flexibility revenue · component weights</span>
+          <span class="chip model">Naaldwijk feeder-flow direction shift</span>
+          <span class="chip model">ACM congestion-revenue mechanics</span>
+          <span class="chip model">EUR-Lex body content · WAF-blocked</span>
+          <span class="chip model">RAB useful-life contestation timeline</span>
+        </div>
+      </div>
+
+      <p class="sources-note">Triangulation is the new harness layer this week. EXIOBASE3 and CBS StatLine converge independently on Dutch greenhouse-versus-arable gas-intensity and glasshouse-gas-to-WKK conversion. Two methodologies pointing at the same finding strengthens the grounding for the multi-trigger framing in Cascade A's refined transmission.</p>
+    </section>
+
+    <!-- 08 PRIVACY -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">08</div>
+        <h2 class="section-title">Privacy frame</h2>
+      </div>
+      <div class="privacy">
+        <strong>Public-surface render</strong>
+        Per the framing we agreed on, any public-surface rendering of these cascades describes "a Northwest European regional DSO with greenhouse horticulture concentration." Westland Infra is named only in engine-side metadata and in this share to you. The cascade narrative is yours; the public version is sanitized. The W23 refinement (multi-component WKK flexibility value as the load-bearing trigger) is preserved across both surfaces; only the operator name is sanitized.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Chainge · W23 · 2026-06-02</span>
+      <span>Westland Infra · confidential</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>
