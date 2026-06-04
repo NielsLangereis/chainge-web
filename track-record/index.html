@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>chainge / track record</title>
+<meta name="description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. This page is under construction; what we have today is summarised below.">
+<link rel="canonical" href="https://chainge.global/track-record/">
+
+<!-- favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.svg">
+
+<!-- open graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chainge.global/track-record/">
+<meta property="og:title" content="chainge / track record">
+<meta property="og:description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. Under construction; current state below.">
+<meta property="og:site_name" content="chainge">
+<meta property="og:image" content="https://chainge.global/og-image.svg">
+
+<!-- twitter / x -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="chainge / track record">
+<meta name="twitter:description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. Under construction; current state below.">
+<meta name="twitter:image" content="https://chainge.global/og-image.svg">
+
+<meta name="robots" content="index, follow">
+
+<!-- analytics -->
+<script async src="https://plausible.io/js/pa-IFWRBV3Tc2cZzZD6dUora.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+  .construction-bar {
+    background: rgba(182, 138, 44, 0.10);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 12px 0;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-align: center;
+  }
+  .construction-bar .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0 8px;
+    font-size: 14.5px;
+  }
+  .matrix-table th, .matrix-table td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .matrix-table thead th {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-bottom: 2px solid var(--line);
+  }
+  .matrix-cluster-head {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    color: var(--ink-2);
+    margin: 28px 0 4px;
+  }
+  .status-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--line);
+    color: var(--mute);
+  }
+  .summary-stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 32px 0 16px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-stat-row .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .summary-stat-row .stat-val {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .summary-stat-row .stat-val.accent { color: var(--accent); }
+  @media (max-width: 640px) {
+    .summary-stat-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <a href="index.html" class="nav-mark"><span class="ch">chai</span><span class="ng">nge</span></a>
+  <div class="nav-links">
+    <a href="index.html#thesis">the thesis</a>
+    <a href="how-it-works.html">how it works</a>
+    <a href="index.html#who">who uses it</a>
+    <a href="worked-example.html" class="nav-link-primary">example report</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">talk to us →</a>
+</nav>
+
+<!-- ===================== CONSTRUCTION NOTICE ===================== -->
+<div class="construction-bar">
+  <span class="dot"></span>under construction · current state below
+</div>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<div class="shell">
+  <section class="section" id="intro">
+    <div class="section-mark"><span>track record</span></div>
+    <h2>Every prediction lands in a public ledger.</h2>
+    <p class="section-lede">
+      This is the methodology track record. Every cascade prediction Chainge ships carries a locked horizon, capped at 90 days. When the horizon arrives, the prediction is scored against primary-source data: right, partial, wrong, or unclear. The original text is never edited. The ledger reads as a record, not a story.
+    </p>
+    <p class="section-lede" style="margin-top: 14px;">
+      The fully rendered ledger is being built. What follows is the current state, openly summarised, with the first verdict shown in context. Come back as horizons land; this page will fill in.
+    </p>
+
+    <div class="summary-stat-row">
+      <div>
+        <span class="stat-label">Active clusters</span>
+        <span class="stat-val">4</span>
+      </div>
+      <div>
+        <span class="stat-label">Chains tracked</span>
+        <span class="stat-val">18+</span>
+      </div>
+      <div>
+        <span class="stat-label">Verdicts landed</span>
+        <span class="stat-val accent">1</span>
+      </div>
+      <div>
+        <span class="stat-label">Pending verdicts</span>
+        <span class="stat-val">17+</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== WHAT'S TRACKED ===================== -->
+<div class="shell">
+  <section class="section" id="state">
+    <div class="section-mark"><span>01 · what's tracked today</span></div>
+    <h2>Four active clusters. <em>Eighteen-plus chains.</em></h2>
+    <p class="section-lede">
+      The matrix today holds four active prediction clusters. Each cluster groups a set of chains sharing a common source event or thesis. Each chain ships with named transmission, attenuating probability, source citations, and a locked verdict horizon.
+    </p>
+
+    <div class="matrix-cluster-head">cluster · hormuz Q3-Q4 2026 · live</div>
+    <table class="matrix-table" aria-label="Hormuz Q3-Q4 2026 prediction cluster, live state as of this writing">
+      <thead>
+        <tr><th scope="col">Source</th><th scope="col">Prediction</th><th scope="col">Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Polymarket</td><td>Hormuz tension lifted before 2026-05-31</td><td><span class="status-pill">unclear (resolved 2026-06-01)</span></td></tr>
+        <tr><td>Chainge chain (Anne lens)</td><td>Margin compression at Brabant specialty-chemicals SMEs Q3-Q4 2026</td><td><span class="status-pill">pending</span></td></tr>
+        <tr><td>Operator note (O'Leary, Ryanair)</td><td>Weaker EU budget carriers face refinancing pressure in Q3 earnings</td><td><span class="status-pill">pending</span></td></tr>
+        <tr><td>Chainge chain (DSO operator lens)</td><td>Dutch regional DSO regulated revenue under ACM congestion framework</td><td><span class="status-pill">pending</span></td></tr>
+      </tbody>
+    </table>
+
+    <p class="section-lede" style="margin-top: 28px;">
+      The three other active clusters (China rare-earth decoupling, EU gas phase-out to DSO stranded assets, EU electricity market reform to DSO revenue) will render in the same structure once the page build lands. Each cluster carries a similar mix of Chainge chains, operator observations, and prediction-market lines, all with locked horizons.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== WHAT'S COMING ===================== -->
+<div class="shell">
+  <section class="section" id="coming">
+    <div class="section-mark"><span>02 · what's coming</span></div>
+    <h2>The full ledger renders here.</h2>
+    <p class="section-lede">
+      The full track-record build adds: per-cluster cards rendered in chronological order, the evidence-path tag on every row (automatic, partial, observed, operator, pending), verdict status pills as horizons resolve, and the link from each row out to its underlying citations. Probability movements between iterations surface as inline deltas. The ledger updates weekly.
+    </p>
+    <p class="section-lede" style="margin-top: 14px;">
+      For methodology context (how cascades get generated, how the harness grounds claims, how verdicts get scored), see <a href="how-it-works.html">how it works</a>. The track-record page is the receipts; how-it-works is the method.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== FOOTER CTA ===================== -->
+<div class="shell">
+  <section class="section" id="next">
+    <div class="section-mark"><span>next</span></div>
+    <h2>Want first access when this page goes live?</h2>
+    <p class="section-lede">
+      Chainge is in research preview. No signup form yet. Drop <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20track%20record%20early%20access">Niels</a> a line and we'll send the link when the full ledger renders.
+    </p>
+    <p class="we-link we-link-large" style="margin-top: 32px;">
+      <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20track%20record%20early%20access">→ email Niels</a>
+    </p>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <span>chainge / chainge.global</span>
+  <span>research preview · 2026 · niels langereis</span>
+</footer>
+
+</body>
+</html>
