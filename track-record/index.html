@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>chainge / track record</title>
-<meta name="description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. This page is under construction; what we have today is summarised below.">
+<meta name="description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. Two states travel on every row: the prediction window (pending or closed) and the situation (active or resolved).">
 <link rel="canonical" href="https://chainge.global/track-record/">
 
 <!-- favicon -->
@@ -15,14 +15,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://chainge.global/track-record/">
 <meta property="og:title" content="chainge / track record">
-<meta property="og:description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. Under construction; current state below.">
+<meta property="og:description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. Two states travel on every row: prediction window and situation.">
 <meta property="og:site_name" content="chainge">
 <meta property="og:image" content="https://chainge.global/og-image.svg">
 
 <!-- twitter / x -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="chainge / track record">
-<meta name="twitter:description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon. Under construction; current state below.">
+<meta name="twitter:description" content="Every prediction Chainge ships lands in a public ledger with a locked horizon.">
 <meta name="twitter:image" content="https://chainge.global/og-image.svg">
 
 <meta name="robots" content="index, follow">
@@ -40,93 +40,136 @@
 <link rel="stylesheet" href="/styles.css">
 
 <style>
-  .construction-bar {
-    background: rgba(182, 138, 44, 0.10);
-    border-top: 1px solid var(--gold);
-    border-bottom: 1px solid var(--gold);
-    padding: 12px 0;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    text-align: center;
-  }
-  .construction-bar .dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  .matrix-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0 8px;
-    font-size: 14.5px;
-  }
-  .matrix-table th, .matrix-table td {
-    text-align: left;
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--line);
-    vertical-align: top;
-  }
-  .matrix-table thead th {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mute);
-    border-bottom: 2px solid var(--line);
-  }
-  .matrix-cluster-head {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    color: var(--ink-2);
-    margin: 28px 0 4px;
-  }
-  .status-pill {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 999px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: 1px solid var(--line);
-    color: var(--mute);
-  }
+  /* ============================================================
+     /track-record v2  ·  scoped pill component + cluster cards
+     Pill system per chainge_pill_component_spec_2026-06-04.md (T1).
+     Tokens come from /styles.css; band tokens topped up here.
+     ============================================================ */
+  :root { --band-yes: #3E9669; --band-no: #C9952F; }
+
+  /* ---- summary stats (hero) ---- */
   .summary-stat-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    margin: 32px 0 16px;
+    margin: 32px 0 10px;
     padding: 22px 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
-  .summary-stat-row .stat-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 6px;
-    display: block;
-  }
-  .summary-stat-row .stat-val {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-  }
+  .summary-stat-row .stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--mute); margin-bottom: 6px; display: block; }
+  .summary-stat-row .stat-val { font-family: var(--serif); font-size: 28px; font-weight: 400; line-height: 1; color: var(--ink); letter-spacing: -0.01em; }
   .summary-stat-row .stat-val.accent { color: var(--accent); }
+  .dual-state-note { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--mute); margin: 0 0 8px; }
+  @media (max-width: 640px) { .summary-stat-row { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+
+  /* ============ PILL SYSTEM (T1) ============ */
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; white-space: nowrap; line-height: 1.3;
+    border: 1px solid var(--mute); background: transparent; color: var(--mute);
+  }
+  .pill-outcome[data-state="right"]   { color: var(--paper); background: var(--accent);  border-color: var(--accent-deep); }
+  .pill-outcome[data-state="partial"] { color: var(--paper); background: var(--gold);    border-color: var(--gold); }
+  .pill-outcome[data-state="wrong"]   { color: var(--paper); background: var(--ink-2);   border-color: var(--ink); }
+  .pill-outcome[data-state="unclear"] { color: var(--ink-2); background: var(--paper);   border-color: var(--mute); }
+  .pill-outcome[data-state="pending"] { color: var(--mute);  background: transparent;    border-style: dashed; }
+
+  .pill-situation { border-color: var(--line); color: var(--ink-2); background: var(--paper); }
+  .pill-situation::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mute); flex-shrink: 0; }
+  .pill-situation[data-state="active"]   { color: var(--accent-deep); }
+  .pill-situation[data-state="active"]::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(45,92,71,0.14); }
+  .pill-situation[data-state="resolved"] { color: var(--mute); background: var(--paper-2); }
+  .pill-situation[data-state="resolved"]::before { background: var(--mute); }
+
+  .pill-provenance {
+    font-family: var(--serif); font-style: italic; font-size: 12.5px;
+    letter-spacing: normal; text-transform: none; padding: 2px 9px;
+    border-color: var(--line); color: var(--ink-2); background: transparent;
+  }
+  .pill-provenance::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mute); flex-shrink: 0; }
+  .pill-provenance[data-prov="automatic"]::before { background: var(--band-yes); }
+  .pill-provenance[data-prov="partial"]::before   { background: var(--gold); }
+  .pill-provenance[data-prov="observed"]::before  { background: var(--ink-2); }
+  .pill-provenance[data-prov="operator"]::before  { background: var(--accent-deep); box-shadow: 0 0 0 3px rgba(45,92,71,0.16); }
+  .pill-provenance[data-prov="pending"]::before   { background: var(--mute); }
+
+  .pill-source-disputed { font-size: 9.5px; padding: 3px 8px; border-color: var(--band-no); color: var(--band-no); background: transparent; }
+  .pill-source-disputed::before { content: "!"; font-weight: 600; margin-right: 1px; }
+
+  .pill-reference {
+    font-family: var(--serif); font-style: italic; font-size: 12.5px;
+    letter-spacing: normal; text-transform: none; padding: 2px 9px;
+    border-color: var(--line); color: var(--accent-deep); background: transparent;
+    cursor: pointer; text-decoration: none;
+  }
+  .pill-reference::after { content: "\2192"; margin-left: 2px; font-style: normal; }
+  .pill-reference:hover { background: var(--paper); border-color: var(--accent); }
+  .row-reference .pill-outcome, .row-reference .pill-situation { opacity: 0.4; filter: grayscale(0.6); }
+
+  /* ============ TOOLTIP (T1 .has-tip) ============ */
+  .has-tip { position: relative; cursor: help; }
+  .has-tip::after {
+    content: attr(data-tip);
+    position: absolute; bottom: calc(100% + 8px); left: 0;
+    background: var(--ink); color: var(--paper); padding: 10px 14px;
+    font-family: var(--serif); font-style: italic; font-size: 13px; font-weight: 400;
+    line-height: 1.5; letter-spacing: normal; text-transform: none;
+    width: max-content; max-width: 300px; white-space: normal;
+    opacity: 0; pointer-events: none; transition: opacity 0.18s ease-out;
+    z-index: 30; text-align: left; border: 1px solid var(--ink);
+  }
+  .has-tip:hover::after { opacity: 1; }
+  .has-tip[data-tip-align="right"]::after { left: auto; right: 0; }
+
+  /* ============ CLUSTER CARD + ROW ============ */
+  .tr-cluster { margin: 40px 0 8px; }
+  .tr-cluster-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--line); margin-bottom: 0;
+  }
+  .tr-cluster-name { font-family: var(--serif); font-size: 21px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+  .tr-cluster-counter { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--mute); text-transform: lowercase; }
+
+  .tr-row {
+    display: grid; grid-template-columns: 1fr auto; gap: 6px 20px; align-items: start;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .tr-source { grid-column: 1; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--mute); text-transform: uppercase; }
+  .tr-claim  { grid-column: 1; font-family: var(--serif); font-size: 16px; line-height: 1.45; color: var(--ink); }
+  .tr-primary { grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; gap: 7px; align-items: stretch; min-width: 150px; }
+  .tr-primary .pill { justify-content: center; } /* equal-width corner stack */
+  .tr-subline { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-top: 4px; padding-top: 10px; border-top: 1px dashed var(--line); }
+
+  /* earlier-framing (superseded) rows: quieter */
+  .tr-row.tr-earlier { opacity: 0.78; }
+  .tr-row.tr-earlier .tr-claim { font-size: 15px; color: var(--ink-2); }
+
+  /* sibling-horizon affordance (chevron expands inline) */
+  .sibling-row { font-family: var(--mono); font-size: 11px; color: var(--ink-2); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 8px 0 2px; user-select: none; }
+  .sibling-row .chev { display: inline-block; transition: transform 0.15s ease; color: var(--accent); }
+  .sibling-row.open .chev { transform: rotate(90deg); }
+  .sibling-row .summary { color: var(--mute); font-size: 10.5px; letter-spacing: 0.04em; }
+  .sibling-list { display: none; flex-direction: column; gap: 10px; margin: 10px 0 2px 22px; padding-left: 14px; border-left: 1px solid var(--line); }
+  .sibling-list.open { display: flex; }
+  .sibling-list .s-item { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .sibling-list .s-date { font-family: var(--mono); font-size: 10.5px; color: var(--mute); text-transform: uppercase; min-width: 92px; }
+  .sibling-list .s-band { font-family: var(--serif); font-size: 14px; color: var(--ink-2); }
+
+  /* earlier-framings disclosure */
+  .earlier-toggle { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 14px 0 4px; user-select: none; }
+  .earlier-toggle .chev { color: var(--accent); transition: transform 0.15s ease; display: inline-block; }
+  .earlier-toggle.open .chev { transform: rotate(90deg); }
+  .earlier-wrap { display: none; }
+  .earlier-wrap.open { display: block; }
+
+  .cluster-note { font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--mute); margin: 10px 0 0; }
+
   @media (max-width: 640px) {
-    .summary-stat-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .tr-row { grid-template-columns: 1fr; }
+    .tr-primary { grid-column: 1; grid-row: auto; flex-direction: row; flex-wrap: wrap; align-items: center; min-width: 0; margin-top: 8px; }
   }
 </style>
 </head>
@@ -144,11 +187,6 @@
   <a href="/#contact" class="nav-cta">talk to us →</a>
 </nav>
 
-<!-- ===================== CONSTRUCTION NOTICE ===================== -->
-<div class="construction-bar">
-  <span class="dot"></span>under construction · current state below
-</div>
-
 <main>
 
 <!-- ===================== HERO ===================== -->
@@ -160,68 +198,233 @@
       This is the methodology track record. Every cascade prediction Chainge ships carries a locked horizon, capped at 90 days. When the horizon arrives, the prediction is scored against primary-source data: right, partial, wrong, or unclear. The original text is never edited. The ledger reads as a record, not a story.
     </p>
     <p class="section-lede" style="margin-top: 14px;">
-      The fully rendered ledger is being built. What follows is the current state, openly summarised, with the first verdict shown in context. Come back as horizons land; this page will fill in.
+      Two states travel together on every row. The prediction window has its own lifecycle (pending, then closed at the horizon), and the underlying situation has its own (active while the event runs, resolved when it ends). A closed window does not mean a resolved situation. Hormuz is the live case: the first prediction window closed on June 1, the strait situation runs on.
     </p>
 
     <div class="summary-stat-row">
-      <div>
-        <span class="stat-label">Active clusters</span>
-        <span class="stat-val">4</span>
-      </div>
-      <div>
-        <span class="stat-label">Chains tracked</span>
-        <span class="stat-val">18+</span>
-      </div>
-      <div>
-        <span class="stat-label">Verdicts landed</span>
-        <span class="stat-val accent">1</span>
-      </div>
-      <div>
-        <span class="stat-label">Pending verdicts</span>
-        <span class="stat-val">17+</span>
-      </div>
+      <div><span class="stat-label">Active clusters</span><span class="stat-val">4</span></div>
+      <div><span class="stat-label">Chains tracked</span><span class="stat-val">18+</span></div>
+      <div><span class="stat-label">Horizons closed</span><span class="stat-val accent">1</span></div>
+      <div><span class="stat-label">Situations active</span><span class="stat-val">4</span></div>
     </div>
+    <p class="dual-state-note">prediction window: pending / closed&nbsp;&nbsp;·&nbsp;&nbsp;situation: active / resolved</p>
   </section>
 </div>
 
-<!-- ===================== WHAT'S TRACKED ===================== -->
+<!-- ===================== THE MATRIX ===================== -->
 <div class="shell">
   <section class="section" id="state">
     <div class="section-mark"><span>01 · what's tracked today</span></div>
     <h2>Four active clusters. <em>Eighteen-plus chains.</em></h2>
     <p class="section-lede">
-      The matrix today holds four active prediction clusters. Each cluster groups a set of chains sharing a common source event or thesis. Each chain ships with named transmission, attenuating probability, source citations, and a locked verdict horizon.
+      The matrix today holds four active prediction clusters. Each cluster groups a set of chains sharing a common source event or thesis. Each chain ships with named transmission, an attenuating probability, source citations, and a locked verdict horizon. Hover the source-disputed marker for the source-side note; open the related-horizons rows to see sibling Polymarket windows on the same situation.
     </p>
 
-    <div class="matrix-cluster-head">cluster · hormuz Q3-Q4 2026 · live</div>
-    <table class="matrix-table" aria-label="Hormuz Q3-Q4 2026 prediction cluster, live state as of this writing">
-      <thead>
-        <tr><th scope="col">Source</th><th scope="col">Prediction</th><th scope="col">Status</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Polymarket</td><td>Hormuz tension lifted before 2026-05-31</td><td><span class="status-pill">unclear (resolved 2026-06-01)</span></td></tr>
-        <tr><td>Chainge chain (Anne lens)</td><td>Margin compression at Brabant specialty-chemicals SMEs Q3-Q4 2026</td><td><span class="status-pill">pending</span></td></tr>
-        <tr><td>Operator note (O'Leary, Ryanair)</td><td>Weaker EU budget carriers face refinancing pressure in Q3 earnings</td><td><span class="status-pill">pending</span></td></tr>
-        <tr><td>Chainge chain (DSO operator lens)</td><td>Dutch regional DSO regulated revenue under ACM congestion framework</td><td><span class="status-pill">pending</span></td></tr>
-      </tbody>
-    </table>
+    <!-- ===== CLUSTER: HORMUZ ===== -->
+    <div class="tr-cluster" id="cluster-hormuz">
+      <div class="tr-cluster-head">
+        <span class="tr-cluster-name">Hormuz Q3-Q4 2026</span>
+        <span class="tr-cluster-counter">8 horizons pending (1 source-disputed) · 1 horizon closed (unclear) · situation active</span>
+      </div>
 
-    <p class="section-lede" style="margin-top: 28px;">
-      The three other active clusters (China rare-earth decoupling, EU gas phase-out to DSO stranded assets, EU electricity market reform to DSO revenue) will render in the same structure once the page build lands. Each cluster carries a similar mix of Chainge chains, operator observations, and prediction-market lines, all with locked horizons.
+      <!-- Polymarket family: primary June-30 horizon + collapsed siblings -->
+      <div class="tr-row" id="row-hormuz-pm-jun30">
+        <div class="tr-source">Polymarket · bettor-implied · binary</div>
+        <div class="tr-claim">Hormuz blockade lifted before 2026-06-30 (band: plausible, 54.5% at 2026-05-12 snapshot)</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+        <div class="tr-subline">
+          <span class="pill pill-source-disputed has-tip" data-tip="Polymarket has flagged this market's resolution path as disputed. The prediction is still pending; the source-side resolution is contested.">source disputed</span>
+          <span style="flex-basis:100%;height:0;"></span>
+          <div class="sibling-row" onclick="toggleSibling(this)">
+            <span class="chev">&#9656;</span>
+            <span>3 related horizons on the same situation</span>
+            <span class="summary">June 7 · June 15 · July 31 — all plausible, all pending</span>
+          </div>
+          <div class="sibling-list">
+            <div class="s-item"><span class="s-date">before Jun 7</span><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="s-band">band: plausible</span></div>
+            <div class="s-item"><span class="s-date">before Jun 15</span><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="s-band">band: plausible</span></div>
+            <div class="s-item"><span class="s-date">before Jul 31</span><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="s-band">band: plausible</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Polymarket closed sibling (May 31) -->
+      <div class="tr-row" id="row-hormuz-pm-may31">
+        <div class="tr-source">Polymarket · bettor-implied · binary</div>
+        <div class="tr-claim">Hormuz blockade lifted before 2026-05-31</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome has-tip" data-state="unclear" data-tip="verdict per Decision 5: market band was plausible at capture, so the window scores unclear regardless of direction unless a sharper-band snapshot supersedes it.">horizon closed: unclear</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+      </div>
+
+      <!-- Chainge chain: Anne, specialty chemicals -->
+      <div class="tr-row" id="row-hormuz-anne">
+        <div class="tr-source">Chainge chain · Anne (operator angle) · W21</div>
+        <div class="tr-claim">Ammonia and ethylene-glycol passthrough plus gas-fired reactor curtailment risk compresses margin at Dutch / Brabant specialty-chemicals SMEs through Q3-Q4 2026</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+      </div>
+
+      <!-- Operator observation: O'Leary -->
+      <div class="tr-row" id="row-hormuz-oleary">
+        <div class="tr-source">Operator observation · M. O'Leary, Ryanair CEO · 2026-05-19</div>
+        <div class="tr-claim">Weaker EU budget carriers face serious financial pressure if Hormuz stays closed through Q3-Q4 2026</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+      </div>
+
+      <!-- Chainge chain: Paul W22 greenhouse-CHP -->
+      <div class="tr-row" id="row-hormuz-paul-w22">
+        <div class="tr-source">Chainge chain · Paul profile · W22 · greenhouse-CHP</div>
+        <div class="tr-claim">Hormuz / TTF elevation inverts greenhouse CHP spark spread; CHP exit depletes Westland Infra's local flexibility resource, creating ACM congestion and flexibility-revenue variance</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+      </div>
+
+      <!-- Chainge chain: Paul W23 greenhouse-CHP -->
+      <div class="tr-row" id="row-hormuz-paul-w23">
+        <div class="tr-source">Chainge chain · Paul profile · W23 · greenhouse-CHP</div>
+        <div class="tr-claim">W23 evolution: CHP exit reverses feeder-flow direction (net-export to net-import), creating a qualitatively new import-congestion problem rather than just demand reduction; terminal ACM cost-disallowance risk</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+      </div>
+
+      <!-- earlier framings (superseded Rows 4 + 5) -->
+      <div class="earlier-toggle" onclick="toggleEarlier(this)">
+        <span class="chev">&#9656;</span>
+        <span>earlier framings on this cluster (2)</span>
+      </div>
+      <div class="earlier-wrap">
+        <div class="tr-row tr-earlier" id="row-hormuz-w20-centcom">
+          <div class="tr-source">Chainge chain · Anne · W20 backfill · refined into W21</div>
+          <div class="tr-claim">Hormuz / CENTCOM blockade lifts Brent to $110-120; TTF / JKM +30-50%; ammonia and EG passthrough into Brabant CoatPro and toll-synthesis</div>
+          <div class="tr-primary">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div>
+        </div>
+        <div class="tr-row tr-earlier" id="row-hormuz-w20-hezbollah">
+          <div class="tr-source">Chainge chain · Anne · W20 backfill · refined into W21</div>
+          <div class="tr-claim">Hezbollah escalation raises probability of Hormuz interdiction; two-sided USD / EUR squeeze on Brabant REC / NdPr and chemicals</div>
+          <div class="tr-primary">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div>
+        </div>
+        <p class="cluster-note">Earlier framings are Chainge's earlier reads of this cluster, refined into the W21 primary chain. They stay scored at their original horizons for audit completeness and are excluded from the cluster rollup denominator so framing evolution is not double-counted.</p>
+      </div>
+    </div>
+
+    <!-- ===== CLUSTER: CHINA RARE-EARTH ===== -->
+    <div class="tr-cluster" id="cluster-china">
+      <div class="tr-cluster-head">
+        <span class="tr-cluster-name">China rare-earth decoupling Q3-Q4 2026</span>
+        <span class="tr-cluster-counter">7 horizons pending · situation active</span>
+      </div>
+
+      <div class="tr-row" id="row-china-1">
+        <div class="tr-source">Chainge chain · Anne · W22 · CS3D + LKAB/India corridor</div>
+        <div class="tr-claim">CS3D 2027 phased application, exported through OEM procurement scorecards, reprices Chinese-refined NdPr / REE feedstock for Brabant before any FTA tariff line moves</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-china-2">
+        <div class="tr-source">Chainge chain · Anne · W22 · Commission ACI (Reg 2023/2675)</div>
+        <div class="tr-claim">ACI activation is regressive within the EU: Tier-1 majors absorb via stockpiles and bilateral contracts, mid-market SMEs are forced onto spot pricing on REC and NdPr</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-china-3">
+        <div class="tr-source">Chainge chain · Anne · W22 · methane reg + CBAM extension</div>
+        <div class="tr-claim">MethaneSAT-grade attribution turns opaque upstream Chinese-refiner methane into quantified CBAM-scope-extension liability landing on the Dutch silane line</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-china-4">
+        <div class="tr-source">Chainge chain · Anne · W22 · Samsung court + Chips Act Art 26</div>
+        <div class="tr-claim">EU Chips Act Article 26 is the dormant analog of the Korean essential-infrastructure framing; on activation, continuity obligations flow downstream as supplier-qualification clauses, pricing redundancy risk into mid-market chemical inputs</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-china-5">
+        <div class="tr-source">Chainge chain · Anne · W23 · Putin deployment law + Baltic EW</div>
+        <div class="tr-claim">Dual-use export-control regime creeps over REE precursors via sanctions architecture, narrowing Brabant's supplier menu through a route distinct from FTA or ACI</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-china-6">
+        <div class="tr-source">Chainge chain · Anne · W23 · Huawei 1.4nm + Chips Act Art 37</div>
+        <div class="tr-claim">Chips Act Article 37 provenance migration accelerates as Huawei's 1.4nm announcement repositions semiconductor-input continuity, cascading into Brabant REC and NdPr qualification urgency</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-china-7">
+        <div class="tr-source">Chainge chain · Anne · W23 · US-Iran / CAATSA + CNY-invoicing</div>
+        <div class="tr-claim">CAATSA-style secondary sanctions plus CNY-invoicing pressure on Chinese refiners narrow Brabant's actual supplier menu, distinct from the Hormuz USD-clearing mechanism</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+    </div>
+
+    <!-- ===== CLUSTER: EU GAS TRANSITION ===== -->
+    <div class="tr-cluster" id="cluster-eu-gas">
+      <div class="tr-cluster-head">
+        <span class="tr-cluster-name">EU gas transition to regional DSO stranded assets</span>
+        <span class="tr-cluster-counter">2 horizons pending · situation active</span>
+      </div>
+
+      <div class="tr-row" id="row-eugas-w22">
+        <div class="tr-source">Chainge chain · Paul profile · W22 · Westland Infra gas distribution</div>
+        <div class="tr-claim">EU gas phase-out plus Dutch hydrogen-heating rejection force ACM to shorten gas asset lives; the stranded-asset overhang, disclosed under CSRD into a non-easing ECB cycle, constrains Westland Infra's 2027-2032 capital programme</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-eugas-w23">
+        <div class="tr-source">Chainge chain · Paul profile · W23 · Westland Infra gas distribution</div>
+        <div class="tr-claim">W23 evolution: ACM denies revenue uplift on contested useful-life RAB assets; hydrogen repurposing works only for steel mains (PE last-mile must be replaced); capital allocation freezes before any formal write-down hits the books</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+    </div>
+
+    <!-- ===== CLUSTER: EU ELECTRICITY MARKET REFORM ===== -->
+    <div class="tr-cluster" id="cluster-eu-electricity">
+      <div class="tr-cluster-head">
+        <span class="tr-cluster-name">EU electricity market reform to DSO flexibility revenue</span>
+        <span class="tr-cluster-counter">2 horizons pending · situation active</span>
+      </div>
+
+      <div class="tr-row" id="row-euelec-w22">
+        <div class="tr-source">Chainge chain · Paul profile · W22 · Westland Infra electricity distribution</div>
+        <div class="tr-claim">EU market reform mandates DSO flexibility procurement; an energy-vs-capacity product default plus greenhouse-load correlation collapses aggregator participation, forcing reinforcement capex with no settled flexibility-cost recovery and compressing regulated return</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+      <div class="tr-row" id="row-euelec-w23">
+        <div class="tr-source">Chainge chain · Paul profile · W23 · Westland Infra electricity distribution</div>
+        <div class="tr-claim">W23 evolution: regulatory catch-22 — ACM can use the EED energy-efficiency-first principle to disallow reinforcement capex submitted as a hedge against flexibility-market uncertainty; the greenhouse cluster makes Westland Infra simultaneously the most flex-rich and most design-sensitive DSO</div>
+        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      </div>
+    </div>
+
+    <p class="section-lede" style="margin-top: 34px;">
+      Verdict provenance and cross-cluster reach render next: the evidence-path pill on every row (automatic, partial, observed, operator, pending), the chain-timeline grouping where a later week refines an earlier read, and the cross-cluster reference where one chain bridges two clusters. The ledger updates weekly.
     </p>
   </section>
 </div>
 
-<!-- ===================== WHAT'S COMING ===================== -->
+<!-- ===================== METHODOLOGY LINK ===================== -->
 <div class="shell">
-  <section class="section" id="coming">
-    <div class="section-mark"><span>02 · what's coming</span></div>
-    <h2>The full ledger renders here.</h2>
+  <section class="section" id="method">
+    <div class="section-mark"><span>02 · how to read a verdict</span></div>
+    <h2>The receipts here, the method there.</h2>
     <p class="section-lede">
-      The full track-record build adds: per-cluster cards rendered in chronological order, the evidence-path tag on every row (automatic, partial, observed, operator, pending), verdict status pills as horizons resolve, and the link from each row out to its underlying citations. Probability movements between iterations surface as inline deltas. The ledger updates weekly.
+      A pending window means the horizon has not arrived. A closed window carries a verdict: right, partial, wrong, or unclear, scored mechanically against primary-source data where the data exists, and against proxy or operator evidence where it does not, with that path disclosed. Some terminal claims (private-SME margin compression, for one) have no public falsifiable observable; the ledger says so rather than scoring them silently.
     </p>
     <p class="section-lede" style="margin-top: 14px;">
-      For methodology context (how cascades get generated, how the harness grounds claims, how verdicts get scored), see <a href="/how-it-works.html">how it works</a>. The track-record page is the receipts; how-it-works is the method.
+      For how cascades get generated, how the harness grounds claims, and how verdicts get scored, see <a href="/how-it-works.html">how it works</a>. The track-record page is the receipts; how-it-works is the method.
     </p>
   </section>
 </div>
@@ -230,9 +433,9 @@
 <div class="shell">
   <section class="section" id="next">
     <div class="section-mark"><span>next</span></div>
-    <h2>Want first access when this page goes live?</h2>
+    <h2>Want first access as horizons land?</h2>
     <p class="section-lede">
-      Chainge is in research preview. No signup form yet. Drop <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20track%20record%20early%20access">Niels</a> a line and we'll send the link when the full ledger renders.
+      Chainge is in research preview. No signup form yet. Drop <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20track%20record%20early%20access">Niels</a> a line and we'll send word as the first verdicts resolve.
     </p>
     <p class="we-link we-link-large" style="margin-top: 32px;">
       <a href="mailto:mail@nielslangereis.com?subject=Chainge%20%C2%B7%20track%20record%20early%20access">→ email Niels</a>
@@ -246,6 +449,19 @@
   <span>chainge / chainge.global</span>
   <span>research preview · 2026 · niels langereis</span>
 </footer>
+
+<script>
+  function toggleSibling(el) {
+    el.classList.toggle('open');
+    var list = el.parentElement.querySelector('.sibling-list');
+    if (list) list.classList.toggle('open');
+  }
+  function toggleEarlier(el) {
+    el.classList.toggle('open');
+    var wrap = el.nextElementSibling;
+    if (wrap && wrap.classList.contains('earlier-wrap')) wrap.classList.toggle('open');
+  }
+</script>
 
 </body>
 </html>
