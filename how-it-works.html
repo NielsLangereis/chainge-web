@@ -168,6 +168,96 @@
     padding-top: 18px;
     border-top: 1px dashed var(--line);
   }
+
+  /* ===================================================================
+     pill component system (T1; reused by Panel 5 for Decision 10)
+     outcome + situation pills travel together so "horizon closed"
+     never reads as "situation resolved".
+     =================================================================== */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    white-space: nowrap;
+    border: 1px solid var(--mute);
+    background: transparent;
+    color: var(--mute);
+    line-height: 1.3;
+  }
+  /* outcome pill: verdict, five states */
+  .pill-outcome[data-state="right"]   { color: var(--paper); background: var(--accent);  border-color: var(--accent-deep); }
+  .pill-outcome[data-state="partial"] { color: var(--paper); background: var(--gold);    border-color: var(--gold); }
+  .pill-outcome[data-state="wrong"]   { color: var(--paper); background: var(--ink-2);   border-color: var(--ink); }
+  .pill-outcome[data-state="unclear"] { color: var(--ink-2); background: var(--paper);   border-color: var(--mute); }
+  .pill-outcome[data-state="pending"] { color: var(--mute);  background: transparent;    border-style: dashed; }
+  /* situation pill: lifecycle, two states, always paired with outcome */
+  .pill-situation { border-color: var(--line); color: var(--ink-2); background: var(--paper); }
+  .pill-situation::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--mute);
+    flex-shrink: 0;
+  }
+  .pill-situation[data-state="active"]   { color: var(--accent-deep); }
+  .pill-situation[data-state="active"]::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(45,92,71,0.14); }
+  .pill-situation[data-state="resolved"] { color: var(--mute); background: var(--paper-2); }
+  .pill-situation[data-state="resolved"]::before { background: var(--mute); }
+  /* source-disputed marker: amber outline, no fill, small */
+  .pill-source-disputed {
+    font-size: 9.5px;
+    padding: 3px 8px;
+    border-color: var(--band-no);
+    color: var(--band-no);
+    background: transparent;
+  }
+  .pill-source-disputed::before { content: "!"; font-weight: 600; margin-right: 1px; }
+  /* a status cell holds its pills on a wrapping flex line */
+  .status-pair { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+  /* sibling-horizon expandable affordance (chevron = expand inline) */
+  .sibling-row { font-family: var(--mono); font-size: 11px; color: var(--ink-2); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 4px 0; user-select: none; }
+  .sibling-row .chev { display: inline-block; transition: transform 0.15s ease; color: var(--accent); }
+  .sibling-row.open .chev { transform: rotate(90deg); }
+  .sibling-row .summary { color: var(--mute); font-size: 10.5px; letter-spacing: 0.04em; }
+  .sibling-list { display: none; flex-direction: column; gap: 8px; margin: 8px 0 2px 20px; padding-left: 14px; border-left: 1px solid var(--line); }
+  .sibling-list.open { display: flex; }
+  .sibling-list .s-item { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .sibling-list .s-date { font-family: var(--mono); font-size: 10.5px; color: var(--mute); text-transform: uppercase; min-width: 64px; }
+  /* generalized tooltip utility (matches T1 .has-tip) */
+  .has-tip { position: relative; cursor: help; }
+  .has-tip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
+    width: max-content;
+    max-width: 280px;
+    white-space: normal;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease-out;
+    z-index: 30;
+    text-align: left;
+    border: 1px solid var(--ink);
+  }
+  .has-tip:hover::after { opacity: 1; }
+  .has-tip[data-tip-align="right"]::after { left: auto; right: 0; }
 </style>
 </head>
 <body>
@@ -441,27 +531,85 @@
     <div class="section-mark"><span>05 · the matrix</span></div>
     <h2>Predictions become a track record. <em>Every horizon lands in a public ledger.</em></h2>
     <p class="section-lede">
-      Every cascade prediction ships with a locked <span class="jargon" data-tip="The date or condition by which a prediction will be scored against primary-source data. Capped at 90 days from publication." tabindex="0">verdict horizon</span>, capped at 90 days. When the horizon arrives, the prediction is scored against primary-source data: right, partial, wrong, or unclear. The verdict is mechanical where possible (a FRED series threshold, a Polymarket resolution, a EUR-Lex filing), observed against operator judgment where not. The original text is never edited. The ledger reads as a record, not a story.
+      Every cascade prediction ships with a locked <span class="jargon" data-tip="The date or condition by which a prediction will be scored against primary-source data. Capped at 90 days from publication." tabindex="0">horizon</span>, capped at 90 days. When the horizon arrives, the prediction is scored against primary-source data: right, partial, wrong, or unclear. The verdict is mechanical where possible (a FRED series threshold, a Polymarket resolution, a EUR-Lex filing), observed against operator judgment where not. The original text is never edited. The ledger reads as a record, not a story.
     </p>
     <p class="section-lede" style="margin-top: 14px;">
-      The first verdict landed 2026-06-01: Polymarket Hormuz May 31, unclear. Four active clusters in the matrix today, eighteen-plus chains tracked.
+      Two states travel together on every row. The prediction has its own lifecycle (pending, resolved, superseded). The underlying situation has its own (active, resolved). A prediction window can close while the situation continues; the matrix shows both, separately.
+    </p>
+    <p class="section-lede" style="margin-top: 14px;">
+      The first prediction window closed 2026-06-01: Polymarket Hormuz May 31, unclear. The strait situation remains active. Four open prediction horizons run on the same situation through July 31. Four active clusters in the matrix today, eighteen-plus chains tracked.
     </p>
 
-    <div class="matrix-cluster-head">cluster: hormuz Q3-Q4 2026</div>
+    <div class="matrix-cluster-head">cluster: hormuz Q3-Q4 2026 · 5 horizons pending, 1 horizon closed, situation active</div>
     <table class="matrix-table" aria-label="Hormuz Q3-Q4 2026 prediction cluster, live state as of this writing">
       <thead>
         <tr><th scope="col">Source</th><th scope="col">Prediction</th><th scope="col">Status</th></tr>
       </thead>
       <tbody>
-        <tr><td>Polymarket</td><td>Hormuz tension lifted before 2026-05-31</td><td><span class="status-pill">unclear (resolved 2026-06-01)</span></td></tr>
-        <tr><td>Chainge chain (Anne lens)</td><td>Margin compression at Brabant specialty-chemicals SMEs Q3-Q4 2026</td><td><span class="status-pill">pending</span></td></tr>
-        <tr><td>Operator note (O'Leary, Ryanair)</td><td>Weaker EU budget carriers face refinancing pressure in Q3 earnings</td><td><span class="status-pill">pending</span></td></tr>
-        <tr><td>Chainge chain (DSO operator lens)</td><td>Dutch regional DSO regulated revenue under ACM congestion framework</td><td><span class="status-pill">pending</span></td></tr>
+        <tr>
+          <td>Polymarket</td>
+          <td>Hormuz tension lifted before 2026-05-31</td>
+          <td><div class="status-pair">
+            <span class="pill pill-outcome" data-state="unclear">horizon closed: unclear</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Polymarket</td>
+          <td>Hormuz tension lifted before 2026-06-30</td>
+          <td><div class="status-pair">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+            <span class="pill pill-source-disputed has-tip" data-tip-align="right" data-tip="Polymarket has flagged this market's resolution path as disputed. The prediction is still pending; the source-side resolution is contested.">source disputed</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Polymarket</td>
+          <td>
+            <div class="sibling-row" onclick="toggleSibling(this)">
+              <span class="chev">&#9656;</span>
+              <span>3 related horizons</span>
+              <span class="summary">June 7 · June 15 · July 31</span>
+            </div>
+            <div class="sibling-list">
+              <div class="s-item"><span class="s-date">June 7</span><span class="pill pill-outcome" data-state="pending">horizon pending</span></div>
+              <div class="s-item"><span class="s-date">June 15</span><span class="pill pill-outcome" data-state="pending">horizon pending</span></div>
+              <div class="s-item"><span class="s-date">July 31</span><span class="pill pill-outcome" data-state="pending">horizon pending</span></div>
+            </div>
+          </td>
+          <td><div class="status-pair">
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Chainge chain (Anne lens)</td>
+          <td>Margin compression at Brabant specialty-chemicals SMEs Q3-Q4 2026</td>
+          <td><div class="status-pair">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Operator note (O'Leary, Ryanair)</td>
+          <td>Weaker EU budget carriers face refinancing pressure in Q3 earnings</td>
+          <td><div class="status-pair">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td>Chainge chain (DSO operator lens)</td>
+          <td>Westland-area DSO regulated revenue under ACM congestion framework</td>
+          <td><div class="status-pair">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div></td>
+        </tr>
       </tbody>
     </table>
 
     <p class="panel-svg-caption" style="text-align: left; margin-top: 12px;">
-      the ledger reads as a record, not a story. predictions land; verdicts arrive on their own horizon. one cluster shown; matrix updates weekly.
+      two states on every row. the prediction window has a lifecycle; the situation has its own. one cluster shown; matrix updates weekly. the prediction markets we ingest already picked their horizons; we surface the distribution rather than asserting our own.
     </p>
 
     <p class="we-link" style="margin-top: 22px;">
@@ -605,6 +753,15 @@
   <span>chainge / chainge.global</span>
   <span>research preview · 2026 · niels langereis</span>
 </footer>
+
+<script>
+  // Panel 5: sibling-horizon chevron expands related Polymarket horizons inline.
+  function toggleSibling(el) {
+    el.classList.toggle('open');
+    var list = el.parentElement.querySelector('.sibling-list');
+    if (list) list.classList.toggle('open');
+  }
+</script>
 
 </body>
 </html>
