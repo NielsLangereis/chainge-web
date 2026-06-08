@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge W24 · Cascade update · Westland Infra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* paper grain, very subtle */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  main { position: relative; z-index: 2; }
+
+  /* PAGE SHELL */
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 72px 80px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  /* TOP META BAR */
+  .topmeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    margin-bottom: 32px;
+  }
+  .topmeta .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* COVER */
+  .cover {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 14ch;
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 44ch;
+    margin: 0 0 48px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 56ch;
+  }
+  .cover-meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .cover-meta dd {
+    font-family: var(--serif);
+    font-size: 16px;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  /* SECTION */
+  .section {
+    padding: 56px 0 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  .section-title em { font-style: italic; }
+
+  .section-lede {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+    margin: 0 0 24px;
+  }
+
+  /* BODY PROSE */
+  .prose p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 68ch;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* PREDICTION CARDS */
+  .pred-stack { display: grid; gap: 28px; margin-top: 8px; }
+
+  .pred {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 28px 32px 30px;
+    box-shadow: 4px 4px 0 var(--ink);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pred-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .pred-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .pred-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .pred-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+  }
+  .stat {
+    min-width: 92px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .stat-val {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-val.accent { color: var(--accent); }
+  .stat-delta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    margin-top: 4px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .stat-delta.down { color: var(--gold); }
+  .stat-delta.up { color: var(--accent); }
+  .pred-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .pred-path {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  .pred-path b {
+    color: var(--ink-2);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .pred-path .val { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .pred-path .now { color: var(--accent); font-weight: 600; }
+
+  /* CASCADE STEPS */
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    position: relative;
+  }
+  .step-num::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    bottom: -24px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step:last-child .step-num::before { display: none; }
+  .step-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 4px;
+    letter-spacing: -0.005em;
+  }
+  .step-meta {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+  .step-meta .g { color: var(--accent); }
+  .step-meta .c { color: var(--gold); }
+  .step-meta .p { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .step-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .step-body em { font-style: italic; color: var(--mute); }
+  .step.context .step-num { color: var(--gold); }
+
+  /* INFLECTION CALLOUT */
+  .inflection {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--paper);
+    border: 1px solid var(--accent);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  .inflection strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .insight {
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  .insight strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .insight .verdict-states {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .insight em.term {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* FLAG NOTE */
+  .flag {
+    margin-top: 24px;
+    padding: 18px 22px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--gold);
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+  }
+  .flag strong {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  /* SOURCES + CITATION CHIPS */
+  .sources-group { margin-bottom: 36px; }
+  .sources-group:last-child { margin-bottom: 0; }
+  .sources-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px 4px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+  }
+  .chip::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mute);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .chip.primary::before { background: var(--accent); }
+  .chip.model::before { background: var(--gold); }
+  .chip.context::before { background: var(--gold); }
+  .chip.new {
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+  .chip.new::after {
+    content: "new";
+    font-size: 8.5px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+
+  .sources-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--mute);
+    margin-top: 20px;
+    max-width: 62ch;
+  }
+
+  /* OPEN QUESTION */
+  .question {
+    margin-top: 8px;
+    padding: 26px 28px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--accent);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  .question strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* PRINT */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  @media print {
+    body { background: var(--paper); }
+    body::before { display: none; }
+    .page { max-width: none; padding: 0; }
+    .section { padding: 32px 0 8px; page-break-inside: auto; }
+    .cover { padding: 24px 0 48px; page-break-after: always; }
+    .section-head { page-break-after: avoid; break-after: avoid; }
+    .pred, .step, .insight, .inflection, .flag, .question { page-break-inside: avoid; break-inside: avoid; }
+    .pred-stack { gap: 20px; }
+    .footer { page-break-before: avoid; }
+    .topmeta { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · weekly run W24</span>
+      <span>Confidential · prepared for Paul Langereis</span>
+    </div>
+
+    <!-- COVER -->
+    <header class="cover">
+      <div class="cover-eyebrow">Strategic foresight update · Week 24 · 2026</div>
+      <h1 class="cover-title">Cascade update, <em>Westland Infra</em></h1>
+      <p class="cover-sub">
+        Two clusters moderated, one strengthened. Cascade A is re-grounded on sustained energy cost rather than a single de-escalation date, with the binding constraint sitting where it belongs, downstream at your regulated revenue.
+      </p>
+      <dl class="cover-meta">
+        <div>
+          <dt>Prepared for</dt>
+          <dd>Paul Langereis · CEO, Westland Infra Netbeheer</dd>
+        </div>
+        <div>
+          <dt>Date</dt>
+          <dd>8 June 2026</dd>
+        </div>
+        <div>
+          <dt>Source</dt>
+          <dd>Chainge weekly run · W24 · 8 June 2026</dd>
+        </div>
+        <div>
+          <dt>Reading time</dt>
+          <dd>~8 minutes</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 01 UPDATE READ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <h2 class="section-title">Update read</h2>
+      </div>
+      <div class="prose">
+        <p>This iteration moves in two directions, not one. Two of your clusters moderated and one strengthened, and the reason each moved is the methodology point worth sitting with. Cluster B eases from 0.32 to 0.18 and Cluster C from 0.42 to 0.18, because the harness now declines to carry probability that rests on EUR-Lex text it cannot read. Cascade A rises from 0.28 to 0.35, because the chain was re-grounded: its probability now rests on sustained energy-cost observables and an explicit model of cost persistence, rather than on a single read of whether the Strait reopens by one date.</p>
+        <p>That re-grounding is the substantive change. The earlier framing leaned on the Hormuz de-escalation question as if a reopening would switch the cascade off. It would not. The binding constraint sits downstream, in your ACM-revenue exposure, and the cost that drives it decays on its own lagged path whatever the geopolitics do. Hormuz is the gravity event that frames the cascade; it is no longer the floor under it.</p>
+        <p>The cleaner read of the week is that the engine moved each cascade in the direction its grounding pointed: down where the evidence thinned, up where it strengthened. That is what a calibration loop is supposed to do. A matrix that only ever drifts one way is not calibrating; this one discriminated.</p>
+      </div>
+    </section>
+
+    <!-- 02 THREE UPDATES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <h2 class="section-title">The three updates, stated precisely</h2>
+      </div>
+
+      <div class="pred-stack">
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cascade A · Hormuz to greenhouse-CHP to regulated revenue</div>
+              <h3 class="pred-title">Re-grounded on sustained cost, the cascade holds firmer</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.35</span>
+                <span class="stat-delta up">up 0.07</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">Q3-Q4 2026</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">The chain is intact and now rests on firmer ground. Hormuz is the gravity event that frames it, but the binding constraint is downstream, at the ACM-revenue node. The de-escalation question, whether the Strait reopens by a given date, is context rather than the driver, because a reopening does not snap the cost cascade shut: risk premia, insurance and contract repricing persist on a lag. The probability now reads off the EIA STEO forward-cost path and an explicit cost-hysteresis model, not a single Polymarket date. Earliest falsifiable inflection: Q3 2026, anchored on sustained Brent and the Dutch curtailment conditions.</p>
+          <div class="pred-path">
+            <span><b>Path</b></span>
+            <span>W22 <span class="val">0.22</span></span>
+            <span>W23 <span class="val">0.28</span></span>
+            <span>W24 <span class="now">0.35</span></span>
+          </div>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cluster B · EU gas phase-out to stranded DSO assets</div>
+              <h3 class="pred-title">Thesis holds, horizon pulls to the Q4 consultation window</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.18</span>
+                <span class="stat-delta down">down 0.14</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">2026-2030</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">The stranded-asset pathway (gas phase-out plus RAB useful-life contestation plus ACM WACC inversion) carries forward unchanged in structure. The probability eases as the harness attenuates the nodes that were body-anchored to WAF-blocked EUR-Lex text rather than to landed primary source. The framing now pins to a dated inflection: the Dutch government's updated National Heating Vision (Nationale Warmtevisie) and the ACM 2026-2030 regulatory-period consultation, both expected Q4 2026. Four prediction checks landed on nodes 1, 2 and 3.</p>
+          <div class="pred-path">
+            <span><b>Path</b></span>
+            <span>W22 <span class="val">0.28</span></span>
+            <span>W23 <span class="val">0.32</span></span>
+            <span>W24 <span class="val">0.18</span></span>
+          </div>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cluster C · EMR reform to DSO flexibility revenue</div>
+              <h3 class="pred-title">Sharpest correction, where the W23 uplift was reasoning-led</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.18</span>
+                <span class="stat-delta down">down 0.24</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">12-18 months</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">Cluster C took the sharpest move. The W23 uplift to 0.42 was driven by internal framework sharpening on the EED-as-disallowance catch-22 rather than by direct corpus signal, and the W24 attenuation corrected hardest exactly there: the chain keeps only the probability its grounded nodes support. The live exposure is unchanged and the inflection is dated: ACM congestion and flexibility consultation under the Directive 2024/1711 transposition (CELEX:32024L1711), alongside the EZK draft Energiewet implementing decree, both Q4 2026. Two prediction checks landed on nodes 1 and 2.</p>
+          <div class="pred-path">
+            <span><b>Path</b></span>
+            <span>W22 <span class="val">0.35</span></span>
+            <span>W23 <span class="val">0.42</span></span>
+            <span>W24 <span class="val">0.18</span></span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 CASCADE A REFINED -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <h2 class="section-title">Cascade A in detail, refined further</h2>
+      </div>
+      <p class="section-lede">The W24 trace, seven nodes, re-grounded on the EIA STEO forward-cost path. The change since W23 is structural: the binding constraint is the downstream ACM-revenue node, and the Hormuz de-escalation question sits below the grounded spine as context, not as the floor. The chain reads firmer because its probability rests on sustained cost rather than on whether the Strait reopens by a given date.</p>
+
+      <div class="steps">
+
+        <div class="step context">
+          <div class="step-num">Node 1</div>
+          <div>
+            <h4 class="step-head">Hormuz blockade persists as the gravity event.</h4>
+            <div class="step-meta"><span class="c">Geopolitical · context (exempt)</span><span class="p">0.55</span></div>
+            <p class="step-body">The originating event that frames the cascade, not the binding constraint. The de-escalation read, whether the Strait reopens by a given date, is a forward instrument sitting inside the blockade's own distortion field, so it sets context rather than the floor. <em>It is positioned below the grounded spine that follows, which is correct, see the callout below.</em></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 2</div>
+          <div>
+            <h4 class="step-head">Brent sustains at or above $96/bbl through Q3.</h4>
+            <div class="step-meta"><span class="g">Economic · grounded</span><span class="p">0.72</span></div>
+            <p class="step-body">The grounded cost signal, read off the EIA STEO forward Brent path rather than flat spot. The STEO curve is backwardated, near 105 in June easing toward roughly 86 by December, so the premium is real near-term and decays through the second half. This node is the spine anchor.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 3</div>
+          <div>
+            <h4 class="step-head">Cost hysteresis: premia and insurance persist even if the Strait reopens.</h4>
+            <div class="step-meta"><span class="g">Economic · grounded</span><span class="p">0.65</span></div>
+            <p class="step-body">The load-bearing idea, and the headline of this read. Even on a reopening, risk premia, war-risk insurance, tanker rates, inventory rebuilds and contract repricing keep the cost base elevated on a lagged path. Reopening resolves the geopolitics; it does not reset the cost. This is the node that decouples your exposure from the de-escalation date.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 4</div>
+          <div>
+            <h4 class="step-head">TTF gas transmission via LNG substitution.</h4>
+            <div class="step-meta"><span class="g">Economic · grounded</span><span class="p">0.60</span></div>
+            <p class="step-body">Sustained crude elevation transmits into European gas: with the LNG cost advantage compressed, European buyers bid more aggressively for Atlantic Basin cargoes and the crude premium feeds through into TTF on the established substitution mechanism.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 5</div>
+          <div>
+            <h4 class="step-head">Dutch CHP/WKK spark-spread inverts.</h4>
+            <div class="step-meta"><span class="g">Environmental · grounded</span><span class="p">0.52</span></div>
+            <p class="step-body">Elevated TTF compresses the classical spark-spread component for Dutch greenhouse CHP. <em>Spark-spread inversion is one component of flexibility value, not the whole picture.</em> Imbalance-market participation, emergency-power provision and flexibility revenue carry independent value layers that adjust separately on grid conditions. The net effect on total flexibility value is the load-bearing question, not gas price alone.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 6</div>
+          <div>
+            <h4 class="step-head">Sustained Naaldwijk curtailment.</h4>
+            <div class="step-meta"><span class="g">Operational · grounded</span><span class="p">0.42</span></div>
+            <p class="step-body">Response heterogeneity across the Naaldwijk cluster. Peakers absorb the compressed spark spread by leaning on imbalance and flexibility revenue; baseload-leaning operators step back, reduce dispatch hours or idle units; financially stressed operators accelerate decisions to reduce cultivated area. Reduced CHP dispatch drops distributed generation feeding your medium-voltage grid, shifting regional feeder flow from a net-export toward a net-import profile and cutting the flexible capacity available to you for congestion management.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 7</div>
+          <div>
+            <h4 class="step-head">Westland Infra ACM revenue exposure.</h4>
+            <div class="step-meta"><span class="g">Regulatory · grounded</span><span class="p">0.35</span></div>
+            <p class="step-body">The binding constraint, the terminal, and the floor under the chain. The congestion-profile shift plus reduced CHP-based flexibility forces alternative congestion-management procurement at higher cost, or reduced grid utilisation. The combined effect compresses the efficiency of regulated capital deployment and creates ACM cost-disallowance risk if congestion expenditure rises above the regulatory cost envelope without a tariff adjustment.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="insight">
+        <strong>The finding, not an error</strong>
+        Note that node 1 sits below the chain that follows it. That is the finding, not an error: the cost cascade does not depend on the blockade persisting. Crude stays elevated, and your exposure with it, even on a reopening. The geopolitics set the scene; the cost hysteresis at node 3 is what carries your regulated-revenue exposure forward independently of when the Strait clears.
+      </div>
+
+      <div class="inflection">
+        <strong>Earliest falsifiable inflection · Q3 2026</strong>
+        Node 1 resolves against a public observable, but a reopening does not collapse the cascade; it resolves the gravity question while the cost cascade decays on its own hysteresis path. The dates to watch are the STEO forward Brent path through Q3 and the Dutch curtailment conditions into winter, not a single de-escalation deadline. This is the first time the cascade's spine rests on a sustained forward curve rather than on one binary date.
+      </div>
+
+      <div class="flag">
+        <strong>Extraction note, flagged openly</strong>
+        This trace is the re-grounded run of Cascade A on the STEO forward path. The structured per-node prediction-check record for the corrected chain is pending confirmation from a clean re-run; the node probabilities above are the engine output and stand on their own. We are flagging the pending check record rather than implying it is already complete.
+      </div>
+    </section>
+
+    <!-- 04 CLUSTER B -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Cluster B update</h2>
+      </div>
+      <div class="prose">
+        <p>Cluster B (gas phase-out plus stranded-asset pathway plus RAB useful-life contestation plus ACM WACC inversion) carries forward unchanged in structure. The move from 0.32 to 0.18 is the harness attenuating the nodes that were anchored to EUR-Lex body content rather than to landed primary source. The CELEX identifiers for the 2024 gas package (Dir 2024/1788, Reg 2024/1789) are in corpus as identifier-citations, but the body text remains WAF-blocked, so interpretive claims anchored to those texts still flag as model estimate. The harness now declines to carry probability that rests on text it cannot read.</p>
+        <p>What sharpened is the horizon, not the thesis. The framing now pins to two dated Q4 2026 inflections: the Dutch government's updated National Heating Vision (Nationale Warmtevisie), which sets the national pace of gas phase-out, and the ACM 2026-2030 regulatory-period consultation, where the RAB useful-life and WACC treatment for gas assets becomes contestable in practice rather than in principle. Four prediction checks landed on nodes 1, 2 and 3 this week. Whether B reads as a near-term live exposure or sits further out still turns on those two publications.</p>
+      </div>
+    </section>
+
+    <!-- 05 CLUSTER C -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Cluster C update</h2>
+      </div>
+      <div class="prose">
+        <p>Cluster C (EU electricity market reform plus DSO flexibility-procurement methodology plus congestion-management framework) took the sharpest move of the three, from 0.42 to 0.18. The reason is instructive. The W23 uplift to 0.42 came from internal framework sharpening on the EED-as-disallowance catch-22, a piece of reasoning rather than a piece of corpus signal. The W24 attenuation corrects hardest exactly where the prior probability was reasoning-led: the chain keeps only what its grounded nodes support. The catch-22 itself is unchanged and the live exposure is unchanged; what dropped is the probability the engine was willing to attach without corpus weight behind it.</p>
+        <p>The inflection is dated. The relevant resolution points are the ACM congestion and flexibility consultation under the Directive 2024/1711 transposition (CELEX:32024L1711, with companion Regulation CELEX:32024R1747), and the EZK draft Energiewet implementing decree, both expected Q4 2026. These are where the flexibility-procurement methodology that determines your flex revenue gets set in regulatory text rather than inferred. Two prediction checks landed on nodes 1 and 2.</p>
+      </div>
+    </section>
+
+    <!-- 06 MATRIX VERDICT REGISTRATION -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">06</div>
+        <h2 class="section-title">Matrix verdict registration update</h2>
+      </div>
+      <div class="prose">
+        <p>The directional verdict you registered on Cascade A on 2 June still stands. The methodology layer treats operator-CEO qualitative judgment as the verdict path for chains whose terminal claim has no public falsifiable observable, and your W22 read resolved Cascade A as partial: conclusion confirmed (congestion and electricity-side sensitivity exceeds gas-side sensitivity), mechanism challenged (the flexibility-value reframe replaces gas price as the single trigger). The W24 cascade carries that refined trigger forward, so no new directional verdict is claimed this iteration and the horizon stays Q3-Q4 2026.</p>
+      </div>
+      <div class="insight">
+        <strong>Matrix verdict registration</strong>
+        Predictions in the matrix resolve to <span class="verdict-states">right / partial / wrong / unclear</span> at the verdict horizon. The Cascade A registration remains <em class="term">partial</em> and would stand if today were the horizon. What changed this week is the probability the chain carries into that horizon, not the verdict logic. The probability moving and the verdict holding are two separate signals: the first is the engine calibrating; the second is your judgment, which the matrix has not asked you to revisit.
+      </div>
+    </section>
+
+    <!-- 07 PROBABILITY CALIBRATION -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">07</div>
+        <h2 class="section-title">Probability calibration as methodology signal</h2>
+      </div>
+      <div class="prose">
+        <p>The most useful thing to read off this week is the direction of the moves, not their size. The engine eased Cluster B and Cluster C where the grounding thinned, attenuating probability that rested on EUR-Lex text it cannot yet read, and it lifted Cascade A where the grounding strengthened, once the chain was re-anchored on the STEO forward-cost path and the cost-hysteresis model. A loop that moves both ways on grounding is discriminating, not drifting. A matrix that only ever moves down reads as an engine losing its nerve; a matrix that moves up where the evidence firmed and down where it weakened is calibrating against the evidence rather than against a mood. That two-directional behaviour, in the same week, is the strongest version of the claim that this is not a sales instrument.</p>
+      </div>
+    </section>
+
+    <!-- 08 SOURCES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">08</div>
+        <h2 class="section-title">Sources and grounding state</h2>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Live corpus, grounded · pulled this week</div>
+        <div class="chip-row">
+          <span class="chip primary new">EIA STEO · forward Brent path</span>
+          <span class="chip primary">FRED · Brent · DCOILBRENTEU</span>
+          <span class="chip primary">FRED · WTI</span>
+          <span class="chip primary">FRED · Henry Hub</span>
+          <span class="chip primary">EUR-Lex · CSRD · CELEX:32022L2464</span>
+          <span class="chip primary">EUR-Lex · EED · CELEX:32023L1791</span>
+          <span class="chip primary">EUR-Lex · EMR · CELEX:32024R1747</span>
+          <span class="chip primary">EUR-Lex · EMR · CELEX:32024L1711</span>
+          <span class="chip primary">EUR-Lex · Gas package · CELEX:32024L1788</span>
+          <span class="chip primary">EUR-Lex · Gas package · CELEX:32024R1789</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Context, not a binding node · Layer 4</div>
+        <div class="chip-row">
+          <span class="chip context">Polymarket · Hormuz · duration distribution</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Flagged · residual gap or model estimate</div>
+        <div class="chip-row">
+          <span class="chip model">IEA Oil Market Report · paywalled</span>
+          <span class="chip model">War-risk insurance + tanker rates · opaque</span>
+          <span class="chip model">CME crude forward curve · recon</span>
+          <span class="chip model">EUR-Lex body content · WAF-blocked</span>
+          <span class="chip model">WKK flexibility component weights · model estimate</span>
+        </div>
+      </div>
+
+      <p class="sources-note">The grounding upgrade this week is the EIA Short-Term Energy Outlook. Its backwardated forward Brent path gives Cascade A a duration read on nodes 2 and 3, so the cost-persistence claim rests on a forward curve rather than on flat spot. The Polymarket Hormuz market stays in view, but as Layer-4 context for the duration distribution, not as a node that can floor the chain.</p>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">09</div>
+        <h2 class="section-title">W25 and cadence</h2>
+      </div>
+      <div class="prose">
+        <p>The W25 run lands Monday 15 June 2026. Cascade A's gravity question, whether the Strait reopens, may resolve inside that window, but the cost cascade decays on its own hysteresis path regardless, so the dates that matter for your exposure are the STEO forward Brent path through Q3 and the Dutch curtailment conditions into winter. The next curated share follows the monthly cadence; the calibration loop runs each Monday in between.</p>
+      </div>
+
+      <div class="question">
+        <strong>Open question back to you</strong>
+        The matrix moved both ways this week: down on B and C where the grounding thinned, up on A where it strengthened. The most defensible line in this read is that a reopening of the Strait does not reset your cost base, because premia, insurance and repricing decay on a lag. The open question is whether that two-directional move reads to you as the engine discriminating on evidence rather than drifting, and whether the cost-hysteresis framing changes how you would weigh the Hormuz exposure on your own desk.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Chainge · W24 · 2026-06-08</span>
+      <span>Westland Infra · confidential</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>
