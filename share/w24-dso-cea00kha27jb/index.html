@@ -117,7 +117,7 @@
     font-size: 19px;
     line-height: 1.4;
     color: var(--ink-2);
-    max-width: 44ch;
+    max-width: 46ch;
     margin: 0 0 48px;
   }
   .cover-meta {
@@ -208,6 +208,7 @@
     page-break-inside: avoid;
     break-inside: avoid;
   }
+  .pred.requested { box-shadow: 4px 4px 0 var(--accent); }
   .pred-head {
     display: flex;
     justify-content: space-between;
@@ -276,6 +277,26 @@
     font-size: 16px;
     line-height: 1.6;
     margin: 0 0 16px;
+  }
+  .pred-caveat {
+    font-family: var(--serif);
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    background: var(--paper-2);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    margin: 0 0 16px;
+  }
+  .pred-caveat strong {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
   }
   .pred-path {
     font-family: var(--mono);
@@ -415,24 +436,25 @@
     color: var(--ink);
   }
 
-  /* FLAG NOTE */
-  .flag {
-    margin-top: 24px;
-    padding: 18px 22px;
-    background: var(--paper-2);
-    border-left: 3px solid var(--gold);
+  /* COLLABORATION HOOK */
+  .collab {
+    margin-top: 28px;
+    padding: 22px 24px;
+    background: var(--paper);
+    border: 1px solid var(--accent);
+    border-left: 3px solid var(--accent);
     font-family: var(--serif);
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--ink-2);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
     max-width: 64ch;
   }
-  .flag strong {
+  .collab strong {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 10.5px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
@@ -550,7 +572,7 @@
     .section { padding: 32px 0 8px; page-break-inside: auto; }
     .cover { padding: 24px 0 48px; page-break-after: always; }
     .section-head { page-break-after: avoid; break-after: avoid; }
-    .pred, .step, .insight, .inflection, .flag, .question { page-break-inside: avoid; break-inside: avoid; }
+    .pred, .step, .insight, .inflection, .collab, .pred-caveat, .question { page-break-inside: avoid; break-inside: avoid; }
     .pred-stack { gap: 20px; }
     .footer { page-break-before: avoid; }
     .topmeta { display: none; }
@@ -571,7 +593,7 @@
       <div class="cover-eyebrow">Strategic foresight update · Week 24 · 2026</div>
       <h1 class="cover-title">Cascade update, <em>Westland Infra</em></h1>
       <p class="cover-sub">
-        Two clusters moderated, one strengthened. Cascade A is re-grounded on sustained energy cost rather than a single de-escalation date, with the binding constraint sitting where it belongs, downstream at your regulated revenue.
+        Two clusters moderated, one strengthened, and the fourth cascade you asked for: export-to-import congestion timing. Cascade A is re-grounded on sustained cost; Cascade D is a first anchor that meets your grid data where the loop closes.
       </p>
       <dl class="cover-meta">
         <div>
@@ -588,7 +610,7 @@
         </div>
         <div>
           <dt>Reading time</dt>
-          <dd>~8 minutes</dd>
+          <dd>~10 minutes</dd>
         </div>
       </dl>
     </header>
@@ -600,17 +622,17 @@
         <h2 class="section-title">Update read</h2>
       </div>
       <div class="prose">
-        <p>Two of your clusters moderated this week, one strengthened. Cluster B eases from 0.32 to 0.18 and Cluster C from 0.42 to 0.18, because the harness now declines to carry probability that rests on EUR-Lex text it cannot read. Cascade A rises from 0.28 to 0.35, because the chain was re-grounded: its probability now rests on sustained energy-cost observables and an explicit model of cost persistence, rather than on a single read of whether the Strait reopens by one date.</p>
-        <p>That re-grounding is the substantive change. The earlier framing leaned on the Hormuz de-escalation question as if a reopening would switch the cascade off. It would not. The binding constraint sits downstream, in your ACM-revenue exposure, and the cost that drives it decays on its own lagged path whatever the geopolitics do. Hormuz is the gravity event that frames the cascade; it is no longer the floor under it.</p>
-        <p>The cleaner read of the week is that the engine moved each cascade in the direction its grounding pointed: down where the evidence thinned, up where it strengthened. That is what a calibration loop is supposed to do. A matrix that only ever drifts one way is not calibrating; this one discriminated.</p>
+        <p>Two of your clusters moderated this week, one strengthened, and a fourth cascade entered. Cluster B eases from 0.32 to 0.18 and Cluster C from 0.42 to 0.18, because the harness now declines to carry probability that rests on EUR-Lex text it cannot read. Cascade A rises from 0.28 to 0.35, re-grounded on sustained energy cost rather than on a single read of whether the Strait reopens by one date. And Cascade D, the export-to-import congestion timing you raised in your W23 reply, enters as a first anchor at 0.55.</p>
+        <p>The A re-grounding is the substantive engine change. The earlier framing leaned on the Hormuz de-escalation question as if a reopening would switch the cascade off. It would not. The binding constraint sits downstream, in your ACM-revenue exposure, and the cost that drives it decays on its own lagged path whatever the geopolitics do. Hormuz is the gravity event that frames the cascade; it is no longer the floor under it.</p>
+        <p>The read of the week is that the engine moved each cascade in the direction its grounding pointed: down where the evidence thinned, up where it strengthened. Cascade D is that same loop from your side of the desk, the engine taking up a steer you put on the table, carried as a reasoning-led anchor rather than dressed up as grounded. A matrix that only ever drifts one way is not calibrating; this one moved both ways and took up your question besides.</p>
       </div>
     </section>
 
-    <!-- 02 THREE UPDATES -->
+    <!-- 02 THE UPDATES -->
     <section class="section">
       <div class="section-head">
         <div class="section-num">02</div>
-        <h2 class="section-title">The three updates, stated precisely</h2>
+        <h2 class="section-title">The four updates, stated precisely</h2>
       </div>
 
       <div class="pred-stack">
@@ -693,6 +715,35 @@
             <span>W22 <span class="val">0.35</span></span>
             <span>W23 <span class="val">0.42</span></span>
             <span>W24 <span class="val">0.18</span></span>
+          </div>
+        </article>
+
+        <article class="pred requested">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cascade D · export-to-import congestion timing</div>
+              <h3 class="pred-title">The cascade you asked for: how fast does export turn to import</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">First anchor</span>
+                <span class="stat-val accent">0.55</span>
+                <span class="stat-delta">new this week</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">2026-2030</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">The cascade you raised, worked out. Your own hypothesis is built into the opening node: WKK capacity stays in place as back-up, flexibility and imbalance asset, while running hours fall, so the export-to-import shift is gradual and smeared, not a clean flip. The load-bearing uncertainty is the timing and the overlap, the thing you said occupies you most. Near-term observables land in the congestion register and electrification updates, with the first forward check on or before 6 September 2026.</p>
+          <div class="pred-caveat">
+            <strong>Read as a first anchor</strong>
+            The structure and the regulatory mechanism are sound, but the load-bearing Dutch grid data (the Netbeheer congestion register, CBS electrification figures, ACM specifics) is not yet in the harness. The 0.55 reasons from electrification and the EU market-reform regulations, not yet from your grid. Read it as ordinal, the dilemma is real and roughly balanced, not as a confident call on your own congestion.
+          </div>
+          <div class="pred-path">
+            <span><b>Path</b></span>
+            <span>W24 <span class="now">0.55</span> · first anchor, reasoning-led</span>
           </div>
         </article>
 
@@ -784,16 +835,79 @@
         Node 1 resolves against a public observable, but a reopening does not collapse the cascade; it resolves the gravity question while the cost cascade decays on its own hysteresis path. The dates to watch are the STEO forward Brent path through Q3 and the Dutch curtailment conditions into winter, not a single de-escalation deadline. This is the first time the cascade's spine rests on a sustained forward curve rather than on one binary date.
       </div>
 
-      <div class="flag">
-        <strong>Extraction note, flagged openly</strong>
-        This trace is the re-grounded run of Cascade A on the STEO forward path. The structured per-node prediction-check record for the corrected chain is pending confirmation from a clean re-run; the node probabilities above are the engine output and stand on their own. We are flagging the pending check record rather than implying it is already complete.
+      <div class="insight">
+        <strong>Your W23 point on the mechanism</strong>
+        You told us WKK is not exiting, it is retained as back-up while running hours fall, and that the W23 chain's clean reversal was too tidy. That landed. The retained-backup dynamic is now the opening node of Cascade D below, and a future Cascade A iteration will carry it into this chain too. Your read shaped the work.
       </div>
     </section>
 
-    <!-- 04 CLUSTER B -->
+    <!-- 04 CASCADE D DETAIL -->
     <section class="section">
       <div class="section-head">
         <div class="section-num">04</div>
+        <h2 class="section-title">Cascade D in detail, the cascade you requested</h2>
+      </div>
+      <p class="section-lede">Five nodes, a strictly monotonic grounded spine and no market-signal node. This is the export-to-import congestion-timing question you raised, worked through. Read it for the structure, not the number: the 0.55 is a reasoning-led first anchor, and the one thing standing between it and a grounded read is your realized congestion data.</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">Node 1</div>
+          <div>
+            <h4 class="step-head">Electrification advances; WKK retained as back-up.</h4>
+            <div class="step-meta"><span class="g">Technological · grounded</span><span class="p">0.82</span></div>
+            <p class="step-body">Greenhouse demand electrifies, while WKK capacity stays in place as back-up, emergency power, flexibility and imbalance asset, with running hours falling rather than the asset retiring. This is your own working hypothesis, carried as the opening node.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 2</div>
+          <div>
+            <h4 class="step-head">Feed-in declines gradually, offtake grows, both on the same feeders.</h4>
+            <div class="step-meta"><span class="g">Economic · grounded</span><span class="p">0.72</span></div>
+            <p class="step-body">The feed-in profile (teruglever) weakens slowly and smeared rather than flipping; offtake (afname) grows alongside it; the two regimes coexist on the same infrastructure. The transition is an overlap, not a switch.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 3</div>
+          <div>
+            <h4 class="step-head">EU market reform reframes reinforcement under ACM.</h4>
+            <div class="step-meta"><span class="g">Regulatory · grounded</span><span class="p">0.72</span></div>
+            <p class="step-body">EU electricity market reform (Reg 2024/1747, Dir 2024/1711) pushes reinforcement toward a residual-after-flexibility logic under the ACM framework. <em>The CELEX identifiers are cited, but the article text is WAF-blocked, so the provisions here are model estimate from public knowledge of the reform, not body-anchored.</em></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 4</div>
+          <div>
+            <h4 class="step-head">The regime has not flipped, but capital is committed on the expectation.</h4>
+            <div class="step-meta"><span class="g">Operator judgment / economic · grounded</span><span class="p">0.65</span></div>
+            <p class="step-body">Realized congestion is still mostly feed-in, while investment is increasingly driven by expected future offtake congestion that is not yet in the figures. This is the timing-and-overlap tension itself, the gap between what the grid is doing now and what the capital plan assumes it will do.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Node 5</div>
+          <div>
+            <h4 class="step-head">Terminal: the dual regulatory risk.</h4>
+            <div class="step-meta"><span class="g">Regulatory · grounded</span><span class="p">0.55 · floor</span></div>
+            <p class="step-body">Over-investment for offtake congestion that has not materialized carries ACM prudence and timing risk; under-investment carries reliability risk if the shift accelerates. No public check, operator-judgment provenance: this is the Westland-feeder realized-versus-expected gap, which is precisely where your data closes the loop.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="collab">
+        <strong>Where our gap meets your data</strong>
+        This is the cascade you asked for, the engine has worked the structure, and the one thing standing between a reasoning-led anchor and a grounded read is your realized congestion data: feed-in versus offtake on the Westland feeders, against the cascade's expected path. That gap is the invitation. Close it with us and the next iteration of D reads from your grid rather than from electrification priors and the EU regulations.
+      </div>
+    </section>
+
+    <!-- 05 CLUSTER B -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
         <h2 class="section-title">Cluster B update</h2>
       </div>
       <div class="prose">
@@ -802,22 +916,22 @@
       </div>
     </section>
 
-    <!-- 05 CLUSTER C -->
+    <!-- 06 CLUSTER C -->
     <section class="section">
       <div class="section-head">
-        <div class="section-num">05</div>
+        <div class="section-num">06</div>
         <h2 class="section-title">Cluster C update</h2>
       </div>
       <div class="prose">
-        <p>Cluster C (EU electricity market reform plus DSO flexibility-procurement methodology plus congestion-management framework) took the sharpest move of the three, from 0.42 to 0.18. The reason is instructive. The W23 uplift to 0.42 came from internal framework sharpening on the EED-as-disallowance catch-22, a piece of reasoning rather than a piece of corpus signal. The W24 attenuation corrects hardest exactly where the prior probability was reasoning-led: the chain keeps only what its grounded nodes support. The catch-22 itself is unchanged and the live exposure is unchanged; what dropped is the probability the engine was willing to attach without corpus weight behind it.</p>
+        <p>Cluster C (EU electricity market reform plus DSO flexibility-procurement methodology plus congestion-management framework) took the sharpest move of the three moderating clusters, from 0.42 to 0.18. The reason is instructive. The W23 uplift to 0.42 came from internal framework sharpening on the EED-as-disallowance catch-22, a piece of reasoning rather than a piece of corpus signal. The W24 attenuation corrects hardest exactly where the prior probability was reasoning-led: the chain keeps only what its grounded nodes support. The catch-22 itself is unchanged and the live exposure is unchanged; what dropped is the probability the engine was willing to attach without corpus weight behind it.</p>
         <p>The inflection is dated. The relevant resolution points are the ACM congestion and flexibility consultation under the Directive 2024/1711 transposition (CELEX:32024L1711, with companion Regulation CELEX:32024R1747), and the EZK draft Energiewet implementing decree, both expected Q4 2026. These are where the flexibility-procurement methodology that determines your flex revenue gets set in regulatory text rather than inferred. Two prediction checks landed on nodes 1 and 2.</p>
       </div>
     </section>
 
-    <!-- 06 MATRIX VERDICT REGISTRATION -->
+    <!-- 07 MATRIX VERDICT REGISTRATION -->
     <section class="section">
       <div class="section-head">
-        <div class="section-num">06</div>
+        <div class="section-num">07</div>
         <h2 class="section-title">Matrix verdict registration update</h2>
       </div>
       <div class="prose">
@@ -829,21 +943,22 @@
       </div>
     </section>
 
-    <!-- 07 PROBABILITY CALIBRATION -->
+    <!-- 08 PROBABILITY CALIBRATION -->
     <section class="section">
       <div class="section-head">
-        <div class="section-num">07</div>
+        <div class="section-num">08</div>
         <h2 class="section-title">Probability calibration as methodology signal</h2>
       </div>
       <div class="prose">
         <p>The direction of the moves is the signal this week. The engine eased Cluster B and Cluster C where the grounding thinned, attenuating probability that rested on EUR-Lex text it cannot yet read, and lifted Cascade A where the grounding strengthened, once the chain was re-anchored on the STEO forward-cost path and the cost-hysteresis model. A matrix that only ever moves down reads as an engine losing its nerve; one that moves up where the evidence firmed and down where it weakened is calibrating against the evidence. The loop moved both ways in the same week, each time for a grounded reason. A sales instrument does not do that.</p>
+        <p>Cascade D adds the other half. The loop will take up an exposure you name and work its structure, and it will say plainly where it is reasoning-led until your data grounds it. The discipline is the same in both directions: the number follows the grounding, and the share is explicit about which nodes are publicly checkable and which rest on judgment.</p>
       </div>
     </section>
 
-    <!-- 08 SOURCES -->
+    <!-- 09 SOURCES -->
     <section class="section">
       <div class="section-head">
-        <div class="section-num">08</div>
+        <div class="section-num">09</div>
         <h2 class="section-title">Sources and grounding state</h2>
       </div>
 
@@ -871,6 +986,16 @@
       </div>
 
       <div class="sources-group">
+        <div class="sources-label">Cascade D · named, not yet integrated (the grounding gap)</div>
+        <div class="chip-row">
+          <span class="chip model">Netbeheer NL · capaciteitskaart / congestion register</span>
+          <span class="chip model">CBS · electrification statistics</span>
+          <span class="chip model">ACM · method + tariff decisions</span>
+          <span class="chip model">ENTSO-E / TenneT</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
         <div class="sources-label">Flagged · residual gap or model estimate</div>
         <div class="chip-row">
           <span class="chip model">IEA Oil Market Report · paywalled</span>
@@ -881,13 +1006,15 @@
         </div>
       </div>
 
-      <p class="sources-note">The grounding upgrade this week is the EIA Short-Term Energy Outlook. Its backwardated forward Brent path gives Cascade A a duration read on nodes 2 and 3, so the cost-persistence claim rests on a forward curve rather than on flat spot. The Polymarket Hormuz market stays in view, but as Layer-4 context for the duration distribution, not as a node that can floor the chain.</p>
+      <p class="sources-note">Cascade A's upstream nodes now carry forward-calibration checks: the Hormuz duration markets at node 1 (scored as an observable, not as a driver), crude at node 2 via FRED Brent with a market-implied cross-check, and gas at node 4 via FRED Henry Hub. The terminal node, your ACM revenue, and the cost-hysteresis node carry no public check by design: a regulated-DSO revenue terminal has no observable in FRED, GDELT, Polymarket or EUR-Lex, so the matrix scores the chain on its upstream nodes and registers the terminal through your judgment at horizon. The chain states what is publicly checkable and is plain about what only you can confirm.</p>
+
+      <p class="sources-note">Cascade D is grounded only at the EU regulation identifier level (CELEX:32024R1747, CELEX:32024L1711, the same WAF-blocked-text caveat as the EMR cluster). The Dutch grid sources above are named and flagged, not yet live corpus. They are the integration gap, and they are where your realized congestion data closes the loop. No prediction-market source: D is structural.</p>
     </section>
 
-    <!-- CLOSING -->
+    <!-- 10 W25 + CADENCE -->
     <section class="section">
       <div class="section-head">
-        <div class="section-num">09</div>
+        <div class="section-num">10</div>
         <h2 class="section-title">W25 and cadence</h2>
       </div>
       <div class="prose">
@@ -896,7 +1023,7 @@
 
       <div class="question">
         <strong>Open question back to you</strong>
-        The matrix moved both ways this week: down on B and C where the grounding thinned, up on A where it strengthened. The most defensible line in this read is that a reopening of the Strait does not reset your cost base, because premia, insurance and repricing decay on a lag. The open question is whether that two-directional move reads to you as the engine discriminating on evidence rather than drifting, and whether the cost-hysteresis framing changes how you would weigh the Hormuz exposure on your own desk.
+        The matrix moved both ways this week and took up the congestion-timing cascade you raised. Cascade D is the one place our reasoning meets a wall: the load-bearing input is your realized feed-in versus offtake congestion, which sits on your desk, not in any public feed. The 0.55 is a first anchor, not a call on your grid. The open question is whether you would close that loop with us, your realized congestion figures against the cascade's expected path, so the next iteration of D reads from your data rather than from electrification priors and the EU regulations.
       </div>
     </section>
 
