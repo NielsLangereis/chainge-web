@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>chainge / worked example: Anne's chain end to end</title>
-<meta name="description" content="A complete Chainge worked example: profile ingest, diagnostic verdict, and the five-hop cascade for one SME. Anne's week, end to end.">
+<title>chainge / worked example: Anne's exposure portfolio</title>
+<meta name="description" content="A Chainge worked example. One operator profile, two clusters, eight cascades: Anne's Hormuz energy exposure and the seven-trigger rare-earth compression converging on her feedstock lines.">
 <link rel="canonical" href="https://chainge.global/worked-example">
 
 <!-- favicon -->
@@ -14,24 +14,21 @@
 <!-- open graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://chainge.global/worked-example">
-<meta property="og:title" content="chainge / one chain, end to end (worked example)">
-<meta property="og:description" content="One profile. One diagnostic. One five-hop chain. End to end.">
+<meta property="og:title" content="chainge / worked example: one operator, two clusters, eight cascades">
+<meta property="og:description" content="Anne's exposure portfolio, traced end to end: a single Hormuz energy chain and a seven-trigger rare-earth compression landing on one Eindhoven chemicals SME.">
 <meta property="og:site_name" content="chainge">
 <meta property="og:image" content="https://chainge.global/og-image.svg">
 
 <!-- twitter / x -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="chainge / worked example">
-<meta name="twitter:description" content="One profile, one diagnostic, one five-hop chain. End to end.">
+<meta name="twitter:description" content="One operator profile, two clusters, eight cascades. End to end.">
 <meta name="twitter:image" content="https://chainge.global/og-image.svg">
 
-<!-- robots: indexing-friendly for research preview; flip to noindex if you want stealth -->
+<!-- robots -->
 <meta name="robots" content="index, follow">
 
-<!-- analytics: Plausible (cookieless, GDPR-friendly, no banner needed).
-     Signup at https://plausible.io for chainge.global (€9/mo after 30-day trial).
-     Free alternatives: Cloudflare Web Analytics, self-hosted Umami.
-     Comment out the two script tags below if you want no analytics. -->
+<!-- analytics: Plausible (cookieless) -->
 <script async src="https://plausible.io/js/pa-IFWRBV3Tc2cZzZD6dUora.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
@@ -42,6 +39,114 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+
+<!-- page-local additions (minimal; reuses styles.css classes elsewhere) -->
+<style>
+  /* methodology callout for the multi-trigger framing */
+  .we-callout {
+    margin: 36px 0 8px;
+    padding: 26px 28px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+  }
+  .we-callout-eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 12px;
+  }
+  .we-callout p {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+  }
+  .we-callout p em { color: var(--accent); font-style: italic; }
+  .we-callout-attr {
+    font-family: var(--mono) !important;
+    font-size: 12px !important;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    color: var(--mute);
+    margin-top: 14px;
+  }
+
+  /* compose box: where the two clusters meet */
+  .we-compose {
+    margin: 28px 0 8px;
+    padding: 26px 28px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--paper);
+  }
+  .we-compose h4 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .we-compose p { margin: 0 0 12px; }
+  .we-compose p:last-child { margin-bottom: 0; }
+
+  /* live-ledger coupling snippet */
+  .we-ledger {
+    margin: 24px 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .we-ledger-cluster {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    background: var(--paper-2);
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .we-ledger-row {
+    display: flex;
+    gap: 16px;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .we-ledger-row:last-child { border-bottom: 0; }
+  .we-ledger-src {
+    flex: 0 0 150px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+  .we-ledger-claim {
+    flex: 1;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .we-ledger-state {
+    flex: 0 0 64px;
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  @media (max-width: 640px) {
+    .we-ledger-row { flex-direction: column; gap: 5px; }
+    .we-ledger-src, .we-ledger-state { flex: none; text-align: left; }
+  }
+</style>
 </head>
 <body>
 
@@ -50,7 +155,7 @@
   <a href="index.html" class="nav-mark"><span class="ch">chai</span><span class="ng">nge</span></a>
   <div class="nav-links">
     <a href="index.html#thesis">the thesis</a>
-    <a href="index.html#how">how it works</a>
+    <a href="how-it-works.html">how it works</a>
     <a href="index.html#who">who uses it</a>
     <a href="worked-example.html" class="nav-link-primary">example report</a>
   </div>
@@ -66,36 +171,25 @@
 
 <main>
 
-<!-- ===================== ONE CHAIN, END TO END ===================== -->
+<!-- ===================== SECTION 1 · MEET ANNE ===================== -->
 <div class="shell">
   <section class="section" id="example">
-    <div class="section-mark"><span>worked example · 2026-W19</span></div>
-    <h2>Anne runs <em>Brabant Advanced Materials</em>, a specialty chemicals SME in Eindhoven. Here's her week.</h2>
+    <div class="section-mark"><span>worked example · one operator, two clusters</span></div>
+    <h2>Anne runs <em>Brabant Advanced Materials</em>, a specialty chemicals SME in Eindhoven. Two unrelated global stories land on the same desk.</h2>
     <p class="section-lede">
-      Every Chainge user starts with a profile. The pipeline runs it through a diagnostic, then against the week's signals. What comes out isn't commentary, it's a cascade that lands in a sector you actually own.
+      Anne is a canonical Chainge persona. The cascades on this page are real engine output, scoped to her profile and tracked to verdicts on the live ledger. The profile is a fixture; the chains crossing it are not.
     </p>
 
     <p style="font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--mute); margin-top: 18px; max-width: 80ch;">
-      research preview · Anne is a canonical fixture, not a live customer. The flow below is real; the contact path is a direct conversation with Niels, not a signup form.
+      research preview · the flow below is real engine output; the contact path is a direct conversation with Niels, not a signup form.
     </p>
-
-
-    <!-- BRIEFING CARD: the source artifact -->
-    <div class="we-briefing-card">
-      <div class="we-briefing-eyebrow">impact intelligence · week 2026-W19</div>
-      <h3 class="we-briefing-title">What Chainge saw across Europe this week.</h3>
-      <p class="we-briefing-plain">Three live moves: Europe stacked three trade tools to pressure the US, German industry could break the coalition, and Bulgaria's new pro-Moscow PM could quietly slow Europe's exit from Russian nuclear fuel.</p>
-      <div class="we-briefing-eyebrow we-briefing-eyebrow-2">executive read, verbatim from the briefing</div>
-      <p class="we-briefing-quote">Europe is executing a coordinated sovereignty play across trade, procurement, and energy simultaneously, using regulatory stacking (<span class="jargon" data-tip="Carbon Border Adjustment Mechanism. The EU's carbon tax on imports of cement, iron and steel, aluminium, fertiliser, hydrogen, and electricity. Enters definitive phase January 2026." tabindex="0">CBAM</span> + <span class="jargon" data-tip="International Procurement Instrument. EU rule that lets the bloc restrict access to public contracts when partner countries close their own. Designed as trade leverage." tabindex="0">IPI</span> + <span class="jargon" data-tip="Foreign Subsidies Regulation. Gives the European Commission unilateral power to investigate whether foreign government subsidies distort competition on large EU contracts." tabindex="0">FSR</span>) as leverage in US negotiations while shoring up or fracturing critical infrastructure dependencies in its eastern flank. The most actionable thread is the FSR/IPI procurement doctrine: EU-domiciled cloud and AI vendors have a narrow, time-bounded window before Q2 2026 to position themselves as compliant "European Preference" suppliers on high-value public-sector contracts. The <span class="jargon" data-tip="The German term for mid-sized family-owned manufacturers, often 50-1000 employees. Backbone of the German export economy, politically influential in Berlin." tabindex="0">Mittelstand</span> signal to watch is whether German industrial lobbies break publicly with Brussels on IPI activation: if BDI and VDMA oppose it, the entire tripartite squeeze loses its domestic political coalition and US negotiators gain room to fragment EU unity. The biggest open question is Bulgaria: Radev's durability as a Moscow-aligned actor inside NATO creates a potential veto point on VVER diversification timelines that neither Westinghouse's commercial roadmap nor EU energy-security planning has priced in.</p>
-      <a href="briefings/2026-W19.md" class="we-briefing-cta">read the full briefing →</a>
-    </div>
 
     <div class="worked-example">
 
-      <!-- BLOCK 1: PROFILE -->
+      <!-- PROFILE BLOCK -->
       <div class="we-block">
-        <div class="we-block-label">stage 01 · profile ingest</div>
-        <p class="we-block-intro">Anne filled this in via our profile prompt, which she ran in her own AI session. The fields below are an excerpt; the full schema runs to twelve dimensions.</p>
+        <div class="we-block-label">the profile</div>
+        <p class="we-block-intro">The open question on Anne's desk is the one most operators carry: <em>what should I be watching that I'm not?</em> Her Q4 contracts reprice quarterly and she has no CFO bandwidth to read central-bank releases. She fills in a structured profile once; the engine runs it against every week's signals. The excerpt below is a slice of a twelve-dimension schema.</p>
 <pre class="we-data"><code>company:            brabant advanced materials BV
 description:        specialty chemicals SME, eindhoven (NL)
                     ~€45M revenue, ~95 staff
@@ -104,70 +198,62 @@ product_families:
   - high-purity rare-earth catalysts (REC, ~35%)
   - electronic-grade silane intermediates (eSil, ~25%)
   - NdPr concentrate for magnetic materials (~20%)
-  - specialty coating formulations (~15%)
+  - specialty coating formulations (CoatPro, ~15%)
   - custom-synthesis toll services (~5%)
 
-regulatory_regimes:
-  - REACH         (applies)
-  - CLP           (applies)
-  - CBAM          (uncertain, see unknown_or_uncertain)
-  - CSRD          (from FY2026, threshold-dependent)
-  - + Dutch ARBO / Seveso III, EU GDPR
+energy_exposure:
+  - one gas-fired high-temperature reactor train
+  - TTF-linked gas pricing, no multi-quarter hedge
 
 currency_exposure:
   - revenue:      EUR
-  - cost:         EUR + USD + CNY (mismatch on rare-earth feedstocks)
+  - cost:         EUR + USD + CNY
+                  (mismatch on rare-earth feedstocks)
 
 customer_geography: DE / NL / BE / LU / AT
 
 unknown_or_uncertain:
   - upstream mine/refiner provenance of NdPr concentrate
-  - exposure to Russian gas pricing via ammonia + ethylene-glycol
-  - whether eSil falls under any specialty-chemicals CBAM extension</code></pre>
-        <p class="we-block-caption">Profile contributors get a discount tier. The richer your profile, the sharper your chains.</p>
-        <p class="we-link"><a href="examples/anne.json">→ see the full profile JSON</a></p>
+  - exposure to gas pricing via ammonia + ethylene-glycol
+  - whether eSil falls under any CBAM scope extension</code></pre>
+        <p class="we-block-caption">Two of her own "uncertain" flags become the entry points for two entirely separate clusters. That is the point of the diagnostic: it reads the exposure she could not name.</p>
       </div>
 
-      <!-- BLOCK 2: DIAGNOSTIC VERDICT -->
+      <!-- WHAT FOLLOWS -->
       <div class="we-block">
-        <div class="we-block-label">stage 02 · diagnostic</div>
-        <p class="we-block-intro">The diagnostic doesn't store the profile, it interrogates it.</p>
-<pre class="we-data"><code>inferred_persona:     operator
-checks_run:           5 / 5
-items_surfaced:       11
+        <div class="we-block-label">what the engine surfaced</div>
+        <p class="we-block-intro">Across W21 to W23, two clusters crossed Anne's profile. They share nothing upstream. They converge on the same balance sheet.</p>
+<pre class="we-data"><code>cluster 01 · Hormuz Q3-Q4 2026
+  shape:      single trigger, one cascade
+  enters via: gas + ammonia/EG, gas-fired reactor
+  lands on:   CoatPro + toll-synthesis margins
 
-flagged for review:
-  CBAM applicability    Finished rare-earth oxides NOT in scope under
-                        CELEX 2023/956 (cement, iron/steel, aluminium,
-                        fertilisers, hydrogen, electricity).
-                        BUT ammonia inputs on the eSil line ARE
-                        covered under CN 2814.
-                        Two reads, one product line.
-
-  CRMA exposure         Not in profile. Applies. Reg 2024/1252 covers
-                        downstream processors of Nd, Pr, Ce, La under
-                        the Strategic Raw Materials list.
-                        Action required.
-
-  CNY exposure          NdPr concentrate spot purchases unhedged.
-                        ~20% of revenue. Asymmetric FX risk vs EUR
-                        revenue, compounded by China REE export controls.
-
-regulatory_confidence:
-  medium. Specific regs named by CELEX from training data.
-  EUR-Lex live lookup unavailable; verify against consolidated texts.
-
-confirmed_at:         2026-05-13</code></pre>
-        <p class="we-block-caption">The diagnostic asks what the profile didn't answer. Then it asks whether the answers it inferred hold up.</p>
-        <p class="we-link"><a href="examples/anne_diagnostic.md">→ see the full diagnostic (11 items)</a></p>
+cluster 02 · China rare-earth decoupling Q3-Q4 2026
+  shape:      seven triggers, one target
+  enters via: NdPr / REC / eSil feedstock + provenance
+  lands on:   feedstock cost, supply continuity, compliance</code></pre>
+        <p class="we-block-caption">One is a classic single-source cascade. The other is the shape that shows what Chainge is for: many independent mechanisms, one operator cohort.</p>
       </div>
 
-      <!-- BLOCK 3: CHAIN -->
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SECTION 2 · HORMUZ CLUSTER ===================== -->
+<div class="shell">
+  <section class="section" id="hormuz" style="padding-top: 0;">
+    <div class="section-mark"><span>cluster 01 · Hormuz Q3-Q4 2026 · W21</span></div>
+    <h2>The energy chain. <em>The binding constraint isn't the oil price.</em></h2>
+    <p class="section-lede">
+      Sustained risk in the Strait of Hormuz is read by most desks as an oil-price story. For Anne, the cascade runs through gas, then through a Dutch regulatory artifact almost nobody is pricing: the order in which the grid operator switches industrial users off when storage runs short.
+    </p>
+
+    <div class="worked-example">
       <div class="we-block">
-        <div class="we-block-label">stage 04 · one chain, five hops</div>
-        <p class="we-block-headline"><strong>what Anne sees that the market doesn't</strong>The real threat isn't US tariffs. It's whether German industry <em>breaks the EU's trade coalition</em>.</p>
+        <div class="we-block-label">one chain, five hops</div>
+        <p class="we-block-headline"><strong>what Anne sees that the market doesn't</strong>If EU gas storage misses its November target, the binding constraint becomes the Dutch curtailment priority list, which ranks specialty-chemicals SMEs <em>below</em> household heating.</p>
         <p class="we-block-intro">
-          Most of the conversation about "European Preference" assumes the EU is one block pushing back on the US. The chain that actually binds Anne runs through German industry. CBAM input costs hit her ammonia the same way they hit a German mid-sized factory. If the US retaliates with export-control friction, both get hit. Whether Berlin blocks the EU's harshest moves depends on whether German industrial lobbies break the trade coalition first. That flip is the inflection point.
+          The consensus chain stops at "Brent rises, input costs rise." Anne's chain runs one step further into a regulatory mechanism: <span class="jargon" data-tip="EU Regulation 2017/1938 on security of gas supply. Article 12 lets a member state or the Commission declare a Union or regional Emergency, which activates national demand-curtailment plans." tabindex="0">Article 12 of Regulation 2017/1938</span> lets the Netherlands declare a gas emergency, at which point the grid operator's curtailment hierarchy decides who keeps their gas. Protected households and listed critical industry rank above a mid-market chemicals SME with a single gas-fired reactor train.
         </p>
 
         <div class="we-chain">
@@ -175,120 +261,295 @@ confirmed_at:         2026-05-13</code></pre>
           <div class="we-hop">
             <div class="we-hop-num">01</div>
             <div class="we-hop-body">
-              <p class="we-hop-plain">Starting January 2026, the EU charges a carbon tax on US steel, aluminium, fertiliser and cement imports.</p>
+              <p class="we-hop-plain">Risk in the Strait of Hormuz stays elevated. Oil carries a geopolitical premium and European gas spikes as buyers scramble for non-Gulf cargoes.</p>
               <div class="we-hop-row">
-                <span class="we-chip lens">lens: regulatory</span>
-                <span class="we-hop-meta">P 90% · jan 2026</span>
+                <span class="we-chip lens">lens: geopolitical</span>
+                <span class="we-hop-meta">P 55% · Q3 2026</span>
               </div>
-              <p class="we-hop-text">CBAM enters definitive phase Jan 2026, embedding carbon costs on US steel, aluminium, fertiliser, cement imports. The tripartite stack (CBAM + IPI + FSR) is operational, not theoretical.</p>
+              <p class="we-hop-text">Sustained Hormuz risk lifts <span class="jargon" data-tip="Title Transfer Facility. The Dutch benchmark price for European natural gas, the reference for most EU industrial gas contracts." tabindex="0">TTF</span> and <span class="jargon" data-tip="Japan-Korea Marker. The Asian benchmark for spot liquefied natural gas. When Asia bids up LNG, European buyers compete for the same cargoes." tabindex="0">JKM</span> gas 30-50% above the seasonal baseline. [source: FRED DCOILBRENTEU] [source: Polymarket Hormuz-2026]</p>
             </div>
           </div>
 
           <div class="we-hop">
             <div class="we-hop-num">02</div>
             <div class="we-hop-body">
-              <p class="we-hop-plain">The carbon tax hits the EU's own factories harder than the US exporters it targets. For Anne, the tax lands on her ammonia inputs, not her finished products.</p>
+              <p class="we-hop-plain">Higher gas reprices the ammonia and ethylene-glycol Anne buys. The cost lands on her inputs, two contracts deep, not on her finished products.</p>
               <div class="we-hop-row">
                 <span class="we-chip lens">lens: economic</span>
-                <span class="we-hop-meta">P 55% · H1-H2 2026</span>
+                <span class="we-hop-meta">P 45% · Q4 2026 delivery</span>
               </div>
-              <p class="we-hop-text">Input-cost pass-through hits EU downstream manufacturers harder than the US exporters it nominally targets. Dutch and German specialty chemicals, machine-tool, and automotive-supplier margins compress. For Brabant Advanced Materials specifically, the binding cost is ammonia under CBAM CN 2814, not the finished rare-earth oxides themselves.</p>
+              <p class="we-hop-text">Ammonia and ethylene-glycol contract prices reprice 25-50% higher via Yara, BASF, and OCI passthrough on Q4 deliveries. The exposure she flagged as "uncertain" is the binding one. [source: ICIS European ammonia contract index] [lens: economic]</p>
             </div>
           </div>
 
           <div class="we-hop">
             <div class="we-hop-num">03</div>
             <div class="we-hop-body">
-              <p class="we-hop-plain">The US doesn't fight back with tariffs. It restricts European access to AI chips and exports of dual-use machinery.</p>
+              <p class="we-hop-plain">If European gas storage misses its 1 November fill target, the EU can declare a gas emergency.</p>
               <div class="we-hop-row">
-                <span class="we-chip lens">lens: economic + technological</span>
-                <span class="we-hop-meta">P 40% · Q2-Q4 2026</span>
+                <span class="we-chip lens">lens: regulatory</span>
+                <span class="we-hop-meta">P 30% · Nov 2026</span>
               </div>
-              <p class="we-hop-text">US retaliates not with goods tariffs but with services and export-control friction: tightened EAR licensing on GPU access, expanded Entity List scrutiny, selective ITAR pressure on dual-use machine tools. Flagged as a blind spot by both lenses.</p>
+              <p class="we-hop-text">A storage miss raises the probability of a Union Emergency declaration under Article 12 of Regulation 2017/1938. This is the hinge: a regulatory artifact that activates only on the storage condition, invisible to a Brent-in-EUR read. [source: DG-ENER winter gas demand-management guidance] [lens: regulatory]</p>
             </div>
           </div>
 
           <div class="we-hop">
             <div class="we-hop-num">04</div>
             <div class="we-hop-body">
-              <p class="we-hop-plain">German mid-sized manufacturers, squeezed on both sides, start lobbying Berlin to de-escalate the trade fight.</p>
+              <p class="we-hop-plain">The Dutch grid operator then follows its curtailment list. Specialty-chemicals SMEs sit below households and listed critical industry.</p>
               <div class="we-hop-row">
-                <span class="we-chip lens">lens: social</span>
-                <span class="we-hop-meta">P 32% · Q3 2026 – Q1 2027</span>
+                <span class="we-chip lens">lens: regulatory</span>
+                <span class="we-hop-meta">P 25% · winter 2026-27</span>
               </div>
-              <p class="we-hop-text">BDI and VDMA flip posture. Facing CBAM input costs at home AND US export-control friction on outbound shipments, the Mittelstand owner-operator cohort shifts from supporting "European Preference" to lobbying Berlin for de-escalation.</p>
+              <p class="we-hop-text">Dutch <span class="jargon" data-tip="Gasunie Transport Services, the Dutch national gas transmission operator. It administers the order in which gas users are curtailed during an emergency." tabindex="0">GTS</span> activates its statutory curtailment hierarchy. A mid-market chemicals SME with one gas-fired reactor train ranks below protected demand. The threat is not only price; it is access. [lens: regulatory]</p>
             </div>
           </div>
 
           <div class="we-hop terminal">
             <div class="we-hop-num">05</div>
             <div class="we-hop-body">
-              <p class="we-hop-plain">Berlin succeeds in blocking the worst of the EU's escalation. Anne is protected from US export-control backlash, but stuck with carbon-tax costs on her ammonia.</p>
+              <p class="we-hop-plain">Anne's coating and toll-synthesis margins compress, and her one reactor train faces direct curtailment risk while customers stretch payment terms.</p>
               <div class="we-hop-row">
                 <span class="we-chip model">model estimate · prob 0.25</span>
-                <span class="we-hop-meta">Q1-Q3 2027</span>
+                <span class="we-hop-meta">Q3-Q4 2026, winter tail</span>
               </div>
-              <p class="we-hop-text">Germany assembles a Council qualified-majority blocking coalition. IPI activation against the US is delayed or diluted. CBAM and FSR enforcement persist. EU industrial firms across the Dutch-German corridor, including Brabant Advanced Materials, avoid the worst of US retaliation but inherit durable CBAM input-cost overhang.</p>
+              <p class="we-hop-text">CoatPro and toll-synthesis margins compress 200-400bps on input passthrough; the gas-fired high-temperature reactor train carries direct curtailment risk if storage misses Nov 1; working capital tightens as customers absorbing their own input shock stretch payment terms. [model estimate]</p>
             </div>
           </div>
 
         </div>
 
         <div class="we-terminal">
-          <p>Terminal node: Anne keeps her US-facing customer relationships and her GPU access, but eats <em>CBAM compression on the ammonia inputs she'd flagged as uncertain</em>. The Mittelstand lobby fight is what keeps the worse outcome off the table. The diagnostic caught CRMA on the way.</p>
+          <p>Terminal node: the cost Anne can plan for is the input passthrough. The cost she cannot is the curtailment ranking, which is set by a Dutch grid rule that activates only if storage misses one date. <em>That is the weak tie the oil-price frame never reaches.</em></p>
         </div>
       </div>
 
-      <!-- FOOTER -->
       <div class="we-footer">
         <div class="we-verdict">verdict: promote</div>
-        <p class="we-footer-meta">generated 2026-W19 &nbsp;·&nbsp; pipeline run cost in line with the $5-7 steady-state target</p>
-        <p class="we-link we-link-large"><a href="briefings/2026-W19.md">→ read the full W19 briefing (three chains, ~18,000 words)</a></p>
+        <p class="we-footer-meta">rendered 2026-W21 &nbsp;·&nbsp; tracked on the live ledger &nbsp;·&nbsp; window pending, situation active</p>
       </div>
 
     </div>
   </section>
 </div>
 
-<!-- ===================== THE PATTERN CONTINUES ===================== -->
+<!-- ===================== SECTION 3 · CHINA RARE-EARTH CLUSTER ===================== -->
 <div class="shell">
-  <section class="section" id="pattern" style="padding-top: 0;">
-    <div class="section-mark"><span>the pattern continues</span></div>
-    <h2>This was W19. <em>The same exposure shape got hit again.</em></h2>
+  <section class="section" id="rare-earth" style="padding-top: 0;">
+    <div class="section-mark"><span>cluster 02 · China rare-earth decoupling · W22 + W23</span></div>
+    <h2>The compression. <em>Seven unrelated triggers, one target.</em></h2>
     <p class="section-lede">
-      Anne's profile is a fixture. The chains crossing it are not. In the two weeks after W19, the same Brabant exposure shape got crossed by two new chains from different upstream pressures.
+      The second cluster is a different shape, and the more important one. Over two weeks the engine surfaced seven separate transmission mechanisms, with nothing in common upstream, all terminating on the same exposure: Anne's NdPr, rare-earth-catalyst, and electronic-grade silane lines.
     </p>
 
-    <ul class="data-list">
-      <li>
-        <div class="data-head">
-          <span class="data-name">Trump-Xi summit ring-fences REE access to US buyers, with no multilateral hook to the EU.</span>
-          <span class="data-tag">W20 · 2026-05-11</span>
-        </div>
-        <p>NdPr supply structurally tightens for European processors. CRMA Strategic Project relief lags by 12-18 months. Same Brabant exposure shape, different upstream pressure: input-cost shock instead of trade-tools shock. The diagnostic's CRMA flag from W19 carries forward and now sets up the W20 inflection.</p>
-        <p class="we-link"><a href="briefings/2026-W20.md">→ read the W20 briefing</a></p>
-      </li>
+    <div class="we-callout">
+      <p class="we-callout-eyebrow">methodology · multi-trigger same-target compression</p>
+      <p>Each chain independently tightens the operating envelope of the same SME cohort. Their <em>simultaneity</em> is the finding: hedging one exposure may inadvertently worsen another.</p>
+      <p class="we-callout-attr">A methodology read, not a scorable prediction. It is the Granovetter bridge-family pattern observed empirically: many weak ties between distant clusters terminating on one operator's balance sheet.</p>
+    </div>
 
-      <li>
-        <div class="data-head">
-          <span class="data-name">Bilateral US-China rare-earth deal extends the pattern. EU consignees stay constrained.</span>
-          <span class="data-tag">W21 · 2026-05-18</span>
-        </div>
-        <p>The following week the bilateral US-China rare-earth understanding formalizes. EU consignees remain under the 2023 Chinese export-licensing regime. Two-sided squeeze on the same Eindhoven house: input-cost rise on the rare-earth lines, German Tier-1 OEMs resist passthrough. The non-obvious turn is the second-order opportunity: a 2026-2027 commercial window opens for SMEs that can document non-Chinese provenance on their NdPr and REC lines.</p>
-        <p class="we-link"><a href="briefings/2026-W21.md">→ read the W21 briefing</a></p>
-      </li>
-    </ul>
+    <div class="worked-example">
+      <div class="we-block">
+        <div class="we-block-label">the seven triggers</div>
+        <p class="we-block-intro">Each row is an independent cascade with its own source event, its own lens mix, and its own verdict on the ledger. Read together, they describe a single operating envelope closing from seven directions at once.</p>
 
-    <p class="data-footer">
-      Three weeks. Three different global events. One exposure shape. <em>That's the cadence.</em>
+        <ul class="data-list">
+          <li>
+            <div class="data-head">
+              <span class="data-name">Due-diligence law reprices feedstock before any tariff moves.</span>
+              <span class="data-tag">W22 · CS3D</span>
+            </div>
+            <p><span class="jargon" data-tip="Corporate Sustainability Due Diligence Directive, EU 2024/1760. Obliges large companies to map and police human-rights and environmental risk across their supply chains." tabindex="0">CS3D (Directive 2024/1760)</span> phased application in 2027, exported early through OEM procurement scorecards, reprices Chinese-refined NdPr and rare-earth feedstock for Brabant before any India-EU FTA tariff line changes.</p>
+          </li>
+          <li>
+            <div class="data-head">
+              <span class="data-name">Trade-defence activation lands regressively on the mid-market. <strong>(spotlight below)</strong></span>
+              <span class="data-tag">W22 · ACI</span>
+            </div>
+            <p>If the Commission activates the <span class="jargon" data-tip="Anti-Coercion Instrument, EU Regulation 2023/2675. Lets the EU respond to economic coercion by a non-EU country with trade and investment countermeasures." tabindex="0">Anti-Coercion Instrument (Reg 2023/2675)</span> on rare earths, Tier-1 majors absorb the shock via stockpiles and bilateral contracts while mid-market SMEs are pushed onto spot pricing.</p>
+          </li>
+          <li>
+            <div class="data-head">
+              <span class="data-name">Satellite methane attribution becomes a compliance liability.</span>
+              <span class="data-tag">W22 · Methane Reg</span>
+            </div>
+            <p>MethaneSAT-grade attribution under the <span class="jargon" data-tip="EU Methane Regulation 2024/1787. Imposes measurement, reporting and verification on methane emissions, with an import dimension that can extend to upstream suppliers." tabindex="0">Methane Regulation (Reg 2024/1787)</span> turns the opaque methane footprint of Chinese refiners into a quantified CBAM-scope-extension liability landing on the eSil silane line.</p>
+          </li>
+          <li>
+            <div class="data-head">
+              <span class="data-name">Continuity obligations flow downstream as supplier clauses.</span>
+              <span class="data-tag">W22 · Chips Act Art 26</span>
+            </div>
+            <p>A supply shock activates <span class="jargon" data-tip="EU Chips Act, Regulation 2023/1781. Article 26 lets the Commission take crisis measures, including priority-rated orders, to secure semiconductor supply." tabindex="0">Article 26 of the Chips Act (Reg 2023/1781)</span>; continuity obligations on fab operators flow contractually upstream into qualified-supplier clauses for silanes and rare-earth catalysts.</p>
+          </li>
+          <li>
+            <div class="data-head">
+              <span class="data-name">Dual-use controls creep over rare-earth precursors.</span>
+              <span class="data-tag">W23 · sanctions architecture</span>
+            </div>
+            <p>Rising Baltic hybrid-incident tempo pulls electronic-grade silanes and rare-earth precursors into successive dual-use export-control updates, narrowing Brabant's supplier menu via a route distinct from trade defence, and taxing SMEs without compliance teams.</p>
+          </li>
+          <li>
+            <div class="data-head">
+              <span class="data-name">Provenance logic migrates from wafers to chemistry.</span>
+              <span class="data-tag">W23 · Chips Act Art 37</span>
+            </div>
+            <p>Huawei's 1.4nm announcement accelerates <span class="jargon" data-tip="Article 37 of the EU Chips Act governs the 2026 review and monitoring of the semiconductor value chain, a likely vehicle for provenance and trusted-supplier criteria." tabindex="0">Article 37 (Reg 2023/1781)</span> provenance migration; trusted-supplier criteria move upstream into Brabant's REC and NdPr qualification urgency.</p>
+          </li>
+          <li>
+            <div class="data-head">
+              <span class="data-name">Sanctions architecture, not oil, is the rare-earth channel.</span>
+              <span class="data-tag">W23 · CAATSA + CNY</span>
+            </div>
+            <p>A US-Iran deal with China as guarantor pushes Chinese refiners to price in <span class="jargon" data-tip="Countering America's Adversaries Through Sanctions Act. US law authorising secondary sanctions on entities transacting with sanctioned parties." tabindex="0">CAATSA</span> secondary-sanctions risk and accelerate CNY invoicing, landing on Brabant's unhedged feedstock as a quiet, persistent surcharge.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SPOTLIGHT CHAIN -->
+      <div class="we-block">
+        <div class="we-block-label">spotlight · the ACI chain, four hops</div>
+        <p class="we-block-headline"><strong>why the mid-market gets hit first</strong>The non-obvious step is not the price spike. It is the <em>regressive distribution</em> of who absorbs it.</p>
+        <p class="we-block-intro">
+          Consensus reads an Anti-Coercion Instrument move on rare earths as a uniform price shock. The cascade Anne carries runs through who can buy their way out of it. Tier-1 chemical majors hold stockpiles, bilateral contracts, and a seat at the Commission table. A Brainport SME with unhedged CNY exposure holds none of those, and gets the spot price at the worst moment.
+        </p>
+
+        <div class="we-chain">
+
+          <div class="we-hop">
+            <div class="we-hop-num">01</div>
+            <div class="we-hop-body">
+              <p class="we-hop-plain">Brussels quietly builds the case to use its anti-coercion powers against China's rare-earth export controls.</p>
+              <div class="we-hop-row">
+                <span class="we-chip lens">lens: regulatory</span>
+                <span class="we-hop-meta">P 50% · 2026</span>
+              </div>
+              <p class="we-hop-text">The Commission assembles the evidentiary record to activate the Anti-Coercion Instrument (Reg 2023/2675), with NdPr and heavy rare earths the next plausible target after gallium, germanium, and graphite. [lens: regulatory]</p>
+            </div>
+          </div>
+
+          <div class="we-hop">
+            <div class="we-hop-num">02</div>
+            <div class="we-hop-body">
+              <p class="we-hop-plain">If activation moves from talk to procedure, Beijing tightens NdPr licensing pre-emptively rather than banning outright.</p>
+              <div class="we-hop-row">
+                <span class="we-chip lens">lens: geopolitical</span>
+                <span class="we-hop-meta">P 40% · 2026-2027</span>
+              </div>
+              <p class="we-hop-text">Per the 2023 pattern, Beijing's calibrated response is pre-emptive NdPr and Dy licensing tightening, timed to deepen fiscal fractures inside the EU rather than to trigger a clean rupture. [lens: geopolitical]</p>
+            </div>
+          </div>
+
+          <div class="we-hop">
+            <div class="we-hop-num">03</div>
+            <div class="we-hop-body">
+              <p class="we-hop-plain">Large chemical firms absorb the shock through stockpiles and contracts. The mid-market cannot.</p>
+              <div class="we-hop-row">
+                <span class="we-chip lens">lens: economic</span>
+                <span class="we-hop-meta">P 38% · 2026-2027</span>
+              </div>
+              <p class="we-hop-text">The load-bearing step is the regressive distribution: Tier-1 majors absorb via stockpiles, bilateral contracts, and Commission access, while mid-market processors are forced onto spot pricing precisely as automotive OEM customers push inventory risk downstream. [lens: economic]</p>
+            </div>
+          </div>
+
+          <div class="we-hop terminal">
+            <div class="we-hop-num">04</div>
+            <div class="we-hop-body">
+              <p class="we-hop-plain">Anne's rare-earth lines sit exactly at the pinch: high China dependency, unhedged CNY cost, customers under their own squeeze.</p>
+              <div class="we-hop-row">
+                <span class="we-chip model">model estimate · prob 0.30</span>
+                <span class="we-hop-meta">2026-2027</span>
+              </div>
+              <p class="we-hop-text">Brabant's REC and NdPr lines carry the full asymmetry: USD and CNY-invoiced feedstock, no hedge, and a DE/NL/BE electrification customer base resisting passthrough. The move is to lock multi-quarter offtake or join a joint-purchasing pilot before the window closes. [model estimate]</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="we-terminal">
+          <p>Terminal node: the same coercion event is a manageable line item for a major and a structural threat for an SME. <em>The cluster's other six triggers each carry a version of this asymmetry.</em> That is why simultaneity, not any single chain, is the exposure.</p>
+        </div>
+      </div>
+
+      <div class="we-footer">
+        <div class="we-verdict">verdict: 7 × promote</div>
+        <p class="we-footer-meta">rendered 2026-W22 and W23 &nbsp;·&nbsp; all seven tracked on the live ledger &nbsp;·&nbsp; windows pending</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SECTION 4 · HOW THE CLUSTERS COMPOSE ===================== -->
+<div class="shell">
+  <section class="section" id="compose" style="padding-top: 0;">
+    <div class="section-mark"><span>how the two clusters compose</span></div>
+    <h2>Two clusters, one balance sheet. <em>That is the bridge family.</em></h2>
+    <p class="section-lede">
+      Chainge sets a cluster boundary by transmission mechanism, not by target sector. So a single energy cascade and a seven-trigger rare-earth compression count as two clusters even though they land on the same firm. Reading them side by side is the work.
+    </p>
+
+    <div class="we-compose">
+      <h4>Where they overlap, and why hedging is hard</h4>
+      <p>The Hormuz cluster enters through energy: gas pricing, ammonia and ethylene-glycol passthrough, and curtailment risk on the one gas-fired reactor train. It touches the coating and toll-synthesis side of the business. The rare-earth cluster enters through feedstock and provenance: NdPr, rare-earth catalysts, and electronic-grade silanes, hit by cost, supply continuity, and compliance load. Different doors, same house.</p>
+      <p>They compose into one fact Anne would not assemble alone: her energy-cost exposure and her feedstock-cost exposure tighten in the same quarters, from unrelated causes. A treasury hedge that frees cash for a gas-price shock can reduce the room to pre-buy non-Chinese rare-earth offtake. The simultaneity is the exposure; neither cluster carries it on its own.</p>
+      <p>This is the Granovetter claim doing real work. The valuable signal is not the strong tie inside Anne's own market. It is the set of weak ties reaching her from energy regulation, trade defence, satellite methane attribution, semiconductor policy, and sanctions architecture, all at once.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SECTION 5 · COUPLING TO TRACK-RECORD ===================== -->
+<div class="shell">
+  <section class="section" id="ledger" style="padding-top: 0;">
+    <div class="section-mark"><span>the receipts · live ledger</span></div>
+    <h2>This page is the story. <em>The ledger is the record.</em></h2>
+    <p class="section-lede">
+      Every chain above is a row on the live matrix, with a stated prediction, a horizon, and a verdict that updates as the window closes. The worked example reads as narrative; the ledger reads as receipts. Here is the same exposure, in ledger form.
+    </p>
+
+    <div class="we-ledger">
+      <div class="we-ledger-cluster">Hormuz Q3-Q4 2026</div>
+      <div class="we-ledger-row">
+        <div class="we-ledger-src">Anne · W21</div>
+        <div class="we-ledger-claim">Ammonia and ethylene-glycol passthrough plus gas-fired reactor curtailment risk compresses margin at Brabant specialty-chemicals lines through Q3-Q4 2026.</div>
+        <div class="we-ledger-state">pending</div>
+      </div>
+
+      <div class="we-ledger-cluster">China rare-earth decoupling Q3-Q4 2026</div>
+      <div class="we-ledger-row">
+        <div class="we-ledger-src">Anne · W22 · ACI</div>
+        <div class="we-ledger-claim">ACI activation lands regressively; Tier-1 majors absorb via stockpiles and contracts, mid-market SMEs forced onto spot pricing.</div>
+        <div class="we-ledger-state">pending</div>
+      </div>
+      <div class="we-ledger-row">
+        <div class="we-ledger-src">Anne · W22 · CS3D</div>
+        <div class="we-ledger-claim">CS3D 2027 phased application, exported through OEM procurement scorecards, reprices Chinese-refined NdPr feedstock before any FTA tariff line moves.</div>
+        <div class="we-ledger-state">pending</div>
+      </div>
+      <div class="we-ledger-row">
+        <div class="we-ledger-src">Anne · W23 · CAATSA</div>
+        <div class="we-ledger-claim">CAATSA secondary sanctions plus CNY invoicing on Chinese refiners narrow Brabant's supplier menu, distinct from the Hormuz USD-clearing mechanism.</div>
+        <div class="we-ledger-state">pending</div>
+      </div>
+    </div>
+
+    <p class="we-link we-link-large" style="margin-top: 22px;"><a href="/track-record">→ see all eight of Anne's rows in the live ledger at /track-record</a></p>
+    <p class="data-footer" style="margin-top: 18px;">
+      Come back as the horizons land. A pending window is a prediction on the clock; a closed one is a verdict on the page. <em>That is the cadence.</em>
     </p>
   </section>
 </div>
 
-<!-- ===================== BACK TO HOME ===================== -->
+<!-- ===================== FOOTER CTA ===================== -->
 <div class="shell">
   <section class="section" style="padding: 0 0 80px;">
-    <p style="margin: 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute);"><a href="index.html" style="color: var(--ink-2); border-bottom: 1px dotted var(--mute); padding-bottom: 1px;">&larr; back to home</a></p>
+    <p style="font-family: var(--serif); font-size: 21px; line-height: 1.5; color: var(--ink); max-width: 60ch; margin: 0 0 24px;">
+      Anne is a fixture. The exposure shape is not. If your business carries this kind of cross-domain exposure and you cannot name it yet, that is the gap Chainge is built to close.
+    </p>
+    <p style="margin: 0 0 10px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.03em;"><a href="index.html#contact" style="color: var(--accent); border-bottom: 1px dotted var(--accent); padding-bottom: 1px;">→ talk to Niels about a profile</a></p>
+    <p style="margin: 0 0 10px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.03em;"><a href="how-it-works.html" style="color: var(--ink-2); border-bottom: 1px dotted var(--mute); padding-bottom: 1px;">→ read the methodology on how it works</a></p>
+    <p style="margin: 22px 0 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute);"><a href="index.html" style="color: var(--ink-2); border-bottom: 1px dotted var(--mute); padding-bottom: 1px;">&larr; back to home</a></p>
   </section>
 </div>
 
@@ -298,101 +559,6 @@ confirmed_at:         2026-05-13</code></pre>
   <span>chainge / chainge.global</span>
   <span>research preview · 2026 · niels langereis</span>
 </footer>
-
-<script>
-  // tab switching for hero chain demo
-  const chainCopy = {
-    'chain-a': {
-      title: 'Tension with Iran today could reshape <em>food brand ownership</em> by late 2026.',
-      bridge: 'from energy markets to grocery store buyouts',
-      stats: '5 steps · 61% confident · 12-month horizon',
-      sources: 'sources cited: ECB, EUR-Lex, <span class="jargon" data-tip="The global benchmark price for crude oil from the North Sea. When &quot;Brent goes up,&quot; fuel and energy-intensive industries pay more." tabindex="0">Brent</span> · model · week 19'
-    },
-    'chain-b': {
-      title: 'Russia\'s war on Ukraine\'s grid will quietly raise your <em>supermarket\'s costs</em> through 2026.',
-      bridge: 'from war economy to your weekly shop',
-      stats: '4 steps · 58% confident · 18-month horizon',
-      sources: 'sources cited: EU energy pkg, <span class="jargon" data-tip="Title Transfer Facility. The European natural gas price benchmark, the &quot;Brent&quot; of gas. Set in the Netherlands, watched closely whenever Europe gets cold or Russia gets aggressive." tabindex="0">TTF</span> gas, FRED · model · week 19'
-    },
-    'chain-c': {
-      title: 'The AI datacenter boom is on track to squeeze <em>budget airline</em> margins by 2027.',
-      bridge: 'from ai infrastructure to your discount flight',
-      stats: '4 steps · 55% confident · 18-month horizon',
-      sources: 'sources cited: hyperscaler filings, water utilities, <span class="jargon" data-tip="The European Union\'s official statistical agency. Aggregates economic, demographic, and social data across all member states. The reference point for EU-wide inflation and employment numbers." tabindex="0">Eurostat</span> · model · week 19'
-    }
-  };
-
-  const tabs = document.querySelectorAll('.demo-tab');
-  const chains = document.querySelectorAll('.chain');
-  const title = document.getElementById('demo-title');
-  const bridge = document.getElementById('demo-bridge');
-  const sources = document.getElementById('demo-sources');
-  const stats = document.querySelector('.demo-meta span:last-child');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.chain;
-
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      chains.forEach(c => c.classList.remove('is-active'));
-
-      // force reflow to restart animations
-      void document.getElementById(target).offsetWidth;
-
-      document.getElementById(target).classList.add('is-active');
-
-      const copy = chainCopy[target];
-      title.innerHTML = copy.title;
-      bridge.textContent = copy.bridge;
-      stats.textContent = copy.stats;
-      sources.innerHTML = copy.sources;
-    });
-  });
-
-  // scroll-triggered timeline animations
-  const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        timelineObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
-
-  document.querySelectorAll('.timeline-track').forEach(track => {
-    timelineObserver.observe(track);
-  });
-
-  // netlify form: ajax submit, inline confirmation, no redirect
-  const subscribeForm = document.querySelector('form[name="subscribe"]');
-  if (subscribeForm) {
-    subscribeForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(subscribeForm);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(() => {
-        subscribeForm.innerHTML = '<p style="font-family: var(--serif); font-style: italic; color: var(--accent); margin: 0; padding: 10px 0;">thanks, we will be in touch.</p>';
-      })
-      .catch(() => {
-        subscribeForm.innerHTML = '<p style="font-family: var(--serif); font-style: italic; color: var(--paper-2); margin: 0; padding: 10px 0;">something went wrong. email mail@nielslangereis.com instead.</p>';
-      });
-    });
-  }
-
-  // fallback: show confirmation if user lands with ?subscribed=1 (no-js submit)
-  if (new URLSearchParams(window.location.search).get('subscribed') === '1') {
-    const form = document.querySelector('form[name="subscribe"]');
-    if (form) {
-      form.innerHTML = '<p style="font-family: var(--serif); font-style: italic; color: var(--accent); margin: 0; padding: 10px 0;">thanks, we will be in touch.</p>';
-    }
-  }
-</script>
 
 </body>
 </html>
