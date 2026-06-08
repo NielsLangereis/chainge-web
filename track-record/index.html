@@ -167,6 +167,19 @@
 
   .cluster-note { font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--mute); margin: 10px 0 0; }
 
+  /* ============ chain-timeline (T4 evolution) ============ */
+  .chain-timeline-header { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--accent-deep); margin: 22px 0 0; }
+  .chain-timeline-header::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
+  .chain-timeline-header::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .chain-timeline-group { border-left: 3px solid var(--accent); padding-left: 16px; margin-top: 2px; }
+  .marker-refines { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--mute); cursor: help; border-bottom: 1px dotted var(--mute); margin-left: 8px; white-space: nowrap; }
+
+  /* ============ pre-horizon operator read (T5) ============ */
+  .annotation-pre-horizon-read { font-family: var(--serif); font-style: italic; font-size: 13.5px; color: var(--ink-2); background: rgba(45,92,71,0.05); border-left: 2px solid var(--accent); padding: 9px 13px; margin: 10px 0 14px; cursor: pointer; }
+  .annotation-pre-horizon-read .lbl { font-family: var(--mono); font-style: normal; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-right: 8px; }
+  .annotation-pre-horizon-read .more { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dotted var(--line); font-size: 13px; }
+  .annotation-pre-horizon-read.open .more { display: block; }
+
   @media (max-width: 640px) {
     .tr-row { grid-template-columns: 1fr; }
     .tr-primary { grid-column: 1; grid-row: auto; flex-direction: row; flex-wrap: wrap; align-items: center; min-width: 0; margin-top: 8px; }
@@ -236,6 +249,7 @@
           <span class="pill pill-situation" data-state="active">situation active</span>
         </div>
         <div class="tr-subline">
+          <span class="pill pill-provenance has-tip" data-prov="automatic" data-tip="provenance per Decision 8: resolves mechanically against a falsifiable source, here the Polymarket binary.">automatic</span>
           <span class="pill pill-source-disputed has-tip" data-tip="Polymarket has flagged this market's resolution path as disputed. The prediction is still pending; the source-side resolution is contested.">source disputed</span>
           <span style="flex-basis:100%;height:0;"></span>
           <div class="sibling-row" onclick="toggleSibling(this)">
@@ -259,6 +273,9 @@
           <span class="pill pill-outcome has-tip" data-state="unclear" data-tip="verdict per Decision 5: market band was plausible at capture, so the window scores unclear regardless of direction unless a sharper-band snapshot supersedes it.">horizon closed: unclear</span>
           <span class="pill pill-situation" data-state="active">situation active</span>
         </div>
+        <div class="tr-subline">
+          <span class="pill pill-provenance has-tip" data-prov="automatic" data-tip="provenance per Decision 8: resolves mechanically against a falsifiable source, here the Polymarket binary.">automatic</span>
+        </div>
       </div>
 
       <!-- Chainge chain: Anne, specialty chemicals -->
@@ -268,6 +285,9 @@
         <div class="tr-primary">
           <span class="pill pill-outcome" data-state="pending">horizon pending</span>
           <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+        <div class="tr-subline">
+          <span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span>
         </div>
       </div>
 
@@ -279,25 +299,44 @@
           <span class="pill pill-outcome" data-state="pending">horizon pending</span>
           <span class="pill pill-situation" data-state="active">situation active</span>
         </div>
-      </div>
-
-      <!-- Chainge chain: DSO operator W22 greenhouse-CHP -->
-      <div class="tr-row" id="row-hormuz-paul-w22">
-        <div class="tr-source">Chainge chain · DSO operator profile · W22 · greenhouse-CHP</div>
-        <div class="tr-claim">Hormuz / TTF elevation inverts greenhouse CHP spark spread; CHP exit depletes the regional DSO's local flexibility resource, creating ACM congestion and flexibility-revenue variance</div>
-        <div class="tr-primary">
-          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
-          <span class="pill pill-situation" data-state="active">situation active</span>
+        <div class="tr-subline">
+          <span class="pill pill-provenance has-tip" data-prov="pending" data-tip="provenance per Decision 8: resolution path not yet assigned for this operator-observation row.">provenance pending</span>
         </div>
       </div>
 
-      <!-- Chainge chain: DSO operator W23 greenhouse-CHP -->
-      <div class="tr-row" id="row-hormuz-paul-w23">
-        <div class="tr-source">Chainge chain · DSO operator profile · W23 · greenhouse-CHP</div>
-        <div class="tr-claim">W23 evolution: CHP exit reverses feeder-flow direction (net-export to net-import), creating a qualitatively new import-congestion problem rather than just demand reduction; terminal ACM cost-disallowance risk</div>
-        <div class="tr-primary">
-          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
-          <span class="pill pill-situation" data-state="active">situation active</span>
+      <!-- chain timeline: greenhouse-CHP transmission (Rows 6 + 7, evolution pair) -->
+      <div class="chain-timeline-header">chain timeline · greenhouse-CHP transmission</div>
+      <div class="chain-timeline-group">
+        <!-- Chainge chain: DSO operator W22 greenhouse-CHP -->
+        <div class="tr-row" id="row-hormuz-dso-w22">
+          <div class="tr-source">Chainge chain · DSO operator profile · W22 · greenhouse-CHP</div>
+          <div class="tr-claim">Hormuz / TTF elevation inverts greenhouse CHP spark spread; CHP exit depletes the regional DSO's local flexibility resource, creating ACM congestion and flexibility-revenue variance</div>
+          <div class="tr-primary">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div>
+          <div class="tr-subline">
+            <span class="pill pill-provenance has-tip" data-prov="observed" data-tip="provenance per Decision 8: mid-chain checks resolve mechanically; the terminal claim resolves against operator qualitative read.">observed</span>
+          </div>
+        </div>
+
+        <!-- Chainge chain: DSO operator W23 greenhouse-CHP (refines W22) -->
+        <div class="tr-row" id="row-hormuz-dso-w23">
+          <div class="tr-source">Chainge chain · DSO operator profile · W23 · greenhouse-CHP</div>
+          <div class="tr-claim">W23 evolution: CHP exit reverses feeder-flow direction (net-export to net-import), creating a qualitatively new import-congestion problem rather than just demand reduction; terminal ACM cost-disallowance risk<span class="marker-refines has-tip" data-tip="W23 splits the W22 terminal regulatory node into a technological step plus a regulatory step. Load-bearing W23 insight: feeder-flow direction reversal as a qualitatively new mechanism, not just demand reduction.">refines W22 framing</span></div>
+          <div class="tr-primary">
+            <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+            <span class="pill pill-situation" data-state="active">situation active</span>
+          </div>
+          <div class="tr-subline">
+            <span class="pill pill-provenance has-tip" data-prov="observed" data-tip="provenance per Decision 8: mid-chain checks resolve mechanically; the terminal claim resolves against operator qualitative read.">observed</span>
+          </div>
+        </div>
+
+        <!-- pre-horizon operator-CEO directional read (covers both greenhouse-CHP rows) -->
+        <div class="annotation-pre-horizon-read" onclick="this.classList.toggle('open')">
+          <span class="lbl">operator-CEO pre-horizon read</span>partial: conclusion confirmed, mechanism challenged
+          <div class="more">The DSO operator (CEO) replied to the W22 cascade share on 2026-06-02. They confirmed the conclusion (congestion and electricity-side sensitivity outweigh the gas-side read) and challenged the mechanism (spark spread is one driver, not the dominant one; total flexibility value is the trigger). This is a directional read, not the scored verdict: both greenhouse-CHP windows stay horizon pending until their horizons arrive. The W23 row inherits the same read. Verdict reading: partial; provenance: observed.</div>
         </div>
       </div>
 
@@ -314,6 +353,7 @@
             <span class="pill pill-outcome" data-state="pending">horizon pending</span>
             <span class="pill pill-situation" data-state="active">situation active</span>
           </div>
+          <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
         </div>
         <div class="tr-row tr-earlier" id="row-hormuz-w20-hezbollah">
           <div class="tr-source">Chainge chain · Anne · W20 backfill · refined into W21</div>
@@ -322,6 +362,7 @@
             <span class="pill pill-outcome" data-state="pending">horizon pending</span>
             <span class="pill pill-situation" data-state="active">situation active</span>
           </div>
+          <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
         </div>
         <p class="cluster-note">Earlier framings are Chainge's earlier reads of this cluster, refined into the W21 primary chain. They stay scored at their original horizons for audit completeness and are excluded from the cluster rollup denominator so framing evolution is not double-counted.</p>
       </div>
@@ -338,36 +379,43 @@
         <div class="tr-source">Chainge chain · Anne · W22 · CS3D + LKAB/India corridor</div>
         <div class="tr-claim">CS3D 2027 phased application, exported through OEM procurement scorecards, reprices Chinese-refined NdPr / REE feedstock for Brabant before any FTA tariff line moves</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
       <div class="tr-row" id="row-china-2">
         <div class="tr-source">Chainge chain · Anne · W22 · Commission ACI (Reg 2023/2675)</div>
         <div class="tr-claim">ACI activation is regressive within the EU: Tier-1 majors absorb via stockpiles and bilateral contracts, mid-market SMEs are forced onto spot pricing on REC and NdPr</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
       <div class="tr-row" id="row-china-3">
         <div class="tr-source">Chainge chain · Anne · W22 · methane reg + CBAM extension</div>
         <div class="tr-claim">MethaneSAT-grade attribution turns opaque upstream Chinese-refiner methane into quantified CBAM-scope-extension liability landing on the Dutch silane line</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
       <div class="tr-row" id="row-china-4">
         <div class="tr-source">Chainge chain · Anne · W22 · Samsung court + Chips Act Art 26</div>
         <div class="tr-claim">EU Chips Act Article 26 is the dormant analog of the Korean essential-infrastructure framing; on activation, continuity obligations flow downstream as supplier-qualification clauses, pricing redundancy risk into mid-market chemical inputs</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
       <div class="tr-row" id="row-china-5">
         <div class="tr-source">Chainge chain · Anne · W23 · Putin deployment law + Baltic EW</div>
         <div class="tr-claim">Dual-use export-control regime creeps over REE precursors via sanctions architecture, narrowing Brabant's supplier menu through a route distinct from FTA or ACI</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
       <div class="tr-row" id="row-china-6">
         <div class="tr-source">Chainge chain · Anne · W23 · Huawei 1.4nm + Chips Act Art 37</div>
         <div class="tr-claim">Chips Act Article 37 provenance migration accelerates as Huawei's 1.4nm announcement repositions semiconductor-input continuity, cascading into Brabant REC and NdPr qualification urgency</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
       <div class="tr-row" id="row-china-7">
         <div class="tr-source">Chainge chain · Anne · W23 · US-Iran / CAATSA + CNY-invoicing</div>
         <div class="tr-claim">CAATSA-style secondary sanctions plus CNY-invoicing pressure on Chinese refiners narrow Brabant's actual supplier menu, distinct from the Hormuz USD-clearing mechanism</div>
         <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+        <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="partial" data-tip="provenance per Decision 8: child checks resolve mechanically; the terminal SME-margin claim has no public falsifiable observable and resolves against proxy evidence requiring CoAS curation.">partial</span></div>
       </div>
     </div>
 
@@ -378,15 +426,20 @@
         <span class="tr-cluster-counter">2 horizons pending · situation active</span>
       </div>
 
-      <div class="tr-row" id="row-eugas-w22">
-        <div class="tr-source">Chainge chain · DSO operator profile · W22 · gas distribution</div>
-        <div class="tr-claim">EU gas phase-out plus Dutch hydrogen-heating rejection force ACM to shorten gas asset lives; the stranded-asset overhang, disclosed under CSRD into a non-easing ECB cycle, constrains the regional DSO's 2027-2032 capital programme</div>
-        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
-      </div>
-      <div class="tr-row" id="row-eugas-w23">
-        <div class="tr-source">Chainge chain · DSO operator profile · W23 · gas distribution</div>
-        <div class="tr-claim">W23 evolution: ACM denies revenue uplift on contested useful-life RAB assets; hydrogen repurposing works only for steel mains (PE last-mile must be replaced); capital allocation freezes before any formal write-down hits the books</div>
-        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      <div class="chain-timeline-header">chain timeline · gas-distribution stranded-asset pathway</div>
+      <div class="chain-timeline-group">
+        <div class="tr-row" id="row-eugas-w22">
+          <div class="tr-source">Chainge chain · DSO operator profile · W22 · gas distribution</div>
+          <div class="tr-claim">EU gas phase-out plus Dutch hydrogen-heating rejection force ACM to shorten gas asset lives; the stranded-asset overhang, disclosed under CSRD into a non-easing ECB cycle, constrains the regional DSO's 2027-2032 capital programme</div>
+          <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+          <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="observed" data-tip="provenance per Decision 8: mid-chain checks resolve mechanically; the terminal DSO claim resolves against operator qualitative read.">observed</span></div>
+        </div>
+        <div class="tr-row" id="row-eugas-w23">
+          <div class="tr-source">Chainge chain · DSO operator profile · W23 · gas distribution</div>
+          <div class="tr-claim">W23 evolution: ACM denies revenue uplift on contested useful-life RAB assets; hydrogen repurposing works only for steel mains (PE last-mile must be replaced); capital allocation freezes before any formal write-down hits the books<span class="marker-refines has-tip" data-tip="W23 sharpens the W22 stranded-asset thesis: capital allocation freezes before any formal write-down, and hydrogen repurposing is feasible only for steel mains, not the PE last-mile.">refines W22 framing</span></div>
+          <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+          <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="observed" data-tip="provenance per Decision 8: mid-chain checks resolve mechanically; the terminal DSO claim resolves against operator qualitative read.">observed</span></div>
+        </div>
       </div>
     </div>
 
@@ -394,23 +447,41 @@
     <div class="tr-cluster" id="cluster-eu-electricity">
       <div class="tr-cluster-head">
         <span class="tr-cluster-name">EU electricity market reform to DSO flexibility revenue</span>
-        <span class="tr-cluster-counter">2 horizons pending · situation active</span>
+        <span class="tr-cluster-counter">2 horizons pending · 1 referenced from Hormuz · situation active</span>
       </div>
 
-      <div class="tr-row" id="row-euelec-w22">
-        <div class="tr-source">Chainge chain · DSO operator profile · W22 · electricity distribution</div>
-        <div class="tr-claim">EU market reform mandates DSO flexibility procurement; an energy-vs-capacity product default plus greenhouse-load correlation collapses aggregator participation, forcing reinforcement capex with no settled flexibility-cost recovery and compressing regulated return</div>
-        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+      <div class="chain-timeline-header">chain timeline · DSO flexibility-market design</div>
+      <div class="chain-timeline-group">
+        <div class="tr-row" id="row-euelec-w22">
+          <div class="tr-source">Chainge chain · DSO operator profile · W22 · electricity distribution</div>
+          <div class="tr-claim">EU market reform mandates DSO flexibility procurement; an energy-vs-capacity product default plus greenhouse-load correlation collapses aggregator participation, forcing reinforcement capex with no settled flexibility-cost recovery and compressing regulated return</div>
+          <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+          <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="observed" data-tip="provenance per Decision 8: mid-chain checks resolve mechanically; the terminal DSO claim resolves against operator qualitative read.">observed</span></div>
+        </div>
+        <div class="tr-row" id="row-euelec-w23">
+          <div class="tr-source">Chainge chain · DSO operator profile · W23 · electricity distribution</div>
+          <div class="tr-claim">W23 evolution: regulatory catch-22, ACM can use the EED energy-efficiency-first principle to disallow reinforcement capex submitted as a hedge against flexibility-market uncertainty; a greenhouse-load-concentrated customer base makes the regional DSO simultaneously the most flex-rich and most design-sensitive<span class="marker-refines has-tip" data-tip="W23 sharpens the W22 flexibility-market read into a regulatory catch-22: the same EED efficiency-first principle ACM uses to push non-wire alternatives can be turned to disallow the reinforcement capex submitted as a hedge.">refines W22 framing</span></div>
+          <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+          <div class="tr-subline"><span class="pill pill-provenance has-tip" data-prov="observed" data-tip="provenance per Decision 8: mid-chain checks resolve mechanically; the terminal DSO claim resolves against operator qualitative read.">observed</span></div>
+        </div>
       </div>
-      <div class="tr-row" id="row-euelec-w23">
-        <div class="tr-source">Chainge chain · DSO operator profile · W23 · electricity distribution</div>
-        <div class="tr-claim">W23 evolution: regulatory catch-22, ACM can use the EED energy-efficiency-first principle to disallow reinforcement capex submitted as a hedge against flexibility-market uncertainty; a greenhouse-load-concentrated customer base makes the regional DSO simultaneously the most flex-rich and most design-sensitive</div>
-        <div class="tr-primary"><span class="pill pill-outcome" data-state="pending">horizon pending</span><span class="pill pill-situation" data-state="active">situation active</span></div>
+
+      <!-- cross-cluster reference: Hormuz greenhouse-CHP W23 bridges into this cluster (Hormuz primary, this cluster secondary) -->
+      <div class="tr-row row-reference" id="row-euelec-ref-hormuz">
+        <div class="tr-source">Chainge chain · DSO operator profile · W23 · greenhouse-CHP · cross-cluster</div>
+        <div class="tr-claim">Strait pressure reaches the regional DSO's electricity distribution via greenhouse-CHP feeder economics; shares the electricity-distribution terminal with this cluster's W22 flexibility-market chain, on a distinct trigger and transmission</div>
+        <div class="tr-primary">
+          <span class="pill pill-outcome" data-state="pending">horizon pending</span>
+          <span class="pill pill-situation" data-state="active">situation active</span>
+        </div>
+        <div class="tr-subline">
+          <a class="pill pill-reference has-tip" data-tip="This chain lives primarily in the Hormuz cluster, where it carries the verdict and counts in the rollup. Click to open its scored row there." href="#row-hormuz-dso-w23">referenced from: Hormuz Q3-Q4 2026</a>
+        </div>
       </div>
     </div>
 
     <p class="section-lede" style="margin-top: 34px;">
-      Verdict provenance and cross-cluster reach render next: the evidence-path pill on every row (automatic, partial, observed, operator, pending), the chain-timeline grouping where a later week refines an earlier read, and the cross-cluster reference where one chain bridges two clusters. The ledger updates weekly.
+      Every row now carries its evidence-path pill (automatic, partial, observed, or pending), so a reader sees not just the verdict but how it will resolve. Where a later week sharpened an earlier read, the rows sit under a shared chain timeline with a refines marker. Where one chain bridges two clusters, it is referenced from its primary cluster rather than double-counted. The ledger updates weekly.
     </p>
   </section>
 </div>
