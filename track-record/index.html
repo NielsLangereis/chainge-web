@@ -180,6 +180,47 @@
   .annotation-pre-horizon-read .more { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px dotted var(--line); font-size: 13px; }
   .annotation-pre-horizon-read.open .more { display: block; }
 
+  /* ============ Section 02 visuals (Option B) ============
+     Verdict taxonomy row + two-column scoring-paths split. Replaces the
+     dense single-paragraph render with visual structure. */
+  .verdict-row {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    margin: 22px 0 28px; padding: 16px 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .verdict-row .verdict-row-label {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--mute); margin-right: 14px;
+  }
+  .scoring-paths {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    margin: 26px 0 14px;
+  }
+  .scoring-path {
+    border-top: 2px solid var(--accent); padding: 14px 0 0;
+  }
+  .scoring-path .path-label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-deep); display: block;
+    margin: 0 0 10px;
+  }
+  .scoring-path .path-headline {
+    font-family: var(--serif); font-size: 16.5px; line-height: 1.4;
+    color: var(--ink); margin: 0 0 10px; font-weight: 500;
+  }
+  .scoring-path .source-list {
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em;
+    color: var(--ink-2); display: block; margin: 4px 0 0;
+  }
+  .scoring-path .path-detail {
+    font-family: var(--serif); font-size: 14.5px; line-height: 1.55;
+    color: var(--ink-2); margin: 0;
+  }
+  @media (max-width: 640px) {
+    .scoring-paths { grid-template-columns: 1fr; gap: 18px; }
+    .verdict-row { gap: 6px; padding: 12px 0; }
+  }
+
   @media (max-width: 640px) {
     .tr-row { grid-template-columns: 1fr; }
     .tr-primary { grid-column: 1; grid-row: auto; flex-direction: row; flex-wrap: wrap; align-items: center; min-width: 0; margin-top: 8px; }
@@ -493,9 +534,32 @@
     <div class="section-mark"><span>02 · how to read a verdict</span></div>
     <h2>The receipts here, the method there.</h2>
     <p class="section-lede">
-      A pending window means the horizon has not arrived. A closed window carries a verdict: right, partial, wrong, or unclear, scored mechanically against primary-source data where the data exists, and against proxy or operator evidence where it does not, with that path disclosed. Some terminal claims (private-SME margin compression, for one) have no public falsifiable observable; the ledger says so rather than scoring them silently.
+      A pending window means the horizon has not arrived. A closed window carries one of four verdicts.
     </p>
-    <p class="section-lede" style="margin-top: 14px;">
+
+    <div class="verdict-row" aria-label="verdict states a row can carry">
+      <span class="verdict-row-label">a row can carry</span>
+      <span class="pill pill-outcome" data-state="pending">pending</span>
+      <span class="pill pill-outcome" data-state="right">right</span>
+      <span class="pill pill-outcome" data-state="partial">partial</span>
+      <span class="pill pill-outcome" data-state="wrong">wrong</span>
+      <span class="pill pill-outcome" data-state="unclear">unclear</span>
+    </div>
+
+    <div class="scoring-paths">
+      <div class="scoring-path">
+        <span class="path-label">mechanical · when primary-source data exists</span>
+        <p class="path-headline">Scored deterministically against the source.</p>
+        <span class="source-list">FRED · Polymarket · EUR-Lex · ECHA register · ENTSOG · EIA STEO</span>
+      </div>
+      <div class="scoring-path">
+        <span class="path-label">observed · when it does not</span>
+        <p class="path-headline">Scored against proxy or operator evidence, with the path disclosed.</p>
+        <p class="path-detail">Some terminal claims (private-SME margin compression, for one) have no public falsifiable observable; the ledger says so rather than scoring them silently.</p>
+      </div>
+    </div>
+
+    <p class="section-lede" style="margin-top: 22px;">
       For how cascades get generated, how the harness grounds claims, and how verdicts get scored, see <a href="/how-it-works.html">how it works</a>. The track-record page is the receipts; how-it-works is the method.
     </p>
   </section>
