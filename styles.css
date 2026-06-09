@@ -165,6 +165,22 @@
   }
   .nav-cta:hover { color: var(--accent-deep); border-bottom-color: var(--accent-deep); }
 
+  /* Live indicator next to "the track record" in the nav. Static dot, no pulse;
+     matches the "ledger reads as a record, not a story" register. Filled green
+     when a verdict is live in the ledger. */
+  .nav-live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-left: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    box-shadow: 0 0 0 2px rgba(45, 92, 71, 0.16);
+  }
+
   /* ============ ACCESSIBILITY HINT BAR ============ */
   .hint-bar {
     background: var(--paper-2);
