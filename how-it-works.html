@@ -418,10 +418,10 @@
     <div class="section-mark"><span>03 · the engine</span></div>
     <h2>Behind the briefing, <em>a weekly pipeline</em>.</h2>
     <p class="section-lede">
-      Every Monday the engine ingests the previous week's news, regulatory filings, prediction-market odds, and macro data. It clusters them into five to eight strategic themes for the week. For each theme, it traces a cross-domain weak-tie cascade from the theme into the customer's profile. Output is a chain of five or six numbered steps, each naming a transmission mechanism and attenuating probability node by node.
+      Every Monday the engine ingests the previous week's news, regulatory filings, prediction-market odds, and macro data. It clusters them into five to eight strategic themes for the week. Then, instead of tracing one cascade per theme, it generates candidate cascades across the customer's full exposure surface: every structural dimension of the profile that a live theme could plausibly reach. Each candidate is a chain of five or six numbered steps, each naming a transmission mechanism and an attenuating probability node by node.
     </p>
     <p class="section-lede" style="margin-top: 14px;">
-      Two passes follow. A <span class="jargon" data-tip="A separate AI model that argues against the first model's output, looking for unsupported leaps, missing citations, weak causal links. Borrowed from how research teams stress-test each other's claims." tabindex="0">skeptic pass</span> verdicts each candidate chain: <span class="jargon" data-tip="The four-state verdict the skeptic returns for each candidate chain. Promote means lead with it; surface means mention; demote means lower confidence; drop means kill." tabindex="0">promote, surface, demote, or drop</span>. A grounding pass anchors every quantitative claim against the harness layer described in the next panel.
+      Then the gate. A <span class="jargon" data-tip="A separate AI model that argues against the first model's output, looking for unsupported leaps, missing citations, weak causal links. Borrowed from how research teams stress-test each other's claims." tabindex="0">skeptic pass</span> verdicts every candidate chain: <span class="jargon" data-tip="The four-state verdict the skeptic returns for each candidate chain. Promote means lead with it; surface means mention; demote means lower confidence; drop means kill." tabindex="0">promote, surface, demote, or drop</span>. The system surfaces up to three promote-verdict headlines, plus the full deep field of everything that clears at surface or above, marked as system-generated, and it reports an honest count of what it dropped. Generate wide, then gate hard: the gate is the product, not a formality. A grounding pass then anchors every quantitative claim against the harness layer described in the next panel.
     </p>
 
     <div class="pipeline">
@@ -441,21 +441,21 @@
 
       <div class="stage">
         <div class="stage-num">stage 03</div>
-        <h3>Cascade</h3>
-        <p>A single structured-output call per theme returns a typed object: nodes, transmission mechanisms, probabilities, citations, attenuation rationale. The single pass runs the multi-perspective analysis (regulatory, commodity, geopolitical, industrial, technological) inside one prompt, not across orchestrated parallel calls. The chain runs five or six steps from the theme into the customer's profile.</p>
+        <h3>Generate wide</h3>
+        <p>Candidate cascades are generated against the customer's full exposure surface, not a fixed set per theme. Each is a typed object: nodes, transmission mechanisms, probabilities, citations, attenuation rationale. One structured-output call carries the multi-perspective analysis (regulatory, commodity, geopolitical, industrial, technological) inside a single prompt, not across orchestrated parallel calls. Each chain runs five or six steps into the customer's profile.</p>
         <div class="stage-meta"><span class="jargon tip-down" data-tip="The most capable AI models currently available. Used here for the hardest reasoning step in the pipeline." tabindex="0">frontier model</span> · <span class="jargon tip-down" data-tip="The model returns data in a fixed shape (typed fields, validated formats), not free-text prose. Reduces hallucination, makes downstream processing reliable." tabindex="0">structured output</span></div>
       </div>
 
       <div class="stage">
         <div class="stage-num">stage 04</div>
-        <h3>Verdict</h3>
-        <p>A skeptic pass on every chain: promote, surface, demote, drop. A grounding pass against the harness layer (next panel). No claim ships without a source chip.</p>
-        <div class="stage-meta">adversarial pass · grounding pass</div>
+        <h3>Gate</h3>
+        <p>A skeptic pass verdicts every candidate: promote, surface, demote, drop. Up to three promote headlines surface, plus the deep field that clears at surface or above, with an honest count of what dropped. A grounding pass anchors each claim against the harness (next panel). No claim ships without a source chip.</p>
+        <div class="stage-meta">adversarial gate · grounding pass</div>
       </div>
     </div>
 
     <p class="section-lede" style="margin-top: 28px;">
-      The cascade step is upstream of the grounding step, which is where most of the credibility work happens. The harness is the next panel.
+      Generation runs wide, the gate runs hard, and the grounding step is where most of the credibility work happens. The harness is the next panel.
     </p>
   </section>
 </div>
@@ -464,12 +464,12 @@
 <div class="shell">
   <section class="section" id="grounding">
     <div class="section-mark"><span>04 · the grounding</span></div>
-    <h2>Where the credibility comes from. <em>An eight-source harness.</em></h2>
+    <h2>Where the credibility comes from. <em>A primary-source harness.</em></h2>
     <p class="section-lede">
       Each cascade claim is grounded against real economic and regulatory data. <span class="jargon" data-tip="Multiple independent sources per claim, with structured disclosure of what each one can and cannot reach. Three lines of sight beat one." tabindex="0">Triangulation</span> is the discipline: multiple independent sources per claim, with structured disclosure of what each one can and cannot reach. When no source can ground a claim, the cascade surfaces an explicit "unaddressable" block instead of silently omitting it.
     </p>
     <p class="section-lede" style="margin-top: 14px;">
-      Eight grounding sources sit in the harness today, plus one synthesis overlay and one passive watcher. Each one closes a structural gap the others cannot. The layer is under construction by design: every customer interaction that surfaces an unaddressable claim pulls the next adapter in. What follows is the snapshot as of 2026-06-03, not the end state. Five concrete sample citations follow; each comes from a real adapter output, not a promise.
+      A dozen grounding sources sit in the harness today, plus one synthesis overlay and one passive watcher. Each one closes a structural gap the others cannot. The layer is under construction by design: every customer interaction that surfaces an unaddressable claim pulls the next adapter in. The most recent deepening, in the snapshot below as of 2026-06-11, added the bodies of EU law via the official Publications Office route, the Dutch grid regulator's decision register, and the Italian gas-price stack. What follows is that snapshot, not the end state. Five concrete sample citations follow; each comes from a real adapter output, not a promise.
     </p>
 
     <table class="source-table" aria-label="Harness layer source map">
@@ -485,6 +485,10 @@
         <tr><td class="src-name"><span class="jargon" data-tip="European Pollutant Release and Transfer Register. Reports of pollutant emissions from large industrial facilities across the EU." tabindex="0">E-PRTR</span></td><td>Italian Mortara cluster and sibling-site pollutants</td><td class="src-shape">EU regulatory</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="European Chemicals Agency. Manages REACH and CLP. The CHEM database holds substance-level regulatory status: SVHC listings, authorization decisions, restrictions." tabindex="0">ECHA CHEM</span></td><td>Substance-level regulatory status</td><td class="src-shape">substance-level</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="European Network of Transmission System Operators for Gas, transparency platform. Network-point-level gas flow data across EU pipelines and LNG terminals." tabindex="0">ENTSOG</span></td><td>EU cross-border gas flow at network-point resolution</td><td class="src-shape">EU regulatory</td></tr>
+        <tr><td class="src-name"><span class="jargon" data-tip="The official EU legal database, retrieved through the Publications Office content-negotiation route (CELLAR). Returns the full body of a regulation or directive, anchored at the article level, not just the identifier." tabindex="0">EUR-Lex bodies</span></td><td>Full text of EU regulations and directives, article-anchored</td><td class="src-shape">EU regulatory · article-level</td></tr>
+        <tr><td class="src-name"><span class="jargon" data-tip="Autoriteit Consument en Markt. The Dutch competition and regulatory authority. Its besluiten register publishes draft and final decisions on grid tariffs, congestion management, and DSO methodology." tabindex="0">ACM register</span></td><td>Dutch grid-regulator draft and final decisions</td><td class="src-shape">national regulatory</td></tr>
+        <tr><td class="src-name"><span class="jargon" data-tip="Autorità di Regolazione per Energia Reti e Ambiente. The Italian energy regulator. Publishes the monthly PSV gas reference price used as the Italian cost-base anchor." tabindex="0">ARERA</span></td><td>Italian PSV gas reference price, monthly</td><td class="src-shape">national regulatory</td></tr>
+        <tr><td class="src-name"><span class="jargon" data-tip="The European Commission's Directorate-General for Energy. Its quarterly gas market report supplies the EU benchmark (TTF) used alongside ARERA to derive the Italian price spread." tabindex="0">EC DG ENER</span></td><td>EU quarterly gas benchmark (TTF), for the derived PSV-TTF spread</td><td class="src-shape">EU regulatory</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="Multi-regional input-output overlay. Combines several upstream datasets to disaggregate aggregate buckets into more granular subsegments." tabindex="0">MRIO subsegment overlay</span></td><td>Disaggregates EXIOBASE buckets (specialty vs bulk)</td><td class="src-shape">synthesis adapter</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="Italian Institute for Environmental Protection and Research. Linked-open-data publishing pipeline is currently passive; the watcher fires when new releases land." tabindex="0">ISPRA SPARQL watcher</span></td><td>Passive monitor for Italian RIR linked-open-data publication</td><td class="src-shape">watcher (not active grounding)</td></tr>
       </tbody>
@@ -518,6 +522,13 @@
       <div class="anchor-eyebrow">sample citation 05 · a geopolitical event visible in flow data</div>
       <h3 class="anchor-headline">A cross-domain weak tie from a geopolitical event to industrial feedstock supply, in observable network-point data.</h3>
       <p>ENTSOG transparency surfaces the post-2022 Italian gas supply transition in concrete flow data: Passo Gries entry +22% YoY in 2024 (98.5 to 120 GWh/d). Tarvisio entry, the Russian-gas-via-Austria route, -40% YoY (31 to 18.5 GWh/d). Cavarzere LNG terminal +17% YoY (210 to 245 GWh/d). The Mortara industrial cluster's gas supply rerouted from Russian transit to Northern European pipeline plus <span class="jargon" data-tip="Liquefied natural gas. Gas cooled to liquid form for transport by ship; arrives at coastal terminals like Cavarzere and re-gasifies into the grid." tabindex="0">LNG</span>. Observed in public European transmission system data.</p>
+    </div>
+
+    <div class="anchor-card" style="margin-top: 28px;">
+      <div class="anchor-eyebrow">what deepening the harness buys</div>
+      <h3 class="anchor-headline">More sources raise the floor. Only the operator's own data raises the ceiling.</h3>
+      <p>When the bodies of EU law came into the harness, the effect was measurable and bounded in the same breath. Four cascade nodes across two operator profiles moved from cited-by-identifier to grounded-in-text, so the mid-chain reasoning got cleaner and better evidenced. The confidence ceiling on those chains did not move. It is set by claims that only an operator's own data can settle: a grid operator's internal congestion mechanics, a manufacturer's actual cost base. Shared public sources buy breadth and cleanliness; only operator-specific grounding lifts the cap. That honest split is the whole reason the feedback loop in the next panel exists, and it is more telling than a longer source list. The Italian price stack records the same discipline: where redistribution terms gate a feed (the GME spot exchange), the harness marks an honest gap rather than reaching around it, and grounds Italy's cost base from the public ARERA and Commission series instead.
+    </p>
     </div>
 
     <p class="data-footer" style="margin-top: 32px;">
@@ -693,7 +704,7 @@
           <span class="data-name">How is this different from ChatGPT, news, and my own analysis?</span>
           <span class="data-tag">Q02</span>
         </div>
-        <p>Different comparison set. ChatGPT reads headlines about headlines, with no horizon and no track record. Chainge reads primary sources: EUR-Lex for regulations, FRED for macro time-series, GDELT for geopolitical events, Polymarket for crowd-priced probabilities, arXiv for emerging research, and the eight-source harness grounds every cascade claim. Every chain carries a source chip. Every prediction carries a verdict horizon. The right way to think about Chainge is as an institutional research desk that runs every week against your profile, not as a smarter chatbot.</p>
+        <p>Different comparison set. ChatGPT reads headlines about headlines, with no horizon and no track record. Chainge reads primary sources: EUR-Lex for regulations, FRED for macro time-series, GDELT for geopolitical events, Polymarket for crowd-priced probabilities, arXiv for emerging research, and a primary-source harness grounds every cascade claim. Every chain carries a source chip. Every prediction carries a verdict horizon. The right way to think about Chainge is as an institutional research desk that runs every week against your profile, not as a smarter chatbot.</p>
       </li>
 
       <li>
