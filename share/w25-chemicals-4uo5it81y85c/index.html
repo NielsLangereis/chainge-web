@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge W25 · Cascade share</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* paper grain, very subtle */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  main { position: relative; z-index: 2; }
+
+  /* PAGE SHELL */
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 72px 80px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  /* TOP META BAR */
+  .topmeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    margin-bottom: 32px;
+  }
+  .topmeta .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* COVER */
+  .cover {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 14ch;
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 48px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 56ch;
+  }
+  .cover-meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .cover-meta dd {
+    font-family: var(--serif);
+    font-size: 16px;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  /* SECTION */
+  .section {
+    padding: 56px 0 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  .section-title em { font-style: italic; }
+
+  .section-lede {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+    margin: 0 0 24px;
+  }
+
+  /* BODY PROSE */
+  .prose p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 68ch;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* PREDICTION CARDS */
+  .pred-stack { display: grid; gap: 28px; margin-top: 8px; }
+
+  .pred {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 28px 32px 30px;
+    box-shadow: 4px 4px 0 var(--ink);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pred-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .pred-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .pred-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .pred-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+  }
+  .stat {
+    min-width: 92px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .stat-val {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-val.accent { color: var(--accent); }
+  .stat-delta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    margin-top: 4px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .pred-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASCADE STEPS */
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    position: relative;
+  }
+  .step-num::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    bottom: -24px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step:last-child .step-num::before { display: none; }
+  .step-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+  }
+  .step-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .step-body em { font-style: italic; color: var(--mute); }
+
+  .insight {
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  .insight strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .insight .verdict-states {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .insight em.term {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* CAVEAT LIST */
+  .caveats { list-style: none; padding: 0; margin: 8px 0 0; max-width: 68ch; }
+  .caveats li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    position: relative;
+  }
+  .caveats li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 11px;
+    height: 1px;
+    background: var(--mute);
+  }
+  .caveats li:last-child { border-bottom: none; }
+  .caveats li strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* SOURCES + CITATION CHIPS */
+  .sources-group { margin-bottom: 36px; }
+  .sources-group:last-child { margin-bottom: 0; }
+  .sources-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px 4px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+  }
+  .chip::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mute);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .chip.primary::before { background: var(--accent); }
+  .chip.model::before { background: var(--gold); }
+  .chip.new {
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+  .chip.new::after {
+    content: "new";
+    font-size: 8.5px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+
+  .sources-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--mute);
+    margin-top: 20px;
+    max-width: 60ch;
+  }
+
+  /* CLOSING QUESTION */
+  .closing {
+    margin-top: 56px;
+    padding: 28px 30px 30px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--ink);
+    max-width: 68ch;
+  }
+  .closing strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .closing p {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 0 0 14px;
+  }
+  .closing p:last-child { margin-bottom: 0; }
+  .closing .ask {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* PRINT */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  @media print {
+    body { background: var(--paper); }
+    body::before { display: none; }
+    .page { max-width: none; padding: 0; }
+    .section { padding: 32px 0 8px; page-break-inside: auto; }
+    .cover { padding: 24px 0 48px; page-break-after: always; }
+    .section-head { page-break-after: avoid; break-after: avoid; }
+    .pred, .step, .insight, .closing { page-break-inside: avoid; break-inside: avoid; }
+    .pred-stack { gap: 20px; }
+    .footer { page-break-before: avoid; }
+    .topmeta { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · weekly run W25</span>
+      <span>Confidential · operator preview</span>
+    </div>
+
+    <!-- COVER -->
+    <header class="cover">
+      <div class="cover-eyebrow">Strategic foresight share · Week 25 · 2026</div>
+      <h1 class="cover-title">Cascade share, <em>second read</em></h1>
+      <p class="cover-sub">
+        The Italian cost-base cascade now reads off real published prices rather than an estimate. That is what moved it, and it is the clearest sign of what the deeper data layer buys.
+      </p>
+      <dl class="cover-meta">
+        <div>
+          <dt>Date</dt>
+          <dd>15 June 2026</dd>
+        </div>
+        <div>
+          <dt>Source</dt>
+          <dd>Chainge weekly run · W25 · 15 June 2026</dd>
+        </div>
+        <div>
+          <dt>Reading time</dt>
+          <dd>~8 minutes</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 01 UPDATE READ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <h2 class="section-title">Update read</h2>
+      </div>
+      <div class="prose">
+        <p>The useful read this week is what happened to Cascade A. Last iteration the Italian cost-base cascade was a first anchor at 0.28, with the number resting on a model estimate of Italian energy cost rather than on measured prices. This week it grounds on the actual data: the full 2025 ARERA PSV reference series and the PSV-to-TTF spread are in the harness, so the Italian cost base is now read off real published prices, not inferred. The number moved to 0.38. It rose because the cost pressure is now measured rather than assumed, not because the risk grew. That is the deeper data layer doing exactly what it is meant to do, and Cascade A is the clearest proof of it in your packet.</p>
+        <p>The other two cascades eased. Cascade B, the Chinese cost-base chain, fell to 0.14 as the engine declined to carry probability past the node where the firm-level Chinese data still runs out. Cascade C, the REACH photoinitiator chain, eased to 0.28 and remains the one cascade in the packet that resolves mechanically against a public register, with no judgment required. Two cascades down where the grounding thinned, one up where it firmed on real prices: the read moved with the evidence in both directions.</p>
+      </div>
+    </section>
+
+    <!-- 02 THE THREE UPDATES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <h2 class="section-title">The three updates, stated precisely</h2>
+      </div>
+
+      <div class="pred-stack">
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cascade A · Italian gas to the Italian production cost base</div>
+              <h3 class="pred-title">Grounded on real ARERA prices, the cost base is now measured</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.38</span>
+                <span class="stat-delta up">up 0.10</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">Q3 2026</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">The lift is grounding, not escalation. The chain now reads the Italian cost base off the published 2025 ARERA PSV series and the PSV-to-TTF spread, where last iteration it inferred that cost from a model estimate. The cost signal is real and now measured. Earliest external inflection: the Q3 2026 ARERA tariff revision cycle and Snam storage fill-rate reporting ahead of the November injection-season close.</p>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cascade B · Chinese coal grid and enforcement to the Chinese cost base</div>
+              <h3 class="pred-title">Eased where the firm-level Chinese data still runs out</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.14</span>
+                <span class="stat-delta down">down 0.14</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">Q3 2026</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">The structure is unchanged: provincial energy-intensity targets and enforcement pressure raise park-level operating cost, which transmits through the photoinitiator intermediate-supply network. The number eased because the firm-level Chinese data layer is still the open gap; the engine holds the chain at the lower number rather than carrying probability past the node it cannot ground. Well grounded at the policy and listed-competitor layers, explicitly estimated at the node that touches your plant.</p>
+        </article>
+
+        <article class="pred">
+          <div class="pred-head">
+            <div>
+              <div class="pred-eyebrow">Cascade C · EU REACH SVHC to photoinitiator revenue</div>
+              <h3 class="pred-title">Eased, and still the one that resolves itself</h3>
+            </div>
+            <div class="pred-stats">
+              <div class="stat">
+                <span class="stat-label">Probability</span>
+                <span class="stat-val accent">0.28</span>
+                <span class="stat-delta down">down 0.06</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Horizon</span>
+                <span class="stat-val">Dec 2026 / H1 2027</span>
+              </div>
+            </div>
+          </div>
+          <p class="pred-body">A photoinitiator chemistry entering the REACH authorisation pipeline as a candidate Substance of Very High Concern would pressure your photoinitiator family, concentrated on EU OEM ink and coating accounts. The number eased, and the cascade keeps its defining strength: it resolves mechanically against the next biannual ECHA Candidate List update, with no operator judgment required.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 CASCADE A DETAIL -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <h2 class="section-title">Cascade A in detail</h2>
+      </div>
+      <p class="section-lede">Italian gas market to the Italian production cost base, now grounded on the Italian price stack rather than estimated. The grounding upgrade this week is the ARERA PSV series and the PSV-to-TTF spread, and that is what moved the number.</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">Step 1</div>
+          <div>
+            <h4 class="step-head">The Italian gas market sets the cost signal.</h4>
+            <p class="step-body">The 2025 ARERA PSV reference series gives the Italian wholesale gas level directly, and the PSV-to-TTF spread places it against the European benchmark. Storage trajectory ahead of the November injection-season close is the load-bearing observable. This node is now public-price grounded, where last iteration it was a model estimate.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 2</div>
+          <div>
+            <h4 class="step-head">Italian power prices track gas at the margin.</h4>
+            <p class="step-body">Gas-fired plant sets the marginal clearing price across much of the Italian market, so an elevated gas curve passes through into industrial power tariffs. Energy-curing resin processing and photoinitiator synthesis are both electricity- and heat-intensive, which is where the transmission becomes specific to your Mortara production rather than generic to Italian industry.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 3</div>
+          <div>
+            <h4 class="step-head">The Italian-produced cost base rises.</h4>
+            <p class="step-body">The combined gas and power signal lands on the cost base of your Italian-produced photoinitiator and energy-curing resins family. E-PRTR sibling-site records anchor the energy and emissions intensity of comparable Italian sites. <em>The size of the pass-through is a site-level question, not a market one.</em></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 4</div>
+          <div>
+            <h4 class="step-head">Margin compresses unless the increase is passed on.</h4>
+            <p class="step-body">Recovery through OEM pricing varies by customer and by competitive position against non-Italian production. The relative weights here are reasoning from the profile, not per-account contract data.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 5</div>
+          <div>
+            <h4 class="step-head">Terminal: a cost shift visible in management accounts.</h4>
+            <p class="step-body">The exposure terminates at a private observable in your internal reporting, not a public dataset. The verdict path is operator judgment at horizon, with the ARERA Q3 publications and the Snam fill-rate reports as the public markers that bracket the window.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="insight">
+        <strong>Methodology note</strong>
+        The chain is grounded at the first two nodes on the new Italian price stack, and the move from 0.28 to 0.38 is that grounding, not a worsening of your position. The downstream nodes carry profile-anchored reasoning where the chain reaches your specific cost base and accounts. This is the first cascade in your packet to rest its cost signal on measured Italian prices rather than on an estimate, and it is the concrete shape of what the deeper data buys.
+      </div>
+    </section>
+
+    <!-- 04 CASCADE B DETAIL -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Cascade B in detail</h2>
+      </div>
+      <p class="section-lede">Chinese coal grid and environmental enforcement to the Chinese cost base, and onward to the photoinitiator intermediate-supply network.</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">Step 1</div>
+          <div>
+            <h4 class="step-head">Provincial energy-intensity targets and enforcement tighten.</h4>
+            <p class="step-body">The producing province's energy-intensity targets and Ministry of Ecology and Environment enforcement campaigns for Yangtze Economic Belt chemical parks set the policy pressure. Both are public, and this is where the chain is firmest.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 2</div>
+          <div>
+            <h4 class="step-head">Energy and compliance costs rise for park operators.</h4>
+            <p class="step-body">Coal-grid power cost, dual-control pressure and compliance-retrofit obligations raise operating cost; during active enforcement windows the binding effect can be curtailment rather than price.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 3</div>
+          <div>
+            <h4 class="step-head">Your Chinese plant-level cost base moves.</h4>
+            <p class="step-body">The park-level pressure lands on your Chinese operations. This is the node where the public data thins out, since firm-level granularity for a specialty-chemicals SME is not in the reachable layer.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 4</div>
+          <div>
+            <h4 class="step-head">The intermediate-supply network transmits the shock.</h4>
+            <p class="step-body">Where those plants feed photoinitiator intermediates into the global network, a cost or availability shock ripples downstream wherever synthesis depends on that intermediate supply.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 5</div>
+          <div>
+            <h4 class="step-head">Terminal: a private cost shift, with public secondary markers.</h4>
+            <p class="step-body">The verdict path is operator judgment. Secondary public markers exist: a customer communication, a force-majeure notice or an investor-update reference to operational constraints would each signal that the constraint has bound.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="insight">
+        <strong>Honest gap</strong>
+        The move to 0.14 is the engine declining to carry the chain past the firm-level node it cannot ground. The harness reaches Ministry of Ecology and Environment enforcement announcements, provincial energy-intensity publications and listed-competitor KPIs (for example Jiuri New Material, SH:688199; Yangfan New Materials, SZ:300637), but not firm-level granularity for a Chinese specialty-chemicals SME. The cascade is grounded at the policy and listed-competitor layers and explicitly estimated at the node that touches your plant.
+      </div>
+    </section>
+
+    <!-- 05 CASCADE C DETAIL -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Cascade C in detail</h2>
+      </div>
+      <p class="section-lede">EU REACH SVHC process to photoinitiator revenue pressure. The methodology bright spot in the packet: the only cascade whose verdict resolves mechanically against a public register.</p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">Step 1</div>
+          <div>
+            <h4 class="step-head">A photoinitiator chemistry enters the REACH pipeline.</h4>
+            <p class="step-body">Under REACH (CELEX:32006R1907), a member-state or ECHA proposal can place a substance into the Registry of Intentions as a candidate SVHC. The observable is the presence or absence of a photoinitiator-chemistry dossier in that public register.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 2</div>
+          <div>
+            <h4 class="step-head">Candidate List inclusion triggers obligations.</h4>
+            <p class="step-body">Inclusion at the biannual update carries communication and, on later steps, authorisation obligations down the supply chain. The next ECHA Candidate List update (December 2026 or June 2027) is the resolution point.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 3</div>
+          <div>
+            <h4 class="step-head">OEM customers begin supplier-qualification review.</h4>
+            <p class="step-body">EU ink and coating OEMs respond to an SVHC signal by opening reformulation and supplier-qualification review, often ahead of any hard restriction, observable in trade press within three to six months.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 4</div>
+          <div>
+            <h4 class="step-head">Revenue pressure concentrates on the EU accounts.</h4>
+            <p class="step-body">The pressure lands on your photoinitiator family, the dominant share of group revenue, concentrated on EU OEM accounts where the REACH precedent applies most directly.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">Step 5</div>
+          <div>
+            <h4 class="step-head">Terminal: a mechanically resolvable verdict.</h4>
+            <p class="step-body">The terminal resolves against the public ECHA register: a photoinitiator dossier in the Registry of Intentions or on the Candidate List either appears or it does not. No operator judgment required.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="insight">
+        <strong>Mechanical resolution</strong>
+        Cascade C is the only cascade in the packet with a terminal observable that is public and falsifiable. At horizon the matrix reads the ECHA register and assigns the verdict directly. That is the methodology at full strength: a precise, dated, register-checkable claim that waits to be marked against itself.
+      </div>
+    </section>
+
+    <!-- 06 HOW VERDICTS REGISTER -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">06</div>
+        <h2 class="section-title">How verdicts register</h2>
+      </div>
+      <div class="insight">
+        <strong>Matrix verdict vocabulary</strong>
+        At the verdict horizon, each prediction resolves to one of <span class="verdict-states">right / partial / wrong / unclear</span>. Two paths feed that resolution. Cascade C resolves <em class="term">mechanically</em>: the matrix reads the public ECHA register and marks it without your input. Cascades A and B resolve through an <em class="term">operator-feedback</em> path, because their terminal claims sit on private observables in your management accounts that no public dataset exposes; your read at horizon is the verdict signal. No verdict is asked of you today.
+      </div>
+    </section>
+
+    <!-- 07 WHAT WE CANNOT YET VERIFY -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">07</div>
+        <h2 class="section-title">What we cannot yet verify</h2>
+      </div>
+      <ul class="caveats">
+        <li><strong>Chinese firm-level data is the residual gap.</strong> The harness reaches enforcement announcements, provincial publications and listed-competitor KPIs, but not firm-level granularity for your Chinese plant, which is why Cascade B eased rather than firmed.</li>
+        <li><strong>Cascades A and B terminate on private observables.</strong> The Italian-site cost base and the Chinese plant-level cost both resolve in management accounts, not public data. The verdict path for both is operator judgment at horizon.</li>
+        <li><strong>Probabilities are ordinal, not market prices.</strong> Read 0.38 as a stronger anchor than 0.28, calibrating the chain, not a tradeable odds.</li>
+        <li><strong>On Cascade A, the cost signal is grounded; the pass-through is not.</strong> The Italian cost base now reads off the ARERA price stack, but the pass-through size to your specific accounts is still profile-anchored reasoning, not per-account contract data.</li>
+      </ul>
+    </section>
+
+    <!-- 08 SOURCES -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">08</div>
+        <h2 class="section-title">Sources</h2>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Live corpus · Italian layer · grounded this iteration</div>
+        <div class="chip-row">
+          <span class="chip primary new">ARERA · PSV 2025 reference series</span>
+          <span class="chip primary new">PSV-to-TTF spread</span>
+          <span class="chip primary">Snam · network transparency · storage fill</span>
+          <span class="chip primary">E-PRTR · sibling-site records</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Live corpus · Chinese + EU regulatory layer</div>
+        <div class="chip-row">
+          <span class="chip primary">MEE · enforcement campaigns</span>
+          <span class="chip primary">Provincial energy-intensity targets</span>
+          <span class="chip primary">Listed competitor KPI · Jiuri SH:688199</span>
+          <span class="chip primary">Listed competitor KPI · Yangfan SZ:300637</span>
+          <span class="chip primary">ECHA · Registry of Intentions</span>
+          <span class="chip primary">ECHA · Candidate List</span>
+          <span class="chip primary">EUR-Lex · REACH · CELEX:32006R1907</span>
+        </div>
+      </div>
+
+      <div class="sources-group">
+        <div class="sources-label">Flagged · model estimate or operator-judgment path</div>
+        <div class="chip-row">
+          <span class="chip model">Chinese SME firm-level cost granularity</span>
+          <span class="chip model">Italian-site pass-through weights</span>
+          <span class="chip model">Per-account OEM pricing power</span>
+          <span class="chip model">Terminal cost observables · A and B</span>
+        </div>
+      </div>
+
+      <p class="sources-note">The grounding upgrade this week is the Italian price stack: ARERA and the PSV-to-TTF spread reach the matrix and move Cascade A from an estimate to a measured read. Cascade C stays the bright spot on grounding, resolving against the public ECHA register without operator judgment.</p>
+    </section>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <strong>One line back</strong>
+      <p>The most concrete thing in this packet is that Cascade A now reads your Italian cost base off real ARERA prices rather than an estimate, which is the kind of grounding the next iterations will extend to your other surfaces.</p>
+      <p class="ask">Of the priority surfaces in your profile not yet run, which one would be most worth grounding next, and why that one?</p>
+    </div>
+
+    <footer class="footer">
+      <span>Chainge · W25 · 2026-06-15</span>
+      <span>Confidential · operator preview</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>
