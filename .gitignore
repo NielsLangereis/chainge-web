@@ -5,3 +5,13 @@ node_modules/
 .env.local
 *.bak
 *.original.bak
+
+# Briefings must pass the publicness sanitizer before they are published.
+# Ignore all briefing markdown by default and explicitly un-ignore each
+# sanitized, published week, so unsanitized staging briefings (W22-W24 carry
+# operator names) cannot reach the public repo or its git history.
+# Gate: impact-intel src/render/website/briefing_gate.py
+briefings/*.md
+!briefings/2026-W19.md
+!briefings/2026-W20.md
+!briefings/2026-W21.md
