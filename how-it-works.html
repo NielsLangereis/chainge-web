@@ -467,38 +467,38 @@
     </div>
 
     <div class="panel-svg-wrap">
-      <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" aria-label="Illustrative Brent forward curve: the actual path decays on a lag and stays elevated, while the assumed snap-back on a strait reopening drops fast; the gap between them is the persistent premium.">
+      <svg viewBox="0 0 700 420" width="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-label="Illustrative Brent forward curve: the actual path decays on a lag and stays elevated, while the assumed snap-back on a strait reopening drops fast; the gap between them is the persistent premium.">
         <!-- axes -->
-        <line x1="64" y1="44" x2="64" y2="236" stroke="var(--line)" stroke-width="1"/>
-        <line x1="64" y1="236" x2="690" y2="236" stroke="var(--line)" stroke-width="1"/>
+        <line x1="92" y1="96" x2="92" y2="320" stroke="var(--line)" stroke-width="1"/>
+        <line x1="92" y1="320" x2="612" y2="320" stroke="var(--line)" stroke-width="1"/>
         <!-- y ticks (illustrative $/bbl) -->
-        <text x="56" y="54" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">$106</text>
-        <text x="56" y="144" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">$96</text>
-        <text x="56" y="234" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">$86</text>
+        <text x="80" y="101" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">$106</text>
+        <text x="80" y="213" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">$96</text>
+        <text x="80" y="316" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">$86</text>
         <!-- x labels -->
-        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">JUN</text>
-        <text x="290" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">AUG</text>
-        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">OCT</text>
-        <text x="684" y="252" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">DEC</text>
+        <text x="92" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">JUN</text>
+        <text x="255" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">AUG</text>
+        <text x="430" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">OCT</text>
+        <text x="600" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">DEC</text>
 
         <!-- persistent-premium gap fill -->
-        <path d="M290,86 L395,100 L500,113 L592,127 L684,140 L684,212 L395,212 L290,86 Z" fill="rgba(45,92,71,0.10)" stroke="none"/>
+        <path d="M255,141 C330,156 375,170 430,180 C510,193 555,201 600,208 L600,298 L335,298 C315,290 285,205 255,141 Z" fill="rgba(45,92,71,0.10)" stroke="none"/>
 
         <!-- reopen marker -->
-        <line x1="290" y1="44" x2="290" y2="236" stroke="#847866" stroke-width="1" stroke-dasharray="2 4"/>
-        <circle cx="290" cy="86" r="4" fill="var(--accent)"/>
-        <text x="290" y="36" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="0.04em" fill="#847866">STRAIT REOPENS</text>
+        <line x1="255" y1="86" x2="255" y2="320" stroke="#847866" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="255" cy="141" r="5" fill="var(--accent)"/>
+        <text x="255" y="74" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="0.06em" fill="#847866">STRAIT REOPENS</text>
 
         <!-- assumed snap-back (dashed, muted) -->
-        <path d="M290,86 C320,140 360,205 395,212 L684,212" fill="none" stroke="#847866" stroke-width="1.5" stroke-dasharray="4 4"/>
-        <text x="676" y="226" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#847866">assumed snap-back</text>
+        <path d="M255,141 C285,205 315,290 335,298 L600,298" fill="none" stroke="#847866" stroke-width="2" stroke-dasharray="5 5"/>
+        <text x="600" y="315" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">assumed snap-back</text>
 
         <!-- actual forward path (solid, accent) -->
-        <path d="M70,59 C150,66 230,80 290,86 C380,95 430,107 500,113 C580,121 630,133 684,140" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
-        <text x="676" y="132" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--accent-deep)">actual: decays on a lag</text>
+        <path d="M92,107 C170,122 215,133 255,141 C330,156 375,170 430,180 C510,193 555,201 600,208" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="600" y="150" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--accent-deep)">actual, decays on a lag</text>
       </svg>
     </div>
-    <p class="panel-svg-caption">Illustrative. A shape, not a forecast: even on a reopening, the cost path decays on a lag rather than snapping back. The shaded gap is the persistent premium your exposure rides.</p>
+    <p class="panel-svg-caption">Illustrative, a shape and not a forecast. The solid line is the actual cost path, which decays on a lag; the dashed line is the snap-back people assume on a reopening. The shaded gap is the persistent premium your exposure rides, even after the strait clears.</p>
 
     <p class="section-lede" style="margin-top: 28px;">
       Generation runs wide, the gate runs hard, and the grounding step is where most of the credibility work happens. The harness is the next panel.
@@ -527,7 +527,7 @@
         <tr><td class="src-name"><span class="jargon" data-tip="Centraal Bureau voor de Statistiek. The Netherlands national statistics office. Provides granular sector and energy data at NL-specific resolution." tabindex="0">CBS Nederland</span></td><td>NL granular sector and energy specifics</td><td class="src-shape">single-source direct-query</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="European Chemical Industry Council Facts and Figures. Industry-association statistics on NACE 20 chemicals: capacity, employment, trade flows." tabindex="0">CEFIC</span></td><td>EU chemicals industry context</td><td class="src-shape">single-source direct-query</td></tr>
         <tr><td class="src-name">Airline filings</td><td>Per-carrier business-model split</td><td class="src-shape">multi-firm curated</td></tr>
-        <tr><td class="src-name">China firms</td><td>Firm-level KPI for upstream chemicals (Jiuri, Yangfan)</td><td class="src-shape">multi-firm curated</td></tr>
+        <tr><td class="src-name">China firms</td><td>Firm-level KPI for listed upstream chemicals producers</td><td class="src-shape">multi-firm curated</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="European Pollutant Release and Transfer Register. Reports of pollutant emissions from large industrial facilities across the EU." tabindex="0">E-PRTR</span></td><td>an Italian Seveso upper-tier cluster and sibling-site pollutants</td><td class="src-shape">EU regulatory</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="European Chemicals Agency. Manages REACH and CLP. The CHEM database holds substance-level regulatory status: SVHC listings, authorization decisions, restrictions." tabindex="0">ECHA CHEM</span></td><td>Substance-level regulatory status</td><td class="src-shape">substance-level</td></tr>
         <tr><td class="src-name"><span class="jargon" data-tip="European Network of Transmission System Operators for Gas, transparency platform. Network-point-level gas flow data across EU pipelines and LNG terminals." tabindex="0">ENTSOG</span></td><td>EU cross-border gas flow at network-point resolution</td><td class="src-shape">EU regulatory</td></tr>
@@ -549,13 +549,13 @@
     <div class="anchor-card">
       <div class="anchor-eyebrow">sample citation 02 · a regulatory event hitting a customer's product line</div>
       <h3 class="anchor-headline">An SVHC listing on a substance inside a customer's commercial product line.</h3>
-      <p>The ECHA CHEM adapter identifies <span class="jargon" data-tip="Diphenyl(2,4,6-trimethylbenzoyl)phosphine oxide. A photoinitiator widely used in UV-curable resins. CAS 75980-60-8." tabindex="0">TPO</span> on the <span class="jargon" data-tip="Substances of Very High Concern. ECHA's candidate list under REACH. Listing triggers a regulated authorization process for downstream uses." tabindex="0">SVHC Candidate List</span> as of 2025-09-01, under Article 57(c) reproductive toxicity. TPO sits inside a major customer's UV-curable resin product line. The harness pins the substance, the article, the listing date, and the decision window: eighteen months from listing, putting the call around 2027-03-01. Traceable to the ECHA register; reachable by any operator who knows where to look, which is exactly the point.</p>
+      <p>The ECHA CHEM adapter identifies <span class="jargon" data-tip="Diphenyl(2,4,6-trimethylbenzoyl)phosphine oxide. A photoinitiator widely used in UV-curable resins. CAS 75980-60-8." tabindex="0">TPO</span> on the <span class="jargon" data-tip="Substances of Very High Concern. ECHA's candidate list under REACH. Listing triggers a regulated authorization process for downstream uses." tabindex="0">SVHC Candidate List</span> as of 2025-09-01, under Article 57(c) reproductive toxicity. The substance sits inside a customer product line in scope of the listing. The harness pins the substance, the article, the listing date, and the decision window: eighteen months from listing, putting the call around 2027-03-01. Traceable to the ECHA register; reachable by any operator who knows where to look, which is exactly the point.</p>
     </div>
 
     <div class="anchor-card">
       <div class="anchor-eyebrow">sample citation 03 · an industry cycle made observable</div>
-      <h3 class="anchor-headline">A twenty-point margin swing at the world's largest photoinitiator producer.</h3>
-      <p>The China-firms adapter surfaces Jiuri (SH:688199) photoinitiator margin trajectory: FY2021 +13.13%, FY2023 -7.10%, TTM +2.88%. A twenty-percentage-point industry-cycle swing peak-to-trough at the world's largest producer. The recovery is thin; TTM is well below FY2021. The cycle pattern is empirically observable from curated public KPI data.</p>
+      <h3 class="anchor-headline">A twenty-point margin swing at a listed upstream producer.</h3>
+      <p>The China-firms adapter surfaces a listed upstream producer's margin trajectory: roughly +13% in FY2021, about -7% in FY2023, near +3% on the latest reading. A twenty-percentage-point industry-cycle swing peak-to-trough, observable from curated public KPI data. The recovery is thin; the latest reading sits well below the FY2021 peak.</p>
     </div>
 
     <div class="anchor-card">
