@@ -165,6 +165,17 @@
   }
   .nav-cta:hover { color: var(--accent-deep); border-bottom-color: var(--accent-deep); }
 
+  /* Desktop: the panel is an inline row (links + CTA), sat to the right of the
+     brand mark. The mobile breakpoint below overrides this to a dropdown. */
+  .nav-panel { display: flex; align-items: center; gap: 28px; }
+
+  /* Visual hierarchy: primary links read in full ink + medium weight, the
+     explanatory pages stay muted. Size stays uniform; weight and colour carry
+     the ranking. */
+  .nav-links a { color: var(--mute); transition: color .15s ease; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.nav-link-primary { color: var(--ink); font-weight: 500; }
+
   /* Live indicator next to "the track record" in the nav. Static dot, no pulse;
      matches the "ledger reads as a record, not a story" register. Filled green
      when a verdict is live in the ledger. */
