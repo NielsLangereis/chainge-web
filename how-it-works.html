@@ -265,14 +265,20 @@
 <!-- ===================== NAV ===================== -->
 <nav class="nav">
   <a href="index.html" class="nav-mark"><span class="ch">chai</span><span class="ng">nge</span></a>
-  <div class="nav-links">
-    <a href="index.html#thesis">the thesis</a>
-    <a href="how-it-works.html">how it works</a>
-    <a href="index.html#who">who uses it</a>
-    <a href="track-record/" class="nav-link-primary">the track record<span class="nav-live-dot" aria-label="live verdict landed"></span></a>
-    <a href="worked-example.html" class="nav-link-primary">example report</a>
+  <button class="nav-toggle" aria-label="menu" aria-expanded="false" aria-controls="nav-panel">
+    <span class="nav-toggle-label nav-toggle-open">menu</span>
+    <span class="nav-toggle-label nav-toggle-close">close</span>
+  </button>
+  <div class="nav-panel" id="nav-panel">
+    <div class="nav-links">
+      <a href="index.html#thesis">the thesis</a>
+      <a href="how-it-works.html">how it works</a>
+      <a href="index.html#who">who uses it</a>
+      <a href="track-record/" class="nav-link-primary">the track record<span class="nav-live-dot" aria-label="live verdict landed"></span></a>
+      <a href="worked-example.html" class="nav-link-primary">example report</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">talk to us →</a>
   </div>
-  <a href="index.html#contact" class="nav-cta">talk to us →</a>
 </nav>
 
 <!-- ===================== ACCESSIBILITY HINT ===================== -->
@@ -777,6 +783,27 @@
     var list = el.parentElement.querySelector('.sibling-list');
     if (list) list.classList.toggle('open');
   }
+</script>
+
+<script>
+  (function () {
+    var nav = document.querySelector('.nav');
+    var btn = nav && nav.querySelector('.nav-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('.nav-panel a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
 </script>
 
 </body>
