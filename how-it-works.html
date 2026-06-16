@@ -467,35 +467,28 @@
     </div>
 
     <div class="panel-svg-wrap">
-      <svg viewBox="0 0 700 420" width="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-label="Illustrative Brent forward curve: the actual path decays on a lag and stays elevated, while the assumed snap-back on a strait reopening drops fast; the gap between them is the persistent premium.">
-        <!-- axes -->
-        <line x1="92" y1="96" x2="92" y2="320" stroke="var(--line)" stroke-width="1"/>
-        <line x1="92" y1="320" x2="612" y2="320" stroke="var(--line)" stroke-width="1"/>
-        <!-- y ticks (illustrative $/bbl) -->
-        <text x="80" y="101" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">$106</text>
-        <text x="80" y="213" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">$96</text>
-        <text x="80" y="316" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">$86</text>
-        <!-- x labels -->
-        <text x="92" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">JUN</text>
-        <text x="255" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">AUG</text>
-        <text x="430" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">OCT</text>
-        <text x="600" y="348" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">DEC</text>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" aria-label="Illustrative Brent forward curve: the actual path decays on a lag and stays elevated, while the assumed snap-back on a strait reopening drops fast; the gap between them is the persistent premium.">
+        <line x1="96" y1="64" x2="96" y2="256" stroke="var(--line)" stroke-width="1"/>
+        <line x1="96" y1="256" x2="690" y2="256" stroke="var(--line)" stroke-width="1"/>
+        <text x="84" y="69" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">$106</text>
+        <text x="84" y="165" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">$96</text>
+        <text x="84" y="252" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">$86</text>
+        <text x="96" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">JUN</text>
+        <text x="300" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">AUG</text>
+        <text x="500" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">OCT</text>
+        <text x="684" y="284" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">DEC</text>
 
-        <!-- persistent-premium gap fill -->
-        <path d="M255,141 C330,156 375,170 430,180 C510,193 555,201 600,208 L600,298 L335,298 C315,290 285,205 255,141 Z" fill="rgba(45,92,71,0.10)" stroke="none"/>
+        <path d="M300,102 C390,116 440,128 500,136 C600,148 645,154 684,160 L684,237 L392,237 C360,232 328,160 300,102 Z" fill="rgba(45,92,71,0.10)" stroke="none"/>
 
-        <!-- reopen marker -->
-        <line x1="255" y1="86" x2="255" y2="320" stroke="#847866" stroke-width="1" stroke-dasharray="2 4"/>
-        <circle cx="255" cy="141" r="5" fill="var(--accent)"/>
-        <text x="255" y="74" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="0.06em" fill="#847866">STRAIT REOPENS</text>
+        <line x1="300" y1="52" x2="300" y2="256" stroke="#847866" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="300" cy="102" r="5" fill="var(--accent)"/>
+        <text x="300" y="44" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="0.06em" fill="#847866">STRAIT REOPENS</text>
 
-        <!-- assumed snap-back (dashed, muted) -->
-        <path d="M255,141 C285,205 315,290 335,298 L600,298" fill="none" stroke="#847866" stroke-width="2" stroke-dasharray="5 5"/>
-        <text x="600" y="315" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="#847866">assumed snap-back</text>
+        <path d="M300,102 C328,160 360,232 392,237 L684,237" fill="none" stroke="#847866" stroke-width="2" stroke-dasharray="5 5"/>
+        <text x="680" y="252" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="14" fill="#847866">assumed snap-back</text>
 
-        <!-- actual forward path (solid, accent) -->
-        <path d="M92,107 C170,122 215,133 255,141 C330,156 375,170 430,180 C510,193 555,201 600,208" fill="none" stroke="var(--accent)" stroke-width="3"/>
-        <text x="600" y="150" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--accent-deep)">actual, decays on a lag</text>
+        <path d="M96,74 C180,86 250,96 300,102 C390,116 440,128 500,136 C600,148 645,154 684,160" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="680" y="120" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="14" fill="var(--accent-deep)">actual, decays on a lag</text>
       </svg>
     </div>
     <p class="panel-svg-caption">Illustrative, a shape and not a forecast. The solid line is the actual cost path, which decays on a lag; the dashed line is the snap-back people assume on a reopening. The shaded gap is the persistent premium your exposure rides, even after the strait clears.</p>
