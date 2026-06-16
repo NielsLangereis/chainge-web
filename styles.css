@@ -207,7 +207,7 @@
      with all links plus the CTA reachable. Do not add nav rules to the
      other mobile media blocks. */
   @media (max-width: 760px) {
-    .nav { position: relative; flex-wrap: nowrap; padding: 14px 16px; }
+    .nav { position: relative; z-index: 50; flex-wrap: nowrap; padding: 14px 16px; }
     .nav-mark { font-size: 18px; }
     .nav-toggle { display: inline-flex; align-items: center; min-height: 44px; }
     .nav-panel {
