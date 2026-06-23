@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge · cold-start worked example · Fairphone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper); color: var(--ink); font-family: var(--serif);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px; z-index: 1; mix-blend-mode: multiply;
+  }
+  main { position: relative; z-index: 2; }
+  .page { max-width: 760px; margin: 0 auto; padding: 64px 72px 80px; background: var(--paper); position: relative; }
+  .topmeta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--mute); border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--line);
+    padding: 10px 0; margin-bottom: 32px;
+  }
+  .topmeta .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+  .cover { padding: 96px 0 80px; border-bottom: 1px solid var(--line); margin-bottom: 48px; }
+  .cover-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); margin-bottom: 28px; }
+  .cover-title { font-family: var(--serif); font-weight: 400; font-size: 56px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 24px; max-width: 14ch; }
+  .cover-title em { font-style: italic; font-weight: 300; }
+  .cover-sub { font-family: var(--serif); font-size: 19px; line-height: 1.4; color: var(--ink-2); max-width: 44ch; margin: 0 0 48px; }
+  .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; padding-top: 24px; border-top: 1px solid var(--line); max-width: 56ch; }
+  .cover-meta dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); margin-bottom: 4px; }
+  .cover-meta dd { font-family: var(--serif); font-size: 16px; margin: 0; color: var(--ink); }
+  .section { padding: 56px 0 8px; border-bottom: 1px solid var(--line); }
+  .section:last-of-type { border-bottom: none; }
+  .section-head { display: flex; gap: 24px; align-items: baseline; margin-bottom: 28px; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--mute); text-transform: uppercase; flex-shrink: 0; min-width: 60px; }
+  .section-title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; letter-spacing: -0.015em; margin: 0; flex: 1; min-width: 0; }
+  .section-title em { font-style: italic; }
+  .section-lede { font-family: var(--serif); font-size: 17px; line-height: 1.55; color: var(--ink-2); max-width: 64ch; margin: 0 0 24px; }
+  .prose p { font-family: var(--serif); font-size: 16px; line-height: 1.6; margin: 0 0 18px; max-width: 68ch; }
+  .prose p:last-child { margin-bottom: 0; }
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step { display: grid; grid-template-columns: 32px 1fr; gap: 16px; page-break-inside: avoid; break-inside: avoid; }
+  .step-num { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); padding-top: 4px; position: relative; }
+  .step-num::before { content: ""; position: absolute; left: 8px; top: 22px; bottom: -24px; width: 1px; background: var(--line); }
+  .step:last-child .step-num::before { display: none; }
+  .step-head { font-family: var(--serif); font-weight: 500; font-size: 17px; line-height: 1.3; margin: 0 0 6px; letter-spacing: -0.005em; }
+  .step-body { font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0; max-width: 64ch; }
+  .step-body em { font-style: italic; color: var(--mute); }
+  .tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px 1px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink-2); margin-left: 8px; white-space: nowrap; vertical-align: middle; }
+  .tag.grounded { border-color: var(--accent); color: var(--accent-deep); }
+  .tag.estimated { border-color: var(--gold); color: var(--gold); }
+  .watch-list { list-style: none; padding: 0; margin: 8px 0 0; max-width: 70ch; }
+  .watch-list li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .watch-list li:last-child { border-bottom: none; }
+  .watch-head { font-family: var(--serif); font-weight: 500; font-size: 17px; margin: 0 0 4px; }
+  .watch-conv { font-family: var(--mono); font-size: 11px; color: var(--accent-deep); letter-spacing: 0.04em; }
+  .watch-body { font-family: var(--serif); font-size: 15.5px; line-height: 1.55; color: var(--ink-2); margin: 4px 0 0; max-width: 66ch; }
+  .glance { display: grid; grid-template-columns: max-content 1fr; gap: 7px 18px; font-size: 14.5px; margin: 4px 0 20px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); max-width: 70ch; }
+  .glance dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); padding-top: 2px; }
+  .glance dd { margin: 0; font-family: var(--serif); color: var(--ink); line-height: 1.5; }
+  .or-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); display: block; margin: 0 0 6px; }
+  .sowhat { font-family: var(--serif); font-size: 16.5px; line-height: 1.6; margin: 0 0 18px; max-width: 66ch; }
+  .liftable { border: 1px solid var(--ink); background: var(--paper); box-shadow: 4px 4px 0 var(--accent); padding: 18px 22px; margin: 16px 0 20px; font-family: var(--serif); font-style: italic; font-size: 16.5px; line-height: 1.5; color: var(--ink); max-width: 64ch; }
+  details.evidence { border-top: 1px solid var(--line); margin-top: 6px; }
+  details.evidence > summary { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep); cursor: pointer; padding: 14px 0; list-style: none; }
+  details.evidence > summary::-webkit-details-marker { display: none; }
+  details.evidence > summary::before { content: "\25B8\00a0"; color: var(--accent); }
+  details.evidence[open] > summary::before { content: "\25BE\00a0"; }
+  details.evidence .evidence-body { padding: 2px 0 10px; }
+  details.evidence .evidence-body > p:first-child { margin-top: 0; }
+  .primer { background: var(--paper-2); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 8px 0; font-family: var(--serif); font-size: 16px; line-height: 1.6; max-width: 68ch; }
+  .primer p { margin: 0 0 14px; }
+  .primer p:last-child { margin: 0; }
+  .oneread { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-2); margin: 8px 0 0; max-width: 66ch; }
+  .meth-note { font-family: var(--serif); font-size: 15px; line-height: 1.6; color: var(--ink-2); background: var(--paper-2); border-left: 3px solid var(--gold); padding: 16px 20px; margin: 18px 0 0; max-width: 66ch; }
+  .meth-note strong { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; font-weight: 500; }
+  .gran-note { font-family: var(--serif); font-size: 15px; line-height: 1.6; color: var(--ink-2); background: var(--paper-2); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 18px 0 0; max-width: 66ch; }
+  .gran-note strong { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep); display: block; margin-bottom: 8px; font-weight: 500; }
+  .closing { margin-top: 56px; padding: 28px 30px 30px; border: 1px solid var(--ink); background: var(--paper); box-shadow: 4px 4px 0 var(--ink); max-width: 68ch; }
+  .closing strong { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); display: block; margin-bottom: 12px; font-weight: 500; }
+  .closing p { font-family: var(--serif); font-size: 17px; line-height: 1.55; margin: 0 0 14px; }
+  .closing p:last-child { margin-bottom: 0; }
+  .footer { margin-top: 64px; padding-top: 18px; border-top: 1.5px solid var(--ink); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · cold-start track record · worked example</span>
+      <span>Hidden preview · heads-up pending</span>
+    </div>
+
+    <header class="cover">
+      <div class="cover-eyebrow">Cold-start methodology demonstration · named public company · 2026</div>
+      <h1 class="cover-title">Fairphone, <em>a worked example</em></h1>
+      <p class="cover-sub">
+        What a distant event, an export control, a new EU rule, a defence build-out, would do to a company whose supply chain you can actually read. A methodology demonstration, not investment advice.
+      </p>
+      <dl class="cover-meta">
+        <div><dt>Subject</dt><dd>Fairphone (named, with permission sought)</dd></div>
+        <div><dt>Source run</dt><dd>Chainge weekly run, W26, 22 June 2026</dd></div>
+        <div><dt>Built from</dt><dd>Fairphone's own published supply-chain disclosures</dd></div>
+        <div><dt>Framing</dt><dd>methodology demonstration, not investment advice</dd></div>
+      </dl>
+    </header>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">01</div><h2 class="section-title">How to read this</h2></div>
+      <div class="primer">
+        <p>We picked Fairphone because it publishes more of its real supply chain than almost any hardware company: a public source map, named smelters and refiners, named material origins. That lets the analysis stand on something hard rather than guesswork, which is the whole point. We profiled the chain and ran our cascades against it. Nothing here needed a paying customer or any private data.</p>
+        <p>Read each cascade as three parts: a catalyst (an event or rule change), a transmission path (how it travels across industries to Fairphone), and an impact (the part of the business it lands on). Each carries a conviction number from 0 to 1. It is our conviction, not a market-implied probability, so read 0.40 as a stronger anchor than 0.35, not as a percentage. A chain is either a headline (clears our bar this week) or watch-tier (on the radar, not yet strong enough to lead on).</p>
+        <p>Every link is tagged grounded or estimated. Grounded means it rests on something hard: a legal text, a price series, a public register. Estimated means we reasoned it from the company's profile. When a chain leans on something we cannot evidence, an internal skeptic check marks it down, and we say so under the cascade rather than hide it.</p>
+        <p>The method rests on Granovetter's strength of weak ties: the signal that matters usually travels through the loose links between industries, not the obvious ones inside a single sector. The cascades below are the weak ties the engine surfaced, not connections we named in advance.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">02</div><h2 class="section-title">In one read</h2></div>
+      <p class="oneread">The engine discovered seven cascades on Fairphone's chain this week and promoted two to headline. The strongest, at 0.40, is two-sided: the EU Right to Repair and Digital Product Passport rules hand Fairphone a near-term compliance head-start, then erode its differentiation as they normalise repair across the whole market. The second, at 0.35, is the cleaner cross-domain weak tie: Europe's defence rearmament competes for the same Chinese-refined rare-earth magnet feedstock a Dutch repairable-phone maker depends on. Five more sit on watch, and two were held below the line this week. The honesty rules are the same as every Chainge run: what is grounded is marked grounded, what is estimated is marked estimated.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">03</div><h2 class="section-title">Cascade 1, repair rules that help, then commoditise</h2></div>
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>EU Right to Repair Directive and the ESPR Digital Product Passport for electronics</dd>
+        <dt>Path</dt><dd>compliance head-start on already-structured repair and materials data, then market normalisation</dd>
+        <dt>Impact</dt><dd>spare parts and accessories revenue, and the repairability moat itself</dd>
+        <dt>Conviction</dt><dd>0.40, headline (the strongest this week)</dd>
+        <dt>Grounded</dt><dd>both regulations, cited to EUR-Lex; every node rests on a primary source</dd>
+        <dt>Estimated</dt><dd>the Commission's smartphone DPP timeline, and the size of the revenue response</dd>
+      </dl>
+      <span class="or-label">So what</span>
+      <p class="sowhat">The same EU rules that reward repairable, long-support design cut both ways for Fairphone. In the near term its compliance cost is lower than rivals' because the structured repair and materials data already exists, so it gains. Further out, once those rules force every maker to offer spare parts and a product passport, the thing that made Fairphone distinctive becomes the market standard, and the differentiation thins. The cascade holds both halves at once, which is why it is the headline rather than a simple "regulation helps Fairphone" story.</p>
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">The EU Right to Repair and Digital Product Passport rules give Fairphone a near-term compliance head-start on spare-parts revenue, then commoditise its repairability advantage as they normalise the repair market; our headline call this week at 0.40, grounded end to end on EUR-Lex.</p>
+      <details class="evidence">
+        <summary>Evidence layer</summary>
+        <div class="evidence-body">
+          <p class="section-lede">Conviction chain 0.80, 0.68, 0.55, 0.40. Both instruments are cited to EUR-Lex primary sources at every node: the Right to Repair Directive (CELEX:32024L1799) and the Ecodesign for Sustainable Products Regulation (CELEX:32024R1781). The terminus is two-sided by design.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">The repair and product-passport rules come into force.<span class="tag grounded">grounded</span></h4><p class="step-body">The Right to Repair Directive and the ESPR Digital Product Passport set a regulatory tailwind for repairable, long-support, well-documented devices. Both are live legal instruments in the corpus.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">Fairphone's marginal compliance cost is lower.<span class="tag estimated">estimated</span></h4><p class="step-body">Because the structured repairability and materials data already exists, the cost of meeting the new disclosure and parts-availability obligations is lower at the margin than for a maker starting from scratch. The direction is grounded in the rules; the size of the asymmetry is reasoned from the profile.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">Spare-parts and accessories revenue expands.<span class="tag estimated">estimated</span></h4><p class="step-body">As mandated parts availability and the passport normalise repair, the spare-parts and accessories line, already core to the longevity model, has room to grow. This is a reasoned revenue response, not an observed figure.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">Terminal: the moat commoditises.<span class="tag grounded">grounded</span></h4><p class="step-body">The counter-intuitive end. Once every competitor must offer spare parts and a product passport, Fairphone's repairability differentiation becomes the market standard rather than its edge. The automotive right-to-repair history is the analogue for that normalisation.</p></div></div>
+          </div>
+          <div class="meth-note"><strong>Honest caveat</strong>The one estimated timing assumption is the Commission's smartphone-specific DPP timeline; the delegated-act process could slip beyond H2 2026, which would push the whole chain right. Everything else rests on the in-force legal text.</div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">04</div><h2 class="section-title">Cascade 2, defence rearmament reaches a phone's magnets</h2></div>
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>EU defence rearmament driving rare-earth permanent-magnet demand</dd>
+        <dt>Path</dt><dd>competition for Chinese-refined NdPr feedstock, then Chinese export-control escalation</dd>
+        <dt>Impact</dt><dd>Fairphone's rare-earth magnets (speakers, vibration, audio), partly hedged by recycled content</dd>
+        <dt>Conviction</dt><dd>0.35, headline</dd>
+        <dt>Grounded</dt><dd>the Critical Raw Materials Act and the defence-production regulation, cited to EUR-Lex</dd>
+        <dt>Estimated</dt><dd>the demand-competition magnitude and the counter-control timing; rare-earth prices are not in the corpus</dd>
+      </dl>
+      <span class="or-label">So what</span>
+      <p class="sowhat">Europe is rearming, and modern defence systems are heavy users of neodymium-praseodymium permanent magnets, refined mostly in China. That puts defence demand in competition for the same feedstock a Dutch repairable-phone maker draws on for its speakers and vibration motors. A flashpoint such as an export-control move on advanced tooling has repeatedly triggered Chinese counter-controls on rare earths, the gallium, germanium and graphite precedents. Fairphone's recycled rare-earth content is a partial buffer, but the Critical Raw Materials Act adds near-term compliance load without near-term supply relief, a double squeeze.</p>
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">European defence rearmament competes with Fairphone for Chinese-refined rare-earth magnets, and an export-control flashpoint could tighten that feedstock further; we rate this 0.35, with the EU regulations grounded and the rare-earth price path estimated.</p>
+      <details class="evidence">
+        <summary>Evidence layer</summary>
+        <div class="evidence-body">
+          <p class="section-lede">Conviction chain 0.72, 0.52, 0.40, 0.35, well attenuated. The Critical Raw Materials Act (CELEX:32024R1252) and the defence-production regulation ASAP (CELEX:32023R1525) are cited to EUR-Lex. Two interior nodes rest on sources not yet in the corpus, flagged below.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">Defence rearmament lifts magnet demand.<span class="tag grounded">grounded</span></h4><p class="step-body">The EU's defence-production push (ASAP) raises demand for NdPr permanent magnets used across defence systems. The regulation is grounded; the surrounding industrial developments are public political reporting.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">Defence and electronics compete for the same feedstock.<span class="tag estimated">estimated</span></h4><p class="step-body">That demand competes for the same Chinese-refined NdPr a consumer-electronics maker depends on. The competition is the weak tie; its magnitude is reasoned, because rare-earth spot prices are not a feed we currently hold.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">A flashpoint triggers Chinese counter-controls.<span class="tag estimated">estimated</span></h4><p class="step-body">An export-control move on advanced tooling has repeatedly drawn Chinese counter-controls on critical minerals. This node rests on the historical pattern, gallium, germanium, graphite, not on a forward feed.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">Terminal: a partial hedge against a regulatory double-squeeze.<span class="tag grounded">grounded</span></h4><p class="step-body">Fairphone's recycled rare-earth content softens the blow, but the Critical Raw Materials Act imposes near-term compliance cost without near-term new supply, so the squeeze lands on cost and continuity at once. The floor node rests on the CRMA legal text.</p></div></div>
+          </div>
+          <div class="gran-note"><strong>Why this is the weak-tie call</strong>Defence rearmament reaching a Dutch impact-smartphone maker, through a shared Chinese-refined feedstock, is exactly the kind of non-obvious cross-domain bridge the method exists to find. It is not a connection a sector report on either defence or consumer electronics would surface on its own.</div>
+          <div class="meth-note"><strong>Honest gap</strong>Two of the four nodes rest on sources not yet wired into the engine: the rare-earth demand-competition magnitude and the counter-control timing. The chain is grounded at its regulatory ends and estimated in its middle, and the conviction reflects that. Wiring a rare-earth price reference into ingest is the concrete step that would let the middle ground rather than reason.</div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">05</div><h2 class="section-title">Also on watch this week</h2></div>
+      <p class="section-lede">Three more cascades surfaced but did not clear the headline bar. We carry them so the record shows the full field, not only the leads.</p>
+      <ul class="watch-list">
+        <li>
+          <p class="watch-head">Assembly cost and the euro-renminbi mismatch <span class="watch-conv">· 0.30 watch</span></p>
+          <p class="watch-body">A Hormuz-linked energy move feeding Guangdong assembly cost against a euro-reporting, euro-revenue base, with the EU Forced Labour Regulation as a second cross-domain layer. Surfaced rather than promoted because the energy-to-electricity-price link and the renminbi path rest on model estimates, not observed data.</p>
+        </li>
+        <li>
+          <p class="watch-head">On-device AI features under the EU AI Act <span class="watch-conv">· 0.30 watch</span></p>
+          <p class="watch-body">Deployer-liability and conformity obligations on on-device AI features as a compliance and software-support cost for an asset-light maker. Grounded on the AI Act text, but the conformity-burden and a consumer-positioning kicker are estimate-heavy, so it stays on watch.</p>
+        </li>
+        <li>
+          <p class="watch-head">Cobalt price collapse as a threat, not a relief <span class="watch-conv">· 0.28 watch</span></p>
+          <p class="watch-body">A genuine inversion: a cobalt price collapse would threaten Fairphone, because its sourcing depends on the Fair Cobalt Alliance cooperative staying economically viable, with EU Battery Regulation due-diligence on top. Capped at watch because its floor node rests on a source named but not yet in the corpus.</p>
+        </li>
+      </ul>
+      <div class="meth-note"><strong>Below the line</strong>Two further cascades were held below watch this week: a forced-labour cluster-contagion chain and a Taiwan-semiconductor disruption chain, both judged too speculative on their middle nodes to carry. Gate split this run: seven discovered, two promoted, three on watch, two held back.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">06</div><h2 class="section-title">Underneath: how this resolves, and what we cannot yet verify</h2></div>
+      <div class="prose">
+        <p><strong>How a verdict gets marked.</strong> Each prediction has a horizon and resolves to right, partial, wrong or unclear. Where a terminus settles against something public, a regulation taking force, a register entry, a price level, the matrix reads it and marks it without anyone's input. Where a terminus sits on something only Fairphone can see internally, we do not claim a verdict we cannot observe; we mark it against public secondary markers such as filings and announcements, or we mark it unclear. The record accumulates either way, run over run.</p>
+        <p><strong>What we cannot yet verify.</strong> Three honest limits. Rare-earth spot prices are not a feed the engine holds, so Cascade 2's middle nodes are reasoned, not measured. The smartphone-specific Digital Product Passport timeline is a Commission estimate that could slip. And the published supply-chain footprint we built the profile on is one product generation behind Fairphone's current flagship, so the next disclosure refresh will sharpen it.</p>
+        <p><strong>Sources.</strong> Grounded this run: EUR-Lex primary texts for the Right to Repair Directive (CELEX:32024L1799), ESPR (CELEX:32024R1781), the Critical Raw Materials Act (CELEX:32024R1252), the defence-production regulation ASAP (CELEX:32023R1525), the Forced Labour Regulation (CELEX:32024R3015), the EU Battery Regulation (CELEX:32023R1542) and the AI Act; Fairphone's own Supply Chain Engagement report, source map and material-origin disclosures. Estimated or not yet ingested, and flagged as such in the chains: rare-earth price path, Chinese counter-control timing, the renminbi and energy-price links, firm-level cost detail, and the smartphone DPP timeline.</p>
+      </div>
+      <div class="gran-note"><strong>On the method</strong>The comparison set for this kind of cross-domain reading is an institutional research desk, not a chatbot. What makes it defensible is the discipline underneath: weak-tie discovery, a conviction number, a grounded-or-estimated tag on every link, and a verdict that gets marked against the record later. The point of profiling a named company you can verify is that you can check the work.</div>
+    </section>
+
+    <div class="closing">
+      <strong>What this is</strong>
+      <p>A live demonstration of the method on a company whose chain anyone can read, built entirely from Fairphone's own public disclosures, framed as methodology, not investment advice. The predictions carry dates and conviction numbers; over the coming runs they get marked right, partial, wrong or unclear, and the record is the point.</p>
+      <p>Built with respect for a company that chose to make its supply chain public. Shown to Fairphone before anything goes live.</p>
+    </div>
+
+    <footer class="footer">
+      <span>Chainge · cold-start worked example · Fairphone · W26 2026</span>
+      <span>Hidden preview · heads-up pending</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>

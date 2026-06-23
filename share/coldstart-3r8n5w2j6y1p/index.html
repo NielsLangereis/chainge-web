@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge · cold-start worked example · Asket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper); color: var(--ink); font-family: var(--serif);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px; z-index: 1; mix-blend-mode: multiply;
+  }
+  main { position: relative; z-index: 2; }
+  .page { max-width: 760px; margin: 0 auto; padding: 64px 72px 80px; background: var(--paper); position: relative; }
+  .topmeta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--mute); border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--line);
+    padding: 10px 0; margin-bottom: 32px;
+  }
+  .topmeta .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+  .cover { padding: 96px 0 80px; border-bottom: 1px solid var(--line); margin-bottom: 48px; }
+  .cover-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); margin-bottom: 28px; }
+  .cover-title { font-family: var(--serif); font-weight: 400; font-size: 56px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 24px; max-width: 14ch; }
+  .cover-title em { font-style: italic; font-weight: 300; }
+  .cover-sub { font-family: var(--serif); font-size: 19px; line-height: 1.4; color: var(--ink-2); max-width: 44ch; margin: 0 0 48px; }
+  .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; padding-top: 24px; border-top: 1px solid var(--line); max-width: 56ch; }
+  .cover-meta dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); margin-bottom: 4px; }
+  .cover-meta dd { font-family: var(--serif); font-size: 16px; margin: 0; color: var(--ink); }
+  .section { padding: 56px 0 8px; border-bottom: 1px solid var(--line); }
+  .section:last-of-type { border-bottom: none; }
+  .section-head { display: flex; gap: 24px; align-items: baseline; margin-bottom: 28px; }
+  .section-num { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--mute); text-transform: uppercase; flex-shrink: 0; min-width: 60px; }
+  .section-title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; letter-spacing: -0.015em; margin: 0; flex: 1; min-width: 0; }
+  .section-title em { font-style: italic; }
+  .section-lede { font-family: var(--serif); font-size: 17px; line-height: 1.55; color: var(--ink-2); max-width: 64ch; margin: 0 0 24px; }
+  .prose p { font-family: var(--serif); font-size: 16px; line-height: 1.6; margin: 0 0 18px; max-width: 68ch; }
+  .prose p:last-child { margin-bottom: 0; }
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step { display: grid; grid-template-columns: 32px 1fr; gap: 16px; page-break-inside: avoid; break-inside: avoid; }
+  .step-num { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); padding-top: 4px; position: relative; }
+  .step-num::before { content: ""; position: absolute; left: 8px; top: 22px; bottom: -24px; width: 1px; background: var(--line); }
+  .step:last-child .step-num::before { display: none; }
+  .step-head { font-family: var(--serif); font-weight: 500; font-size: 17px; line-height: 1.3; margin: 0 0 6px; letter-spacing: -0.005em; }
+  .step-body { font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0; max-width: 64ch; }
+  .step-body em { font-style: italic; color: var(--mute); }
+  .tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px 1px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink-2); margin-left: 8px; white-space: nowrap; vertical-align: middle; }
+  .tag.grounded { border-color: var(--accent); color: var(--accent-deep); }
+  .tag.estimated { border-color: var(--gold); color: var(--gold); }
+  .watch-list { list-style: none; padding: 0; margin: 8px 0 0; max-width: 70ch; }
+  .watch-list li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .watch-list li:last-child { border-bottom: none; }
+  .watch-head { font-family: var(--serif); font-weight: 500; font-size: 17px; margin: 0 0 4px; }
+  .watch-conv { font-family: var(--mono); font-size: 11px; color: var(--accent-deep); letter-spacing: 0.04em; }
+  .watch-body { font-family: var(--serif); font-size: 15.5px; line-height: 1.55; color: var(--ink-2); margin: 4px 0 0; max-width: 66ch; }
+  .glance { display: grid; grid-template-columns: max-content 1fr; gap: 7px 18px; font-size: 14.5px; margin: 4px 0 20px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); max-width: 70ch; }
+  .glance dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); padding-top: 2px; }
+  .glance dd { margin: 0; font-family: var(--serif); color: var(--ink); line-height: 1.5; }
+  .or-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); display: block; margin: 0 0 6px; }
+  .sowhat { font-family: var(--serif); font-size: 16.5px; line-height: 1.6; margin: 0 0 18px; max-width: 66ch; }
+  .liftable { border: 1px solid var(--ink); background: var(--paper); box-shadow: 4px 4px 0 var(--accent); padding: 18px 22px; margin: 16px 0 20px; font-family: var(--serif); font-style: italic; font-size: 16.5px; line-height: 1.5; color: var(--ink); max-width: 64ch; }
+  details.evidence { border-top: 1px solid var(--line); margin-top: 6px; }
+  details.evidence > summary { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep); cursor: pointer; padding: 14px 0; list-style: none; }
+  details.evidence > summary::-webkit-details-marker { display: none; }
+  details.evidence > summary::before { content: "\25B8\00a0"; color: var(--accent); }
+  details.evidence[open] > summary::before { content: "\25BE\00a0"; }
+  details.evidence .evidence-body { padding: 2px 0 10px; }
+  details.evidence .evidence-body > p:first-child { margin-top: 0; }
+  .primer { background: var(--paper-2); border-left: 3px solid var(--accent); padding: 22px 26px; margin: 8px 0; font-family: var(--serif); font-size: 16px; line-height: 1.6; max-width: 68ch; }
+  .primer p { margin: 0 0 14px; }
+  .primer p:last-child { margin: 0; }
+  .oneread { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-2); margin: 8px 0 0; max-width: 66ch; }
+  .meth-note { font-family: var(--serif); font-size: 15px; line-height: 1.6; color: var(--ink-2); background: var(--paper-2); border-left: 3px solid var(--gold); padding: 16px 20px; margin: 18px 0 0; max-width: 66ch; }
+  .meth-note strong { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; font-weight: 500; }
+  .gran-note { font-family: var(--serif); font-size: 15px; line-height: 1.6; color: var(--ink-2); background: var(--paper-2); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 18px 0 0; max-width: 66ch; }
+  .gran-note strong { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep); display: block; margin-bottom: 8px; font-weight: 500; }
+  .closing { margin-top: 56px; padding: 28px 30px 30px; border: 1px solid var(--ink); background: var(--paper); box-shadow: 4px 4px 0 var(--ink); max-width: 68ch; }
+  .closing strong { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); display: block; margin-bottom: 12px; font-weight: 500; }
+  .closing p { font-family: var(--serif); font-size: 17px; line-height: 1.55; margin: 0 0 14px; }
+  .closing p:last-child { margin-bottom: 0; }
+  .footer { margin-top: 64px; padding-top: 18px; border-top: 1.5px solid var(--ink); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · cold-start track record · worked example</span>
+      <span>Hidden preview · heads-up pending</span>
+    </div>
+
+    <header class="cover">
+      <div class="cover-eyebrow">Cold-start methodology demonstration · named company · 2026</div>
+      <h1 class="cover-title">Asket, <em>a worked example</em></h1>
+      <p class="cover-sub">
+        What a distant event, an oil deal, an EU disclosure rule, a forced-labour law, would do to a brand whose supply chain you can read down to the mill. A methodology demonstration, not investment advice.
+      </p>
+      <dl class="cover-meta">
+        <div><dt>Subject</dt><dd>Asket (named, with permission sought)</dd></div>
+        <div><dt>Source run</dt><dd>Chainge weekly run, W26, 22 June 2026</dd></div>
+        <div><dt>Built from</dt><dd>Asket's own published manufacturing and traceability disclosures</dd></div>
+        <div><dt>Framing</dt><dd>methodology demonstration, not investment advice</dd></div>
+      </dl>
+    </header>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">01</div><h2 class="section-title">How to read this</h2></div>
+      <div class="primer">
+        <p>We picked Asket because it discloses more of its real supply chain than almost any brand: named mills, country-level sourcing, a per-garment cost and footprint receipt. That lets the analysis rest on something hard rather than guesswork, which is the whole point. We profiled the chain and ran our cascades against it, with no paying customer and no private data.</p>
+        <p>Read each cascade as three parts: a catalyst (an event or rule), a transmission path (how it travels across industries to Asket), and an impact (the part of the business it lands on). Each carries a conviction number from 0 to 1. It is our conviction, not a market probability, so read 0.38 as a stronger anchor than 0.35, not a percentage. A chain is either a headline (clears our bar this week) or watch-tier (on the radar, not strong enough to lead on).</p>
+        <p>Every link is tagged grounded or estimated. Grounded means it rests on something hard: a legal text, a price series, a public register. Estimated means we reasoned it from the company's profile. When a chain leans on something we cannot evidence, an internal skeptic check marks it down, and we say so rather than hide it.</p>
+        <p>The method rests on Granovetter's strength of weak ties: the signal that matters usually travels through the loose links between industries, not the obvious ones inside a single sector. The cascades below are the weak ties the engine surfaced, not ones we named in advance.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">02</div><h2 class="section-title">In one read</h2></div>
+      <p class="oneread">The engine discovered seven cascades on Asket's chain this week and promoted two. The strongest, at 0.38, turns a familiar story on its head: an oil-price easing that would normally help a manufacturer is sharpened for Asket specifically, because its no-markdown, permanent-collection model means an energy saving is kept as margin rather than competed away, and it lands in the same window as new EU footprint-disclosure rules. The second, at 0.35, is where Asket's transparency cuts both ways: mandatory product passports raise the bar its voluntary disclosure already set, route through its single Swedish repair line, and risk exposing tier-2 data gaps that voluntary disclosure could keep quiet. Two of the watch-tier chains, on a single Ugandan cotton leg and on its Austrian wood-fibre supplier, are fully grounded and worth reading too.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">03</div><h2 class="section-title">Cascade 1, an oil deal that helps Asket more than most</h2></div>
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>a Hormuz de-escalation easing Brent, and with a lag European industrial energy</dd>
+        <dt>Path</dt><dd>lower mill energy cost at the Portugal and Italy base, kept as margin under a no-markdown model</dd>
+        <dt>Impact</dt><dd>the processing-energy cost base, coinciding with ESPR footprint-disclosure obligations</dd>
+        <dt>Conviction</dt><dd>0.38, headline (the strongest this week)</dd>
+        <dt>Grounded</dt><dd>Brent on FRED, named bank forecasts, the ESPR legal text</dd>
+        <dt>Estimated</dt><dd>the Brent-to-European-gas lag, and the Portugal and Italy gas mix</dd>
+      </dl>
+      <span class="or-label">So what</span>
+      <p class="sowhat">An easing in oil, of the kind a Hormuz de-escalation would bring, normally helps any manufacturer a little and gets competed away in discounts. For Asket it is sharper, because the brand does not run seasons or markdowns: an energy saving on the Portuguese and Italian mill base is kept as margin rather than handed back at the till. And it arrives in the same window as the EU's new product-footprint disclosure rules, which Asket's per-garment receipt already answers. The non-obvious part is the brand architecture, not the oil price.</p>
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">A Hormuz-driven energy easing would help Asket more than a discount-led peer, because its no-markdown model keeps the saving as margin just as ESPR footprint-disclosure obligations land; our headline call this week at 0.38, with the oil signal grounded and the European gas pass-through estimated.</p>
+      <details class="evidence">
+        <summary>Evidence layer</summary>
+        <div class="evidence-body">
+          <p class="section-lede">Overall conviction 0.38, deliberately conservative. The oil signal is grounded on FRED Brent and named bank forecasts; the terminal disclosure node is cited to the ESPR legal text (CELEX:32024R1781). The Brent-to-European-gas lag and the regional gas mix are flagged as model estimates.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">An oil de-escalation eases Brent.<span class="tag grounded">grounded</span></h4><p class="step-body">A Hormuz-deal scenario lowers Brent. This node rests on the FRED Brent series and named bank forecasts, not on a single house view.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">European industrial energy follows, with a lag.<span class="tag estimated">estimated</span></h4><p class="step-body">The relief reaches European gas and power on a delay. The lag and the Portugal and Italy gas mix are model estimates; the engine does not yet hold the European gas stack for this link, so the direction is grounded and the magnitude is reasoned.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">The saving is kept, not discounted away.<span class="tag estimated">estimated</span></h4><p class="step-body">Because Asket runs a fixed-price, no-season, no-markdown model, a lower mill energy cost is retained as margin rather than competed away. This is the weak tie, and it is specific to the brand's architecture, reasoned from the profile.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">Terminal: a lower-energy window meets disclosure obligations.<span class="tag grounded">grounded</span></h4><p class="step-body">The favourable cost window coincides with the ESPR Digital Product Passport obligations, which require the per-garment footprint Asket already publishes. The floor node rests on the ESPR legal text.</p></div></div>
+          </div>
+          <div class="meth-note"><strong>Honest gap</strong>Two of the four nodes are estimates: the Brent-to-European-gas lag and the regional gas mix. Wiring a European gas reference into ingest is the step that would let the middle of this chain ground rather than reason. The conviction already reflects that gap.</div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">04</div><h2 class="section-title">Cascade 2, transparency that the rules turn into a test</h2></div>
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>the ESPR Digital Product Passport and the Right to Repair Directive moving from voluntary to mandatory</dd>
+        <dt>Path</dt><dd>a higher reputational bar, routed through Asket's single Swedish repair line</dd>
+        <dt>Impact</dt><dd>compliance standing, and the risk of exposing tier-2 data gaps in Turkey and India</dd>
+        <dt>Conviction</dt><dd>0.35, headline</dd>
+        <dt>Grounded</dt><dd>both regulations, cited to EUR-Lex; every node rests on a primary source</dd>
+        <dt>Estimated</dt><dd>the specific data-infrastructure gaps, over a 24 to 42 month horizon</dd>
+      </dl>
+      <span class="or-label">So what</span>
+      <p class="sowhat">Asket's voluntary transparency has been an asset. New EU rules can turn it into a test. When a product passport becomes mandatory and standardised, Asket's own high disclosure raises the bar it is then held to, not just a head-start. The obligations route through its single Swedish repair line, which becomes a regulated data node and a single point of failure. And mandatory tier-2 disclosure could surface data gaps in Turkey and India that voluntary disclosure could leave unstated, which would invert the brand's core promise. Three compounding edges, all specific to a brand that built on openness.</p>
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">Mandatory EU product-passport and repair rules raise the bar on Asket's voluntary transparency, route through its single Swedish repair line, and risk exposing tier-2 data gaps in Turkey and India; we rate this 0.35, grounded end to end on EUR-Lex.</p>
+      <details class="evidence">
+        <summary>Evidence layer</summary>
+        <div class="evidence-body">
+          <p class="section-lede">Overall conviction 0.35, on a 24 to 42 month horizon with several delegated-act dependencies. Both the ESPR (CELEX:32024R1781) and the Right to Repair Directive (CELEX:32024L1799) are cited to EUR-Lex primary sources throughout. Every node rests on a primary source; the data-gap specifics are flagged as estimates.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">Disclosure moves from voluntary to mandatory.<span class="tag grounded">grounded</span></h4><p class="step-body">The ESPR Digital Product Passport and the Right to Repair Directive standardise textile disclosure obligations. Both are live legal instruments in the corpus.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">The bar rises with the standard, not just the start line.<span class="tag estimated">estimated</span></h4><p class="step-body">Asket's voluntary transparency creates a higher reputational expectation under a mandatory standard, rather than only a head-start. The mechanism is grounded in the rules; how high the bar moves is reasoned.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">The single Swedish repair line becomes a regulated node.<span class="tag estimated">estimated</span></h4><p class="step-body">Under the Right to Repair Directive, Asket's one Swedish repair operation becomes a data node in the passport and a single-supplier bottleneck in a compliance-critical function. A concentration not visible in generic sector coverage.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">Terminal: mandatory disclosure can expose tier-2 gaps.<span class="tag grounded">grounded</span></h4><p class="step-body">The tail risk: mandatory tier-2 disclosure could reveal data gaps in the Turkey and India supply legs that voluntary disclosure obscured, inverting the transparency asset into an exposure. The floor node rests on the regulation.</p></div></div>
+          </div>
+          <div class="gran-note"><strong>Why this is the weak-tie call</strong>The non-obvious move is that a regulation can convert a company's strongest asset into its sharpest exposure. A brand built on openness is more, not less, exposed when openness becomes the mandatory standard. That inversion is the kind of cross-domain reading the method is built to surface.</div>
+          <div class="meth-note"><strong>Honest caveat</strong>The data-infrastructure gap specifics are model estimates, and the horizon is long with multiple delegated-act dependencies, so the timing could move. The regulatory spine is grounded; the operational detail is reasoned.</div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">05</div><h2 class="section-title">Also on watch this week</h2></div>
+      <p class="section-lede">Four more cascades surfaced without clearing the headline bar. Two of them are fully grounded and worth reading; the other two carry a node the engine cannot yet evidence.</p>
+      <ul class="watch-list">
+        <li>
+          <p class="watch-head">A single Ugandan cotton leg under the forced-labour rules <span class="watch-conv">· 0.28 watch · fully grounded</span></p>
+          <p class="watch-body">The EU Forced Labour Regulation lands hardest on Asket's small Ugandan denim-cotton leg, and the brand's own published transparency makes that leg more visible to regulators than it would be for an opaque competitor, turning the transparency asset into a liability amplifier. Cited to EUR-Lex throughout; held at watch on conviction, not on grounding, with a clear mitigation since substitute cotton origins already sit in the supply base.</p>
+        </li>
+        <li>
+          <p class="watch-head">The Austrian wood-fibre supplier and the deforestation rule <span class="watch-conv">· 0.28 watch · fully grounded</span></p>
+          <p class="watch-body">Under the EU Deforestation Regulation, the operator obligation falls on Asket, not on its sophisticated wood-cellulosic supplier, so a supplier documentation gap still becomes Asket's compliance and brand event, and it compounds with the product-passport build-out. A small input by volume carrying outsized regulatory weight. Cited to EUR-Lex; on watch by conviction.</p>
+        </li>
+        <li>
+          <p class="watch-head">A gas bidding-war that undoes the oil relief <span class="watch-conv">· 0.32 watch</span></p>
+          <p class="watch-body">The counter-narrative to Cascade 1: EU market fragmentation and an LNG bidding war could keep European energy high even as oil eases, with the Turkish-lira leg compounding the cost. A useful risk-qualifier, capped at watch because its floor node rests on a source not yet in the corpus.</p>
+        </li>
+        <li>
+          <p class="watch-head">Merino wool that does not fall with commodities <span class="watch-conv">· 0.25 watch</span></p>
+          <p class="watch-body">Broad commodity deflation need not lower Argentine and Uruguayan wool cost when local export-tax policy and correlated Southern Cone climate risk are in play, and a price rise becomes a public brand event under the fixed-price model. On watch; the floor node rests on a source named but not yet ingested.</p>
+        </li>
+      </ul>
+      <div class="meth-note"><strong>Below the line</strong>One further cascade, a UK social-media-ban effect on customer-acquisition cost, was held below watch as too speculative on its Asket-specific channel data. Gate split this run: seven discovered, two promoted, four on watch, one held back.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div class="section-num">06</div><h2 class="section-title">Underneath: how this resolves, and what we cannot yet verify</h2></div>
+      <div class="prose">
+        <p><strong>How a verdict gets marked.</strong> Each prediction has a horizon and resolves to right, partial, wrong or unclear. Where a terminus settles against something public, a regulation taking force, a register entry, a price level, the matrix reads it and marks it. Where a terminus sits on something only Asket can see internally, we do not claim a verdict we cannot observe; we mark it against public secondary markers, or we mark it unclear. The record accumulates run over run either way.</p>
+        <p><strong>What we cannot yet verify.</strong> Two honest limits. The engine does not yet hold a European gas stack or a Turkish-lira feed, so Cascade 1's pass-through and two of the watch chains rest on reasoned magnitudes rather than measured ones. And the deepest single gap, true on every public profile, is volume: Asket publishes where it sources but not how much, so the weight on each leg is a structural proxy, not a disclosed split. A company supplying that split is exactly what would sharpen these chains.</p>
+        <p><strong>Sources.</strong> Grounded this run: FRED Brent; EUR-Lex primary texts for the ESPR (CELEX:32024R1781), the Right to Repair Directive (CELEX:32024L1799), the Forced Labour Regulation (CELEX:32024R3015) and the Deforestation Regulation (CELEX:32023R1115); Asket's own manufacturing and full-traceability disclosures. Estimated or not yet ingested, and flagged in the chains: the European gas pass-through, the Turkish-lira leg, the regional gas mix, the merino export-tax and climate basis, and the per-leg volume split.</p>
+      </div>
+      <div class="gran-note"><strong>On the method</strong>The comparison set for this kind of cross-domain reading is an institutional research desk, not a chatbot. What makes it defensible is the discipline underneath: weak-tie discovery, a conviction number, a grounded-or-estimated tag on every link, and a verdict marked against the record later. Profiling a named company you can verify is the point: you can check the work.</div>
+    </section>
+
+    <div class="closing">
+      <strong>What this is</strong>
+      <p>A live demonstration of the method on a brand whose chain anyone can read, built entirely from Asket's own public disclosures, framed as methodology, not investment advice. The predictions carry dates and conviction numbers; over the coming runs they get marked right, partial, wrong or unclear, and the record is the point.</p>
+      <p>Built with respect for a company that chose to make its supply chain public. Shown to Asket before anything goes live.</p>
+    </div>
+
+    <footer class="footer">
+      <span>Chainge · cold-start worked example · Asket · W26 2026</span>
+      <span>Hidden preview · heads-up pending</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>
