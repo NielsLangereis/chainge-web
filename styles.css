@@ -489,6 +489,7 @@
     text-transform: uppercase;
     fill: var(--ink-2);
     opacity: 0;
+    text-anchor: middle;
   }
   .chain.is-active .c-label { animation: fadeIn 0.6s ease-out forwards; }
   .c-label.exposure { fill: var(--accent); }
@@ -499,6 +500,7 @@
     text-transform: uppercase;
     fill: var(--mute);
     opacity: 0;
+    display: none;
   }
   .chain.is-active .c-hop { animation: fadeIn 0.6s ease-out forwards; }
   .demo-foot {
