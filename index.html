@@ -89,22 +89,52 @@
 
     <div class="demo">
       <div class="demo-tabs" role="tablist">
-        <button class="demo-tab active" data-chain="chain-a"><span class="tab-letter">1</span>iran energy spillover</button>
-        <button class="demo-tab" data-chain="chain-b"><span class="tab-letter">2</span>ukraine attrition</button>
-        <button class="demo-tab" data-chain="chain-c"><span class="tab-letter">3</span>ai infrastructure</button>
+        <button class="demo-tab active" data-chain="chain-nldc"><span class="tab-letter">1</span>ai data-centre power</button>
+        <button class="demo-tab" data-chain="chain-a"><span class="tab-letter">2</span>iran energy spillover</button>
+        <button class="demo-tab" data-chain="chain-b"><span class="tab-letter">3</span>ukraine attrition</button>
+        <button class="demo-tab" data-chain="chain-c"><span class="tab-letter">4</span>ai infrastructure</button>
       </div>
 
       <div class="demo-stage">
         <div class="demo-meta">
-          <span id="demo-bridge">from energy markets to grocery store buyouts</span>
-          <span>5 steps · 61% confident · ~12-month exposure window</span>
+          <span id="demo-bridge">from EU grid rules to AI data-centre running costs</span>
+          <span>5 steps · cross-domain weak tie · ~12-month window</span>
         </div>
-        <h3 class="demo-title" id="demo-title">Tension with Iran today could reshape <em>food brand ownership</em> by late 2026.</h3>
+        <h3 class="demo-title" id="demo-title">An EU power-market rule today could reshape what it costs to run an <em>AI data centre</em>.</h3>
 
         <div class="demo-svg-wrap">
 
+          <!-- CHAIN NLDC: AI DATA-CENTRE POWER (hero default) -->
+          <div class="chain is-active" id="chain-nldc">
+            <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+              <path class="c-line weak" d="M 60,40 Q 200,10 300,80" style="animation-delay:0.1s"/>
+              <path class="c-line weak" d="M 540,50 Q 460,30 380,90" style="animation-delay:0.2s"/>
+              <path class="c-line weak" d="M 100,240 Q 220,260 340,200" style="animation-delay:0.3s"/>
+              <path class="c-line weak" d="M 530,240 Q 470,260 430,210" style="animation-delay:0.4s"/>
+              <path class="c-line active" d="M 60,60 C 130,90 160,100 180,140" style="animation-delay:0.3s"/>
+              <path class="c-line active" d="M 180,140 C 230,170 270,170 300,170" style="animation-delay:0.7s"/>
+              <path class="c-line active" d="M 300,170 C 360,170 400,150 420,130" style="animation-delay:1.1s"/>
+              <path class="c-line active" d="M 420,130 C 460,110 500,110 540,140" style="animation-delay:1.5s"/>
+              <circle class="c-node active" cx="60" cy="60" r="6" style="animation-delay:0.2s"/>
+              <circle class="c-node active" cx="180" cy="140" r="5" style="animation-delay:0.6s"/>
+              <circle class="c-node active" cx="300" cy="170" r="5" style="animation-delay:1.0s"/>
+              <circle class="c-node active" cx="420" cy="130" r="5" style="animation-delay:1.4s"/>
+              <circle class="c-node terminal" cx="540" cy="140" r="7" style="animation-delay:1.8s"/>
+              <circle class="c-pulse" cx="540" cy="140" r="7" style="animation-delay:2.0s"/>
+              <text class="c-label" x="60" y="44" style="animation-delay:2.0s">eu power rule</text>
+              <text class="c-label" x="180" y="160" style="animation-delay:2.1s">nl grid rules</text>
+              <text class="c-label" x="300" y="190" style="animation-delay:2.2s">firm power</text>
+              <text class="c-label" x="420" y="115" style="animation-delay:2.3s">backup costs</text>
+              <text class="c-label exposure" x="498" y="160" style="animation-delay:2.4s">datacentre cost</text>
+              <text class="c-hop" x="115" y="115" style="animation-delay:2.2s">step 01</text>
+              <text class="c-hop" x="235" y="160" style="animation-delay:2.3s">step 02</text>
+              <text class="c-hop" x="360" y="155" style="animation-delay:2.4s">step 03</text>
+              <text class="c-hop" x="470" y="115" style="animation-delay:2.5s">step 04</text>
+            </svg>
+          </div>
+
           <!-- CHAIN A: IRAN ENERGY -->
-          <div class="chain is-active" id="chain-a">
+          <div class="chain" id="chain-a">
             <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
               <path class="c-line weak" d="M 60,40 Q 200,10 300,80" style="animation-delay:0.1s"/>
               <path class="c-line weak" d="M 540,50 Q 460,30 380,90" style="animation-delay:0.2s"/>
@@ -194,7 +224,7 @@
 
         <div class="demo-foot">
           <span class="verdict">verdict: promote</span>
-          <span id="demo-sources">sources cited: ECB, EUR-Lex, <span class="jargon" data-tip="The global benchmark price for crude oil from the North Sea. When 'Brent goes up,' fuel and energy-intensive industries pay more." tabindex="0">Brent</span> · model</span>
+          <span id="demo-sources">sources cited: <span class="jargon" data-tip="The EU's online database of legal texts. Regulations, directives, and treaties, in force and searchable. The primary source for what EU law says." tabindex="0">EUR-Lex</span>, <span class="jargon" data-tip="The European network of electricity transmission operators. Publishes near-real-time grid load, flow, and balancing data across Europe." tabindex="0">ENTSO-E</span> · model</span>
         </div>
       </div>
       <p class="demo-disclaimer">Example chains. Illustrative of the platform's reasoning, not surfaced predictions. Live chains have shipped weekly since W19; the first public verdicts land W27 of 2026.</p>
@@ -605,6 +635,12 @@
 <script>
   // tab switching for hero chain demo
   const chainCopy = {
+    'chain-nldc': {
+      title: 'An EU power-market rule today could reshape what it costs to run an <em>AI data centre</em>.',
+      bridge: 'from EU grid rules to AI data-centre running costs',
+      stats: '5 steps · cross-domain weak tie · ~12-month window',
+      sources: 'sources cited: <span class="jargon" data-tip="The EU&apos;s online database of legal texts. Regulations, directives, and treaties, in force and searchable. The primary source for what EU law says." tabindex="0">EUR-Lex</span>, <span class="jargon" data-tip="The European network of electricity transmission operators. Publishes near-real-time grid load, flow, and balancing data across Europe." tabindex="0">ENTSO-E</span> · model'
+    },
     'chain-a': {
       title: 'Tension with Iran today could reshape <em>food brand ownership</em> by late 2026.',
       bridge: 'from energy markets to grocery store buyouts',
