@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Chainge W27 · Cascade update · Westland Infra · operator read</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #F4EFE6;
+    --paper-2:     #EBE5DA;
+    --ink:         #15130F;
+    --ink-2:       #2B2620;
+    --mute:        #847866;
+    --line:        #C9C2B6;
+    --accent:      #2D5C47;
+    --accent-deep: #1F3F31;
+    --gold:        #B68A2C;
+    --serif: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* paper grain, very subtle */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(21,19,15,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  main { position: relative; z-index: 2; }
+
+  /* PAGE SHELL */
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 72px 80px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  /* TOP META BAR */
+  .topmeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    margin-bottom: 32px;
+  }
+  .topmeta .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* COVER */
+  .cover {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 28px;
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    max-width: 14ch;
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 48px;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 56ch;
+  }
+  .cover-meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .cover-meta dd {
+    font-family: var(--serif);
+    font-size: 16px;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  /* SECTION */
+  .section {
+    padding: 56px 0 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  .section-title em { font-style: italic; }
+
+  .section-lede {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 64ch;
+    margin: 0 0 24px;
+  }
+
+  /* BODY PROSE */
+  .prose p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 68ch;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* PREDICTION CARDS */
+  .pred-stack { display: grid; gap: 28px; margin-top: 8px; }
+
+  .pred {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 28px 32px 30px;
+    box-shadow: 4px 4px 0 var(--ink);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pred-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .pred-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .pred-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .pred-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+  }
+  .stat {
+    min-width: 92px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .stat-val {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-val.accent { color: var(--accent); }
+  .stat-delta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    margin-top: 4px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .pred-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CASCADE STEPS */
+  .steps { display: grid; gap: 24px; margin-top: 8px; }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    position: relative;
+  }
+  .step-num::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 22px;
+    bottom: -24px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step:last-child .step-num::before { display: none; }
+  .step-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+  }
+  .step-body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 64ch;
+  }
+  .step-body em { font-style: italic; color: var(--mute); }
+
+  .insight {
+    margin-top: 32px;
+    padding: 22px 24px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  .insight strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .insight .verdict-states {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .insight em.term {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* CAVEAT LIST */
+  .caveats { list-style: none; padding: 0; margin: 8px 0 0; max-width: 68ch; }
+  .caveats li {
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.55;
+    position: relative;
+  }
+  .caveats li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 11px;
+    height: 1px;
+    background: var(--mute);
+  }
+  .caveats li:last-child { border-bottom: none; }
+  .caveats li strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* SOURCES + CITATION CHIPS */
+  .sources-group { margin-bottom: 36px; }
+  .sources-group:last-child { margin-bottom: 0; }
+  .sources-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px 4px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+  }
+  .chip::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mute);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .chip.primary::before { background: var(--accent); }
+  .chip.model::before { background: var(--gold); }
+  .chip.new {
+    border-color: var(--accent);
+    background: var(--paper);
+  }
+  .chip.new::after {
+    content: "new";
+    font-size: 8.5px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-left: 4px;
+    font-weight: 500;
+  }
+
+  .sources-note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--mute);
+    margin-top: 20px;
+    max-width: 60ch;
+  }
+
+  /* CLOSING QUESTION */
+  .closing {
+    margin-top: 56px;
+    padding: 28px 30px 30px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--ink);
+    max-width: 68ch;
+  }
+  .closing strong {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .closing p {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 0 0 14px;
+  }
+  .closing p:last-child { margin-bottom: 0; }
+  .closing .ask {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* PRINT */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  @media print {
+    body { background: var(--paper); }
+    body::before { display: none; }
+    .page { max-width: none; padding: 0; }
+    .section { padding: 32px 0 8px; page-break-inside: auto; }
+    .cover { padding: 24px 0 48px; page-break-after: always; }
+    .section-head { page-break-after: avoid; break-after: avoid; }
+    .pred, .step, .insight, .closing { page-break-inside: avoid; break-inside: avoid; }
+    .pred-stack { gap: 20px; }
+    .footer { page-break-before: avoid; }
+    .topmeta { display: none; }
+  }
+
+  /* ===== operator-read layer ===== */
+  .primer {
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    padding: 22px 26px;
+    margin: 8px 0;
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 68ch;
+  }
+  .primer p { margin: 0 0 14px; }
+  .primer p:last-child { margin: 0; }
+  .oneread {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 8px 0 0;
+    max-width: 66ch;
+  }
+  .glance {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 7px 18px;
+    font-size: 14.5px;
+    margin: 4px 0 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    max-width: 70ch;
+  }
+  .glance dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    padding-top: 2px;
+  }
+  .glance dd { margin: 0; font-family: var(--serif); color: var(--ink); line-height: 1.5; }
+  .or-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin: 0 0 6px;
+  }
+  .sowhat {
+    font-family: var(--serif);
+    font-size: 16.5px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    max-width: 66ch;
+  }
+  .liftable {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 4px 4px 0 var(--accent);
+    padding: 18px 22px;
+    margin: 16px 0 20px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 64ch;
+  }
+  details.evidence { border-top: 1px solid var(--line); margin-top: 6px; }
+  details.evidence > summary {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    cursor: pointer;
+    padding: 14px 0;
+    list-style: none;
+  }
+  details.evidence > summary::-webkit-details-marker { display: none; }
+  details.evidence > summary::before { content: "\25B8\00a0"; color: var(--accent); }
+  details.evidence[open] > summary::before { content: "\25BE\00a0"; }
+  details.evidence .evidence-body { padding: 2px 0 10px; }
+  details.evidence .evidence-body > p:first-child { margin-top: 0; }
+  .meth-note {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    background: var(--paper-2);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    margin: 18px 0 0;
+    max-width: 66ch;
+  }
+  .meth-note strong {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="page">
+
+    <div class="topmeta">
+      <span><span class="dot"></span>Chainge · weekly run W27 · operator read</span>
+      <span>Confidential · prepared for Paul Langereis</span>
+    </div>
+
+    <!-- COVER -->
+    <header class="cover">
+      <div class="cover-eyebrow">Strategic foresight update · Week 27 · 2026 · operator read</div>
+      <h1 class="cover-title">Cascade update, <em>operator read</em></h1>
+      <p class="cover-sub">
+        Your export-to-import grid-timing chain stays the strongest call in the run (0.45), and this week its imbalance-driver leg grounds on live ENTSO-E data. Hormuz and the market-reform flexibility chain both firm to 0.38.
+      </p>
+      <dl class="cover-meta">
+        <div>
+          <dt>Prepared for</dt>
+          <dd>Paul Langereis · CEO, Westland Infra Netbeheer</dd>
+        </div>
+        <div>
+          <dt>Date</dt>
+          <dd>29 June 2026</dd>
+        </div>
+        <div>
+          <dt>Source</dt>
+          <dd>Chainge weekly run · W27 · 29 June 2026</dd>
+        </div>
+        <div>
+          <dt>Reading time</dt>
+          <dd>~7 minutes</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 01 HOW TO READ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">01</div>
+        <h2 class="section-title">How to read this packet</h2>
+      </div>
+      <div class="primer">
+        <p>Read each cascade as a short thesis on your regulated economics. Three parts: a catalyst (the event or rule change), a transmission path (how it reaches Westland Infra), and an impact (where it lands, your regulated revenue, your congestion economics, or your capital base). Two things we add on top.</p>
+        <p>First, a conviction number from 0 to 1. It is our conviction, not a market-implied probability, so read 0.45 as a stronger anchor than 0.38, not as a 45 percent chance. This week 0.45 is our highest-conviction call. A chain is either a headline (clears our bar to be a lead call this week) or watch-tier (on the radar, not yet strong enough to act on).</p>
+        <p>Second, every link is tagged grounded or estimated. Grounded means it rests on something hard we hold: a price series, a legal text, a public register, your own network data. Estimated means we reasoned it from your profile. When a chain leans on something we cannot evidence, an internal skeptic check marks it down, which this week is what holds the gas-stranding chain at watch.</p>
+      </div>
+    </section>
+
+    <!-- 02 ONE READ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">02</div>
+        <h2 class="section-title">This week in one read</h2>
+      </div>
+      <p class="oneread">Three of your four cascades firmed and the lead held with new grounding. The export-to-import grid-timing chain (D) stays the strongest cascade in the whole run, and this week its imbalance-driver leg grounds on live ENTSO-E data rather than flagging awaiting-data: NL imbalance price near 75 euro per MWh with same-day volatility near 69, a spread regime that rewards short-cycle flex dispatch over stable feed-in. It eases a touch to 0.45 from 0.48, the engine declining to price the operator-judgment mechanism steps as if they were grounded. The Hormuz chain (A) firmed to 0.38 from 0.30 as the crude path now reads off the EIA forward curve and the dual loss of greenhouse CHP as a local balancing resource sharpens. The market-reform flexibility chain (C) firmed most, to 0.38 from 0.18, as the cost-structure inversion at the flexibility-procurement layer grounds on the reform texts. Gas-stranding (B) firms slightly to 0.18 and stays watch on the open Dutch heating schedule. So: the lead holds and gains live grounding on its driver, two regulatory-timing chains firm, and only the gas-date chain stays held low on open timing.</p>
+    </section>
+
+    <!-- 03 CASCADE D -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">03</div>
+        <h2 class="section-title">Cascade D, export-to-import congestion timing on your feeders</h2>
+      </div>
+
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>rising NL imbalance-price volatility incentivising greenhouse WKK-plus-battery hybrids to retain and reshape grid capacity use</dd>
+        <dt>Path</dt><dd>imbalance volatility into WKK-battery dispatch, into a reshaped Westland export profile that decouples your local congestion state from the national offtake-dominant picture</dd>
+        <dt>Impact</dt><dd>regulated grid capital efficiency and ACM cost recovery, a two-sided reinforcement-capex timing risk</dd>
+        <dt>Conviction</dt><dd>0.45, headline, down from 0.48, still the strongest chain in the run</dd>
+        <dt>Evidenced</dt><dd>live ENTSO-E NL imbalance price and volatility; the Netbeheer capaciteitskaart on your own De Lier and Westerlee feeders</dd>
+        <dt>Assumed</dt><dd>the realized export-profile shape and the export-to-import flip timing, both operator-judgment</dd>
+      </dl>
+
+      <span class="or-label">So what</span>
+      <p class="sowhat">The imbalance-driver leg now grounds on a live ENTSO-E series: NL imbalance price at about 75 euro per MWh with same-day volatility near 69, a coefficient of variation above 0.9, the kind of intraday-spread regime that makes short-cycle flex dispatch materially more profitable than stable baseload feed-in for co-located WKK-plus-battery in the Westland cluster. That reshapes net feed-in on your feeders. The capaciteitskaart shows the divergence live: nationally, offtake congestion already dominates, 45.4 percent of feeding areas short on offtake against 7.6 percent on feed-in, yet your own De Lier and Westerlee feeders still carry feed-in stress, a 104 MW queue at Westerlee, with offtake capacity available. The local export-to-import flip has not happened even though the national picture has already inverted. You face a two-sided capex timing risk: over-investing on the national offtake trend that has not landed locally, which carries ACM prudence risk, or under-investing while peak feed-in events sharpen. The direction is well grounded; the open question is when, not whether.</p>
+
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">The imbalance-driver leg now grounds on live ENTSO-E (about 75 euro per MWh, volatility near 69), and the national offtake-versus-feed-in inversion has not yet reached your De Lier and Westerlee feeders (104 MW feed-in queue at Westerlee); the export-to-import flip timing, not the direction, is the capex question. We rate this our strongest call at 0.45.</p>
+
+      <details class="evidence">
+        <summary>Evidence layer (updated: imbalance driver now grounded on live ENTSO-E)</summary>
+        <div class="evidence-body">
+          <p class="section-lede">Export-to-import congestion timing on the Westland feeders, with the imbalance driver now grounded on live ENTSO-E and the divergence grounded on the capaciteitskaart. 0.45, down from 0.48. Horizon into Q1 2027; the soonest public observable is the Westerlee feed-in queue resolution.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">The imbalance-volatility driver grounds on live ENTSO-E.</h4><p class="step-body">NL imbalance price stands at about 75 euro per MWh with a same-day standard deviation near 69 euro, a coefficient of variation around 0.92, an extreme intraday-spread regime that makes short-cycle flex dispatch more profitable than stable baseload feed-in. This is the leg that flagged awaiting-data last week and now grounds on the ENTSO-E series as of 28 June.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">WKK-plus-battery hybrids reshape the export profile.</h4><p class="step-body"><em>Operator-judgment.</em> Growers respond by retaining connection capacity and adding battery co-location, so average net feed-in falls on an hourly-mean basis while peak feed-in events become sharper, shorter and less predictable. This node is not publicly grounded; per-feeder PTU time-series, connection-register WKK-battery deltas and GOPACS records from your own feeder register would upgrade it.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">Local congestion decouples from the national picture.</h4><p class="step-body">The Netbeheer capaciteitskaart shows offtake congestion dominating nationally (45.4 percent of feeding areas short on offtake against 7.6 percent on feed-in) while De Lier and Westerlee show offtake capacity available with zero queue and a 104 MW feed-in queue at Westerlee. The local export-to-import flip has not yet occurred even as the national picture has inverted.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">Two open questions are carried as flagged uncertainty.</h4><p class="step-body">The realized export-profile shape (peak amplitude, PTU-level variance, duration of near-zero windows) and the export-to-import flip timing are both operator-judgment, smeared by the retained-WKK-backup dynamic, and neither reduces to a single reversal date.</p></div></div>
+            <div class="step"><div class="step-num">Step 5</div><div><h4 class="step-head">Terminal: two-sided capex timing risk and ACM cost recovery.</h4><p class="step-body">Over-investment risk, reinforcement justified on the national offtake trend that has not materialised locally, carries ACM prudence and cost-recovery risk within the regulatory period; under-investment risk, feeder thermal limits breached before reinforcement if peak feed-in sharpens, carries continuity-of-supply exposure. The Westerlee 104 MW feed-in queue signals the export axis is already stressed.</p></div></div>
+          </div>
+          <div class="meth-note">
+            <strong>Why it stays the highest number, and eased slightly</strong>
+            The driver leg now grounds on a live ENTSO-E price-and-volatility series, and the falsifiable divergence is your own capaciteitskaart. The chain carries the flip-timing and profile-shape questions plainly as operator-judgment, which is what holds it at 0.45, a touch below last week's 0.48, rather than higher. The slight easing is the two-axis decomposition doing its job: the engine declining to price an operator-judgment mechanism as if it were a measured one.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 04 CASCADE A -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">04</div>
+        <h2 class="section-title">Cascade A, Hormuz to the greenhouse cost base and your flexibility resource</h2>
+      </div>
+
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>the US-enforced Hormuz disruption and the duration-conditioned crude path</dd>
+        <dt>Path</dt><dd>crude into European TTF gas, into the greenhouse CHP spark spread, into your offtake-versus-feed-in balance, with a dual loss of CHP as a local balancing resource</dd>
+        <dt>Impact</dt><dd>your ACM-regulated distribution economics and local congestion management</dd>
+        <dt>Conviction</dt><dd>0.38, headline, up from 0.30</dd>
+        <dt>Evidenced</dt><dd>the EIA short-term outlook forward Brent path; FRED Brent and Henry Hub; the Polymarket strait-lift market</dd>
+        <dt>Assumed</dt><dd>the spark-spread compression size and how much of the move reaches your specific congestion economics</dd>
+      </dl>
+
+      <span class="or-label">So what</span>
+      <p class="sowhat">The crude path now reads off the EIA short-term outlook, a Brent path near 96 to 105 dollars through Q3 decaying toward the mid-80s by December, and a Polymarket market puts a formal US lift by July 31 at about 55 percent, so roughly 45 percent that the disruption persists. The chain's point is that a reopening does not snap costs back: war-risk premia, tanker rebooking and LNG repricing hold the premium for weeks. Higher TTF compresses the greenhouse CHP spark spread, gas up while summer power is margined by solar, which idles WKK dispatch in the Naaldwijk cluster. The non-obvious step is that those WKK units are also a local balancing resource, so their exit removes flexibility you rely on for congestion management, an additive grid-cost rather than the simple load relief a naive read would assume. It firms to 0.38 as the crude path grounds and that dual flexibility-loss mechanism sharpens.</p>
+
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">A Hormuz crude premium holding into Q3 (EIA path, about 96 to 105 dollars) compresses Westland greenhouse CHP spark spreads and removes WKK units as a local balancing resource, an additive congestion cost rather than pure load relief; we rate this headline at 0.38, robust to the exact reopening date.</p>
+
+      <details class="evidence">
+        <summary>Evidence layer (updated: crude path on EIA forward curve, Polymarket duration read)</summary>
+        <div class="evidence-body">
+          <p class="section-lede">Hormuz crude disruption to the Westland greenhouse cost base, your congestion economics, and your local flexibility resource. 0.38, up from 0.30. Horizon Q3 2026, earliest inflection mid-August.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">The strait stays contested; the duration read is market-anchored.</h4><p class="step-body">A US-enforced Hormuz disruption persists with contested, partial reopening signals; a Polymarket market on a formal US lift by July 31 sits near 55 percent, implying about 45 percent the disruption is not lifted on that horizon.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">The crude cost path is grounded on the EIA forward curve.</h4><p class="step-body">The EIA short-term outlook shows a Brent path near 96 to 105 dollars through Q3, decaying toward the mid-80s by December. Reopening does not reset the premium: war-risk insurance, tanker rebooking and LNG cargo repricing sustain it for six to ten weeks, which makes the Q3 path robust to the exact lift date.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">Crude transmits to European gas.</h4><p class="step-body">Elevated Brent passes into European TTF through LNG substitution pressure as Asian buyers outbid European importers, with Henry Hub low at about 3.06 dollars per MMBtu widening the Atlantic arbitrage, lifting the gas cost that sets greenhouse heating and CHP economics.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">The greenhouse spark spread compresses and WKK dispatch idles.</h4><p class="step-body">Higher TTF compresses or inverts the CHP/WKK spark spread, since summer Dutch day-ahead power is margined by solar and does not rise proportionally with gas, making CHP dispatch marginal or loss-making for a material share of Westland operators.</p></div></div>
+            <div class="step"><div class="step-num">Step 5</div><div><h4 class="step-head">Reduced dispatch relieves load but removes a balancing resource.</h4><p class="step-body">Operators curtail heated area or idle CHP, reducing offtake and gas throughput on your Naaldwijk-cluster grid; the non-obvious step is that the same exit removes dispatchable CHP capacity that functions as a local flexibility resource, a net grid-management cost not captured by a load-reduction read.</p></div></div>
+            <div class="step"><div class="step-num">Step 6</div><div><h4 class="step-head">Terminal: regulated revenue and congestion exposure.</h4><p class="step-body">The exposure terminates in your ACM-regulated distribution economics, through reduced large-customer transport revenue and the loss of a local flex resource, with potential stranded-asset risk on reinforcement sized for CHP-era load. EIA outlook updates and strait-status signals are the public markers.</p></div></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 05 CASCADE B -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">05</div>
+        <h2 class="section-title">Cascade B, EU gas phase-out to stranded gas-distribution assets</h2>
+      </div>
+
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>the EU gas-and-hydrogen directive plus unresolved Dutch hydrogen-heating policy</dd>
+        <dt>Path</dt><dd>ACM RAB asset-life recalibration that compresses your gas asset base before physical volumes decline</dd>
+        <dt>Impact</dt><dd>regulated gas RAB, cost recovery, and capex headroom for the electricity transition</dd>
+        <dt>Conviction</dt><dd>0.18, watch, up from 0.14</dd>
+        <dt>Evidenced</dt><dd>the directive and regulation (Dir 2024/1788, Reg 2024/1789); FRED term spread as a directional financing proxy</dd>
+        <dt>Open</dt><dd>the Dutch hydrogen-heating schedule and the ACM regulatory-period timing, neither yet set</dd>
+      </dl>
+
+      <span class="or-label">So what</span>
+      <p class="sowhat">The non-obvious step is the regulatory-accounting channel as a lead indicator: the financial impairment can precede the operational one. If ACM, under EU transposition pressure and unresolved Dutch heating policy, shortens the assumed economic life of gas distribution assets in its next regulatory-period RAB methodology (expected 2027 to 2028), it compresses your gas Regulatory Asset Base, about 20 percent of revenue, and the collateral value that supports financing for the concurrent electricity-grid and metering programme, before gas volumes themselves fall. It stays low at 0.18 because the Dutch hydrogen-heating schedule and the ACM period timing are both open, and the engine holds the chain at those open nodes rather than pricing a date that does not yet exist.</p>
+
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">The EU gas directive plus unresolved Dutch heating policy could prompt ACM to shorten gas-asset life and compress your gas RAB before volumes decline, a financial impairment that leads the operational one; we hold this at watch (0.18) until the Dutch schedule and the ACM period are set.</p>
+
+      <details class="evidence">
+        <summary>Evidence layer (unchanged structure; conviction firmed to 0.18)</summary>
+        <div class="evidence-body">
+          <p class="section-lede">EU gas phase-out to stranded gas-distribution assets at Westland Infra, via the RAB-accounting channel. 0.18, up from 0.14. Horizon 2027 and beyond.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">The directive creates the legal framework.</h4><p class="step-body">Dir 2024/1788 and Reg 2024/1789 enter national transposition, establishing a framework for gas-network decarbonisation while leaving Member State discretion on hydrogen-heating timelines, a binding but ambiguous ceiling on gas-asset life expectations.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">Dutch hydrogen-heating policy is the open node.</h4><p class="step-body">The Netherlands has not designated hydrogen as the primary heating replacement for greenhouse clusters or residential areas in Westland and Midden-Delfland, and municipal heat plans have stalled, leaving gas distribution in regulatory limbo with no confirmed successor mandate. This is where the chain holds.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">Financing conditions stay above the capitalisation baseline.</h4><p class="step-body">Term financing remains elevated relative to the near-zero-rate baseline at which much Dutch gas infrastructure debt was issued; the US term spread is carried as a directional proxy only, with the ECB path as the operative but un-ingested driver.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">ACM shortens assumed asset life in the RAB methodology.</h4><p class="step-body">At the next gas regulatory-period review, ACM responds to EU obligations and unresolved heating policy by shortening the assumed remaining economic life of gas assets, compressing the allowed RAB and permitted revenues before volumes decline.</p></div></div>
+            <div class="step"><div class="step-num">Step 5</div><div><h4 class="step-head">Terminal: RAB compression and capex headroom.</h4><p class="step-body">The gas RAB (about 20 percent of revenue) is written down faster than physical depreciation, reducing allowed revenue and the collateral value supporting electricity-transition financing, forcing prioritisation trade-offs in the regulated capital programme. EUR-Lex transposition notifications and the ACM period decision are the public markers.</p></div></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 06 CASCADE C -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">06</div>
+        <h2 class="section-title">Cascade C, EU electricity market reform to your flexibility economics</h2>
+      </div>
+
+      <dl class="glance">
+        <dt>Catalyst</dt><dd>the EU electricity market reform reshaping ACER's flexibility-data mandate and introducing the flexible connection agreement</dd>
+        <dt>Path</dt><dd>ACM converts implicit curtailment into a paid market-procurement obligation, with a parallel IT/OT compliance deadline</dd>
+        <dt>Impact</dt><dd>regulated electricity revenue, procurement-cost pass-through, and unplanned capex timing</dd>
+        <dt>Conviction</dt><dd>0.38, firmed from 0.18</dd>
+        <dt>Evidenced</dt><dd>the reform texts (Reg 2024/1747, Dir 2024/1711)</dd>
+        <dt>Assumed</dt><dd>the ACM pass-through treatment and the procurement-cost gap</dd>
+      </dl>
+
+      <span class="or-label">So what</span>
+      <p class="sowhat">This chain firmed most this week. The non-obvious step is a cost-structure inversion at the flexibility-procurement layer: the reform converts congestion management from a near-zero-cost administrative tool, curtailment orders, into a market-procurement obligation, where Westland must competitively tender flexibility from greenhouse operators who price their bids above their own opportunity cost of production disruption. If ACM does not pass procurement costs through in full under the tariff methodology, that is a direct margin exposure that does not yet appear in your regulatory asset base or tariff filings. A second leg: the ACER data-methodology approval creates a technical IT/OT compliance deadline, sub-15-minute metering and automated dispatch, that can land before tariff recovery is confirmed, so capex must be committed before revenue is. It firms to 0.38 as more of the spine grounds on the reform texts.</p>
+
+      <span class="or-label">Liftable line</span>
+      <p class="liftable">EU market reform turns congestion management from cost-free curtailment into a paid procurement obligation, with greenhouse operators pricing flexibility above their opportunity cost and an IT/OT compliance deadline that lands ahead of tariff recovery; we rate this 0.38, firmed from 0.18.</p>
+
+      <details class="evidence">
+        <summary>Evidence layer (firmed: cost-structure inversion grounded on the reform texts)</summary>
+        <div class="evidence-body">
+          <p class="section-lede">EU electricity market reform to DSO flexibility economics. 0.38, up from 0.18. Horizon Q4 2026.</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">Step 1</div><div><h4 class="step-head">The reform hardens the EU flexibility-data architecture.</h4><p class="step-body">ACER must approve the joint ENTSO-E and EU DSO entity proposal on flexibility-needs data type, format and methodology under Reg 2024/1747, and Dir 2024/1711 introduces the flexible connection agreement and widens the active-customer definition, hardening the timeline for Dutch transposition.</p></div></div>
+            <div class="step"><div class="step-num">Step 2</div><div><h4 class="step-head">ACM revises congestion management into structured procurement.</h4><p class="step-body">ACM is compelled to revise its congestion-management framework to incorporate the harmonised data methodology and the flexible connection agreement, replacing the ad-hoc curtailment regime with a formal capacity-versus-energy flexibility-product procurement obligation in congested areas.</p></div></div>
+            <div class="step"><div class="step-num">Step 3</div><div><h4 class="step-head">The cost-structure inverts at the procurement layer.</h4><p class="step-body">Westland must competitively tender flexibility volumes from greenhouse horticulture customers, your dominant load cluster, rather than issue cost-free curtailment orders; bids price above opportunity cost, so net regulated cost rises wherever ACM does not pass procurement cost through in full.</p></div></div>
+            <div class="step"><div class="step-num">Step 4</div><div><h4 class="step-head">A parallel IT/OT compliance deadline forces early capex.</h4><p class="step-body">Participating as a procuring DSO requires SCADA and metering telemetry capable of real-time dispatch and settlement in the ACER-approved data format, a non-discretionary capex obligation not sized in the current regulatory period and potentially due before revenue recovery is confirmed.</p></div></div>
+            <div class="step"><div class="step-num">Step 5</div><div><h4 class="step-head">Terminal: revenue and capex-timing pressure.</h4><p class="step-body">Regulated electricity revenue and the multi-year investment programme face unrecovered procurement cost, unplanned IT/OT capex, and planning uncertainty in the greenhouse cluster that carries the majority of your congestion exposure. EUR-Lex and ACER publications are the public markers.</p></div></div>
+          </div>
+          <div class="meth-note">
+            <strong>Why it firmed to 0.38</strong>
+            Last week this chain held at 0.18 on timing uncertainty around the ACER approval step. This week the engine grounds more of the spine on the reform texts themselves, the cost-structure inversion at the procurement layer and the independent IT/OT compliance deadline, both anchored on Reg 2024/1747 and Dir 2024/1711 rather than on an assumed Dutch date. The ACM pass-through treatment and the procurement-cost gap remain the open, estimated nodes.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- 07 UNDERNEATH -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">07</div>
+        <h2 class="section-title">A wider watch set, your read wanted</h2>
+      </div>
+      <p class="oneread">This week the wide net surfaced a cluster the four headlines never touch: the procurement, hardware and IT/OT input side of running a regulated DSO, the transformers, cables, metals, meters and grid-software you buy. None of these clears the headline bar, and we are not standing behind the numbers yet. We carry them as a watch list, and we show them for one reason: they might be relevant. The question back to you is whether any is worth investigating. Where you say yes, we go and find the data to ground it. That is the order on purpose: interest first, then the data hunt.</p>
+
+      <div style="margin:18px 0 8px;border-top:1px solid var(--line);">
+        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Transformers, cables and switchgear <span style="color:var(--mute);font-size:13.5px;">(capex input)</span></div>
+            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Lead-time and price pressure on the grid hardware your multi-year investment programme depends on.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--mute);white-space:nowrap;text-align:right;flex-shrink:0;">0.28<br><span style="text-transform:uppercase;font-size:9.5px;color:#9A7322;">model estimate</span></div>
+        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Smart-meter and SCADA/OT hardware <span style="color:var(--mute);font-size:13.5px;">(rollout and operations)</span></div>
+            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Supply and cost pressure on the metering and control hardware your rollout and grid operations run on.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--mute);white-space:nowrap;text-align:right;flex-shrink:0;">0.22<br><span style="text-transform:uppercase;font-size:9.5px;color:var(--accent);">grounded</span></div>
+        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Metering software, telemetry and cloud/IT <span style="color:var(--mute);font-size:13.5px;">(grid IT)</span></div>
+            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Cost and dependency risk in the software, telemetry and cloud layer behind your metering and grid IT.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--mute);white-space:nowrap;text-align:right;flex-shrink:0;">0.18<br><span style="text-transform:uppercase;font-size:9.5px;color:var(--accent);">grounded</span></div>
+        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Copper and aluminium cable <span style="color:var(--mute);font-size:13.5px;">(commodity input)</span></div>
+            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Commodity-price exposure on the cable you buy by the kilometre, ahead of a heavy reinforcement programme.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--mute);white-space:nowrap;text-align:right;flex-shrink:0;">0.22<br><span style="text-transform:uppercase;font-size:9.5px;color:var(--gold);">partial</span></div>
+        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Grid-IT and transformer-asset resilience <span style="color:var(--mute);font-size:13.5px;">(speculative)</span></div>
+            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">A thinner, more speculative resilience angle on grid-IT systems and transformer assets.</div>
+          </div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--mute);white-space:nowrap;text-align:right;flex-shrink:0;">0.12<br><span style="text-transform:uppercase;font-size:9.5px;color:#9A7322;">model estimate</span></div>
+        </div>
+      </div>
+
+      <div class="insight"><strong>What we deliberately left out</strong>The same net found two chains that end on your own revenue versus your business plan, and your own financing cost and WACC timing. We cut both before this list, on purpose. Those are your financial condition, not an external exposure reaching you, and grading them is outside what we do. We trace what the world does to your business, never how the business itself is doing.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="section-num">08</div>
+        <h2 class="section-title">Underneath: how this resolves and what we cannot yet verify</h2>
+      </div>
+      <div class="prose">
+        <p><strong>How verdicts register.</strong> At horizon each prediction resolves to right, partial, wrong or unclear, and none asks a verdict of you today. Cascade A resolves against public oil and strait-status markers and the EIA outlook. Cascade D resolves against the ENTSO-E imbalance series, the capaciteitskaart and ACM cost-recovery decisions. Cascades B and C resolve against EUR-Lex transposition notifications, the ACM regulatory-period decision, and ACER publications.</p>
+        <p><strong>What we cannot yet verify.</strong> The open nodes this week, all carried plainly rather than priced. The export-profile shape and the export-to-import flip timing (Cascade D) are operator-judgment, and per-feeder PTU time-series and GOPACS records from your own register would upgrade them. The Dutch gas phase-out schedule and the ACM regulatory-period timing (Cascade B) are not set. The ACM flexibility pass-through treatment and the ACER approval timing (Cascade C) are open. The spark-spread and congestion passthrough size (Cascade A) is reasoned from your profile. Read the numbers as ordinal calibration, not market odds: 0.45 is a stronger anchor than 0.38, and the lead eased to 0.45 because the engine refuses to price an operator-judgment mechanism as if it were measured.</p>
+        <p><strong>Sources.</strong> Live corpus, grounded this iteration: ENTSO-E NL imbalance price and same-day volatility (new this week, the Cascade D driver leg); EIA short-term outlook forward Brent path; FRED Brent, Henry Hub and term spread; the Polymarket strait-lift market; EUR-Lex EU electricity market reform (Reg 2024/1747, Dir 2024/1711, including the flexible connection agreement CELEX:32024L1711), gas package (Dir 2024/1788, Reg 2024/1789), EED (CELEX:32023L1791); Netbeheer Nederland capaciteitskaart 2026 (De Lier, Westerlee). Flagged, model estimate or open-node: the per-feeder PTU export profile and flip timing, the Dutch gas phase-out date, the ACER approval timing, and the ACM pass-through treatment.</p>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <strong>One line back</strong>
+      <p>Of the surfaces in your profile, the export-to-import timing chain is still the one closest to a datable inflection, and its driver now grounds on live ENTSO-E; the soonest public observable is the Westerlee feed-in queue resolution. If you want one thing tracked tightly into Q4 and Q1, that is the candidate.</p>
+      <p>The wider watch set is new and deliberately exploratory; we are asking, not asserting. If one or two of those input and IT/OT exposures look worth investigating, tell us, and we go find the data to ground them. Your read points where we dig next.</p>
+      <p class="ask">And of the priority surfaces not yet run, which would be most worth grounding next, and why that one?</p>
+    </div>
+
+    <footer class="footer">
+      <span>Chainge · W27 · 2026-06-29 · operator read</span>
+      <span>Westland Infra · confidential</span>
+    </footer>
+
+  </div>
+</main>
+</body>
+</html>
