@@ -622,6 +622,18 @@
   .readform textarea{width:100%;margin-top:14px;font-family:var(--serif);font-size:15px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:10px 12px;resize:vertical;box-sizing:border-box;}
   .readform button{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper);background:var(--accent);border:none;padding:11px 18px;cursor:pointer;}
   .readthanks{font-family:var(--serif);font-size:16px;color:var(--accent-deep);padding:18px 0;}
+  .watchform{margin:18px 0 4px;}
+  .watchitem{padding:16px 0;border-bottom:1px solid var(--line);}
+  .watchitem:first-of-type{border-top:1px solid var(--line);}
+  .watchitem-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;}
+  .watchitem-name{font-family:var(--serif);font-size:17px;color:var(--ink);}
+  .watchitem-paren{color:var(--mute);font-size:13.5px;}
+  .watchitem-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+  .watchitem-sowhat{font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;max-width:62ch;}
+  .watchitem-feedback{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:10px;}
+  .watchitem-comment{flex:1;min-width:220px;font-family:var(--serif);font-size:14.5px;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:7px 10px;box-sizing:border-box;}
+  .watchsubmit{margin-top:18px;}
+  .watchsubmit button{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper);background:var(--accent);border:none;padding:11px 18px;cursor:pointer;}
 </style>
 <script async src="https://plausible.io/js/pa-IFWRBV3Tc2cZzZD6dUora.js"></script>
 <script>
@@ -850,51 +862,54 @@
         <div class="section-num">07</div>
         <h2 class="section-title">Beyond your four: a wider scan, for your read</h2>
       </div>
-      <p class="oneread">The four above are what we stand behind. This week the wider scan also surfaced a cluster the headlines never touch: the upstream supply and IT/OT side of running a DSO, the equipment, metals, meters and grid-software you buy. We are not asserting these. We have seen some things in our data that might be of interest, and we want your read on whether they are real exposures for Westland. The tag on each shows which are firmer and which are early signal.</p>
+      <p class="oneread">The four above are what we stand behind. The wider scan also surfaced a cluster the headlines never touch: the upstream supply and IT/OT side of running a DSO, the equipment, metals, meters and grid-software you buy. We are not asserting these. The question on each is simple, is it a real exposure for Westland? Tick relevant or not really, and where you would know, add a line, point us at the data, the suppliers, the lead times. That is where your read turns an early signal into something we can ground.</p>
 
-      <div style="margin:18px 0 8px;border-top:1px solid var(--line);">
-        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
-          <div style="flex:1;min-width:0;">
-            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Upstream equipment procurement <span style="color:var(--mute);font-size:13.5px;">(transformers, cables, switchgear)</span></div>
-            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Lead-time and supply exposure on the grid hardware your build-out depends on.</div>
-          </div>
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:#9A7322;white-space:nowrap;text-align:right;flex-shrink:0;align-self:center;">partial / emerging</div>
-        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
-          <div style="flex:1;min-width:0;">
-            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Metering and SCADA/OT hardware <span style="color:var(--mute);font-size:13.5px;">(smart meters, control systems)</span></div>
-            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Supply and cost pressure on the metering and control hardware your rollout and operations run on.</div>
-          </div>
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);white-space:nowrap;text-align:right;flex-shrink:0;align-self:center;">grounded</div>
-        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
-          <div style="flex:1;min-width:0;">
-            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Metering software, telemetry, cloud <span style="color:var(--mute);font-size:13.5px;">(the grid IT layer)</span></div>
-            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">Cost and dependency risk in the software, telemetry and cloud layer behind the grid.</div>
-          </div>
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);white-space:nowrap;text-align:right;flex-shrink:0;align-self:center;">grounded</div>
-        </div>        <div style="display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);">
-          <div style="flex:1;min-width:0;">
-            <div style="font-family:var(--serif);font-size:17px;color:var(--ink);">Copper and aluminium <span style="color:var(--mute);font-size:13.5px;">(commodity input)</span></div>
-            <div style="font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.5;margin-top:3px;">The commodity input behind the cable and equipment you buy by the kilometre.</div>
-          </div>
-          <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);white-space:nowrap;text-align:right;flex-shrink:0;align-self:center;">partial</div>
-        </div>
-      </div>
-
-      <p class="sowhat" style="font-style:italic;margin-top:18px;">Which of these are real exposures for Westland, and where you would know, can you point us at the data, the suppliers, the lead times, the procurement? That is where your read turns an early signal into something we can ground.</p>
-
-      <form name="profile-read" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="readform" id="readform">
+      <form name="profile-read" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="watchform" id="readform">
         <input type="hidden" name="form-name" value="profile-read">
         <input type="hidden" name="share" value="paul-w27-dso">
         <p hidden><label>do not fill <input name="bot-field"></label></p>
-        <div class="readform-head">Your read</div>
-        <div class="readform-items">
-          <div class="readrow"><span class="readname">Upstream equipment procurement</span><span class="readopts"><label><input type="radio" name="r_equipment" value="relevant"> relevant</label><label><input type="radio" name="r_equipment" value="not really"> not really</label></span></div>
-          <div class="readrow"><span class="readname">Metering and SCADA/OT hardware</span><span class="readopts"><label><input type="radio" name="r_metering_hw" value="relevant"> relevant</label><label><input type="radio" name="r_metering_hw" value="not really"> not really</label></span></div>
-          <div class="readrow"><span class="readname">Metering software, telemetry, cloud</span><span class="readopts"><label><input type="radio" name="r_metering_sw" value="relevant"> relevant</label><label><input type="radio" name="r_metering_sw" value="not really"> not really</label></span></div>
-          <div class="readrow"><span class="readname">Copper and aluminium</span><span class="readopts"><label><input type="radio" name="r_metals" value="relevant"> relevant</label><label><input type="radio" name="r_metals" value="not really"> not really</label></span></div>
+        <div class="watchitem">
+          <div class="watchitem-top">
+            <div class="watchitem-name">Upstream equipment procurement <span class="watchitem-paren">(transformers, cables, switchgear)</span></div>
+            <div class="watchitem-tag" style="color:#9A7322;">partial / emerging</div>
+          </div>
+          <div class="watchitem-sowhat">Lead-time and supply exposure on the grid hardware your build-out depends on.</div>
+          <div class="watchitem-feedback">
+            <span class="readopts"><label><input type="radio" name="r_equipment" value="relevant"> relevant</label><label><input type="radio" name="r_equipment" value="not really"> not really</label></span>
+            <input type="text" name="c_equipment" class="watchitem-comment" placeholder="why, or where you would know">
+          </div>
+        </div>        <div class="watchitem">
+          <div class="watchitem-top">
+            <div class="watchitem-name">Metering and SCADA/OT hardware <span class="watchitem-paren">(smart meters, control systems)</span></div>
+            <div class="watchitem-tag" style="color:var(--accent);">grounded</div>
+          </div>
+          <div class="watchitem-sowhat">Supply and cost pressure on the metering and control hardware your rollout and operations run on.</div>
+          <div class="watchitem-feedback">
+            <span class="readopts"><label><input type="radio" name="r_metering_hw" value="relevant"> relevant</label><label><input type="radio" name="r_metering_hw" value="not really"> not really</label></span>
+            <input type="text" name="c_metering_hw" class="watchitem-comment" placeholder="why, or where you would know">
+          </div>
+        </div>        <div class="watchitem">
+          <div class="watchitem-top">
+            <div class="watchitem-name">Metering software, telemetry, cloud <span class="watchitem-paren">(the grid IT layer)</span></div>
+            <div class="watchitem-tag" style="color:var(--accent);">grounded</div>
+          </div>
+          <div class="watchitem-sowhat">Cost and dependency risk in the software, telemetry and cloud layer behind the grid.</div>
+          <div class="watchitem-feedback">
+            <span class="readopts"><label><input type="radio" name="r_metering_sw" value="relevant"> relevant</label><label><input type="radio" name="r_metering_sw" value="not really"> not really</label></span>
+            <input type="text" name="c_metering_sw" class="watchitem-comment" placeholder="why, or where you would know">
+          </div>
+        </div>        <div class="watchitem">
+          <div class="watchitem-top">
+            <div class="watchitem-name">Copper and aluminium <span class="watchitem-paren">(commodity input)</span></div>
+            <div class="watchitem-tag" style="color:var(--gold);">partial</div>
+          </div>
+          <div class="watchitem-sowhat">The commodity input behind the cable and equipment you buy by the kilometre.</div>
+          <div class="watchitem-feedback">
+            <span class="readopts"><label><input type="radio" name="r_metals" value="relevant"> relevant</label><label><input type="radio" name="r_metals" value="not really"> not really</label></span>
+            <input type="text" name="c_metals" class="watchitem-comment" placeholder="why, or where you would know">
+          </div>
         </div>
-        <textarea name="comments" rows="3" placeholder="Why, and where you would know, point us at the data, suppliers, lead times, or tell us why not."></textarea>
-        <div><button type="submit">Send your read</button></div>
+        <div class="watchsubmit"><button type="submit">Send your read</button></div>
       </form>
       <div class="readthanks" id="readthanks" hidden>Thanks, your read is in. We fold it into the next run.</div>
 
