@@ -76,7 +76,8 @@
   ul.plain li:last-child{border-bottom:none;}
   ul.plain li::before{content:"";position:absolute;left:2px;top:15px;width:6px;height:6px;background:var(--mute);border-radius:50%;}
 
-  .footer{margin-top:52px;padding-top:18px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);}
+  .run-status-line{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--mute);text-align:center;margin:26px 0 0;}
+  .footer{margin-top:26px;padding-top:18px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);}
 
   @media (max-width:760px){
     .page{padding:34px 22px 52px;}
@@ -99,12 +100,15 @@
     </div>
 
     <header class="cover">
-      <div class="cover-eyebrow">Illustrative directional record · as of 2026-06-30</div>
+      <!-- AUTOUPDATE:shadow-line:asof START · the as-of date, from the shadow_line record · contract: chainge_template_contracts_autoupdate_2026-06-13.md -->
+<div class="cover-eyebrow">Illustrative directional record · as of 2026-06-30</div>
+<!-- AUTOUPDATE:shadow-line:asof END -->
       <h1 class="cover-title">If you had acted on the cascade, did it <em>move your way</em>?</h1>
       <p class="cover-sub">For each cascade with a tradeable terminus, we lock a directional call at the surface date against a public instrument, then mark whether that instrument has since moved the called way. The headline is the directional hit-rate. It is a backward-looking methodology record, not advice, not a position, not a fund.</p>
     </header>
 
-    <div class="headline">
+    <!-- AUTOUPDATE:shadow-line:headline START · hit-rate + counts; direction and hit-rate ONLY, never moves or basket · contract: chainge_template_contracts_autoupdate_2026-06-13.md -->
+<div class="headline">
       <div>
         <div class="hlabel">directional hit-rate, to date</div>
         <div class="big">5 <span class="of">of 7</span></div>
@@ -115,6 +119,7 @@
         <p>Seven of the locked calls are markable so far; five have moved the called way. No verdict horizon has elapsed yet, so every markable call is still open and marked to date. A call can still flip before its horizon. The number grows and firms up as windows close.</p>
       </div>
     </div>
+<!-- AUTOUPDATE:shadow-line:headline END -->
 
     <div class="callout">
       <strong>What this is, and is not</strong>
@@ -125,7 +130,8 @@
     <section class="section">
       <div class="section-head"><div class="section-num">01 · the record</div><h2 class="section-title">Every locked call, marked to date</h2></div>
       <p class="lede">Twenty tradeable-terminus positions locked across seven weekly vintages. Each is keyed to a single public price series, so the reference and the mark are reproducible and leak-free. Prices and moves are held behind the legal check; direction and the call are shown.</p>
-      <table>
+      <!-- AUTOUPDATE:shadow-line:record START · locked calls: surface, theme, instrument, direction, call ONLY; never price or move (legal gate) · contract: chainge_template_contracts_autoupdate_2026-06-13.md -->
+<table>
         <thead><tr><th>Surface</th><th>Cross-domain call</th><th>Instrument</th><th>Dir</th><th>Call</th></tr></thead>
         <tbody>
           <tr><td class="surface">2026-06-29</td><td class="theme">Hormuz / NATO rift into EU energy</td><td class="instr">EU natural gas</td><td class="dir">long</td><td><span class="call pending">pending</span></td></tr>
@@ -150,13 +156,15 @@
           <tr><td class="surface">2026-05-18</td><td class="theme">Carbon-policy trigger into EUR/USD</td><td class="instr">EUR/USD</td><td class="dir">short</td><td><span class="call right">right</span></td></tr>
         </tbody>
       </table>
+<!-- AUTOUPDATE:shadow-line:record END -->
     </section>
 
     <!-- ===== 2. BY VINTAGE ===== -->
     <section class="section">
       <div class="section-head"><div class="section-num">02 · by vintage</div><h2 class="section-title">Each weekly lock, on its own</h2></div>
       <p class="lede">Every weekly re-emission of a cascade is its own dated lock. A vintage scores only its markable calls; the rest stay open.</p>
-      <table class="vintage">
+      <!-- AUTOUPDATE:shadow-line:vintage START · per-vintage markable-right counts · contract: chainge_template_contracts_autoupdate_2026-06-13.md -->
+<table class="vintage">
         <tbody>
           <tr><td class="v-date">2026-05-18</td><td class="v-score">3 positions · 1 of 2 markable right</td></tr>
           <tr><td class="v-date">2026-05-19</td><td class="v-score">4 positions · 2 of 3 markable right</td></tr>
@@ -167,12 +175,14 @@
           <tr><td class="v-date">2026-06-29</td><td class="v-score">1 position · none markable yet</td></tr>
         </tbody>
       </table>
+<!-- AUTOUPDATE:shadow-line:vintage END -->
     </section>
 
     <!-- ===== 3. COVERAGE AND HONESTY ===== -->
     <section class="section">
       <div class="section-head"><div class="section-num">03 · coverage</div><h2 class="section-title">What it covers, and what it leaves out</h2></div>
-      <p class="lede">The line covers only cascades that terminate in a macro, commodity, FX, or rate instrument with a clean public price. Operator-margin, compliance, and regulatory cascades have no single tradeable instrument and are not scored here. Of 26 tradeable candidates, 20 locked cleanly and 6 were excluded, for the honest reasons below.</p>
+      <!-- AUTOUPDATE:shadow-line:coverage START · candidate/locked/excluded counts + exclusion reasons · contract: chainge_template_contracts_autoupdate_2026-06-13.md -->
+<p class="lede">The line covers only cascades that terminate in a macro, commodity, FX, or rate instrument with a clean public price. Operator-margin, compliance, and regulatory cascades have no single tradeable instrument and are not scored here. Of 26 tradeable candidates, 20 locked cleanly and 6 were excluded, for the honest reasons below.</p>
       <ul class="plain">
         <li>Defence-surge cascade (2026-06-22): no public price observation on or before the surface date.</li>
         <li>CBAM chemicals cascade (2026-06-15): the marker tests a spread or ratio, with no single instrument to lock.</li>
@@ -181,6 +191,7 @@
         <li>Health-emergency cobalt cascade (2026-06-01): no public price observation on or before the surface date.</li>
         <li>US-power into EU ammonia cascade (2026-05-18): compound terminus, no single instrument to lock.</li>
       </ul>
+<!-- AUTOUPDATE:shadow-line:coverage END -->
     </section>
 
     <!-- ===== 4. METHOD NOTES ===== -->
@@ -194,6 +205,8 @@
       <span>Chainge · shadow-investment line · illustrative, not advice</span>
       <span>private · unlisted · not for distribution</span>
     </footer>
+    <!-- AUTOUPDATE:run-status · pipeline injects: "shadow line last locked: YYYY-MM-DD · run status: completed|partial|failed" · contract: chainge_template_contracts_autoupdate_2026-06-13.md -->
+    <p class="run-status-line" data-autoupdate="run-status">shadow line last locked: 2026-06-30 &middot; run status: completed</p>
 
   </div>
 </main>
