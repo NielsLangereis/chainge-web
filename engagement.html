@@ -3,214 +3,274 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="referrer" content="no-referrer">
-<title>Chainge · how working together works</title>
+<title>chainge / join us</title>
+<meta name="description" content="How working with Chainge works: one profile of your company, grounded weekly, deeper where your exposure needs it.">
+<link rel="canonical" href="https://chainge.global/engagement">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chainge.global/engagement">
+<meta property="og:title" content="chainge / join us">
+<meta property="og:description" content="One profile of your company, grounded weekly, deeper where your exposure needs it.">
+<meta property="og:site_name" content="chainge">
+<meta property="og:image" content="https://chainge.global/og-image.svg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="chainge / join us">
+<meta name="twitter:description" content="One profile of your company, grounded weekly, deeper where your exposure needs it.">
+<meta name="twitter:image" content="https://chainge.global/og-image.svg">
+
+<meta name="robots" content="index, follow">
+
+<script async src="https://plausible.io/js/pa-IFWRBV3Tc2cZzZD6dUora.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+
+<!-- page-local: depth diagram panel + level cards, mirroring how-it-works panel styles -->
 <style>
-  :root {
-    --paper:#F4EFE6; --paper-2:#EBE5DA; --ink:#15130F; --ink-2:#2B2620;
-    --mute:#847866; --line:#C9C2B6; --accent:#2D5C47; --accent-deep:#1F3F31;
-    --gold:#B68A2C; --sage:#9FC3B0; --sage-2:#C6D7C9;
-    --serif:"Newsreader",ui-serif,Georgia,serif;
-    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  .panel-svg-wrap {
+    margin: 32px 0 12px;
+    padding: 28px 24px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow-x: auto;
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(21,19,15,0.025) 1px,transparent 1px);background-size:3px 3px;z-index:1;mix-blend-mode:multiply;}
-  main{position:relative;z-index:2;}
-  .page{max-width:760px;margin:0 auto;padding:64px 72px 80px;background:var(--paper);}
-  .topmeta{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:32px;}
-  .topmeta .dot{display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin-right:8px;vertical-align:middle;}
-  .cover{padding:80px 0 64px;border-bottom:1px solid var(--line);margin-bottom:40px;}
-  .cover-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin-bottom:28px;}
-  .cover-title{font-family:var(--serif);font-weight:400;font-size:52px;line-height:1.06;letter-spacing:-0.025em;margin:0 0 26px;max-width:16ch;}
-  .cover-title em{font-style:italic;font-weight:300;}
-  .cover-sub{font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--ink-2);max-width:44ch;margin:0;}
-  .section{padding:48px 0 8px;border-bottom:1px solid var(--line);}
-  .section:last-of-type{border-bottom:none;}
-  .section-head{display:flex;gap:24px;align-items:baseline;margin-bottom:22px;}
-  .section-num{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.08em;color:var(--mute);text-transform:uppercase;flex-shrink:0;min-width:54px;}
-  .section-title{font-family:var(--serif);font-weight:400;font-size:29px;line-height:1.16;letter-spacing:-0.015em;margin:0;flex:1;min-width:0;}
-  .section-title em{font-style:italic;}
-  .prose p{font-family:var(--serif);font-size:17px;line-height:1.62;margin:0 0 18px;max-width:66ch;}
-  .prose p:last-child{margin-bottom:0;}
-  .lede{font-family:var(--serif);font-size:18px;line-height:1.55;color:var(--ink-2);max-width:64ch;margin:0 0 26px;}
-  /* depth layers */
-  .depth-label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute);text-align:right;margin:0 0 10px;}
-  .layers{display:grid;gap:10px;margin:6px 0 8px;}
-  .layer{border:1px solid var(--line);border-radius:3px;padding:22px 26px;}
-  .layer-1{background:var(--paper-2);color:var(--ink);margin-right:0;}
-  .layer-2{background:var(--sage-2);color:var(--ink);border-color:#AFC6B4;margin-right:0;}
-  .layer-3{background:var(--accent-deep);color:var(--paper);border-color:var(--accent-deep);}
-  .layer-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
-  .layer-1 .layer-tag,.layer-2 .layer-tag{color:var(--mute);}
-  .layer-3 .layer-tag{color:var(--sage);}
-  .layer-title{font-family:var(--serif);font-size:21px;line-height:1.2;margin:0 0 8px;letter-spacing:-0.01em;}
-  .layer-body{font-family:var(--serif);font-size:15.5px;line-height:1.55;margin:0;max-width:64ch;}
-  .layer-1 .layer-body,.layer-2 .layer-body{color:var(--ink-2);}
-  .layer-3 .layer-body{color:var(--sage-2);}
-  .depthaxis{font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin-top:10px;}
-  .example-label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mute);margin:0 0 4px;}
-  .example-note{font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--mute);margin:0 0 24px;max-width:62ch;}
-  .worked{display:grid;gap:0;margin:8px 0 6px;}
-  .wnode{display:grid;grid-template-columns:26px 1fr;gap:14px;padding-bottom:20px;}
-  .wmark{position:relative;}
-  .wdot{width:11px;height:11px;border-radius:50%;background:var(--accent);margin:5px 0 0 3px;}
-  .wdot.hollow{background:transparent;border:2px solid var(--gold);}
-  .wmark::before{content:"";position:absolute;left:8px;top:18px;bottom:-6px;width:1px;background:var(--line);}
-  .wnode:last-child .wmark::before{display:none;}
-  .wtext{font-family:var(--serif);font-size:16px;line-height:1.42;margin:0 0 6px;}
-  .wtag{font-family:var(--mono);font-size:9.5px;letter-spacing:0.05em;text-transform:uppercase;color:var(--mute);}
-  .wtag.grounded{color:var(--accent);}
-  .held{border:1px dashed var(--gold);border-radius:3px;background:#F1E9D6;padding:14px 16px;}
-  .held .wtag{color:#9A7322;}
-  .meth-note{font-family:var(--serif);font-size:15.5px;line-height:1.6;color:var(--ink-2);background:var(--paper-2);border-left:3px solid var(--gold);padding:18px 22px;margin:22px 0 4px;max-width:64ch;}
-  .meth-note strong{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;font-weight:500;}
-  .defend{background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:24px 28px;margin:8px 0 4px;max-width:66ch;}
-  .defend p{font-family:var(--serif);font-size:16px;line-height:1.6;margin:0 0 14px;}
-  .defend p:last-child{margin:0;}
-  .defend a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line);}
-  .cta{margin-top:36px;padding:28px 30px 30px;border:1px solid var(--ink);background:var(--paper);box-shadow:4px 4px 0 var(--ink);max-width:66ch;}
-  .cta strong{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:12px;font-weight:500;}
-  .cta p{font-family:var(--serif);font-size:18px;line-height:1.5;margin:0;}
-  .cta .ask{font-style:italic;color:var(--ink);}
-  .footer{margin-top:56px;padding-top:18px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);}
-  @media (max-width:680px){.page{padding:40px 28px 56px;}.cover-title{font-size:40px;}.section-head{gap:12px;}.section-num{min-width:40px;}}
-  .depthviz{margin:10px 0 4px;}
-  .depthviz svg{width:100%;height:auto;max-width:430px;display:block;margin:6px auto 0;}
-  .explain{border-top:1px solid var(--line);margin-top:18px;max-width:64ch;}
-  .explain>summary{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-deep);cursor:pointer;padding:14px 0;list-style:none;}
-  .explain>summary::-webkit-details-marker{display:none;}
-  .explain>summary::before{content:"\25B8\00a0";color:var(--accent);}
-  .explain[open]>summary::before{content:"\25BE\00a0";}
-  .explain .ex-row{padding:0 0 14px;}
-  .explain .ex-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mute);margin-bottom:3px;}
-  .explain .ex-row.deep .ex-tag{color:var(--gold);}
-  .explain .ex-body{font-family:var(--serif);font-size:15.5px;line-height:1.55;color:var(--ink-2);max-width:64ch;}
+  .panel-svg-wrap svg { display: block; max-width: 440px; height: auto; margin: 0 auto; }
+  .panel-svg-caption {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--mute);
+    text-align: center;
+    margin-top: 18px;
+  }
+  .level-card {
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+    max-width: 68ch;
+  }
+  .level-card.deep { border-left-color: var(--gold); }
+  .level-card .level-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .level-card.deep .level-eyebrow { color: var(--gold); }
+  .level-card .level-headline {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+  .level-card p { margin: 0; line-height: 1.6; }
 </style>
 </head>
 <body>
-<main>
-  <div class="page">
 
-    <div class="topmeta">
-      <span><span class="dot"></span><a href="/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--mute);">Chainge</a> · how working together works</span>
-      <span>the engagement model</span>
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <a href="index.html" class="nav-mark"><span class="ch">chai</span><span class="ng">nge</span></a>
+  <button class="nav-toggle" aria-label="menu" aria-expanded="false" aria-controls="nav-panel">
+    <span class="nav-toggle-label nav-toggle-open">menu</span>
+    <span class="nav-toggle-label nav-toggle-close">close</span>
+  </button>
+  <div class="nav-panel" id="nav-panel">
+    <div class="nav-links">
+      <a href="index.html#thesis">the thesis</a>
+      <a href="how-it-works.html">how it works</a>
+      <a href="engagement.html">join us</a>
+      <a href="track-record/" class="nav-link-primary">the track record<span class="nav-live-dot" aria-label="live verdict landed"></span></a>
+      <a href="worked-example.html" class="nav-link-primary">example report</a>
     </div>
-
-    <header class="cover">
-      <div class="cover-eyebrow">The engagement model</div>
-      <h1 class="cover-title">How <em>working with Chainge</em> works</h1>
-      <p class="cover-sub">The grounded cross-domain foresight an institutional desk gives the few, run weekly on your own company.</p>
-    </header>
-
-    <!-- 1. THE FRAME -->
-    <section class="section">
-      <div class="section-head"><div class="section-num">frame</div><h2 class="section-title">The direction of travel</h2></div>
-      <div class="prose">
-        <p>Any global event connects to your local exposure in a few steps. A new rule in one jurisdiction, a shift in an energy market, a regulation written for another industry, each one travels across boundaries until it reaches something specific about your business.</p>
-        <p>Most companies never see the steps, because a sector view cannot look across its own edge. The most useful signal lives in the loose ties between domains, not the tight ones inside them. Chainge traces those ties, and finds the chain from an arbitrary event to your exposure.</p>
-      </div>
-    </section>
-
-    <!-- 2. THE UNIT IS A PROFILE -->
-    <section class="section">
-      <div class="section-head"><div class="section-num">unit</div><h2 class="section-title">The unit is a profile of your company</h2></div>
-      <div class="prose">
-        <p>You give us a profile of your company: what you make, where your inputs come from, the regimes you sit under, where your exposure concentrates. We run a weekly Chainge on it, the chains that run from an event in an unrelated domain to your specific exposure, delivered every week and refreshed as situations resolve and new ones surface.</p>
-        <p>It is your company, grounded, not a market newsletter and not a generic feed. The output is about your exposure, and nobody else's.</p>
-      </div>
-    </section>
-
-    <!-- 3. HOW THE GROUNDING DEEPENS -->
-    <section class="section">
-      <div class="section-head"><div class="section-num">depth</div><h2 class="section-title">How the grounding deepens</h2></div>
-      <p class="lede">The model is not a set of tiers. It is one profile, grounded more deeply where your exposure needs it. Read it as a journey of depth, not a price list.</p>
-
-      <div class="depthviz">
-        <svg viewBox="0 0 460 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grounding depth: public data at the surface, your own data at the deepest level.">
-        <text x="64" y="92" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" fill="#847866">SURFACE</text>
-        <line x1="70" y1="106" x2="70" y2="410" stroke="#847866" stroke-width="1.2"/>
-        <path d="M70,420 L64,407 L76,407 Z" fill="#847866"/>
-        <text x="50" y="258" transform="rotate(-90 50 258)" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="2" fill="#847866">DEEPER</text>
-        <text x="64" y="440" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" fill="#847866">DEEPEST</text>
-        <rect x="120" y="106" width="280" height="102" fill="#E6DFD2"/>
-        <rect x="120" y="208" width="280" height="102" fill="#7FAE92"/>
-        <rect x="120" y="310" width="280" height="102" fill="#214B39"/>
-        <rect x="120" y="106" width="280" height="306" fill="none" stroke="#C9C2B6" stroke-width="1.2"/>
-        <text x="260" y="163" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="2" fill="#2B2620">PUBLIC DATA</text>
-        <text x="260" y="265" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="2" fill="#15130F">YOUR EXPOSURE, READ</text>
-        <circle cx="206" cy="357" r="6" fill="#B68A2C"/>
-        <text x="276" y="362" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="2" fill="#F4EFE6">YOUR OWN DATA</text>
-        </svg>
-      </div>
-
-      <details class="explain">
-        <summary>What each level means</summary>
-        <div class="ex-row">
-          <div class="ex-tag">Public data · where it starts</div>
-          <div class="ex-body">From the first week, your profile runs on the primary-source data we already hold: legal texts, public registers, price series, structural exposure maps. A weekly read of how the world reaches your business, no bespoke wiring.</div>
-        </div>
-        <div class="ex-row">
-          <div class="ex-tag">Your exposure, read · deeper</div>
-          <div class="ex-body">We map your profile plainly: what we can ground now, and what one specific new connection would add, a regulatory feed, a country-of-production confirmation, a data layer you hold. Every gap is an opportunity to see more of your exposure, never a deficiency list.</div>
-        </div>
-        <div class="ex-row deep">
-          <div class="ex-tag">Your own data · deepest</div>
-          <div class="ex-body">Where your exposure calls for it, we build those connections or fold in the data you supply, and keep optimizing month over month. The deepest grounding is the layer only your own data can reach, and it is what makes a profile hard for anyone else to reconstruct.</div>
-        </div>
-      </details>
-
-      <div class="meth-note">
-        <strong>See the line drawn</strong>
-        The engine draws this surface-to-depth line itself on a real chain: the grounded public steps, and the one step only your own data sharpens. We show it end to end as a <a href="/ai-datacentre.html" style="color:var(--accent);">worked example</a>.
-      </div>
-    </section>
-
-    <!-- 4. WATCHING MORE THAN ONE -->
-    <section class="section">
-      <div class="section-head"><div class="section-num">scale</div><h2 class="section-title">Watching more than one</h2></div>
-      <div class="prose">
-        <p>For an analyst or a strategy team, the same model holds across a watchlist: several companies tracked at once, each profile grounded to the depth its exposure needs.</p>
-      </div>
-    </section>
-
-    <!-- 5. THE FEEDBACK LOOP -->
-    <section class="section">
-      <div class="section-head"><div class="section-num">loop</div><h2 class="section-title">Built to reward what you contribute</h2></div>
-      <div class="prose">
-        <p>The model is built so that the more you bring your own data to your profile, the sharper your grounding becomes, and the more the relationship is designed to reward that over time. Your contribution improves your own read and strengthens the structural priors the engine reasons from.</p>
-        <p>This is the direction the model is built in, not a switch that is flipped on day one. It is where the engagement is heading.</p>
-      </div>
-    </section>
-
-    <!-- 6. WHY IT HOLDS -->
-    <section class="section">
-      <div class="section-head"><div class="section-num">proof</div><h2 class="section-title">Why it holds</h2></div>
-      <div class="defend">
-        <p>This is more than a clever prompt for three reasons. It reasons from grounded primary data, not from headlines. Every claim in a chain carries its provenance, the source it rests on or an honest mark where it is a model estimate. And the predictions are dated and marked against a public track record over time, so the method can be audited rather than trusted.</p>
-        <p>The named worked examples are public and open to inspect: Asket and Fairphone, real companies profiled entirely from public data, with their chains shown and scored. You can read the method on the <a href="/how-it-works.html">how it works</a> page and follow the calls on the <a href="/track-record/">track record</a>.</p>
-        <p>This is the grounded foresight an elite research desk has always given to the few, now run for an operator who never had access to it.</p>
-      </div>
-    </section>
-
-    <!-- 7. CTA -->
-    <div class="cta">
-      <strong>Where it starts</strong>
-      <p>Put your company on Chainge. Start with a profile, see your first weekly read, and let the grounding deepen from there.</p>
-      <p class="ask" style="margin-top:14px;">The price is something we talk through together, the way any serious engagement begins, once you have seen what your profile surfaces.</p>
-    </div>
-
-    <footer class="footer">
-      <span>Chainge · the engagement model</span>
-      <span>chainge.global · the engagement model</span>
-    </footer>
-
+    <a href="index.html#contact" class="nav-cta">talk to us →</a>
   </div>
+</nav>
+
+<main>
+
+<!-- ===================== INTRO ===================== -->
+<div class="shell">
+  <section class="section" id="engagement">
+    <div class="section-mark"><span>the engagement model</span></div>
+    <h2>How working with Chainge <em>works</em>.</h2>
+    <p class="section-lede">
+      The grounded cross-domain foresight an institutional desk gives the few, run weekly on your own company. Not a set of tiers, one profile, grounded more deeply where your exposure needs it.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== 01 THE FRAME ===================== -->
+<div class="shell">
+  <section class="section">
+    <div class="section-mark"><span>01 · the frame</span></div>
+    <h2>The direction of travel.</h2>
+    <p class="section-lede">
+      Any global event connects to your local exposure in a few steps. A new rule in one jurisdiction, a shift in an energy market, a regulation written for another industry, each one travels across boundaries until it reaches something specific about your business.
+    </p>
+    <p class="section-lede">
+      Most companies never see the steps, because a sector view cannot look across its own edge. The most useful signal lives in the loose ties between domains, not the tight ones inside them. Chainge traces those ties, and finds the chain from an arbitrary event to your exposure.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== 02 THE UNIT ===================== -->
+<div class="shell">
+  <section class="section">
+    <div class="section-mark"><span>02 · the unit</span></div>
+    <h2>The unit is a profile of <em>your company</em>.</h2>
+    <p class="section-lede">
+      You give us a profile of your company: what you make, where your inputs come from, the regimes you sit under, where your exposure concentrates. We run a weekly Chainge on it, the chains that lead from an event in an unrelated domain to your specific exposure, delivered every week and refreshed as situations resolve and new ones surface.
+    </p>
+    <p class="section-lede">
+      It is your company, grounded, not a market newsletter and not a generic feed. The output is about your exposure, and nobody else's.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== 03 HOW THE GROUNDING DEEPENS ===================== -->
+<div class="shell">
+  <section class="section">
+    <div class="section-mark"><span>03 · depth</span></div>
+    <h2>How the grounding <em>deepens</em>.</h2>
+    <p class="section-lede">
+      Read it as a journey of depth, not a price list. The more specific your exposure, the deeper the grounding goes, right down to the layer only your own data can reach.
+    </p>
+
+    <div class="panel-svg-wrap">
+      <svg viewBox="0 0 460 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grounding depth: public data at the surface, your own data at the deepest level.">
+        <text x="120" y="94" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" fill="#847866">SURFACE</text>
+        <line x1="90" y1="106" x2="90" y2="410" stroke="#847866" stroke-width="1.2"/>
+        <path d="M90,420 L84,407 L96,407 Z" fill="#847866"/>
+        <text x="68" y="258" transform="rotate(-90 68 258)" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9.5" letter-spacing="2" fill="#847866">DEEPER</text>
+        <text x="120" y="440" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="1" fill="#847866">DEEPEST</text>
+        <rect x="120" y="106" width="290" height="102" fill="#E6DFD2"/>
+        <rect x="120" y="208" width="290" height="102" fill="#7FAE92"/>
+        <rect x="120" y="310" width="290" height="102" fill="#214B39"/>
+        <rect x="120" y="106" width="290" height="306" fill="none" stroke="#C9C2B6" stroke-width="1.2"/>
+        <text x="265" y="163" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12.5" letter-spacing="2" fill="#2B2620">PUBLIC DATA</text>
+        <text x="265" y="265" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12.5" letter-spacing="2" fill="#15130F">YOUR EXPOSURE, READ</text>
+        <circle cx="196" cy="357" r="6" fill="#B68A2C"/>
+        <text x="285" y="362" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="12.5" letter-spacing="2" fill="#F4EFE6">YOUR OWN DATA</text>
+      </svg>
+      <p class="panel-svg-caption">grounding, surface to depth</p>
+    </div>
+
+    <div class="level-card">
+      <div class="level-eyebrow">where it starts</div>
+      <h3 class="level-headline">Your profile on public data</h3>
+      <p>From the first week, your profile runs on the primary-source data we already hold: legal texts, public registers, price series, structural exposure maps. It stands on its own, a weekly read of how the world reaches your business, no bespoke wiring required.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-eyebrow">where it reads you</div>
+      <h3 class="level-headline">A scoping read of your exposure</h3>
+      <p>We map your profile plainly: what we can ground now, and what one specific new connection would add, a regulatory feed, a country-of-production confirmation, a data layer you already hold. Every gap is a place to see more of your exposure, never a deficiency list.</p>
+    </div>
+    <div class="level-card deep">
+      <div class="level-eyebrow">where it goes deep</div>
+      <h3 class="level-headline">Built to your own data</h3>
+      <p>Where your exposure calls for it, we build those connections or fold in the data you supply, and keep optimizing month over month. The deepest grounding is the layer only your own data can reach, and it is what makes a profile hard for anyone else to reconstruct.</p>
+    </div>
+
+    <p class="we-link we-link-large" style="margin-top:28px;">
+      <a href="how-it-works.html">→ see the line drawn end to end, on how it works</a>
+    </p>
+  </section>
+</div>
+
+<!-- ===================== 04 WATCHING MORE THAN ONE ===================== -->
+<div class="shell">
+  <section class="section">
+    <div class="section-mark"><span>04 · scale</span></div>
+    <h2>Watching more than <em>one</em>.</h2>
+    <p class="section-lede">
+      For an analyst or a strategy team, the same model holds across a watchlist: several companies tracked at once, each profile grounded to the depth its exposure needs.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== 05 THE FEEDBACK LOOP ===================== -->
+<div class="shell">
+  <section class="section">
+    <div class="section-mark"><span>05 · the loop</span></div>
+    <h2>Built to reward what <em>you contribute</em>.</h2>
+    <p class="section-lede">
+      The model is built so that the more you bring your own data to your profile, the sharper your grounding becomes, and the more the relationship is designed to reward that over time. Your contribution improves your own read and strengthens the structural priors the engine reasons from.
+    </p>
+    <p class="section-lede">
+      This is the direction the model is built in, not a switch flipped on day one. It is where the engagement is heading.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== 06 WHY IT HOLDS ===================== -->
+<div class="shell">
+  <section class="section">
+    <div class="section-mark"><span>06 · why it holds</span></div>
+    <h2>Why it <em>holds</em>.</h2>
+    <p class="section-lede">
+      This is more than a clever prompt, for three reasons. It reasons from grounded primary data, not from headlines. Every claim in a chain carries its provenance, the source it rests on or an honest mark where it is a model estimate. And the predictions are dated and marked against a public track record over time, so the method can be audited rather than trusted.
+    </p>
+    <p class="section-lede">
+      The named worked examples are public and open to inspect: Asket and Fairphone, real companies profiled entirely from public data. You can read the method on the <a href="how-it-works.html">how it works</a> page and follow the calls on the <a href="track-record/">track record</a>. This is the grounded foresight an elite research desk has always given to the few, now run for an operator who never had access to it.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== CTA ===================== -->
+<div class="shell">
+  <section class="section" id="start">
+    <div class="cta-card">
+      <div class="cta-eyebrow">put your company on chainge</div>
+      <h3>See how the world reaches <em>your</em> exposure.</h3>
+      <p>Start with a profile of your company and a direct conversation. We run the weekly cascade against your specific exposure, with every claim cited. What it costs is something we work out together, the way any serious engagement begins, once you have seen what your profile surfaces.</p>
+      <a href="index.html#contact" class="cta-button" onclick="plausible('Start a profile')">start a profile →</a>
+    </div>
+  </section>
+</div>
+
 </main>
+
+<footer class="footer">
+  <span>chainge / chainge.global</span>
+  <span>chainge.global · 2026 · niels langereis</span>
+</footer>
+
+<script>
+  (function () {
+    var nav = document.querySelector('.nav');
+    var btn = nav && nav.querySelector('.nav-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('.nav-panel a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>
 </body>
 </html>
